@@ -24,14 +24,14 @@ import javax.swing.SwingConstants;
  *
  * @author Web Dev
  */
-public class Class_button_shape extends JButton {
+public class ClassButtonShape extends JButton {
 
     protected final Color fc = new Color(100, 150, 255, 200);
     protected final Color ac = new Color(230, 230, 230);
     protected final Color rc = Color.ORANGE;
     protected final Shape shape;
 
-    public Class_button_shape(Shape s) {
+    public ClassButtonShape(Shape s) {
         super();
         shape = s;
         setModel(new DefaultButtonModel());

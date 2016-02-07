@@ -13,7 +13,7 @@ import java.awt.Container;
  *
  * @author egrubellano
  */
-public class Class_slider_cardlayout extends CardLayout {
+public class ClassSliderCardLayout extends CardLayout {
 
     public Component getCurrentComponent(Container parent) {
 

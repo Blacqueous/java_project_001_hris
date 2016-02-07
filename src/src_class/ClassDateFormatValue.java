@@ -15,7 +15,7 @@ import java.util.Date;
  *
  * @author egrubellano
  */
-public class Class_date_format_value {
+public class ClassDateFormatValue {
 
     public String formatDateToString(JDateChooser datechooser) {
         

@@ -19,11 +19,11 @@ import javax.swing.Timer;
  *
  * @author egrubellano
  */
-public class Class_slider_panel extends JPanel {
+public class ClassSliderPanel extends JPanel {
 
     JPanel pnlMain = new JPanel(new ClassSliderCardLayout());
 
-    public Class_slider_panel() {
+    public ClassSliderPanel() {
         
         setLayout(new BorderLayout());
         add(pnlMain, BorderLayout.CENTER);

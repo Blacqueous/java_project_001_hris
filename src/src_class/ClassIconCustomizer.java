@@ -17,7 +17,7 @@ import javax.swing.JLabel;
  *
  * @author egrubellano
  */
-public class Class_icon_customizer {
+public class ClassIconCustomizer {
     
     int alphaValue;
     

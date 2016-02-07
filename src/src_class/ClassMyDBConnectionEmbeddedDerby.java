@@ -17,14 +17,14 @@ import javax.swing.JOptionPane;
  *
  * @author egrubellano
  */
-public class Class_myDBConnectionEmbeddedDerby {
+public class ClassMyDBConnectionEmbeddedDerby {
 
     public static Connection myConnection;
     public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     public static final String JDBC_URL = "jdbc:derby:project001;create=true";
-    public static ClassConstantVariables constant = new ClassConstantVariables();
+    public static ClassConstantsCustom constant = new ClassConstantsCustom();
 
-    public Class_myDBConnectionEmbeddedDerby() {};
+    public ClassMyDBConnectionEmbeddedDerby() {};
 
     public static void initDB() {
         try {
@@ -79,7 +79,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_acct_type_code UNIQUE (code) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_ACCOUNT_TYPE.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_ACCOUNT_TYPE.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -97,7 +97,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ( 'GUEST', 'Guest')");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_ACCOUNT_TYPE.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_ACCOUNT_TYPE.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -122,7 +122,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_acct_hdr_username UNIQUE (username) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_ACCOUNT_HEADER.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_ACCOUNT_HEADER.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -137,7 +137,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ( 'test', 'test')");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_ACCOUNT_HEADER.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_ACCOUNT_HEADER.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -166,7 +166,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_acct_dtl_hdr_id UNIQUE (header_id) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_ACCOUNT_DETAIL.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_ACCOUNT_DETAIL.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -187,7 +187,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_settings_cat_name UNIQUE (name) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_LIST_CATEGORY.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_LIST_CATEGORY.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -204,7 +204,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ('Job Order') ");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_LIST_CATEGORY.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_LIST_CATEGORY.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -225,7 +225,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_settings_off_name UNIQUE (name) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_LIST_OFFICE.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_LIST_OFFICE.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -243,7 +243,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ('Student''s Services Division') ");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_LIST_OFFICE.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_LIST_OFFICE.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -264,7 +264,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ADD CONSTRAINT uk_settings_pos_name UNIQUE (name) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_LIST_POSITION.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_LIST_POSITION.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -283,7 +283,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ('Programmer') ");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_LIST_POSITION.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_LIST_POSITION.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -304,7 +304,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_settings_elg_name UNIQUE (name) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_LIST_ELIGIBILITY.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_LIST_ELIGIBILITY.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -323,7 +323,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ('Civil Service') ");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_LIST_ELIGIBILITY.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_LIST_ELIGIBILITY.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -344,7 +344,7 @@ public class Class_myDBConnectionEmbeddedDerby {
 //                                                + " ADD CONSTRAINT uk_settings_trn_name UNIQUE (name) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_LIST_TRAINING.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_LIST_TRAINING.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -363,7 +363,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ('Fifth Training') ");
             System.out.println("Database Connection: Entry for table <" + constant.TABLE_LIST_TRAINING.toLowerCase() + "> successfully inserted.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.uniqueAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println("Entry already exists in table <" + constant.TABLE_LIST_TRAINING.toLowerCase() + ">. No need to reinsert.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -393,7 +393,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_EMPLOYEE_HEADER.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_EMPLOYEE_HEADER.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -430,7 +430,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ADD CONSTRAINT uk_emp_dtl_header_id UNIQUE (header_id) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_EMPLOYEE_DETAIL.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_EMPLOYEE_DETAIL.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -450,7 +450,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_MANAGE_DEPENDENTS.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_MANAGE_DEPENDENTS.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -470,7 +470,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_MANAGE_ELIGIBILITY.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_MANAGE_ELIGIBILITY.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);
@@ -490,7 +490,7 @@ public class Class_myDBConnectionEmbeddedDerby {
                                                 + " ) ");
             System.out.println("Database Connection: Table <" + constant.TABLE_MANAGE_TRAINING.toLowerCase() + "> successfully created.");
         } catch(SQLException e) {
-            if(Class_myDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
+            if(ClassMyDBConnectionEmbeddedDerbyUtils.tableAlreadyExists(e)) { //check if the exception is because of pre-existing table.
                 System.out.println( "Table <" + constant.TABLE_MANAGE_TRAINING.toLowerCase() + "> already exists. No need to recreate.");
             } else {
                 JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed.", JOptionPane.ERROR_MESSAGE);

@@ -11,7 +11,7 @@ import java.util.Arrays;
  *
  * @author Blacqueous
  */
-public class Class_constants_custom {
+public class ClassConstantsCustom {
     
     /**
      * Database Employee Table
@@ -83,7 +83,7 @@ public class Class_constants_custom {
     final protected String COLUMN_GENDER_UC;
     final protected String COLUMN_CIVIL_STATUS_UC;
 
-    public Class_constants_custom() {
+    public ClassConstantsCustom() {
 
         this.PANEL_FRAME = 1;
         this.PANEL_POPUP = 2;

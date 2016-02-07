@@ -15,7 +15,7 @@ import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 
 /**
- * The Class_textfield_prompt class will display a prompt over top of a text component
+ * The ClassTextfieldPrompt class will display a prompt over top of a text component
  when the Document of the text field is empty. The Show property is used to
  * determine the visibility of the prompt.
  *
@@ -23,7 +23,7 @@ import javax.swing.text.JTextComponent;
  * of the parent text component. You are free to change the properties after
  * class construction.
  */
-public class Class_textfield_prompt extends JLabel
+public class ClassTextfieldPrompt extends JLabel
     
     implements FocusListener, DocumentListener {
 
@@ -41,11 +41,11 @@ public class Class_textfield_prompt extends JLabel
     private boolean showPromptOnce;
     private int focusLost;
 
-    public Class_textfield_prompt(String text, JTextComponent component) {
+    public ClassTextfieldPrompt(String text, JTextComponent component) {
         this(text, component, Show.ALWAYS);
     }
 
-    public Class_textfield_prompt(String text, JTextComponent component, Show show) {
+    public ClassTextfieldPrompt(String text, JTextComponent component, Show show) {
 
         this.component = component;
         setShow(show);

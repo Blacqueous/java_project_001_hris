@@ -16,9 +16,9 @@ import javax.swing.table.TableCellRenderer;
  *
  * @author egrubellano
  */
-public class Class_table_button_renderer extends JButton implements TableCellRenderer {
+public class ClassTableButtonRenderer extends JButton implements TableCellRenderer {
 
-        public Class_table_button_renderer(ImageIcon icon) {
+        public ClassTableButtonRenderer(ImageIcon icon) {
             setOpaque(true);
             setIcon(icon);
         }

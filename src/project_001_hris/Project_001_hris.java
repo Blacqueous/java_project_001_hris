@@ -21,7 +21,7 @@ public class Project_001_hris {
         
         try {
 //            Thread.sleep(1000);
-            Thread.sleep(10);
+//            Thread.sleep(10);
         } catch(Exception e) { }
         
         FrameLogin frm = new FrameLogin();

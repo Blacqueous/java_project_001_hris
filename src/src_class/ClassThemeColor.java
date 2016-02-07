@@ -9,7 +9,7 @@ package src_class;
  *
  * @author Web Dev
  */
-public class Class_theme_color {
+public class ClassThemeColor {
     
     protected String base;
     

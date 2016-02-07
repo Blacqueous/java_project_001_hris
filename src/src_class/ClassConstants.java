@@ -8,7 +8,7 @@ package src_class;
  *
  * @author Blacqueous
  */
-public class Class_constants {
+public class ClassConstants {
 
     /**
      * Database Employee Table
@@ -44,7 +44,7 @@ public class Class_constants {
     final protected String COLUMN_DATE_HIRED;
     final protected String COLUMN_YEARS_OF_SERVICE;
 
-    public Class_constants() {
+    public ClassConstants() {
         this.TABLE_ACCOUNT_TYPE = "account_type";
         this.TABLE_CATEGORY = "settings_category";
         this.TABLE_ELIGIBILITY = "settings_eligibility";

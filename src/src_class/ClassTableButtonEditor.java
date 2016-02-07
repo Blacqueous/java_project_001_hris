@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author egrubellano
  */
-public class Class_table_button_editor extends DefaultCellEditor {
+public class ClassTableButtonEditor extends DefaultCellEditor {
 
         protected JButton button;
         private String label;
@@ -28,7 +28,7 @@ public class Class_table_button_editor extends DefaultCellEditor {
         private boolean isPushed;
         public JTable table;
 
-        public Class_table_button_editor(JCheckBox checkBox, ImageIcon icon) {
+        public ClassTableButtonEditor(JCheckBox checkBox, ImageIcon icon) {
             super(checkBox);
             button = new JButton();
             button.setOpaque(true);

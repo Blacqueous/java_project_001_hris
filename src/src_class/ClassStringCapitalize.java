@@ -11,7 +11,7 @@ import javax.swing.JTextField;
  *
  * @author egrubellano
  */
-public class Class_string_capitalize {
+public class ClassStringCapitalize {
     
     public void Capitalize(JTextField txtFld, String strClr) {
         

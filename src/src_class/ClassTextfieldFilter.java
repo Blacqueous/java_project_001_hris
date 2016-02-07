@@ -13,7 +13,7 @@ import javax.swing.text.DocumentFilter;
  *
  * @author Web Dev
  */
-public class Class_textfield_filter extends DocumentFilter {
+public class ClassTextfieldFilter extends DocumentFilter {
 
     DocumentFilter TextFieldFilterString = new DocumentFilter() {
 

@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author egrubellano
  */
-public class Class_cipher_vigenere {
+public class ClassCipherVigenere {
     
     static ArrayList letter = new ArrayList();
     

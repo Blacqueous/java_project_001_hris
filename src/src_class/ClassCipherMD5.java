@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Blacqueous
  */
-public class Class_cipher_MD5 {
+public class ClassCipherMD5 {
     
     private static String convertedToHex(byte[] data)
     {

@@ -16,15 +16,15 @@ import javax.swing.JOptionPane;
  *
  * @author egrubellano
  */
-public class Class_combobox_get_value {
+public class ClassComboboxGetValue {
 
     private int rtrn = 0;
 
     public Integer getId(String table, String where) {
         
         try {
-            Class_myDBConnectionEmbeddedDerby.initDB();
-            Connection conn = Class_myDBConnectionEmbeddedDerby.getMyConnection();
+            ClassMyDBConnectionEmbeddedDerby.initDB();
+            Connection conn = ClassMyDBConnectionEmbeddedDerby.getMyConnection();
             
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT id FROM " + table + " WHERE upper(name) = '" + where.toUpperCase().trim() + "'");

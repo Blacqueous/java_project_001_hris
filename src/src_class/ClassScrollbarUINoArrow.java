@@ -16,7 +16,7 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  *
  * @author Web Dev
  */
-public class Class_scrollbar_UI_no_arrow extends BasicScrollBarUI {
+public class ClassScrollbarUINoArrow extends BasicScrollBarUI {
 
     protected JButton createZeroButton() {
         JButton button = new JButton("zero button");

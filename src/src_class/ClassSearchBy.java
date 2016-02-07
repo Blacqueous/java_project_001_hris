@@ -11,9 +11,9 @@ import javax.swing.JComboBox;
  *
  * @author egrubellano
  */
-public class Class_search_by {
+public class ClassSearchBy {
 
-    ClassConstantVariables constant = new ClassConstantVariables();
+    ClassConstantsCustom constant = new ClassConstantsCustom();
     private String whereColumn = "";
 
     public String searchBySelect(JComboBox comboBox) {

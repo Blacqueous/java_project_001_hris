@@ -5,28 +5,24 @@
 
 package src_class;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import java.sql.*;
 
-public class Class_myDBConnectionSQL {
+public class ClassMyDBConnection {
 
      private static Connection myConnection;
 
-    public Class_myDBConnectionSQL() {}
+    public ClassMyDBConnection() {}
 
     public static void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            myConnection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/hris","root", "root"
+            myConnection=DriverManager.getConnection(
+                "jdbc:mysql://localhost:1527/project_001_hris","blacqueous", "rubellanoe"
             );
         }
         catch(ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage() + "\nClosing system.", "Database Connection: Failed", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
+            System.out.println("Failed to get connection");
+            e.printStackTrace();
         }
     }
 

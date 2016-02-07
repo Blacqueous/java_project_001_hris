@@ -16,9 +16,9 @@ import java.sql.SQLException;
  *
  * @author egrubellano
  */
-public class Class_myDBConnectionEmbeddedDerbyUtils {
+public class ClassMyDBConnectionEmbeddedDerbyUtils {
 
-    public Class_myDBConnectionEmbeddedDerbyUtils() {
+    public ClassMyDBConnectionEmbeddedDerbyUtils() {
         //empty constructor -- helper class
     }
 

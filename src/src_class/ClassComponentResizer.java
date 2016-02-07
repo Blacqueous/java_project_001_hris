@@ -17,7 +17,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Web Dev
  */
-public class Class_component_resizer extends MouseAdapter {
+public class ClassComponentResizer extends MouseAdapter {
 
     private final static Dimension MINIMUM_SIZE = new Dimension(10, 10);
     private final static Dimension MAXIMUM_SIZE = new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
@@ -59,7 +59,7 @@ public class Class_component_resizer extends MouseAdapter {
      * Convenience contructor. All borders are resizable in increments of a
      * single pixel. Components must be registered separately.
      */
-    public Class_component_resizer() {
+    public ClassComponentResizer() {
         this(new Insets(5, 5, 5, 5), new Dimension(1, 1));
     }
 
@@ -70,15 +70,15 @@ public class Class_component_resizer extends MouseAdapter {
      *
      * @param components components to be automatically registered
      */
-    public Class_component_resizer(Component... components) {
+    public ClassComponentResizer(Component... components) {
         this(new Insets(5, 5, 5, 5), new Dimension(1, 1), components);
     }
     
-    public Class_component_resizer(Insets dragInsets, Component... components) {
+    public ClassComponentResizer(Insets dragInsets, Component... components) {
         this(dragInsets, new Dimension(1, 1), components);
     }
     
-    public Class_component_resizer(Insets dragInsets, Dimension snapSize, Component... components) {
+    public ClassComponentResizer(Insets dragInsets, Dimension snapSize, Component... components) {
         setDragInsets(dragInsets);
         setSnapSize(snapSize);
         registerComponent(components);

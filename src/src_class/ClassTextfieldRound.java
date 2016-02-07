@@ -23,14 +23,14 @@ import javax.swing.border.EmptyBorder;
  *
  * @author egrubellano
  */
-public class Class_textfield_round extends JTextField {
+public class ClassTextfieldRound extends JTextField {
 
     private int arcw=20; 
     private int arch=20; 
     private Image image=null; 
     private Icon icon; 
      
-    public Class_textfield_round() { 
+    public ClassTextfieldRound() { 
         setOpaque(false); 
         setBorder(new EmptyBorder(0,20,0,20)); 
 //        setImage();

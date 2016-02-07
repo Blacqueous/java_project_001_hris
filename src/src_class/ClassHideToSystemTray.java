@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author egrubellano
  */
-public class Class_hide_to_system_tray {
+public class ClassHideToSystemTray {
 
     TrayIcon trayIcon;
     SystemTray tray;

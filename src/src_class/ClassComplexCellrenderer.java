@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
  *
  * @author egrubellano
  */
-public class Class_complex_cellrenderer implements ListCellRenderer {
+public class ClassComplexCellrenderer implements ListCellRenderer {
 
     protected DefaultListCellRenderer defaultRenderer = new DefaultListCellRenderer();
     public String title;

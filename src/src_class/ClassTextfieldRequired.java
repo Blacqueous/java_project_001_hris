@@ -21,9 +21,9 @@ import santhosh.WideComboBox;
  *
  * @author egrubellano
  */
-public class Class_textfield_required {
+public class ClassTextfieldRequired {
 
-    ClassFormatDateValue fDateValue = new ClassFormatDateValue();
+    ClassDateFormatValue fDateValue = new ClassDateFormatValue();
 
     public void requiredFieldsInitialize(final ArrayList<Component> arrayList) {
         

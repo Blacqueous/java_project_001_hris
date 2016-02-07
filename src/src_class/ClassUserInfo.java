@@ -9,7 +9,7 @@ package src_class;
  *
  * @author Web Dev
  */
-public class Class_user_info {
+public class ClassUserInfo {
     
     protected String name_first;
     protected String name_middle;
