@@ -28,6 +28,11 @@ public class frame_main extends javax.swing.JFrame {
     private void initComponents() {
 
         toolbar_controller = new javax.swing.JToolBar();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
         panel_menu_top = new javax.swing.JPanel();
         panel_main = new javax.swing.JPanel();
 
@@ -36,6 +41,37 @@ public class frame_main extends javax.swing.JFrame {
         toolbar_controller.setFloatable(false);
         toolbar_controller.setOrientation(javax.swing.SwingConstants.VERTICAL);
         toolbar_controller.setPreferredSize(new java.awt.Dimension(150, 10));
+
+        jToggleButton1.setText("jToggleButton1");
+        jToggleButton1.setFocusable(false);
+        jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolbar_controller.add(jToggleButton1);
+
+        jToggleButton2.setText("jToggleButton1");
+        jToggleButton2.setFocusable(false);
+        jToggleButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolbar_controller.add(jToggleButton2);
+
+        jToggleButton3.setText("jToggleButton1");
+        jToggleButton3.setFocusable(false);
+        jToggleButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolbar_controller.add(jToggleButton3);
+
+        jToggleButton4.setText("jToggleButton1");
+        jToggleButton4.setFocusable(false);
+        jToggleButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolbar_controller.add(jToggleButton4);
+
+        jToggleButton5.setText("jToggleButton1");
+        jToggleButton5.setFocusable(false);
+        jToggleButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolbar_controller.add(jToggleButton5);
+
         getContentPane().add(toolbar_controller, java.awt.BorderLayout.LINE_START);
 
         panel_menu_top.setPreferredSize(new java.awt.Dimension(0, 80));
@@ -106,6 +142,11 @@ public class frame_main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_menu_top;
     private javax.swing.JToolBar toolbar_controller;
