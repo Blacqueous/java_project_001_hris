@@ -1,5 +1,4 @@
 Manifest-Version: 1.0
-
-SplashScreen-Image: img_src/EG-logo.png
-
+# SplashScreen-Image: img_src/EG-logo.png
 X-COMMENT: Main-Class will be added automatically by build
+
