@@ -306,7 +306,7 @@
                   <Color blue="28" green="28" red="28" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/icons/icon_32_category_black.png"/>
+                  <Image iconType="3" name="/images/icons/icon_32_category.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Categories"/>
                 <Property name="focusable" type="boolean" value="false"/>

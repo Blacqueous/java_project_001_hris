@@ -162,7 +162,7 @@ public class FramePrime extends javax.swing.JFrame {
         btn_grp.add(button_cat);
         button_cat.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
         button_cat.setForeground(new java.awt.Color(40, 40, 40));
-        button_cat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_category_black.png"))); // NOI18N
+        button_cat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_category.png"))); // NOI18N
         button_cat.setText("Categories");
         button_cat.setFocusable(false);
         button_cat.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
