@@ -5,17 +5,25 @@
  */
 package application;
 
+import classes.ClassConstantsCustom;
+import classes.ClassLoadNewPanel;
+import java.util.function.Consumer;
+
 /**
  *
  * @author egrubellano
  */
 public class FramePrime extends javax.swing.JFrame {
 
+    private final ClassLoadNewPanel load_panel = new ClassLoadNewPanel();
+    private final ClassConstantsCustom constant = new ClassConstantsCustom();
+
     /**
      * Creates new form FramePrime
      */
     public FramePrime() {
         initComponents();
+        initAdditionalComponents();
     }
 
     /**
@@ -29,14 +37,43 @@ public class FramePrime extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         btn_grp = new javax.swing.ButtonGroup();
-        panel_menu = new javax.swing.JPanel();
-        panel_menu_logo = new javax.swing.JPanel();
+        toolbar_lbl_btn = new javax.swing.JToolBar();
+        label_space = new javax.swing.JLabel();
+        pnl_btn_dbd = new javax.swing.JPanel();
+        lbl_btn_dbd = new javax.swing.JLabel();
+        lbl_btn_dbd_space = new javax.swing.JLabel();
+        pnl_btn_cmp = new javax.swing.JPanel();
+        lbl_btn_cmp = new javax.swing.JLabel();
+        lbl_btn_cmp_space = new javax.swing.JLabel();
+        pnl_btn_emp = new javax.swing.JPanel();
+        lbl_btn_emp = new javax.swing.JLabel();
+        lbl_btn_emp_space = new javax.swing.JLabel();
+        pnl_btn_cat = new javax.swing.JPanel();
+        lbl_btn_cat = new javax.swing.JLabel();
+        lbl_btn_cat_space = new javax.swing.JLabel();
+        pnl_btn_dpt = new javax.swing.JPanel();
+        lbl_btn_dpt = new javax.swing.JLabel();
+        lbl_btn_dpt_space = new javax.swing.JLabel();
+        pnl_btn_pos = new javax.swing.JPanel();
+        lbl_btn_pos = new javax.swing.JLabel();
+        lbl_btn_pos_space = new javax.swing.JLabel();
+        pnl_btn_elg = new javax.swing.JPanel();
+        lbl_btn_elg = new javax.swing.JLabel();
+        lbl_btn_elg_space = new javax.swing.JLabel();
+        pnl_btn_trn = new javax.swing.JPanel();
+        lbl_btn_trn = new javax.swing.JLabel();
+        lbl_btn_trn_space = new javax.swing.JLabel();
+        pnl_btn_lvs = new javax.swing.JPanel();
+        lbl_btn_lvs = new javax.swing.JLabel();
+        lbl_btn_lvs_space = new javax.swing.JLabel();
+        panel_top = new javax.swing.JPanel();
+        panel_top_logo = new javax.swing.JPanel();
         label_logo = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
-        panel_menu_center = new javax.swing.JPanel();
-        panel_btns = new javax.swing.JPanel();
+        panel_top_menu = new javax.swing.JPanel();
+        panel_left = new javax.swing.JPanel();
         label_btn = new javax.swing.JLabel();
-        toolbar_controller = new javax.swing.JToolBar();
+        toolbar_btn = new javax.swing.JToolBar();
         label_ = new javax.swing.JLabel();
         button_dbd = new javax.swing.JToggleButton();
         button_cmp = new javax.swing.JToggleButton();
@@ -47,32 +84,282 @@ public class FramePrime extends javax.swing.JFrame {
         button_elg = new javax.swing.JToggleButton();
         button_trn = new javax.swing.JToggleButton();
         button_lvs = new javax.swing.JToggleButton();
-        separator = new javax.swing.JSeparator();
+        panel_center = new javax.swing.JPanel();
+        panel_loading = new javax.swing.JPanel();
+        panel_breadcrumb_loading = new javax.swing.JPanel();
+        label_loading = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
-        label_btn1 = new javax.swing.JLabel();
+        panel_breadcrumb = new javax.swing.JPanel();
+        panel_breadcrumb_panel = new javax.swing.JPanel();
+        label_breadcrumb_text = new javax.swing.JLabel();
+        label_breadcrumb_arrow = new javax.swing.JLabel();
+        panel_breadcrumb_title = new javax.swing.JPanel();
+        label_breadcrumb_title = new javax.swing.JLabel();
+        label_breadcrumb_logo = new javax.swing.JLabel();
+        panel_frame = new javax.swing.JPanel();
+
+        toolbar_lbl_btn.setFloatable(false);
+        toolbar_lbl_btn.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        label_space.setIconTextGap(10);
+        label_space.setMaximumSize(new java.awt.Dimension(200, 5));
+        label_space.setMinimumSize(new java.awt.Dimension(200, 5));
+        label_space.setName(""); // NOI18N
+        label_space.setPreferredSize(new java.awt.Dimension(200, 5));
+        toolbar_lbl_btn.add(label_space);
+
+        pnl_btn_dbd.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_dbd.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_dbd.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_dbd.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_dbd.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_dbd.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_dbd.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_dbd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_speedometer_.png"))); // NOI18N
+        lbl_btn_dbd.setText("Dashboard");
+        lbl_btn_dbd.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_dbd.setIconTextGap(10);
+        lbl_btn_dbd.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_dbd.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_dbd.setOpaque(true);
+        lbl_btn_dbd.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_dbd.add(lbl_btn_dbd, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_dbd_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_dbd_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_dbd_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_dbd.add(lbl_btn_dbd_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_dbd);
+
+        pnl_btn_cmp.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_cmp.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_cmp.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_cmp.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_cmp.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_cmp.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_cmp.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_cmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_tower_2.png"))); // NOI18N
+        lbl_btn_cmp.setText("Company");
+        lbl_btn_cmp.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_cmp.setIconTextGap(10);
+        lbl_btn_cmp.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_cmp.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_cmp.setOpaque(true);
+        lbl_btn_cmp.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_cmp.add(lbl_btn_cmp, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_cmp_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_cmp_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_cmp_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_cmp.add(lbl_btn_cmp_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_cmp);
+
+        pnl_btn_emp.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_emp.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_emp.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_emp.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_emp.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_emp.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_emp.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_emp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_staff_group.png"))); // NOI18N
+        lbl_btn_emp.setText("Employees");
+        lbl_btn_emp.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_emp.setIconTextGap(10);
+        lbl_btn_emp.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_emp.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_emp.setOpaque(true);
+        lbl_btn_emp.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_emp.add(lbl_btn_emp, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_emp_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_emp_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_emp_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_emp.add(lbl_btn_emp_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_emp);
+
+        pnl_btn_cat.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_cat.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_cat.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_cat.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_cat.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_cat.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_cat.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_cat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_category_.png"))); // NOI18N
+        lbl_btn_cat.setText("Categories");
+        lbl_btn_cat.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_cat.setIconTextGap(10);
+        lbl_btn_cat.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_cat.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_cat.setOpaque(true);
+        lbl_btn_cat.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_cat.add(lbl_btn_cat, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_cat_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_cat_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_cat_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_cat.add(lbl_btn_cat_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_cat);
+
+        pnl_btn_dpt.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_dpt.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_dpt.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_dpt.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_dpt.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_dpt.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_dpt.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_dpt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_museum.png"))); // NOI18N
+        lbl_btn_dpt.setText("Departments");
+        lbl_btn_dpt.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_dpt.setIconTextGap(10);
+        lbl_btn_dpt.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_dpt.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_dpt.setOpaque(true);
+        lbl_btn_dpt.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_dpt.add(lbl_btn_dpt, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_dpt_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_dpt_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_dpt_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_dpt.add(lbl_btn_dpt_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_dpt);
+
+        pnl_btn_pos.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_pos.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_pos.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_pos.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_pos.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_pos.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_pos.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_pos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_briefcase.png"))); // NOI18N
+        lbl_btn_pos.setText("Positions");
+        lbl_btn_pos.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_pos.setIconTextGap(10);
+        lbl_btn_pos.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_pos.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_pos.setOpaque(true);
+        lbl_btn_pos.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_pos.add(lbl_btn_pos, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_pos_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_pos_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_pos_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_pos.add(lbl_btn_pos_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_pos);
+
+        pnl_btn_elg.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_elg.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_elg.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_elg.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_elg.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_elg.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_elg.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_elg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_checklist_.png"))); // NOI18N
+        lbl_btn_elg.setText("Eligibilities");
+        lbl_btn_elg.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_elg.setIconTextGap(10);
+        lbl_btn_elg.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_elg.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_elg.setOpaque(true);
+        lbl_btn_elg.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_elg.add(lbl_btn_elg, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_elg_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_elg_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_elg_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_elg.add(lbl_btn_elg_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_elg);
+
+        pnl_btn_trn.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_trn.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_trn.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_trn.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_trn.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_trn.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_trn.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_trn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_blackboard_steps.png"))); // NOI18N
+        lbl_btn_trn.setText("Trainings");
+        lbl_btn_trn.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_trn.setIconTextGap(10);
+        lbl_btn_trn.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_trn.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_trn.setOpaque(true);
+        lbl_btn_trn.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_trn.add(lbl_btn_trn, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_trn_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_trn_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_trn_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_trn.add(lbl_btn_trn_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_trn);
+
+        pnl_btn_lvs.setMaximumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_lvs.setMinimumSize(new java.awt.Dimension(190, 49));
+        pnl_btn_lvs.setPreferredSize(new java.awt.Dimension(190, 49));
+        pnl_btn_lvs.setLayout(new java.awt.BorderLayout());
+
+        lbl_btn_lvs.setBackground(new java.awt.Color(255, 102, 102));
+        lbl_btn_lvs.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        lbl_btn_lvs.setForeground(new java.awt.Color(40, 40, 40));
+        lbl_btn_lvs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_tags_three_.png"))); // NOI18N
+        lbl_btn_lvs.setText("Leave List");
+        lbl_btn_lvs.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 30, 2, 15));
+        lbl_btn_lvs.setIconTextGap(10);
+        lbl_btn_lvs.setMaximumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_lvs.setMinimumSize(new java.awt.Dimension(190, 40));
+        lbl_btn_lvs.setOpaque(true);
+        lbl_btn_lvs.setPreferredSize(new java.awt.Dimension(190, 40));
+        pnl_btn_lvs.add(lbl_btn_lvs, java.awt.BorderLayout.CENTER);
+
+        lbl_btn_lvs_space.setMaximumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_lvs_space.setMinimumSize(new java.awt.Dimension(0, 4));
+        lbl_btn_lvs_space.setPreferredSize(new java.awt.Dimension(0, 4));
+        pnl_btn_lvs.add(lbl_btn_lvs_space, java.awt.BorderLayout.PAGE_END);
+
+        toolbar_lbl_btn.add(pnl_btn_lvs);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 650));
         setPreferredSize(new java.awt.Dimension(950, 650));
 
-        panel_menu.setMaximumSize(new java.awt.Dimension(10, 91));
-        panel_menu.setMinimumSize(new java.awt.Dimension(10, 91));
-        panel_menu.setPreferredSize(new java.awt.Dimension(10, 91));
-        panel_menu.setLayout(new java.awt.BorderLayout());
+        panel_top.setMaximumSize(new java.awt.Dimension(10, 105));
+        panel_top.setMinimumSize(new java.awt.Dimension(10, 105));
+        panel_top.setPreferredSize(new java.awt.Dimension(10, 105));
+        panel_top.setLayout(new java.awt.BorderLayout());
 
-        panel_menu_logo.setMaximumSize(new java.awt.Dimension(200, 50));
-        panel_menu_logo.setMinimumSize(new java.awt.Dimension(200, 50));
-        panel_menu_logo.setPreferredSize(new java.awt.Dimension(200, 50));
-        panel_menu_logo.setLayout(new java.awt.GridBagLayout());
+        panel_top_logo.setMaximumSize(new java.awt.Dimension(200, 50));
+        panel_top_logo.setMinimumSize(new java.awt.Dimension(200, 50));
+        panel_top_logo.setOpaque(false);
+        panel_top_logo.setPreferredSize(new java.awt.Dimension(200, 50));
+        panel_top_logo.setLayout(new java.awt.GridBagLayout());
 
         label_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/logo-pure-tiny.png"))); // NOI18N
+        label_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/logo.png"))); // NOI18N
+        label_logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         label_logo.setIconTextGap(10);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        panel_menu_logo.add(label_logo, gridBagConstraints);
+        panel_top_logo.add(label_logo, gridBagConstraints);
 
         label_background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/img-darker.png"))); // NOI18N
@@ -83,49 +370,46 @@ public class FramePrime extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        panel_menu_logo.add(label_background, gridBagConstraints);
+        panel_top_logo.add(label_background, gridBagConstraints);
 
-        panel_menu.add(panel_menu_logo, java.awt.BorderLayout.LINE_START);
+        panel_top.add(panel_top_logo, java.awt.BorderLayout.LINE_START);
 
-        panel_menu_center.setMaximumSize(new java.awt.Dimension(200, 50));
-        panel_menu_center.setMinimumSize(new java.awt.Dimension(200, 50));
-        panel_menu_center.setPreferredSize(new java.awt.Dimension(200, 50));
-        panel_menu_center.setLayout(new java.awt.BorderLayout());
-        panel_menu.add(panel_menu_center, java.awt.BorderLayout.CENTER);
+        panel_top_menu.setMaximumSize(new java.awt.Dimension(200, 50));
+        panel_top_menu.setMinimumSize(new java.awt.Dimension(200, 50));
+        panel_top_menu.setOpaque(false);
+        panel_top_menu.setPreferredSize(new java.awt.Dimension(200, 50));
+        panel_top_menu.setLayout(new java.awt.BorderLayout());
+        panel_top.add(panel_top_menu, java.awt.BorderLayout.CENTER);
 
-        getContentPane().add(panel_menu, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(panel_top, java.awt.BorderLayout.PAGE_START);
 
-        panel_btns.setMaximumSize(new java.awt.Dimension(200, 50));
-        panel_btns.setMinimumSize(new java.awt.Dimension(200, 50));
-        panel_btns.setPreferredSize(new java.awt.Dimension(200, 50));
-        panel_btns.setLayout(new java.awt.BorderLayout());
+        panel_left.setMaximumSize(new java.awt.Dimension(200, 50));
+        panel_left.setMinimumSize(new java.awt.Dimension(200, 50));
+        panel_left.setPreferredSize(new java.awt.Dimension(200, 50));
+        panel_left.setLayout(new java.awt.BorderLayout());
 
-        label_btn.setBackground(new java.awt.Color(50, 50, 50));
+        label_btn.setBackground(new java.awt.Color(51, 54, 54));
         label_btn.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
         label_btn.setForeground(new java.awt.Color(255, 255, 255));
         label_btn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_25_category.png"))); // NOI18N
         label_btn.setText("MENU  ");
         label_btn.setIconTextGap(10);
-        label_btn.setMaximumSize(new java.awt.Dimension(200, 38));
-        label_btn.setMinimumSize(new java.awt.Dimension(200, 38));
+        label_btn.setMaximumSize(new java.awt.Dimension(200, 35));
+        label_btn.setMinimumSize(new java.awt.Dimension(200, 35));
         label_btn.setOpaque(true);
-        label_btn.setPreferredSize(new java.awt.Dimension(200, 38));
-        panel_btns.add(label_btn, java.awt.BorderLayout.PAGE_START);
+        label_btn.setPreferredSize(new java.awt.Dimension(200, 35));
+        panel_left.add(label_btn, java.awt.BorderLayout.PAGE_START);
 
-        toolbar_controller.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        toolbar_controller.setFloatable(false);
-        toolbar_controller.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        toolbar_controller.setMaximumSize(new java.awt.Dimension(200, 10));
-        toolbar_controller.setMinimumSize(new java.awt.Dimension(200, 10));
-        toolbar_controller.setPreferredSize(new java.awt.Dimension(200, 10));
+        toolbar_btn.setFloatable(false);
+        toolbar_btn.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         label_.setIconTextGap(10);
         label_.setMaximumSize(new java.awt.Dimension(200, 5));
         label_.setMinimumSize(new java.awt.Dimension(200, 5));
         label_.setName(""); // NOI18N
         label_.setPreferredSize(new java.awt.Dimension(200, 5));
-        toolbar_controller.add(label_);
+        toolbar_btn.add(label_);
 
         btn_grp.add(button_dbd);
         button_dbd.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -139,7 +423,12 @@ public class FramePrime extends javax.swing.JFrame {
         button_dbd.setMaximumSize(new java.awt.Dimension(190, 49));
         button_dbd.setMinimumSize(new java.awt.Dimension(190, 49));
         button_dbd.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_dbd);
+        button_dbd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_dbdActionPerformed(evt);
+            }
+        });
+        toolbar_btn.add(button_dbd);
 
         btn_grp.add(button_cmp);
         button_cmp.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -153,7 +442,12 @@ public class FramePrime extends javax.swing.JFrame {
         button_cmp.setMaximumSize(new java.awt.Dimension(190, 49));
         button_cmp.setMinimumSize(new java.awt.Dimension(190, 49));
         button_cmp.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_cmp);
+        button_cmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cmpActionPerformed(evt);
+            }
+        });
+        toolbar_btn.add(button_cmp);
 
         btn_grp.add(button_emp);
         button_emp.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -167,7 +461,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_emp.setMaximumSize(new java.awt.Dimension(190, 49));
         button_emp.setMinimumSize(new java.awt.Dimension(190, 49));
         button_emp.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_emp);
+        toolbar_btn.add(button_emp);
 
         btn_grp.add(button_cat);
         button_cat.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -181,7 +475,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_cat.setMaximumSize(new java.awt.Dimension(190, 49));
         button_cat.setMinimumSize(new java.awt.Dimension(190, 49));
         button_cat.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_cat);
+        toolbar_btn.add(button_cat);
 
         btn_grp.add(button_dpt);
         button_dpt.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -195,7 +489,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_dpt.setMaximumSize(new java.awt.Dimension(190, 49));
         button_dpt.setMinimumSize(new java.awt.Dimension(190, 49));
         button_dpt.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_dpt);
+        toolbar_btn.add(button_dpt);
 
         btn_grp.add(button_pos);
         button_pos.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -209,7 +503,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_pos.setMaximumSize(new java.awt.Dimension(190, 49));
         button_pos.setMinimumSize(new java.awt.Dimension(190, 49));
         button_pos.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_pos);
+        toolbar_btn.add(button_pos);
 
         btn_grp.add(button_elg);
         button_elg.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -223,7 +517,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_elg.setMaximumSize(new java.awt.Dimension(190, 49));
         button_elg.setMinimumSize(new java.awt.Dimension(190, 49));
         button_elg.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_elg);
+        toolbar_btn.add(button_elg);
 
         btn_grp.add(button_trn);
         button_trn.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -237,7 +531,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_trn.setMaximumSize(new java.awt.Dimension(190, 49));
         button_trn.setMinimumSize(new java.awt.Dimension(190, 49));
         button_trn.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_trn);
+        toolbar_btn.add(button_trn);
 
         btn_grp.add(button_lvs);
         button_lvs.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
@@ -251,36 +545,99 @@ public class FramePrime extends javax.swing.JFrame {
         button_lvs.setMaximumSize(new java.awt.Dimension(190, 49));
         button_lvs.setMinimumSize(new java.awt.Dimension(190, 49));
         button_lvs.setPreferredSize(new java.awt.Dimension(190, 49));
-        toolbar_controller.add(button_lvs);
+        toolbar_btn.add(button_lvs);
 
-        panel_btns.add(toolbar_controller, java.awt.BorderLayout.CENTER);
+        panel_left.add(toolbar_btn, java.awt.BorderLayout.CENTER);
 
-        separator.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        separator.setMaximumSize(new java.awt.Dimension(2, 2));
-        separator.setMinimumSize(new java.awt.Dimension(2, 2));
-        separator.setPreferredSize(new java.awt.Dimension(2, 2));
-        panel_btns.add(separator, java.awt.BorderLayout.LINE_END);
+        getContentPane().add(panel_left, java.awt.BorderLayout.LINE_START);
 
-        getContentPane().add(panel_btns, java.awt.BorderLayout.LINE_START);
+        panel_center.setLayout(new java.awt.CardLayout());
+
+        panel_loading.setBackground(new java.awt.Color(250, 250, 250));
+        panel_loading.setLayout(new java.awt.BorderLayout());
+
+        panel_breadcrumb_loading.setBackground(new java.awt.Color(55, 55, 55));
+        panel_breadcrumb_loading.setMaximumSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb_loading.setMinimumSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb_loading.setPreferredSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb_loading.setLayout(new java.awt.BorderLayout());
+        panel_loading.add(panel_breadcrumb_loading, java.awt.BorderLayout.PAGE_START);
+
+        label_loading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_loading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/loading.gif"))); // NOI18N
+        panel_loading.add(label_loading, java.awt.BorderLayout.CENTER);
+
+        panel_center.add(panel_loading, "card_loading");
 
         panel_main.setLayout(new java.awt.BorderLayout());
 
-        label_btn1.setBackground(new java.awt.Color(60, 60, 60));
-        label_btn1.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        label_btn1.setForeground(new java.awt.Color(255, 255, 255));
-        label_btn1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_btn1.setIconTextGap(10);
-        label_btn1.setMaximumSize(new java.awt.Dimension(200, 38));
-        label_btn1.setMinimumSize(new java.awt.Dimension(200, 38));
-        label_btn1.setOpaque(true);
-        label_btn1.setPreferredSize(new java.awt.Dimension(200, 38));
-        panel_main.add(label_btn1, java.awt.BorderLayout.PAGE_START);
+        panel_breadcrumb.setBackground(new java.awt.Color(55, 55, 55));
+        panel_breadcrumb.setMaximumSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb.setMinimumSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb.setPreferredSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb.setLayout(new java.awt.BorderLayout());
 
-        getContentPane().add(panel_main, java.awt.BorderLayout.CENTER);
+        panel_breadcrumb_panel.setOpaque(false);
+        panel_breadcrumb_panel.setLayout(new java.awt.BorderLayout());
+
+        label_breadcrumb_text.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_text.setForeground(new java.awt.Color(255, 255, 255));
+        label_breadcrumb_text.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        label_breadcrumb_text.setText("SUMMARY");
+        label_breadcrumb_text.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 10));
+        panel_breadcrumb_panel.add(label_breadcrumb_text, java.awt.BorderLayout.CENTER);
+
+        label_breadcrumb_arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_15_bullet_left.png"))); // NOI18N
+        label_breadcrumb_arrow.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 0));
+        label_breadcrumb_arrow.setPreferredSize(new java.awt.Dimension(17, 35));
+        panel_breadcrumb_panel.add(label_breadcrumb_arrow, java.awt.BorderLayout.LINE_END);
+
+        panel_breadcrumb.add(panel_breadcrumb_panel, java.awt.BorderLayout.CENTER);
+
+        panel_breadcrumb_title.setMinimumSize(new java.awt.Dimension(55, 35));
+        panel_breadcrumb_title.setOpaque(false);
+        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(130, 35));
+        panel_breadcrumb_title.setLayout(new java.awt.BorderLayout());
+
+        label_breadcrumb_title.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_title.setForeground(new java.awt.Color(255, 255, 255));
+        label_breadcrumb_title.setText("DASHBOARD");
+        label_breadcrumb_title.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 0));
+        panel_breadcrumb_title.add(label_breadcrumb_title, java.awt.BorderLayout.CENTER);
+
+        label_breadcrumb_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_25_dashboard.png"))); // NOI18N
+        label_breadcrumb_logo.setPreferredSize(new java.awt.Dimension(39, 35));
+        panel_breadcrumb_title.add(label_breadcrumb_logo, java.awt.BorderLayout.LINE_END);
+
+        panel_breadcrumb.add(panel_breadcrumb_title, java.awt.BorderLayout.LINE_END);
+
+        panel_main.add(panel_breadcrumb, java.awt.BorderLayout.PAGE_START);
+
+        panel_frame.setLayout(new java.awt.CardLayout());
+        panel_main.add(panel_frame, java.awt.BorderLayout.CENTER);
+
+        panel_center.add(panel_main, "card_main");
+
+        getContentPane().add(panel_center, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void initAdditionalComponents() {
+        load_panel.setParentPanel(panel_center);
+    }
+
+    private void button_dbdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dbdActionPerformed
+        
+        load_panel.loadFrame(new project_001_hris.PanelFrameCreate(), panel_main);
+    }//GEN-LAST:event_button_dbdActionPerformed
+
+    private void button_cmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cmpActionPerformed
+        
+        load_panel.loadFrame(new project_001_hris.PanelFrameSearch(), panel_main);
+    }//GEN-LAST:event_button_cmpActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -298,15 +655,12 @@ public class FramePrime extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FramePrime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FramePrime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FramePrime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FramePrime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        
         //</editor-fold>
         //</editor-fold>
 
@@ -332,15 +686,54 @@ public class FramePrime extends javax.swing.JFrame {
     private javax.swing.JToggleButton button_trn;
     private javax.swing.JLabel label_;
     private javax.swing.JLabel label_background;
+    private javax.swing.JLabel label_breadcrumb_arrow;
+    private javax.swing.JLabel label_breadcrumb_logo;
+    private javax.swing.JLabel label_breadcrumb_text;
+    private javax.swing.JLabel label_breadcrumb_title;
     private javax.swing.JLabel label_btn;
-    private javax.swing.JLabel label_btn1;
+    private javax.swing.JLabel label_loading;
     private javax.swing.JLabel label_logo;
-    private javax.swing.JPanel panel_btns;
+    private javax.swing.JLabel label_space;
+    private javax.swing.JLabel lbl_btn_cat;
+    private javax.swing.JLabel lbl_btn_cat_space;
+    private javax.swing.JLabel lbl_btn_cmp;
+    private javax.swing.JLabel lbl_btn_cmp_space;
+    private javax.swing.JLabel lbl_btn_dbd;
+    private javax.swing.JLabel lbl_btn_dbd_space;
+    private javax.swing.JLabel lbl_btn_dpt;
+    private javax.swing.JLabel lbl_btn_dpt_space;
+    private javax.swing.JLabel lbl_btn_elg;
+    private javax.swing.JLabel lbl_btn_elg_space;
+    private javax.swing.JLabel lbl_btn_emp;
+    private javax.swing.JLabel lbl_btn_emp_space;
+    private javax.swing.JLabel lbl_btn_lvs;
+    private javax.swing.JLabel lbl_btn_lvs_space;
+    private javax.swing.JLabel lbl_btn_pos;
+    private javax.swing.JLabel lbl_btn_pos_space;
+    private javax.swing.JLabel lbl_btn_trn;
+    private javax.swing.JLabel lbl_btn_trn_space;
+    private javax.swing.JPanel panel_breadcrumb;
+    private javax.swing.JPanel panel_breadcrumb_loading;
+    private javax.swing.JPanel panel_breadcrumb_panel;
+    private javax.swing.JPanel panel_breadcrumb_title;
+    private javax.swing.JPanel panel_center;
+    private javax.swing.JPanel panel_frame;
+    private javax.swing.JPanel panel_left;
+    private javax.swing.JPanel panel_loading;
     private javax.swing.JPanel panel_main;
-    private javax.swing.JPanel panel_menu;
-    private javax.swing.JPanel panel_menu_center;
-    private javax.swing.JPanel panel_menu_logo;
-    private javax.swing.JSeparator separator;
-    private javax.swing.JToolBar toolbar_controller;
+    private javax.swing.JPanel panel_top;
+    private javax.swing.JPanel panel_top_logo;
+    private javax.swing.JPanel panel_top_menu;
+    private javax.swing.JPanel pnl_btn_cat;
+    private javax.swing.JPanel pnl_btn_cmp;
+    private javax.swing.JPanel pnl_btn_dbd;
+    private javax.swing.JPanel pnl_btn_dpt;
+    private javax.swing.JPanel pnl_btn_elg;
+    private javax.swing.JPanel pnl_btn_emp;
+    private javax.swing.JPanel pnl_btn_lvs;
+    private javax.swing.JPanel pnl_btn_pos;
+    private javax.swing.JPanel pnl_btn_trn;
+    private javax.swing.JToolBar toolbar_btn;
+    private javax.swing.JToolBar toolbar_lbl_btn;
     // End of variables declaration//GEN-END:variables
 }
