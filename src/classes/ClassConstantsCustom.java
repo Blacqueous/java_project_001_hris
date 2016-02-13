@@ -16,83 +16,95 @@ public class ClassConstantsCustom {
     /**
      * Database Employee Table
      */
-    final protected int PANEL_FRAME;
-    final protected int PANEL_POPUP;
+    final public int PANEL_FRAME;
+    final public int PANEL_POPUP;
 
     /**
      * Main Frame Panel
      */
-    final protected String FRAME_HOME;
-    final protected String FRAME_EMP_HOME;
-    final protected String FRAME_EMP_SEARCH;
-    final protected String FRAME_EMP_CREATE;
+    final public String PANEL_HOME;
+    final public String PANEL_DBD;
+    final public String PANEL_CMP;
+    final public String PANEL_EMP;
+    final public String PANEL_CAT;
+    final public String PANEL_DPT;
+    final public String PANEL_POS;
+    final public String PANEL_ELG;
+    final public String PANEL_TRN;
+    final public String PANEL_LVS;
 
     /**
      * Database Employee Table
      */
-    final protected String TABLE_ACCOUNT_TYPE;
-    final protected String TABLE_ACCOUNT_HEADER;
-    final protected String TABLE_ACCOUNT_DETAIL;
-    final protected String TABLE_EMPLOYEE_HEADER;
-    final protected String TABLE_EMPLOYEE_DETAIL;
-    final protected String TABLE_MANAGE_DEPENDENTS;
-    final protected String TABLE_MANAGE_ELIGIBILITY;
-    final protected String TABLE_MANAGE_TRAINING;
-    final protected String TABLE_LIST_CATEGORY;
-    final protected String TABLE_LIST_OFFICE;
-    final protected String TABLE_LIST_POSITION;
-    final protected String TABLE_LIST_ELIGIBILITY;
-    final protected String TABLE_LIST_TRAINING;
+    final public String TABLE_ACCOUNT_TYPE;
+    final public String TABLE_ACCOUNT_HEADER;
+    final public String TABLE_ACCOUNT_DETAIL;
+    final public String TABLE_EMPLOYEE_HEADER;
+    final public String TABLE_EMPLOYEE_DETAIL;
+    final public String TABLE_MANAGE_DEPENDENTS;
+    final public String TABLE_MANAGE_ELIGIBILITY;
+    final public String TABLE_MANAGE_TRAINING;
+    final public String TABLE_LIST_CATEGORY;
+    final public String TABLE_LIST_OFFICE;
+    final public String TABLE_LIST_POSITION;
+    final public String TABLE_LIST_ELIGIBILITY;
+    final public String TABLE_LIST_TRAINING;
 
     /**
      * Database Employee Info Columns
      */
-    final ArrayList<String> LIST_GENDER;
-    final ArrayList<String> LIST_CIVIL_STATUS;
-    final ArrayList<String> LIST_SEARCH_FILTER;
+    final public ArrayList<String> LIST_GENDER;
+    final public ArrayList<String> LIST_CIVIL_STATUS;
+    final public ArrayList<String> LIST_SEARCH_FILTER;
 
     /**
      * Database Employee Info Columns
      */
-    final protected String COLUMN_FULL_NAME;
-    final protected String COLUMN_FIRST_NAME;
-    final protected String COLUMN_MIDDLE_NAME;
-    final protected String COLUMN_LAST_NAME;
-    final protected String COLUMN_PLANTILLA_NUM;
-    final protected String COLUMN_POSITION;
-    final protected String COLUMN_OFFICE;
-    final protected String COLUMN_CATEGORY;
-    final protected String COLUMN_DATE_HIRED;
-    final protected String COLUMN_BIRTHDATE;
-    final protected String COLUMN_GENDER;
-    final protected String COLUMN_CIVIL_STATUS;
+    final public String COLUMN_FULL_NAME;
+    final public String COLUMN_FIRST_NAME;
+    final public String COLUMN_MIDDLE_NAME;
+    final public String COLUMN_LAST_NAME;
+    final public String COLUMN_PLANTILLA_NUM;
+    final public String COLUMN_POSITION;
+    final public String COLUMN_OFFICE;
+    final public String COLUMN_CATEGORY;
+    final public String COLUMN_DATE_HIRED;
+    final public String COLUMN_BIRTHDATE;
+    final public String COLUMN_GENDER;
+    final public String COLUMN_CIVIL_STATUS;
 
     /**
      * Database Employee Info Columns (UPPERCASE)
      */
-    final protected String COLUMN_FULL_NAME_UC;
-    final protected String COLUMN_FIRST_NAME_UC;
-    final protected String COLUMN_MIDDLE_NAME_UC;
-    final protected String COLUMN_LAST_NAME_UC;
-    final protected String COLUMN_PLANTILLA_NUM_UC;
-    final protected String COLUMN_POSITION_UC;
-    final protected String COLUMN_OFFICE_UC;
-    final protected String COLUMN_CATEGORY_UC;
-    final protected String COLUMN_DATE_HIRED_UC;
-    final protected String COLUMN_BIRTHDATE_UC;
-    final protected String COLUMN_GENDER_UC;
-    final protected String COLUMN_CIVIL_STATUS_UC;
+    final public String COLUMN_FULL_NAME_UC;
+    final public String COLUMN_FIRST_NAME_UC;
+    final public String COLUMN_MIDDLE_NAME_UC;
+    final public String COLUMN_LAST_NAME_UC;
+    final public String COLUMN_PLANTILLA_NUM_UC;
+    final public String COLUMN_POSITION_UC;
+    final public String COLUMN_OFFICE_UC;
+    final public String COLUMN_CATEGORY_UC;
+    final public String COLUMN_DATE_HIRED_UC;
+    final public String COLUMN_BIRTHDATE_UC;
+    final public String COLUMN_GENDER_UC;
+    final public String COLUMN_CIVIL_STATUS_UC;
 
     public ClassConstantsCustom() {
-
+        
         this.PANEL_FRAME = 1;
         this.PANEL_POPUP = 2;
         
-        this.FRAME_HOME   = "FRAME_HOME";
-        this.FRAME_EMP_HOME   = "FRAME_EMP_HOME";
-        this.FRAME_EMP_SEARCH = "FRAME_EMP_SEARCH";
-        this.FRAME_EMP_CREATE = "FRAME_EMP_CREATE";
-
+        this.PANEL_HOME   = "PANEL_HOME";
+        this.PANEL_DBD    = "PANEL_DBD";
+        this.PANEL_CMP    = "PANEL_CMP";
+        this.PANEL_EMP    = "PANEL_EMP";
+        this.PANEL_CAT    = "PANEL_CAT";
+        this.PANEL_DPT    = "PANEL_DEP";
+        this.PANEL_POS    = "PANEL_POS";
+        this.PANEL_ELG    = "PANEL_ELG";
+        this.PANEL_TRN    = "PANEL_TRN";
+        this.PANEL_LVS    = "PANEL_LVS";
+        
         this.TABLE_ACCOUNT_TYPE         = "account_type";
         this.TABLE_ACCOUNT_HEADER       = "account_header";
         this.TABLE_ACCOUNT_DETAIL       = "account_detail";
@@ -106,11 +118,11 @@ public class ClassConstantsCustom {
         this.TABLE_LIST_POSITION        = "settings_list_position";
         this.TABLE_LIST_ELIGIBILITY     = "settings_list_eligibility";
         this.TABLE_LIST_TRAINING        = "settings_list_training";
-
+        
         this.LIST_GENDER            = new ArrayList<>(Arrays.asList("Male", "Female"));
         this.LIST_CIVIL_STATUS      = new ArrayList<>(Arrays.asList("Single", "Married", "Widowed", "Divorced"));
         this.LIST_SEARCH_FILTER     = new ArrayList<>(Arrays.asList("First Name", "Middle Name", "Last Name", "Plantilla #", "Position", "Office", "Category"));
-
+        
         this.COLUMN_FULL_NAME       = "(COALESCE(h.name_first || ' ', '') || COALESCE(h.name_middle || ' ', '') || h.name_last)";
         this.COLUMN_FIRST_NAME      = "h.name_first";
         this.COLUMN_MIDDLE_NAME     = "h.name_middle";
@@ -123,7 +135,7 @@ public class ClassConstantsCustom {
         this.COLUMN_BIRTHDATE       = "d.date_birth";
         this.COLUMN_GENDER          = "d.gender";
         this.COLUMN_CIVIL_STATUS    = "d.civil_status";
-        
+            
         this.COLUMN_FULL_NAME_UC       = "UCASE(h.name_first || ' ' || h.name_middle || ' ' || h.name_last)";
         this.COLUMN_FIRST_NAME_UC      = "UCASE(h.name_first)";
         this.COLUMN_MIDDLE_NAME_UC     = "UCASE(h.name_middle)";
@@ -136,7 +148,7 @@ public class ClassConstantsCustom {
         this.COLUMN_BIRTHDATE_UC       = "UCASE(d.date_birth)";
         this.COLUMN_GENDER_UC          = "UCASE(d.gender)";
         this.COLUMN_CIVIL_STATUS_UC    = "UCASE(d.civil_status)";
-
+        
     }
     
 }

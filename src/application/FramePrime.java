@@ -7,7 +7,7 @@ package application;
 
 import classes.ClassConstantsCustom;
 import classes.ClassLoadNewPanel;
-import java.util.function.Consumer;
+import project_001_hris.ClassConstantVariables;
 
 /**
  *
@@ -15,8 +15,18 @@ import java.util.function.Consumer;
  */
 public class FramePrime extends javax.swing.JFrame {
 
+    private String panel_used = "";
     private final ClassLoadNewPanel load_panel = new ClassLoadNewPanel();
-    private final ClassConstantsCustom constant = new ClassConstantsCustom();
+    private final classes.ClassConstantsCustom constant = new ClassConstantsCustom();
+    private final PanelDashboard panel_dbd = new PanelDashboard();
+    private final PanelCompany panel_cmp = new PanelCompany();
+    private final PanelEmployees panel_emp = new PanelEmployees();
+    private final PanelCategories panel_cat = new PanelCategories();
+    private final PanelDepartments panel_dpt = new PanelDepartments();
+    private final PanelPositions panel_pos = new PanelPositions();
+    private final PanelEligibilities panel_elg = new PanelEligibilities();
+    private final PanelTrainings panel_trn = new PanelTrainings();
+    private final PanelLeavelist panel_lvs = new PanelLeavelist();
 
     /**
      * Creates new form FramePrime
@@ -85,10 +95,7 @@ public class FramePrime extends javax.swing.JFrame {
         button_trn = new javax.swing.JToggleButton();
         button_lvs = new javax.swing.JToggleButton();
         panel_center = new javax.swing.JPanel();
-        panel_loading = new javax.swing.JPanel();
-        panel_breadcrumb_loading = new javax.swing.JPanel();
-        label_loading = new javax.swing.JLabel();
-        panel_main = new javax.swing.JPanel();
+        panel_home = new javax.swing.JPanel();
         panel_breadcrumb = new javax.swing.JPanel();
         panel_breadcrumb_panel = new javax.swing.JPanel();
         label_breadcrumb_text = new javax.swing.JLabel();
@@ -97,6 +104,10 @@ public class FramePrime extends javax.swing.JFrame {
         label_breadcrumb_title = new javax.swing.JLabel();
         label_breadcrumb_logo = new javax.swing.JLabel();
         panel_frame = new javax.swing.JPanel();
+        panel_main = new javax.swing.JPanel();
+        panel_loading = new javax.swing.JPanel();
+        panel_breadcrumb_loading = new javax.swing.JPanel();
+        label_loading = new javax.swing.JLabel();
 
         toolbar_lbl_btn.setFloatable(false);
         toolbar_lbl_btn.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -349,9 +360,14 @@ public class FramePrime extends javax.swing.JFrame {
         panel_top_logo.setLayout(new java.awt.GridBagLayout());
 
         label_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/logo.png"))); // NOI18N
+        label_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/logo-.png"))); // NOI18N
         label_logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         label_logo.setIconTextGap(10);
+        label_logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                label_logoMouseReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -461,6 +477,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_emp.setMaximumSize(new java.awt.Dimension(190, 49));
         button_emp.setMinimumSize(new java.awt.Dimension(190, 49));
         button_emp.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_emp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_empActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_emp);
 
         btn_grp.add(button_cat);
@@ -475,6 +496,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_cat.setMaximumSize(new java.awt.Dimension(190, 49));
         button_cat.setMinimumSize(new java.awt.Dimension(190, 49));
         button_cat.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_cat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_catActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_cat);
 
         btn_grp.add(button_dpt);
@@ -489,6 +515,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_dpt.setMaximumSize(new java.awt.Dimension(190, 49));
         button_dpt.setMinimumSize(new java.awt.Dimension(190, 49));
         button_dpt.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_dpt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_dptActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_dpt);
 
         btn_grp.add(button_pos);
@@ -503,6 +534,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_pos.setMaximumSize(new java.awt.Dimension(190, 49));
         button_pos.setMinimumSize(new java.awt.Dimension(190, 49));
         button_pos.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_pos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_posActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_pos);
 
         btn_grp.add(button_elg);
@@ -517,6 +553,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_elg.setMaximumSize(new java.awt.Dimension(190, 49));
         button_elg.setMinimumSize(new java.awt.Dimension(190, 49));
         button_elg.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_elg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_elgActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_elg);
 
         btn_grp.add(button_trn);
@@ -531,6 +572,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_trn.setMaximumSize(new java.awt.Dimension(190, 49));
         button_trn.setMinimumSize(new java.awt.Dimension(190, 49));
         button_trn.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_trn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_trnActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_trn);
 
         btn_grp.add(button_lvs);
@@ -545,6 +591,11 @@ public class FramePrime extends javax.swing.JFrame {
         button_lvs.setMaximumSize(new java.awt.Dimension(190, 49));
         button_lvs.setMinimumSize(new java.awt.Dimension(190, 49));
         button_lvs.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_lvs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_lvsActionPerformed(evt);
+            }
+        });
         toolbar_btn.add(button_lvs);
 
         panel_left.add(toolbar_btn, java.awt.BorderLayout.CENTER);
@@ -552,6 +603,55 @@ public class FramePrime extends javax.swing.JFrame {
         getContentPane().add(panel_left, java.awt.BorderLayout.LINE_START);
 
         panel_center.setLayout(new java.awt.CardLayout());
+
+        panel_home.setLayout(new java.awt.BorderLayout());
+
+        panel_breadcrumb.setBackground(new java.awt.Color(55, 55, 55));
+        panel_breadcrumb.setMaximumSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb.setMinimumSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb.setPreferredSize(new java.awt.Dimension(0, 35));
+        panel_breadcrumb.setLayout(new java.awt.BorderLayout());
+
+        panel_breadcrumb_panel.setOpaque(false);
+        panel_breadcrumb_panel.setLayout(new java.awt.BorderLayout());
+
+        label_breadcrumb_text.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_text.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 10));
+        panel_breadcrumb_panel.add(label_breadcrumb_text, java.awt.BorderLayout.CENTER);
+
+        label_breadcrumb_arrow.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 0));
+        label_breadcrumb_arrow.setPreferredSize(new java.awt.Dimension(17, 35));
+        panel_breadcrumb_panel.add(label_breadcrumb_arrow, java.awt.BorderLayout.LINE_END);
+
+        panel_breadcrumb.add(panel_breadcrumb_panel, java.awt.BorderLayout.CENTER);
+
+        panel_breadcrumb_title.setMinimumSize(new java.awt.Dimension(55, 35));
+        panel_breadcrumb_title.setOpaque(false);
+        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(114, 35));
+        panel_breadcrumb_title.setLayout(new java.awt.BorderLayout());
+
+        label_breadcrumb_title.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_title.setForeground(new java.awt.Color(255, 255, 255));
+        label_breadcrumb_title.setText("WELCOME");
+        panel_breadcrumb_title.add(label_breadcrumb_title, java.awt.BorderLayout.CENTER);
+
+        label_breadcrumb_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_25_home_house.png"))); // NOI18N
+        label_breadcrumb_logo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        label_breadcrumb_logo.setPreferredSize(new java.awt.Dimension(39, 35));
+        panel_breadcrumb_title.add(label_breadcrumb_logo, java.awt.BorderLayout.LINE_END);
+
+        panel_breadcrumb.add(panel_breadcrumb_title, java.awt.BorderLayout.LINE_END);
+
+        panel_home.add(panel_breadcrumb, java.awt.BorderLayout.PAGE_START);
+
+        panel_frame.setBackground(new java.awt.Color(255, 255, 255));
+        panel_frame.setLayout(new java.awt.CardLayout());
+        panel_home.add(panel_frame, java.awt.BorderLayout.CENTER);
+
+        panel_center.add(panel_home, "card_home");
+
+        panel_main.setLayout(new java.awt.BorderLayout());
+        panel_center.add(panel_main, "card_main");
 
         panel_loading.setBackground(new java.awt.Color(250, 250, 250));
         panel_loading.setLayout(new java.awt.BorderLayout());
@@ -569,55 +669,6 @@ public class FramePrime extends javax.swing.JFrame {
 
         panel_center.add(panel_loading, "card_loading");
 
-        panel_main.setLayout(new java.awt.BorderLayout());
-
-        panel_breadcrumb.setBackground(new java.awt.Color(55, 55, 55));
-        panel_breadcrumb.setMaximumSize(new java.awt.Dimension(0, 35));
-        panel_breadcrumb.setMinimumSize(new java.awt.Dimension(0, 35));
-        panel_breadcrumb.setPreferredSize(new java.awt.Dimension(0, 35));
-        panel_breadcrumb.setLayout(new java.awt.BorderLayout());
-
-        panel_breadcrumb_panel.setOpaque(false);
-        panel_breadcrumb_panel.setLayout(new java.awt.BorderLayout());
-
-        label_breadcrumb_text.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        label_breadcrumb_text.setForeground(new java.awt.Color(255, 255, 255));
-        label_breadcrumb_text.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        label_breadcrumb_text.setText("SUMMARY");
-        label_breadcrumb_text.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 10));
-        panel_breadcrumb_panel.add(label_breadcrumb_text, java.awt.BorderLayout.CENTER);
-
-        label_breadcrumb_arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_15_bullet_left.png"))); // NOI18N
-        label_breadcrumb_arrow.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 0));
-        label_breadcrumb_arrow.setPreferredSize(new java.awt.Dimension(17, 35));
-        panel_breadcrumb_panel.add(label_breadcrumb_arrow, java.awt.BorderLayout.LINE_END);
-
-        panel_breadcrumb.add(panel_breadcrumb_panel, java.awt.BorderLayout.CENTER);
-
-        panel_breadcrumb_title.setMinimumSize(new java.awt.Dimension(55, 35));
-        panel_breadcrumb_title.setOpaque(false);
-        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(130, 35));
-        panel_breadcrumb_title.setLayout(new java.awt.BorderLayout());
-
-        label_breadcrumb_title.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        label_breadcrumb_title.setForeground(new java.awt.Color(255, 255, 255));
-        label_breadcrumb_title.setText("DASHBOARD");
-        label_breadcrumb_title.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 3, 0));
-        panel_breadcrumb_title.add(label_breadcrumb_title, java.awt.BorderLayout.CENTER);
-
-        label_breadcrumb_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_25_dashboard.png"))); // NOI18N
-        label_breadcrumb_logo.setPreferredSize(new java.awt.Dimension(39, 35));
-        panel_breadcrumb_title.add(label_breadcrumb_logo, java.awt.BorderLayout.LINE_END);
-
-        panel_breadcrumb.add(panel_breadcrumb_title, java.awt.BorderLayout.LINE_END);
-
-        panel_main.add(panel_breadcrumb, java.awt.BorderLayout.PAGE_START);
-
-        panel_frame.setLayout(new java.awt.CardLayout());
-        panel_main.add(panel_frame, java.awt.BorderLayout.CENTER);
-
-        panel_center.add(panel_main, "card_main");
-
         getContentPane().add(panel_center, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -625,19 +676,102 @@ public class FramePrime extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initAdditionalComponents() {
+        
+        panel_used = constant.PANEL_HOME;
         load_panel.setParentPanel(panel_center);
+        load_panel.setButtonGroup(btn_grp);
     }
 
     private void button_dbdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dbdActionPerformed
-        
-        load_panel.loadFrame(new project_001_hris.PanelFrameCreate(), panel_main);
+        // Load the dashboard jPanel
+        if(!panel_used.equals(constant.PANEL_DBD)) {
+            
+            load_panel.loadFrame(panel_dbd, panel_main);
+            panel_used = constant.PANEL_DBD;
+        }
     }//GEN-LAST:event_button_dbdActionPerformed
 
     private void button_cmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cmpActionPerformed
-        
-        load_panel.loadFrame(new project_001_hris.PanelFrameSearch(), panel_main);
+        // Load the company jPanel
+        if(!panel_used.equals(constant.PANEL_CMP)) {
+            
+            load_panel.loadFrame(panel_cmp, panel_main);
+            panel_used = constant.PANEL_CMP;
+        }
     }//GEN-LAST:event_button_cmpActionPerformed
 
+    private void button_empActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_empActionPerformed
+        // Load the employees jPanel
+        if(!panel_used.equals(constant.PANEL_EMP)) {
+            
+            load_panel.loadFrame(panel_emp, panel_main);
+            panel_used = constant.PANEL_EMP;
+        }
+    }//GEN-LAST:event_button_empActionPerformed
+
+    private void button_catActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_catActionPerformed
+        // Load the categories jPanel
+        if(!panel_used.equals(constant.PANEL_CAT)) {
+            
+            load_panel.loadFrame(panel_cat, panel_main);
+            panel_used = constant.PANEL_CAT;
+        }
+    }//GEN-LAST:event_button_catActionPerformed
+
+    private void button_dptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dptActionPerformed
+        // Load the departments jPanel
+        if(!panel_used.equals(constant.PANEL_DPT)) {
+            
+            load_panel.loadFrame(panel_dpt, panel_main);
+            panel_used = constant.PANEL_DPT;
+        }
+    }//GEN-LAST:event_button_dptActionPerformed
+
+    private void button_posActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_posActionPerformed
+        // Load the positions jPanel
+        if(!panel_used.equals(constant.PANEL_POS)) {
+            
+            load_panel.loadFrame(panel_pos, panel_main);
+            panel_used = constant.PANEL_POS;
+        }
+    }//GEN-LAST:event_button_posActionPerformed
+
+    private void button_elgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_elgActionPerformed
+        // Load the eligibilities jPanel
+        if(!panel_used.equals(constant.PANEL_ELG)) {
+            
+            load_panel.loadFrame(panel_elg, panel_main);
+            panel_used = constant.PANEL_ELG;
+        }
+    }//GEN-LAST:event_button_elgActionPerformed
+
+    private void button_trnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_trnActionPerformed
+        // Load the eligibilities jPanel
+        if(!panel_used.equals(constant.PANEL_TRN)) {
+            
+            load_panel.loadFrame(panel_trn, panel_main);
+            panel_used = constant.PANEL_TRN;
+        }
+    }//GEN-LAST:event_button_trnActionPerformed
+
+    private void button_lvsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lvsActionPerformed
+        // Load the eligibilities jPanel
+        if(!panel_used.equals(constant.PANEL_LVS)) {
+            
+            load_panel.loadFrame(panel_lvs, panel_main);
+            panel_used = constant.PANEL_LVS;
+        }
+    }//GEN-LAST:event_button_lvsActionPerformed
+
+    private void label_logoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseReleased
+        // Load back to welcome page
+        if(!panel_used.equals(constant.PANEL_HOME)) {
+            
+            load_panel.goFrameHome(panel_main);
+            btn_grp.clearSelection();
+            this.panel_used = constant.PANEL_HOME;
+        }
+    }//GEN-LAST:event_label_logoMouseReleased
 
     /**
      * @param args the command line arguments
@@ -718,6 +852,7 @@ public class FramePrime extends javax.swing.JFrame {
     private javax.swing.JPanel panel_breadcrumb_title;
     private javax.swing.JPanel panel_center;
     private javax.swing.JPanel panel_frame;
+    private javax.swing.JPanel panel_home;
     private javax.swing.JPanel panel_left;
     private javax.swing.JPanel panel_loading;
     private javax.swing.JPanel panel_main;
