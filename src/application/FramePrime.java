@@ -7,7 +7,6 @@ package application;
 
 import classes.ClassConstantsCustom;
 import classes.ClassLoadNewPanel;
-import project_001_hris.ClassConstantVariables;
 
 /**
  *
@@ -107,7 +106,10 @@ public class FramePrime extends javax.swing.JFrame {
         panel_main = new javax.swing.JPanel();
         panel_loading = new javax.swing.JPanel();
         panel_breadcrumb_loading = new javax.swing.JPanel();
-        label_loading = new javax.swing.JLabel();
+        panel_loading_gif = new javax.swing.JPanel();
+        label_loading_text = new javax.swing.JLabel();
+        label_loading_border = new javax.swing.JLabel();
+        label_loading_animated = new javax.swing.JLabel();
 
         toolbar_lbl_btn.setFloatable(false);
         toolbar_lbl_btn.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -650,6 +652,7 @@ public class FramePrime extends javax.swing.JFrame {
 
         panel_center.add(panel_home, "card_home");
 
+        panel_main.setBackground(new java.awt.Color(255, 255, 255));
         panel_main.setLayout(new java.awt.BorderLayout());
         panel_center.add(panel_main, "card_main");
 
@@ -663,9 +666,51 @@ public class FramePrime extends javax.swing.JFrame {
         panel_breadcrumb_loading.setLayout(new java.awt.BorderLayout());
         panel_loading.add(panel_breadcrumb_loading, java.awt.BorderLayout.PAGE_START);
 
-        label_loading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_loading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/loading.gif"))); // NOI18N
-        panel_loading.add(label_loading, java.awt.BorderLayout.CENTER);
+        panel_loading_gif.setBackground(new java.awt.Color(255, 255, 255));
+        panel_loading_gif.setLayout(new java.awt.GridBagLayout());
+
+        label_loading_text.setFont(new java.awt.Font("Century Gothic", 0, 45)); // NOI18N
+        label_loading_text.setForeground(new java.awt.Color(220, 220, 220));
+        label_loading_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_loading_text.setText("Loading...");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 40, 0);
+        panel_loading_gif.add(label_loading_text, gridBagConstraints);
+
+        label_loading_border.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        label_loading_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/loading-flip-flop-border.png"))); // NOI18N
+        label_loading_border.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        panel_loading_gif.add(label_loading_border, gridBagConstraints);
+
+        label_loading_animated.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        label_loading_animated.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/loading-flip-flop.gif"))); // NOI18N
+        label_loading_animated.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 12, 12);
+        panel_loading_gif.add(label_loading_animated, gridBagConstraints);
+
+        panel_loading.add(panel_loading_gif, java.awt.BorderLayout.CENTER);
 
         panel_center.add(panel_loading, "card_loading");
 
@@ -825,7 +870,9 @@ public class FramePrime extends javax.swing.JFrame {
     private javax.swing.JLabel label_breadcrumb_text;
     private javax.swing.JLabel label_breadcrumb_title;
     private javax.swing.JLabel label_btn;
-    private javax.swing.JLabel label_loading;
+    private javax.swing.JLabel label_loading_animated;
+    private javax.swing.JLabel label_loading_border;
+    private javax.swing.JLabel label_loading_text;
     private javax.swing.JLabel label_logo;
     private javax.swing.JLabel label_space;
     private javax.swing.JLabel lbl_btn_cat;
@@ -855,6 +902,7 @@ public class FramePrime extends javax.swing.JFrame {
     private javax.swing.JPanel panel_home;
     private javax.swing.JPanel panel_left;
     private javax.swing.JPanel panel_loading;
+    private javax.swing.JPanel panel_loading_gif;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_top;
     private javax.swing.JPanel panel_top_logo;

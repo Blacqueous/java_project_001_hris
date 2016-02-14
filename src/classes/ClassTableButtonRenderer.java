@@ -5,10 +5,12 @@
  */
 package classes;
 
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.table.TableCellRenderer;
 
@@ -18,23 +20,44 @@ import javax.swing.table.TableCellRenderer;
  */
 public class ClassTableButtonRenderer extends JButton implements TableCellRenderer {
 
-        public ClassTableButtonRenderer(ImageIcon icon) {
-            setOpaque(true);
-            setIcon(icon);
-        }
+    protected boolean isPushed;
+    protected Color oddColor;
+    protected Color evenColor;
+    protected Color selectedColor;
+    protected JButton button;
+    protected JTable table;
+    protected String label;
+    protected String action;
 
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value,
-                boolean isSelected, boolean hasFocus, int row, int column) {
-            if (isSelected) {
-                setForeground(table.getSelectionForeground());
-                setBackground(table.getSelectionBackground());
-            } else {
-                setForeground(table.getForeground());
-                setBackground(UIManager.getColor("Button.background"));
-            }
-            setText((value == null) ? "" : value.toString());
-            return this;
+    public ClassTableButtonRenderer(final ImageIcon icon, final Color odd, final Color even, final Color selColor) {
+        
+        this.oddColor = odd;
+        this.evenColor = even;
+        this.selectedColor = selColor;
+        
+        setOpaque(true);
+        setIcon(icon);
+    }
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        
+        isPushed = true;
+        
+        if(row%2 == 0) {
+            setBackground(oddColor);
+        } else {
+            setBackground(evenColor);
         }
+        
+        if(isSelected) {
+            setBackground(selectedColor);
+        }
+        
+        label = (value == null) ? "" : value.toString();
+        setText(label);
+        
+        return this;
+    }
 
 }

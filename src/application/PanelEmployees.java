@@ -11,11 +11,14 @@ package application;
  */
 public class PanelEmployees extends javax.swing.JPanel {
 
+    private final PanelEmployeesSummary panel_smy = new PanelEmployeesSummary();
+
     /**
      * Creates new form PanelDashboard
      */
     public PanelEmployees() {
         initComponents();
+        initAdditionalComponents();
     }
 
     /**
@@ -86,6 +89,9 @@ public class PanelEmployees extends javax.swing.JPanel {
         add(panel_frame, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void initAdditionalComponents() {
+        panel_frame.add(panel_smy);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel label_breadcrumb_arrow;

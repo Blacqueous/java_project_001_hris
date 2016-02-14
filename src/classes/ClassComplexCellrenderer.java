@@ -21,6 +21,8 @@ import javax.swing.border.EmptyBorder;
 public class ClassComplexCellrenderer implements ListCellRenderer {
 
     protected DefaultListCellRenderer defaultRenderer = new DefaultListCellRenderer();
+    public Font fontTitle;
+    public Font font;
     public String title;
 
     /**
@@ -31,9 +33,9 @@ public class ClassComplexCellrenderer implements ListCellRenderer {
 
     @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-
+        
         JLabel renderer = (JLabel) defaultRenderer.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-
+        
         if(value.toString().trim().equals("")) {
             renderer.setText(title);
             renderer.setForeground(new Color(0, 0, 0, 0.2f));
@@ -42,7 +44,7 @@ public class ClassComplexCellrenderer implements ListCellRenderer {
             } else {
                 renderer.setBorder(new EmptyBorder(5, 15, 5, 15));
             }
-            renderer.setFont(new Font("Arial", Font.ITALIC, 11));
+            renderer.setFont(fontTitle);
         } else {
             renderer.setText(value.toString());
             renderer.setForeground(new Color(0, 0, 0));
@@ -51,12 +53,11 @@ public class ClassComplexCellrenderer implements ListCellRenderer {
             } else {
                 renderer.setBorder(new EmptyBorder(2, 15, 2, 15));
             }
-            renderer.setFont(new Font("Arial", Font.PLAIN, 11));
+            renderer.setFont(font);
         }
-
-
+        
         return renderer;
-
+        
     }
 
 }
