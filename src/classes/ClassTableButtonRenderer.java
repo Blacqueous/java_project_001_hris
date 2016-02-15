@@ -30,33 +30,33 @@ public class ClassTableButtonRenderer extends JButton implements TableCellRender
     protected String action;
 
     public ClassTableButtonRenderer(final ImageIcon icon, final Color odd, final Color even, final Color selColor) {
-        
+
         this.oddColor = odd;
         this.evenColor = even;
         this.selectedColor = selColor;
-        
+
         setOpaque(true);
         setIcon(icon);
     }
 
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-        
+
         isPushed = true;
-        
-        if(row%2 == 0) {
+
+        if (row % 2 == 0) {
             setBackground(oddColor);
         } else {
             setBackground(evenColor);
         }
-        
-        if(isSelected) {
+
+        if (isSelected) {
             setBackground(selectedColor);
         }
-        
+
         label = (value == null) ? "" : value.toString();
         setText(label);
-        
+
         return this;
     }
 
