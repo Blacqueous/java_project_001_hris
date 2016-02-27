@@ -21,7 +21,7 @@ public class ClassTableHeaderListenerCheckbox implements TableModelListener {
 
         SELECTED, DESELECTED, INDETERMINATE
     };
-    
+
     private final JTable table;
     protected int mci;
 
@@ -34,15 +34,12 @@ public class ClassTableHeaderListenerCheckbox implements TableModelListener {
     @Override
     public void tableChanged(TableModelEvent e) {
 
-        if (e.getType() == TableModelEvent.UPDATE && e.getColumn() == 0) {
+        if (e.getType() == TableModelEvent.UPDATE && e.getColumn() == mci) {
 
-            // int mci = 0;
             int vci = this.table.convertColumnIndexToView(this.mci);
             TableColumn column = this.table.getColumnModel().getColumn(vci);
             Object title = column.getHeaderValue();
             if (!Status.INDETERMINATE.equals(title)) {
-
-                System.out.println("INDETERMINATE");
                 column.setHeaderValue(Status.INDETERMINATE);
             } else {
 
@@ -58,10 +55,8 @@ public class ClassTableHeaderListenerCheckbox implements TableModelListener {
                 }
 
                 if (selected == 0) {
-                    System.out.println("DESELECTED");
                     column.setHeaderValue(Status.DESELECTED);
                 } else if (deselected == 0) {
-                    System.out.println("SELECTED");
                     column.setHeaderValue(Status.SELECTED);
                 } else {
                     return;
@@ -71,39 +66,4 @@ public class ClassTableHeaderListenerCheckbox implements TableModelListener {
             this.table.getTableHeader().repaint();
         }
     }
-    
-//    @Override
-//    public void tableChanged(TableModelEvent e) {
-//        if (e.getType() == TableModelEvent.UPDATE && e.getColumn() == 0) {
-//            int mci = 1;
-//            int vci = this.table.convertColumnIndexToView(mci);
-//            TableColumn column = this.table.getColumnModel().getColumn(vci);
-//            Object title = column.getHeaderValue();
-//            if (!Status.INDETERMINATE.equals(title)) {
-//                System.out.println("INDETERMINATE");
-//                column.setHeaderValue(Status.INDETERMINATE);
-//            } else {
-//                int selected = 0, deselected = 0;
-//                TableModel m = this.table.getModel();
-//                for (int i = 0; i < m.getRowCount(); i++) {
-//                    if (Boolean.TRUE.equals(m.getValueAt(i, mci))) {
-//                        selected++;
-//                    } else {
-//                        deselected++;
-//                    }
-//                }
-//                if (selected == 0) {
-//                    System.out.println("DESELECTED");
-//                    column.setHeaderValue(Status.DESELECTED);
-//                } else if (deselected == 0) {
-//                    System.out.println("SELECTED");
-//                    column.setHeaderValue(Status.SELECTED);
-//                } else {
-//                    return;
-//                }
-//            }
-//            this.table.getTableHeader().repaint();
-//        }
-//    }
-
 }

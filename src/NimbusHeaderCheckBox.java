@@ -1,4 +1,6 @@
 
+import classes.ClassTableHeaderListenerCheckbox;
+import classes.ClassTableHeaderRendererCheckbox;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.EventQueue;
@@ -15,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -46,9 +49,11 @@ public class NimbusHeaderCheckBox {
             }
         };
         JTable table = new JTable(model);
-        model.addTableModelListener(new HeaderCheckBoxHandler(table));
+//        model.addTableModelListener(new HeaderCheckBoxHandler(table));
+        model.addTableModelListener(new ClassTableHeaderListenerCheckbox(table, 0));
 
-        TableCellRenderer r = new HeaderRenderer(table.getTableHeader(), 0);
+//        TableCellRenderer r = new HeaderRenderer(table.getTableHeader(), 0);
+        TableCellRenderer r = new ClassTableHeaderRendererCheckbox(table.getTableHeader(), 0);
         table.getColumnModel().getColumn(0).setHeaderRenderer(r);
         //<ins>
         TableCellRenderer leftAlign = new LeftAlignHeaderRenderer();
@@ -76,8 +81,7 @@ public class NimbusHeaderCheckBox {
                     UIManager.setLookAndFeel(laf.getClassName());
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -105,7 +109,7 @@ class HeaderRenderer extends JCheckBox implements TableCellRenderer {
                 if (mci == targetColumnIndex) {
                     TableColumn column = columnModel.getColumn(vci);
                     Object v = column.getHeaderValue();
-                    boolean b = Status.DESELECTED.equals(v) ? true : false;
+                    boolean b = Status.DESELECTED.equals(v);
                     TableModel m = table.getModel();
                     for (int i = 0; i < m.getRowCount(); i++) {
                         m.setValueAt(b, i, mci);

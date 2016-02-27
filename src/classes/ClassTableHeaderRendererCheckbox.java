@@ -43,7 +43,6 @@ public class ClassTableHeaderRendererCheckbox extends JCheckBox implements Table
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("~");
                 JTableHeader header = (JTableHeader) e.getSource();
                 JTable table = header.getTable();
                 TableColumnModel columnModel = table.getColumnModel();
@@ -61,7 +60,7 @@ public class ClassTableHeaderRendererCheckbox extends JCheckBox implements Table
 
                         m.setValueAt(b, i, mci);
                     }
-
+                    System.out.println(b);
                     column.setHeaderValue(b ? Status.SELECTED : Status.DESELECTED);
                 }
             }

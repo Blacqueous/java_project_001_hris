@@ -438,9 +438,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_dbd.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_dbd.setIconTextGap(8);
         button_dbd.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_dbd.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_dbd.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_dbd.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_dbd.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_dbd.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_dbd.setPreferredSize(new java.awt.Dimension(190, 48));
         button_dbd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_dbdActionPerformed(evt);
@@ -457,9 +457,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_cmp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_cmp.setIconTextGap(8);
         button_cmp.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_cmp.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_cmp.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_cmp.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_cmp.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_cmp.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_cmp.setPreferredSize(new java.awt.Dimension(190, 48));
         button_cmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_cmpActionPerformed(evt);
@@ -476,9 +476,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_emp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_emp.setIconTextGap(8);
         button_emp.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_emp.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_emp.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_emp.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_emp.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_emp.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_emp.setPreferredSize(new java.awt.Dimension(190, 48));
         button_emp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_empActionPerformed(evt);
@@ -495,9 +495,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_cat.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_cat.setIconTextGap(8);
         button_cat.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_cat.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_cat.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_cat.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_cat.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_cat.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_cat.setPreferredSize(new java.awt.Dimension(190, 48));
         button_cat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_catActionPerformed(evt);
@@ -514,9 +514,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_dpt.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_dpt.setIconTextGap(8);
         button_dpt.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_dpt.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_dpt.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_dpt.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_dpt.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_dpt.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_dpt.setPreferredSize(new java.awt.Dimension(190, 48));
         button_dpt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_dptActionPerformed(evt);
@@ -533,9 +533,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_pos.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_pos.setIconTextGap(8);
         button_pos.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_pos.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_pos.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_pos.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_pos.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_pos.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_pos.setPreferredSize(new java.awt.Dimension(190, 48));
         button_pos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_posActionPerformed(evt);
@@ -552,9 +552,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_elg.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_elg.setIconTextGap(8);
         button_elg.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_elg.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_elg.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_elg.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_elg.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_elg.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_elg.setPreferredSize(new java.awt.Dimension(190, 48));
         button_elg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_elgActionPerformed(evt);
@@ -571,9 +571,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_trn.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         button_trn.setIconTextGap(8);
         button_trn.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_trn.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_trn.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_trn.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_trn.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_trn.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_trn.setPreferredSize(new java.awt.Dimension(190, 48));
         button_trn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_trnActionPerformed(evt);
@@ -590,9 +590,9 @@ public class FramePrime extends javax.swing.JFrame {
         button_lvs.setIconTextGap(8);
         button_lvs.setLabel("Leave List");
         button_lvs.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_lvs.setMaximumSize(new java.awt.Dimension(190, 49));
-        button_lvs.setMinimumSize(new java.awt.Dimension(190, 49));
-        button_lvs.setPreferredSize(new java.awt.Dimension(190, 49));
+        button_lvs.setMaximumSize(new java.awt.Dimension(190, 48));
+        button_lvs.setMinimumSize(new java.awt.Dimension(190, 48));
+        button_lvs.setPreferredSize(new java.awt.Dimension(190, 48));
         button_lvs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_lvsActionPerformed(evt);

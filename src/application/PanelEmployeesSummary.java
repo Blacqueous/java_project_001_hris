@@ -35,13 +35,9 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -342,13 +338,12 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         table.setDefaultRenderer(String.class, chkboxCellRenderer.StringCellRenderer(rowBGColorOdd, rowBGColorEvn, rowBGColorSel));
 
         // Initialize checkbox on table header
-//        model.addTableModelListener(new ClassTableHeaderListenerCheckbox(table, 1));
-        // model.addTableModelListener(new HeaderCheckBoxHandler(table));
+        model.addTableModelListener(new ClassTableHeaderListenerCheckbox(table, 1));
 
         // Initialize checkbox on table columns
-        TableCellRenderer checkboxHeader = new ClassTableHeaderRendererCheckbox(table.getTableHeader(), 1);
-        table.getColumnModel().getColumn(1).setHeaderRenderer(checkboxHeader);
-        table.getColumnModel().getColumn(2).setHeaderRenderer(th_align_center);
+        TableCellRenderer r = new ClassTableHeaderRendererCheckbox(table.getTableHeader(), 1);
+        table.getColumnModel().getColumn(1).setHeaderRenderer(r);
+        table.getColumnModel().getColumn(2).setHeaderRenderer(th_align_left);
         table.getColumnModel().getColumn(3).setHeaderRenderer(th_align_center);
         table.getColumnModel().getColumn(4).setHeaderRenderer(th_align_center);
         table.getColumnModel().getColumn(5).setHeaderRenderer(th_align_center);
@@ -498,6 +493,11 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
                     }
 
                     // Add column data
+                    model.addRow(addRow.toArray());
+                    model.addRow(addRow.toArray());
+                    model.addRow(addRow.toArray());
+                    model.addRow(addRow.toArray());
+                    model.addRow(addRow.toArray());
                     model.addRow(addRow.toArray());
 
                     rowCount++;
