@@ -5,13 +5,21 @@
  */
 package application;
 
+import classes.ClassConstantsCustom;
+import classes.ClassLoadNewPanel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author egrubellano
  */
 public class PanelEmployees extends javax.swing.JPanel {
 
-    private final PanelEmployeesSummary panel_smy = new PanelEmployeesSummary();
+    public final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
+    private final ClassConstantsCustom constant = new ClassConstantsCustom();
+    public final PanelEmployeesSummary panel_smy = new PanelEmployeesSummary();
+    public final PanelEmployeesCreate  panel_crt = new PanelEmployeesCreate();
+    public final PanelLeavelist panel_lvs = new PanelLeavelist();
 
     /**
      * Creates new form PanelDashboard
@@ -29,6 +37,7 @@ public class PanelEmployees extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         panel_breadcrumb = new javax.swing.JPanel();
         panel_breadcrumb_panel = new javax.swing.JPanel();
@@ -38,6 +47,12 @@ public class PanelEmployees extends javax.swing.JPanel {
         label_breadcrumb_title = new javax.swing.JLabel();
         label_breadcrumb_logo = new javax.swing.JLabel();
         panel_frame = new javax.swing.JPanel();
+        panel_main = new javax.swing.JPanel();
+        panel_loading = new javax.swing.JPanel();
+        panel_loading_gif = new javax.swing.JPanel();
+        label_loading_text = new javax.swing.JLabel();
+        label_loading_border = new javax.swing.JLabel();
+        label_loading_animated = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -86,11 +101,86 @@ public class PanelEmployees extends javax.swing.JPanel {
 
         panel_frame.setBackground(new java.awt.Color(255, 255, 255));
         panel_frame.setLayout(new java.awt.CardLayout());
+
+        panel_main.setBackground(new java.awt.Color(255, 255, 255));
+        panel_main.setLayout(new java.awt.CardLayout());
+        panel_frame.add(panel_main, "card_main");
+
+        panel_loading.setBackground(new java.awt.Color(250, 250, 250));
+        panel_loading.setLayout(new java.awt.BorderLayout());
+
+        panel_loading_gif.setBackground(new java.awt.Color(255, 255, 255));
+        panel_loading_gif.setLayout(new java.awt.GridBagLayout());
+
+        label_loading_text.setFont(new java.awt.Font("Century Gothic", 0, 45)); // NOI18N
+        label_loading_text.setForeground(new java.awt.Color(220, 220, 220));
+        label_loading_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_loading_text.setText("Loading...");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 40, 0);
+        panel_loading_gif.add(label_loading_text, gridBagConstraints);
+
+        label_loading_border.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        label_loading_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/loading-flip-flop-border.png"))); // NOI18N
+        label_loading_border.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        panel_loading_gif.add(label_loading_border, gridBagConstraints);
+
+        label_loading_animated.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        label_loading_animated.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/misc/loading-flip-flop.gif"))); // NOI18N
+        label_loading_animated.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 12, 12);
+        panel_loading_gif.add(label_loading_animated, gridBagConstraints);
+
+        panel_loading.add(panel_loading_gif, java.awt.BorderLayout.CENTER);
+
+        panel_frame.add(panel_loading, "card_loading");
+
         add(panel_frame, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents() {
-        panel_frame.add(panel_smy);
+
+        panel_crt.setParentFrame(this);
+        panel_smy.setParentFrame(this);
+
+        load_panel.setParentPanel(panel_frame);
+
+        loadSummary();
+    }
+
+    public void loadCreate() {
+
+        load_panel.loadFrame(panel_crt, panel_main);
+        label_breadcrumb_text.setText("CREATE");
+    }
+
+    public void loadSummary() {
+
+        panel_smy.resetLabelButtons();
+        load_panel.loadFrame(panel_smy, panel_main);
+        label_breadcrumb_text.setText("SUMMARY");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -98,9 +188,15 @@ public class PanelEmployees extends javax.swing.JPanel {
     private javax.swing.JLabel label_breadcrumb_logo;
     private javax.swing.JLabel label_breadcrumb_text;
     private javax.swing.JLabel label_breadcrumb_title;
+    private javax.swing.JLabel label_loading_animated;
+    private javax.swing.JLabel label_loading_border;
+    private javax.swing.JLabel label_loading_text;
     private javax.swing.JPanel panel_breadcrumb;
     private javax.swing.JPanel panel_breadcrumb_panel;
     private javax.swing.JPanel panel_breadcrumb_title;
     private javax.swing.JPanel panel_frame;
+    private javax.swing.JPanel panel_loading;
+    private javax.swing.JPanel panel_loading_gif;
+    private javax.swing.JPanel panel_main;
     // End of variables declaration//GEN-END:variables
 }

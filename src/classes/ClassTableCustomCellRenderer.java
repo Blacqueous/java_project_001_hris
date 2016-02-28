@@ -16,7 +16,7 @@ import javax.swing.table.TableCellRenderer;
  *
  * @author egrubellano
  */
-public class ClassJTableCustomCellRenderer {
+public class ClassTableCustomCellRenderer {
     
     public TableCellRenderer CheckboxCellRenderer(final Color odd, final Color even, final Color selColor) {
         

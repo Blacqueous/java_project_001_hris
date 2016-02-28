@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
  */
 public class ClassSearchBy {
 
-    ClassConstantsCustom constant = new ClassConstantsCustom();
+    private final ClassConstantsCustom constant = new ClassConstantsCustom();
     private String whereColumn = "";
 
     public String searchBySelect(JComboBox comboBox) {
@@ -46,7 +46,6 @@ public class ClassSearchBy {
         }
 
         return whereColumn;
-
     }
 
     public String searchBySelect(JComboBox comboBox, String whereString) {
@@ -74,13 +73,43 @@ public class ClassSearchBy {
                 whereColumn = constant.COLUMN_CATEGORY_UC + " LIKE '" + whereString +"%'";
                 break;
             default:
-//                whereColumn = constant.COLUMN_FULL_NAME + " LIKE '" + whereString +"%'";
                 whereColumn = constant.COLUMN_FIRST_NAME_UC + " LIKE '%" + whereString +"%' OR " + constant.COLUMN_MIDDLE_NAME_UC + " LIKE '%" + whereString +"%' OR " + constant.COLUMN_LAST_NAME_UC + " LIKE '%" + whereString +"%'";
                 break;
         }
 
         return whereColumn;
+    }
 
+
+    public String searchByString(String whereLabel, String whereString) {
+
+        if (whereLabel.equals(constant.TABLE_SEARCH_NAME_FIRST)) {
+
+            whereColumn = constant.COLUMN_FIRST_NAME_UC + " LIKE '" + whereString + "%'";
+        } else if (whereLabel.equals(constant.TABLE_SEARCH_NAME_MIDDLE)) {
+
+            whereColumn = constant.COLUMN_MIDDLE_NAME_UC + " LIKE '" + whereString + "%'";
+        } else if (whereLabel.equals(constant.TABLE_SEARCH_NAME_LAST)) {
+
+            whereColumn = constant.COLUMN_LAST_NAME_UC + " LIKE '" + whereString + "%'";
+        } else if (whereLabel.equals(constant.TABLE_SEARCH_PLANTILLA_NO)) {
+
+            whereColumn = constant.COLUMN_PLANTILLA_NUM_UC + " LIKE '" + whereString + "%'";
+        } else if (whereLabel.equals(constant.TABLE_SEARCH_POSITION)) {
+
+            whereColumn = constant.COLUMN_POSITION_UC + " LIKE '" + whereString + "%'";
+        } else if (whereLabel.equals(constant.TABLE_SEARCH_OFFICE)) {
+
+            whereColumn = constant.COLUMN_OFFICE_UC + " LIKE '" + whereString + "%'";
+        } else if (whereLabel.equals(constant.TABLE_SEARCH_CATEGORY)) {
+
+            whereColumn = constant.COLUMN_CATEGORY_UC + " LIKE '" + whereString + "%'";
+        } else {
+
+            whereColumn = constant.COLUMN_FIRST_NAME_UC + " LIKE '%" + whereString + "%' OR " + constant.COLUMN_MIDDLE_NAME_UC + " LIKE '%" + whereString + "%' OR " + constant.COLUMN_LAST_NAME_UC + " LIKE '%" + whereString +"%'";
+        }
+
+        return whereColumn;
     }
 
 }

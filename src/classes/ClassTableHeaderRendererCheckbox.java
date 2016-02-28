@@ -60,7 +60,7 @@ public class ClassTableHeaderRendererCheckbox extends JCheckBox implements Table
 
                         m.setValueAt(b, i, mci);
                     }
-                    System.out.println(b);
+
                     column.setHeaderValue(b ? Status.SELECTED : Status.DESELECTED);
                 }
             }

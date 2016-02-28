@@ -381,7 +381,7 @@ public class ClassMyDBConnectionEmbeddedDerby {
                                                 + " name_first VARCHAR(100) NOT NULL DEFAULT '', "
                                                 + " name_middle VARCHAR(100) NOT NULL DEFAULT '', "
                                                 + " name_last VARCHAR(100) NOT NULL DEFAULT '', "
-                                                + " plantilla_id INT NOT NULL DEFAULT 0, "
+                                                + " plantilla_id VARCHAR(100) NOT NULL DEFAULT '', "
                                                 + " list_cat_id INT NOT NULL DEFAULT 1, "
                                                 + " list_off_id INT NOT NULL DEFAULT 1, "
                                                 + " list_pos_id INT NOT NULL DEFAULT 1, "
@@ -500,8 +500,8 @@ public class ClassMyDBConnectionEmbeddedDerby {
     }
 
     // RUN PROGRAM
-//    public static void main(String[] args) throws SQLException {
-//        initDB();
+    public static void main(String[] args) throws SQLException {
+        initDB();
 //
 //        System.out.println("ACCOUNT TYPE");
 ////        createTableAccountType();
@@ -545,12 +545,12 @@ public class ClassMyDBConnectionEmbeddedDerby {
 //
 //        System.out.println("\nEMPLOYEE HEADER");
 //        createTableEmployeeHeader();
-//        insertTableEmployeeHeader();
+////        insertTableEmployeeHeader();
 //        viewTable(constant.TABLE_EMPLOYEE_HEADER);
-
+//
 //        System.out.println("\nEMPLOYEE DETAIL");
 //        createTableEmployeeDetail();
-//        insertTableEmployeeDetail();
+////        insertTableEmployeeDetail();
 //        viewTable(constant.TABLE_EMPLOYEE_DETAIL);
 //
 //        System.out.println("\nDEPENDENTS MANAGER");
@@ -564,10 +564,10 @@ public class ClassMyDBConnectionEmbeddedDerby {
 //        System.out.println("\nTRAINING MANAGER");
 ////        createTableSettingsManageTraining();
 //        viewTable(constant.TABLE_MANAGE_TRAINING);
-//
-//        myConnection.close();
-//
-//    }
+
+        myConnection.close();
+
+    }
 
 }
 

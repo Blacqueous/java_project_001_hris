@@ -901,10 +901,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_speedometer_.png"/>
@@ -912,18 +912,18 @@
                 <Property name="text" type="java.lang.String" value="Dashboard"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -936,10 +936,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_tower_2.png"/>
@@ -947,18 +947,18 @@
                 <Property name="text" type="java.lang.String" value="Company"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -971,10 +971,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_staff_group_01.png"/>
@@ -982,18 +982,18 @@
                 <Property name="text" type="java.lang.String" value="Employees"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -1006,10 +1006,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_category_.png"/>
@@ -1017,18 +1017,18 @@
                 <Property name="text" type="java.lang.String" value="Categories"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -1041,10 +1041,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_museum.png"/>
@@ -1052,18 +1052,18 @@
                 <Property name="text" type="java.lang.String" value="Departments"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -1076,10 +1076,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_briefcase.png"/>
@@ -1087,18 +1087,18 @@
                 <Property name="text" type="java.lang.String" value="Positions"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -1111,10 +1111,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_checklist_.png"/>
@@ -1122,18 +1122,18 @@
                 <Property name="text" type="java.lang.String" value="Eligibilities"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -1146,10 +1146,10 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_blackboard_steps.png"/>
@@ -1157,18 +1157,18 @@
                 <Property name="text" type="java.lang.String" value="Trainings"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>
@@ -1181,29 +1181,29 @@
                   <ComponentRef name="btn_grp"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="13" style="1"/>
+                  <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="28" red="28" type="rgb"/>
+                  <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons/icon_32_tags_three_.png"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="10"/>
-                <Property name="iconTextGap" type="int" value="8"/>
+                <Property name="iconTextGap" type="int" value="15"/>
                 <Property name="label" type="java.lang.String" value="Leave List"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 31, 2, 14]"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[190, 48]"/>
+                  <Dimension value="[190, 50]"/>
                 </Property>
               </Properties>
               <Events>

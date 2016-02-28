@@ -6,14 +6,12 @@
 package classes;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Paint;
 import java.awt.geom.RoundRectangle2D;
-import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -34,7 +32,7 @@ public class ClassTextfieldRound extends JTextField {
         setOpaque(false); 
         setBorder(new EmptyBorder(0,20,0,20)); 
 //        setImage();
-    } 
+    }
 
     @Override 
      protected void paintComponent(Graphics g) { 

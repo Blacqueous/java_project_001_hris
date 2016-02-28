@@ -15,17 +15,17 @@ import classes.ClassLoadNewPanel;
 public class FramePrime extends javax.swing.JFrame {
 
     private String panel_used = "";
-    private final ClassLoadNewPanel load_panel = new ClassLoadNewPanel();
-    private final classes.ClassConstantsCustom constant = new ClassConstantsCustom();
-    private final PanelDashboard panel_dbd = new PanelDashboard();
-    private final PanelCompany panel_cmp = new PanelCompany();
-    private final PanelEmployees panel_emp = new PanelEmployees();
-    private final PanelCategories panel_cat = new PanelCategories();
-    private final PanelDepartments panel_dpt = new PanelDepartments();
-    private final PanelPositions panel_pos = new PanelPositions();
+    private final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
+    private final ClassConstantsCustom constant = new ClassConstantsCustom();
+    private final PanelDashboard     panel_dbd = new PanelDashboard();
+    private final PanelCompany       panel_cmp = new PanelCompany();
+    private final PanelEmployees     panel_emp = new PanelEmployees();
+    private final PanelCategories    panel_cat = new PanelCategories();
+    private final PanelDepartments   panel_dpt = new PanelDepartments();
+    private final PanelPositions     panel_pos = new PanelPositions();
     private final PanelEligibilities panel_elg = new PanelEligibilities();
-    private final PanelTrainings panel_trn = new PanelTrainings();
-    private final PanelLeavelist panel_lvs = new PanelLeavelist();
+    private final PanelTrainings     panel_trn = new PanelTrainings();
+    private final PanelLeavelist     panel_lvs = new PanelLeavelist();
 
     /**
      * Creates new form FramePrime
@@ -430,17 +430,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(label_);
 
         btn_grp.add(button_dbd);
-        button_dbd.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_dbd.setForeground(new java.awt.Color(40, 40, 40));
+        button_dbd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_dbd.setForeground(new java.awt.Color(60, 60, 60));
         button_dbd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_speedometer_.png"))); // NOI18N
         button_dbd.setText("Dashboard");
         button_dbd.setFocusable(false);
         button_dbd.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_dbd.setIconTextGap(8);
+        button_dbd.setIconTextGap(15);
         button_dbd.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_dbd.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_dbd.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_dbd.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_dbd.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_dbd.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_dbd.setPreferredSize(new java.awt.Dimension(190, 50));
         button_dbd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_dbdActionPerformed(evt);
@@ -449,17 +449,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_dbd);
 
         btn_grp.add(button_cmp);
-        button_cmp.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_cmp.setForeground(new java.awt.Color(40, 40, 40));
+        button_cmp.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_cmp.setForeground(new java.awt.Color(60, 60, 60));
         button_cmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_tower_2.png"))); // NOI18N
         button_cmp.setText("Company");
         button_cmp.setFocusable(false);
         button_cmp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_cmp.setIconTextGap(8);
+        button_cmp.setIconTextGap(15);
         button_cmp.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_cmp.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_cmp.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_cmp.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_cmp.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_cmp.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_cmp.setPreferredSize(new java.awt.Dimension(190, 50));
         button_cmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_cmpActionPerformed(evt);
@@ -468,17 +468,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_cmp);
 
         btn_grp.add(button_emp);
-        button_emp.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_emp.setForeground(new java.awt.Color(40, 40, 40));
+        button_emp.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_emp.setForeground(new java.awt.Color(60, 60, 60));
         button_emp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_staff_group_01.png"))); // NOI18N
         button_emp.setText("Employees");
         button_emp.setFocusable(false);
         button_emp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_emp.setIconTextGap(8);
+        button_emp.setIconTextGap(15);
         button_emp.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_emp.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_emp.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_emp.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_emp.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_emp.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_emp.setPreferredSize(new java.awt.Dimension(190, 50));
         button_emp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_empActionPerformed(evt);
@@ -487,17 +487,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_emp);
 
         btn_grp.add(button_cat);
-        button_cat.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_cat.setForeground(new java.awt.Color(40, 40, 40));
+        button_cat.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_cat.setForeground(new java.awt.Color(60, 60, 60));
         button_cat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_category_.png"))); // NOI18N
         button_cat.setText("Categories");
         button_cat.setFocusable(false);
         button_cat.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_cat.setIconTextGap(8);
+        button_cat.setIconTextGap(15);
         button_cat.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_cat.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_cat.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_cat.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_cat.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_cat.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_cat.setPreferredSize(new java.awt.Dimension(190, 50));
         button_cat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_catActionPerformed(evt);
@@ -506,17 +506,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_cat);
 
         btn_grp.add(button_dpt);
-        button_dpt.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_dpt.setForeground(new java.awt.Color(40, 40, 40));
+        button_dpt.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_dpt.setForeground(new java.awt.Color(60, 60, 60));
         button_dpt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_museum.png"))); // NOI18N
         button_dpt.setText("Departments");
         button_dpt.setFocusable(false);
         button_dpt.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_dpt.setIconTextGap(8);
+        button_dpt.setIconTextGap(15);
         button_dpt.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_dpt.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_dpt.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_dpt.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_dpt.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_dpt.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_dpt.setPreferredSize(new java.awt.Dimension(190, 50));
         button_dpt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_dptActionPerformed(evt);
@@ -525,17 +525,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_dpt);
 
         btn_grp.add(button_pos);
-        button_pos.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_pos.setForeground(new java.awt.Color(40, 40, 40));
+        button_pos.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_pos.setForeground(new java.awt.Color(60, 60, 60));
         button_pos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_briefcase.png"))); // NOI18N
         button_pos.setText("Positions");
         button_pos.setFocusable(false);
         button_pos.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_pos.setIconTextGap(8);
+        button_pos.setIconTextGap(15);
         button_pos.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_pos.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_pos.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_pos.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_pos.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_pos.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_pos.setPreferredSize(new java.awt.Dimension(190, 50));
         button_pos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_posActionPerformed(evt);
@@ -544,17 +544,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_pos);
 
         btn_grp.add(button_elg);
-        button_elg.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_elg.setForeground(new java.awt.Color(40, 40, 40));
+        button_elg.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_elg.setForeground(new java.awt.Color(60, 60, 60));
         button_elg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_checklist_.png"))); // NOI18N
         button_elg.setText("Eligibilities");
         button_elg.setFocusable(false);
         button_elg.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_elg.setIconTextGap(8);
+        button_elg.setIconTextGap(15);
         button_elg.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_elg.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_elg.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_elg.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_elg.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_elg.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_elg.setPreferredSize(new java.awt.Dimension(190, 50));
         button_elg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_elgActionPerformed(evt);
@@ -563,17 +563,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_elg);
 
         btn_grp.add(button_trn);
-        button_trn.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_trn.setForeground(new java.awt.Color(40, 40, 40));
+        button_trn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_trn.setForeground(new java.awt.Color(60, 60, 60));
         button_trn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_blackboard_steps.png"))); // NOI18N
         button_trn.setText("Trainings");
         button_trn.setFocusable(false);
         button_trn.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_trn.setIconTextGap(8);
+        button_trn.setIconTextGap(15);
         button_trn.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_trn.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_trn.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_trn.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_trn.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_trn.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_trn.setPreferredSize(new java.awt.Dimension(190, 50));
         button_trn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_trnActionPerformed(evt);
@@ -582,17 +582,17 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_trn);
 
         btn_grp.add(button_lvs);
-        button_lvs.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
-        button_lvs.setForeground(new java.awt.Color(40, 40, 40));
+        button_lvs.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_lvs.setForeground(new java.awt.Color(60, 60, 60));
         button_lvs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_tags_three_.png"))); // NOI18N
         button_lvs.setFocusable(false);
         button_lvs.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        button_lvs.setIconTextGap(8);
+        button_lvs.setIconTextGap(15);
         button_lvs.setLabel("Leave List");
         button_lvs.setMargin(new java.awt.Insets(2, 31, 2, 14));
-        button_lvs.setMaximumSize(new java.awt.Dimension(190, 48));
-        button_lvs.setMinimumSize(new java.awt.Dimension(190, 48));
-        button_lvs.setPreferredSize(new java.awt.Dimension(190, 48));
+        button_lvs.setMaximumSize(new java.awt.Dimension(190, 50));
+        button_lvs.setMinimumSize(new java.awt.Dimension(190, 50));
+        button_lvs.setPreferredSize(new java.awt.Dimension(190, 50));
         button_lvs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_lvsActionPerformed(evt);

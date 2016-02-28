@@ -51,6 +51,18 @@ public class ClassConstantsCustom {
     final public String TABLE_LIST_TRAINING;
 
     /**
+     * Database Employee Search
+     */
+    final public String TABLE_SEARCH_NAME_FULL;
+    final public String TABLE_SEARCH_NAME_FIRST;
+    final public String TABLE_SEARCH_NAME_MIDDLE;
+    final public String TABLE_SEARCH_NAME_LAST;
+    final public String TABLE_SEARCH_PLANTILLA_NO;
+    final public String TABLE_SEARCH_POSITION;
+    final public String TABLE_SEARCH_OFFICE;
+    final public String TABLE_SEARCH_CATEGORY;
+
+    /**
      * Database Employee Info Columns
      */
     final public ArrayList<String> LIST_GENDER;
@@ -118,6 +130,15 @@ public class ClassConstantsCustom {
         this.TABLE_LIST_POSITION        = "settings_list_position";
         this.TABLE_LIST_ELIGIBILITY     = "settings_list_eligibility";
         this.TABLE_LIST_TRAINING        = "settings_list_training";
+
+        this.TABLE_SEARCH_NAME_FULL     = "TABLE_SEARCH_NAME_FULL";
+        this.TABLE_SEARCH_NAME_FIRST    = "TABLE_SEARCH_NAME_FIRST";
+        this.TABLE_SEARCH_NAME_MIDDLE   = "TABLE_SEARCH_NAME_MIDDLE";
+        this.TABLE_SEARCH_NAME_LAST     = "TABLE_SEARCH_NAME_LAST";
+        this.TABLE_SEARCH_PLANTILLA_NO  = "TABLE_SEARCH_PLANTILLA_NO";
+        this.TABLE_SEARCH_POSITION      = "TABLE_SEARCH_POSITION";
+        this.TABLE_SEARCH_OFFICE        = "TABLE_SEARCH_OFFICE";
+        this.TABLE_SEARCH_CATEGORY      = "TABLE_SEARCH_CATEGORY";
         
         this.LIST_GENDER            = new ArrayList<>(Arrays.asList("Male", "Female"));
         this.LIST_CIVIL_STATUS      = new ArrayList<>(Arrays.asList("Single", "Married", "Widowed", "Divorced"));

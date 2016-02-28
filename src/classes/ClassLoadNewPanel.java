@@ -26,29 +26,29 @@ public class ClassLoadNewPanel {
     private final ClassConstantsCustom constant = new ClassConstantsCustom();
 
     public void goFrameHome(final JPanel panelFrameMain) {
-        
+
         final JPanel panel_parent = this.panelParent;
         final CardLayout mainLayout = (CardLayout) panel_parent.getLayout();
-        
+
         @SuppressWarnings("unchecked")
-        
+
         SwingWorker<Void, Void> sw = new SwingWorker() {
-            
+
             @Override
             protected Object doInBackground() throws Exception {
-                
+
                 mainLayout.show(panel_parent, "card_loading");
-                
+
                 try {
                     panelFrameMain.removeAll();
                 } catch (Exception ex) {
                     // System.out.println(ex.getMessage());
                     JOptionPane.showMessageDialog(null, "Error occured while loading the desired panel.", "ERROR :: Loading panel", JOptionPane.ERROR_MESSAGE);
                 }
-                
+
                 return null;
             }
-            
+
             @Override
             protected void done() {
                 new java.util.Timer().schedule(
@@ -62,28 +62,28 @@ public class ClassLoadNewPanel {
                 );
             }
         };
-        
+
         sw.execute();
     }
-    
+
     public void loadFrame(final JPanel panel, final JPanel panelFrameMain) {
-        
+
         coreLoadPanel(panel, constant.PANEL_FRAME, panelFrameMain, null);
     }
 
     public void loadPopup(final JPanel panel, final JPanel panelFramePopup) {
-        
+
         coreLoadPanel(panel, constant.PANEL_POPUP, null, panelFramePopup);
     }
 
     public JPanel setParentPanel(JPanel parent) {
-        
+
         this.panelParent = parent;
         return this.panelParent;
     }
 
     public ButtonGroup setButtonGroup(ButtonGroup button_group) {
-        
+
         this.buttons = button_group;
         return this.buttons;
     }
@@ -92,7 +92,7 @@ public class ClassLoadNewPanel {
      * @param bool
      */
     private void changeButtonStatus(boolean bool) {
-        
+
         Enumeration<AbstractButton> elements = this.buttons.getElements();
         while (elements.hasMoreElements()) {
             AbstractButton button = (AbstractButton)elements.nextElement();
@@ -107,30 +107,30 @@ public class ClassLoadNewPanel {
      * @param type frame(1) or pop-up(2)
      */
     private void coreLoadPanel(final JPanel panel, final int type, final JPanel panelFrameMain, final JPanel panelFramePopup) {
-        
+
         final JPanel panel_parent = this.panelParent;
         final CardLayout mainLayout = (CardLayout) panel_parent.getLayout();
-        
+
         @SuppressWarnings("unchecked")
-        
+
         SwingWorker<Void, Void> sw = new SwingWorker() {
-            
+
             @Override
             protected Object doInBackground() throws Exception {
-                
+
                 mainLayout.show(panel_parent, "card_loading");
-                
+
                 try {
                     if (type == constant.PANEL_FRAME) {
                         if (panelFrame == null || panelFrame.isVisible()) {
-                            
+
                             panelFrameMain.removeAll();
                             panelFrame = panel;
                             panelFrameMain.add(panelFrame);
                         }
                     } else if (type == constant.PANEL_POPUP) {
                         if (panelPopup == null || panelPopup.isVisible()) {
-                            
+
                             panelFramePopup.removeAll();
                             panelPopup = panel;
                             panelFramePopup.add(panelPopup);
@@ -140,10 +140,10 @@ public class ClassLoadNewPanel {
                     // System.out.println(ex.getMessage());
                     JOptionPane.showMessageDialog(null, "Error occured while loading the desired panel.", "ERROR :: Loading panel", JOptionPane.ERROR_MESSAGE);
                 }
-                
+
                 return null;
             }
-            
+
             @Override
             protected void done() {
                 new java.util.Timer().schedule(
@@ -157,7 +157,7 @@ public class ClassLoadNewPanel {
                 );
             }
         };
-        
+
         sw.execute();
     }
 

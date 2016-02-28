@@ -5,10 +5,10 @@
  */
 package application;
 
-import classes.ClassComplexCellrenderer;
 import classes.ClassConstantsCustom;
 import classes.ClassDateFormatValue;
-import classes.ClassJTableCustomCellRenderer;
+import classes.ClassLabelButton;
+import classes.ClassTableCustomCellRenderer;
 import classes.ClassMyDBConnectionEmbeddedDerby;
 import classes.ClassSearchBy;
 import classes.ClassTableButtonEditor;
@@ -18,6 +18,7 @@ import classes.ClassTableHeaderRendererAlignCenter;
 import classes.ClassTableHeaderRendererAlignLeft;
 import classes.ClassTableHeaderRendererAlignRight;
 import classes.ClassTableHeaderRendererCheckbox;
+import classes.ClassTextfieldPrompt;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -31,7 +32,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -49,9 +49,11 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
     Color rowBGColorOdd = new Color(245, 245, 245);
     Color rowBGColorEvn = new Color(250, 250, 250);
     Color rowBGColorSel = new Color(115, 164, 209);
-    Color btnFGColorBasic = new Color(40, 40, 40);
-    Color btnBGColorBasic = new Color(205, 205, 205);
-    Color btnBGColorHover = new Color(115, 164, 209);
+    Color btnFGColorNew = new Color(255, 255, 255);
+    Color btnFGColorOld = new Color(40, 40, 40);
+    Color btnBGColorNew = new Color(115, 164, 209);
+    Color btnBGColorOld = new Color(235, 235, 235);
+    Color btnBGColorPrs = new Color(105, 154, 199);
     private BufferedImage img;
     private TableRowSorter sorter;
     private DefaultTableModel model;
@@ -59,11 +61,14 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
     private final ClassSearchBy searchBy = new ClassSearchBy();
     private final ClassConstantsCustom constant = new ClassConstantsCustom();
     private final ClassDateFormatValue format_date = new ClassDateFormatValue();
-    private final ClassJTableCustomCellRenderer chkboxCellRenderer = new ClassJTableCustomCellRenderer();
-    private final ImageIcon imgBtnUpdate = new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_24_eye.png"));
+    private final ClassLabelButton lbl_btn = new ClassLabelButton();
+    private final ClassTableCustomCellRenderer chkboxCellRenderer = new ClassTableCustomCellRenderer();
+    private final ImageIcon imgBtnUpdate = new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_23_eye.png"));
     private final TableCellRenderer th_align_left = new ClassTableHeaderRendererAlignLeft();
     private final TableCellRenderer th_align_right = new ClassTableHeaderRendererAlignRight();
     private final TableCellRenderer th_align_center = new ClassTableHeaderRendererAlignCenter();
+    protected String where = "";
+    protected PanelEmployees panel_parent;
 
     /**
      * Creates new form PanelDashboard
@@ -83,11 +88,27 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        panel_control = new javax.swing.JPanel();
-        panel_control_buttons = new javax.swing.JPanel();
-        panel_control_search = new javax.swing.JPanel();
-        panel_search = new javax.swing.JPanel();
+        popup_menu = new javax.swing.JPopupMenu();
+        popup_menu_refresh = new javax.swing.JMenuItem();
+        popup_separator = new javax.swing.JPopupMenu.Separator();
+        popup_menu_firstname = new javax.swing.JMenuItem();
+        popup_menu_middlename = new javax.swing.JMenuItem();
+        popup_menu_lastname = new javax.swing.JMenuItem();
+        popup_menu_plantilla = new javax.swing.JMenuItem();
+        popup_menu_position = new javax.swing.JMenuItem();
+        popup_menu_office = new javax.swing.JMenuItem();
+        popup_menu_category = new javax.swing.JMenuItem();
         label_search = new javax.swing.JLabel();
+        panel_control = new javax.swing.JPanel();
+        panel_control_button = new javax.swing.JPanel();
+        panel_control_button_list = new javax.swing.JPanel();
+        panel_control_button_create = new javax.swing.JPanel();
+        label_button_create = new javax.swing.JLabel();
+        panel_control_button_delete = new javax.swing.JPanel();
+        label_button_delete = new javax.swing.JLabel();
+        panel_control_searchbar = new javax.swing.JPanel();
+        panel_control_search = new javax.swing.JPanel();
+        splitbutton_search = new org.gpl.JSplitButton.JSplitButton();
         txtfld_search = new javax.swing.JTextField();
         panel_center = new javax.swing.JPanel();
         panel_table = new javax.swing.JPanel();
@@ -97,42 +118,237 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         label_table_result_logo = new javax.swing.JLabel();
         label_table_result_total = new javax.swing.JLabel();
 
-        setLayout(new java.awt.BorderLayout());
+        popup_menu.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu.setNextFocusableComponent(txtfld_search);
+        popup_menu.setOpaque(false);
 
-        panel_control.setMaximumSize(new java.awt.Dimension(0, 55));
-        panel_control.setMinimumSize(new java.awt.Dimension(0, 55));
-        panel_control.setOpaque(false);
-        panel_control.setPreferredSize(new java.awt.Dimension(0, 55));
-        panel_control.setLayout(new java.awt.BorderLayout());
+        popup_menu_refresh.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_refresh.setFont(new java.awt.Font("Century Gothic", 3, 11)); // NOI18N
+        popup_menu_refresh.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_arrow_refresh.png"))); // NOI18N
+        popup_menu_refresh.setText("Refresh");
+        popup_menu_refresh.setIconTextGap(10);
+        popup_menu_refresh.setNextFocusableComponent(txtfld_search);
+        popup_menu_refresh.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_refreshActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_refresh);
 
-        panel_control_buttons.setOpaque(false);
-        panel_control_buttons.setLayout(new java.awt.BorderLayout());
-        panel_control.add(panel_control_buttons, java.awt.BorderLayout.CENTER);
+        popup_separator.setPreferredSize(new java.awt.Dimension(150, 10));
+        popup_menu.add(popup_separator);
 
-        panel_control_search.setMinimumSize(new java.awt.Dimension(210, 35));
-        panel_control_search.setOpaque(false);
-        panel_control_search.setPreferredSize(new java.awt.Dimension(210, 35));
-        panel_control_search.setLayout(new java.awt.CardLayout());
+        popup_menu_firstname.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_firstname.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_firstname.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_firstname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_textfield_left.png"))); // NOI18N
+        popup_menu_firstname.setText("First Name");
+        popup_menu_firstname.setIconTextGap(10);
+        popup_menu_firstname.setNextFocusableComponent(txtfld_search);
+        popup_menu_firstname.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_firstname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_firstnameActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_firstname);
 
-        panel_search.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 10, 10));
-        panel_search.setOpaque(false);
-        panel_search.setLayout(new java.awt.GridBagLayout());
+        popup_menu_middlename.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_middlename.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_middlename.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_middlename.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_textfield_center.png"))); // NOI18N
+        popup_menu_middlename.setText("Middle Name");
+        popup_menu_middlename.setIconTextGap(10);
+        popup_menu_middlename.setNextFocusableComponent(txtfld_search);
+        popup_menu_middlename.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_middlename.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_middlenameActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_middlename);
+
+        popup_menu_lastname.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_lastname.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_lastname.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_lastname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_textfield_right.png"))); // NOI18N
+        popup_menu_lastname.setText("Last Name");
+        popup_menu_lastname.setIconTextGap(10);
+        popup_menu_lastname.setNextFocusableComponent(txtfld_search);
+        popup_menu_lastname.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_lastname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_lastnameActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_lastname);
+
+        popup_menu_plantilla.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_plantilla.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_plantilla.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_plantilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_textfield_format.png"))); // NOI18N
+        popup_menu_plantilla.setText("Plantilla Number");
+        popup_menu_plantilla.setIconTextGap(10);
+        popup_menu_plantilla.setNextFocusableComponent(txtfld_search);
+        popup_menu_plantilla.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_plantilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_plantillaActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_plantilla);
+
+        popup_menu_position.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_position.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_position.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_position.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_luggage.png"))); // NOI18N
+        popup_menu_position.setText("Position");
+        popup_menu_position.setIconTextGap(10);
+        popup_menu_position.setNextFocusableComponent(txtfld_search);
+        popup_menu_position.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_position.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_positionActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_position);
+
+        popup_menu_office.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_office.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_office.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_office.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_bank.png"))); // NOI18N
+        popup_menu_office.setText("Department");
+        popup_menu_office.setIconTextGap(10);
+        popup_menu_office.setNextFocusableComponent(txtfld_search);
+        popup_menu_office.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_office.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_officeActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_office);
+
+        popup_menu_category.setBackground(new java.awt.Color(255, 255, 255));
+        popup_menu_category.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        popup_menu_category.setForeground(new java.awt.Color(35, 35, 35));
+        popup_menu_category.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_category.png"))); // NOI18N
+        popup_menu_category.setText("Category");
+        popup_menu_category.setIconTextGap(10);
+        popup_menu_category.setNextFocusableComponent(txtfld_search);
+        popup_menu_category.setPreferredSize(new java.awt.Dimension(150, 25));
+        popup_menu_category.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_menu_categoryActionPerformed(evt);
+            }
+        });
+        popup_menu.add(popup_menu_category);
 
         label_search.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         label_search.setForeground(new java.awt.Color(50, 50, 50));
         label_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_magnifier.png"))); // NOI18N
         label_search.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
+
+        panel_control.setMaximumSize(new java.awt.Dimension(0, 55));
+        panel_control.setMinimumSize(new java.awt.Dimension(0, 55));
+        panel_control.setOpaque(false);
+        panel_control.setPreferredSize(new java.awt.Dimension(0, 65));
+        panel_control.setLayout(new java.awt.BorderLayout());
+
+        panel_control_button.setMinimumSize(new java.awt.Dimension(400, 400));
+        panel_control_button.setOpaque(false);
+        panel_control_button.setPreferredSize(new java.awt.Dimension(400, 400));
+        panel_control_button.setRequestFocusEnabled(false);
+        panel_control_button.setLayout(new java.awt.CardLayout());
+
+        panel_control_button_list.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 0, 5, 0));
+        panel_control_button_list.setMinimumSize(new java.awt.Dimension(500, 560));
+        panel_control_button_list.setOpaque(false);
+        panel_control_button_list.setPreferredSize(new java.awt.Dimension(100, 560));
+        panel_control_button_list.setLayout(new java.awt.GridLayout(1, 0));
+
+        panel_control_button_create.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 12, 0, 0));
+        panel_control_button_create.setMinimumSize(new java.awt.Dimension(220, 220));
+        panel_control_button_create.setOpaque(false);
+        panel_control_button_create.setPreferredSize(new java.awt.Dimension(220, 220));
+        panel_control_button_create.setLayout(new java.awt.BorderLayout());
+
+        label_button_create.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_create.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_button_create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_20_users_00.png"))); // NOI18N
+        label_button_create.setText("Add new employee");
+        label_button_create.setIconTextGap(10);
+        label_button_create.setOpaque(true);
+        label_button_create.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_button_createMouseClicked(evt);
+            }
+        });
+        panel_control_button_create.add(label_button_create, java.awt.BorderLayout.CENTER);
+
+        panel_control_button_list.add(panel_control_button_create);
+
+        panel_control_button_delete.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 12, 0, 0));
+        panel_control_button_delete.setMinimumSize(new java.awt.Dimension(220, 220));
+        panel_control_button_delete.setOpaque(false);
+        panel_control_button_delete.setPreferredSize(new java.awt.Dimension(220, 220));
+        panel_control_button_delete.setLayout(new java.awt.BorderLayout());
+
+        label_button_delete.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_button_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_bin.png"))); // NOI18N
+        label_button_delete.setText("Remove employee");
+        label_button_delete.setIconTextGap(10);
+        label_button_delete.setOpaque(true);
+        panel_control_button_delete.add(label_button_delete, java.awt.BorderLayout.CENTER);
+
+        panel_control_button_list.add(panel_control_button_delete);
+
+        panel_control_button.add(panel_control_button_list, "card2");
+
+        panel_control.add(panel_control_button, java.awt.BorderLayout.LINE_START);
+
+        panel_control_searchbar.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 0, 13, 10));
+        panel_control_searchbar.setMinimumSize(new java.awt.Dimension(230, 65));
+        panel_control_searchbar.setOpaque(false);
+        panel_control_searchbar.setPreferredSize(new java.awt.Dimension(230, 65));
+        panel_control_searchbar.setLayout(new java.awt.BorderLayout());
+
+        panel_control_search.setOpaque(false);
+        panel_control_search.setLayout(new java.awt.GridBagLayout());
+
+        splitbutton_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_magnifier.png"))); // NOI18N
+        splitbutton_search.setAlwaysDropDown(true);
+        splitbutton_search.setAutoscrolls(true);
+        splitbutton_search.setComponentPopupMenu(popup_menu);
+        splitbutton_search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        splitbutton_search.setFocusable(false);
+        splitbutton_search.setMinimumSize(new java.awt.Dimension(41, 41));
+        splitbutton_search.setOpaque(false);
+        splitbutton_search.setPopupMenu(popup_menu);
+        splitbutton_search.setPreferredSize(new java.awt.Dimension(20, 41));
+        splitbutton_search.setSeparatorSpacing(0);
+        splitbutton_search.setSplitWidth(-8);
+        splitbutton_search.setToolTipText("seaching by : Full Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        panel_search.add(label_search, gridBagConstraints);
+        panel_control_search.add(splitbutton_search, gridBagConstraints);
 
-        txtfld_search.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        txtfld_search.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         txtfld_search.setForeground(new java.awt.Color(75, 75, 75));
-        txtfld_search.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        txtfld_search.setMargin(new java.awt.Insets(2, 5, 2, 30));
+        txtfld_search.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtfld_searchCaretUpdate(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -142,11 +358,11 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         gridBagConstraints.ipady = 1;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        panel_search.add(txtfld_search, gridBagConstraints);
+        panel_control_search.add(txtfld_search, gridBagConstraints);
 
-        panel_control_search.add(panel_search, "card2");
+        panel_control_searchbar.add(panel_control_search, java.awt.BorderLayout.CENTER);
 
-        panel_control.add(panel_control_search, java.awt.BorderLayout.LINE_END);
+        panel_control.add(panel_control_searchbar, java.awt.BorderLayout.LINE_END);
 
         add(panel_control, java.awt.BorderLayout.PAGE_START);
 
@@ -154,9 +370,14 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         panel_center.setLayout(new java.awt.BorderLayout());
 
         panel_table.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 10));
+        panel_table.setOpaque(false);
         panel_table.setLayout(new java.awt.CardLayout());
 
+        scrollpane.setBackground(new java.awt.Color(250, 250, 250));
+        scrollpane.setOpaque(false);
+
         table.setFillsViewportHeight(true);
+        table.setOpaque(false);
         table.setRequestFocusEnabled(false);
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         scrollpane.setViewportView(table);
@@ -167,6 +388,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
 
         panel_table_result.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 12, 10, 10));
         panel_table_result.setMinimumSize(new java.awt.Dimension(20, 35));
+        panel_table_result.setOpaque(false);
         panel_table_result.setPreferredSize(new java.awt.Dimension(20, 35));
         panel_table_result.setLayout(new java.awt.BorderLayout());
 
@@ -178,11 +400,11 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         label_table_result_logo.setPreferredSize(new java.awt.Dimension(16, 0));
         panel_table_result.add(label_table_result_logo, java.awt.BorderLayout.LINE_START);
 
-        label_table_result_total.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        label_table_result_total.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         label_table_result_total.setForeground(new java.awt.Color(125, 125, 125));
         label_table_result_total.setText("0 result");
         label_table_result_total.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        label_table_result_total.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, -1, 0));
+        label_table_result_total.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 0));
         label_table_result_total.setMaximumSize(new java.awt.Dimension(0, 35));
         label_table_result_total.setMinimumSize(new java.awt.Dimension(0, 35));
         label_table_result_total.setPreferredSize(new java.awt.Dimension(0, 35));
@@ -195,23 +417,143 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents() {
+
         initTable();
-        fillTable("First Name");
+        fillTable(searchBy.searchByString(where, txtfld_search.getText().toUpperCase()));
+
+        setPlaceHolder();
+
+        splitbutton_search.setBorderPainted(false);
+        splitbutton_search.setFocusPainted(false);
+        splitbutton_search.setContentAreaFilled(false);
+
+        lbl_btn.addClass(label_button_create,   btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(label_button_delete,   btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_refresh,    btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_firstname,  btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_middlename, btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_lastname,   btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_plantilla,  btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_position,   btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_office,     btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
+        lbl_btn.addClass(popup_menu_category,   btnBGColorPrs, btnBGColorNew, btnBGColorOld, btnFGColorNew, btnFGColorOld);
     }
 
+    private void txtfld_searchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtfld_searchCaretUpdate
 
+        fillTable(searchBy.searchByString(where, txtfld_search.getText().toUpperCase()));
+    }//GEN-LAST:event_txtfld_searchCaretUpdate
+
+    private void popup_menu_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_refreshActionPerformed
+
+        where = constant.TABLE_SEARCH_NAME_FULL;
+        splitbutton_search.setToolTipText("seaching by : Full Name");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_refreshActionPerformed
+
+    private void popup_menu_firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_firstnameActionPerformed
+
+        where = constant.TABLE_SEARCH_NAME_FIRST;
+        splitbutton_search.setToolTipText("seaching by : First Name");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_firstnameActionPerformed
+
+    private void popup_menu_lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_lastnameActionPerformed
+
+        where = constant.TABLE_SEARCH_NAME_LAST;
+        splitbutton_search.setToolTipText("seaching by : Last Name");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_lastnameActionPerformed
+
+    private void popup_menu_middlenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_middlenameActionPerformed
+
+        where = constant.TABLE_SEARCH_NAME_MIDDLE;
+        splitbutton_search.setToolTipText("seaching by : Middle Name");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_middlenameActionPerformed
+
+    private void popup_menu_plantillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_plantillaActionPerformed
+
+        where = constant.TABLE_SEARCH_PLANTILLA_NO;
+        splitbutton_search.setToolTipText("seaching by : Plantilla No.");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_plantillaActionPerformed
+
+    private void popup_menu_positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_positionActionPerformed
+
+        where = constant.TABLE_SEARCH_POSITION;
+        splitbutton_search.setToolTipText("seaching by : Position");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_positionActionPerformed
+
+    private void popup_menu_officeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_officeActionPerformed
+ 
+        where = constant.TABLE_SEARCH_OFFICE;
+        splitbutton_search.setToolTipText("seaching by : Department");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_officeActionPerformed
+
+    private void popup_menu_categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_categoryActionPerformed
+
+        where = constant.TABLE_SEARCH_CATEGORY;
+        splitbutton_search.setToolTipText("seaching by : Category");
+        txtfld_search.requestFocus();
+        txtfld_search.setText("");
+    }//GEN-LAST:event_popup_menu_categoryActionPerformed
+
+    private void label_button_createMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_createMouseClicked
+
+        this.panel_parent.loadCreate();
+    }//GEN-LAST:event_label_button_createMouseClicked
+
+    public void resetLabelButtons() {
+
+        label_button_create.setBackground(btnBGColorOld);
+        label_button_create.setForeground(btnFGColorOld);
+        label_button_delete.setBackground(btnBGColorOld);
+        label_button_delete.setForeground(btnFGColorOld);
+    }
+
+    public void setParentFrame(PanelEmployees parent) {
+
+        this.panel_parent = parent;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel label_button_create;
+    private javax.swing.JLabel label_button_delete;
     private javax.swing.JLabel label_search;
     private javax.swing.JLabel label_table_result_logo;
     private javax.swing.JLabel label_table_result_total;
     private javax.swing.JPanel panel_center;
     private javax.swing.JPanel panel_control;
-    private javax.swing.JPanel panel_control_buttons;
+    private javax.swing.JPanel panel_control_button;
+    private javax.swing.JPanel panel_control_button_create;
+    private javax.swing.JPanel panel_control_button_delete;
+    private javax.swing.JPanel panel_control_button_list;
     private javax.swing.JPanel panel_control_search;
-    private javax.swing.JPanel panel_search;
+    private javax.swing.JPanel panel_control_searchbar;
     private javax.swing.JPanel panel_table;
     private javax.swing.JPanel panel_table_result;
+    private javax.swing.JPopupMenu popup_menu;
+    private javax.swing.JMenuItem popup_menu_category;
+    private javax.swing.JMenuItem popup_menu_firstname;
+    private javax.swing.JMenuItem popup_menu_lastname;
+    private javax.swing.JMenuItem popup_menu_middlename;
+    private javax.swing.JMenuItem popup_menu_office;
+    private javax.swing.JMenuItem popup_menu_plantilla;
+    private javax.swing.JMenuItem popup_menu_position;
+    private javax.swing.JMenuItem popup_menu_refresh;
+    private javax.swing.JPopupMenu.Separator popup_separator;
     private javax.swing.JScrollPane scrollpane;
+    private org.gpl.JSplitButton.JSplitButton splitbutton_search;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtfld_search;
     // End of variables declaration//GEN-END:variables
@@ -313,12 +655,12 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
 
                 return c;
             }
-
         };
 
         table.setRowHeight(35);
         table.setModel(model);
-        table.setSelectionBackground(new Color(102, 204, 255));
+        table.setSelectionBackground(rowBGColorSel);
+        table.setFont(new Font("Tahoma", Font.PLAIN, 11));
         scrollpane.setViewportView(table);
 
         // Create & set table sorter
@@ -433,7 +775,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         table.repaint();
 
         // Set row count
-        label_table_result_total.setText( rowCount + ((rowCount <= 1) ? " result" : " results"));
+        label_table_result_total.setText(rowCount + ((rowCount <= 1) ? " result" : " results"));
     }
 
     private void fillTable(String addWhere) {
@@ -473,7 +815,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
                         + " LEFT JOIN " + constant.TABLE_LIST_OFFICE + " AS o ON h.list_off_id=o.id "
                         + " LEFT JOIN " + constant.TABLE_LIST_POSITION + " AS p ON h.list_pos_id=p.id "
                         + " LEFT JOIN " + constant.TABLE_LIST_CATEGORY + " AS c ON h.list_cat_id=c.id "
-                //                    + " WHERE " + addWhere
+                        + " WHERE " + addWhere
                 );
 
                 // Set column information
@@ -494,11 +836,6 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
 
                     // Add column data
                     model.addRow(addRow.toArray());
-                    model.addRow(addRow.toArray());
-                    model.addRow(addRow.toArray());
-                    model.addRow(addRow.toArray());
-                    model.addRow(addRow.toArray());
-                    model.addRow(addRow.toArray());
 
                     rowCount++;
                 }
@@ -515,24 +852,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         table.repaint();
 
         // Set row count
-        label_table_result_total.setText( rowCount + ((rowCount <= 1) ? " result" : " results"));
-    }
-
-    private void comboBoxLoadFromConstants(ArrayList array, JComboBox cmbbox, String title) {
-
-        dcbm = new DefaultComboBoxModel();
-        dcbm.addElement("");
-
-        for (Object arrayData : array) {
-            dcbm.addElement(arrayData);
-        }
-
-        cmbbox.setModel(dcbm);
-        ClassComplexCellrenderer renderer = new ClassComplexCellrenderer();
-        renderer.fontTitle = new Font("Arial", Font.ITALIC, 12);
-        renderer.font = new Font("Arial", Font.PLAIN, 12);
-        renderer.title = title;
-        cmbbox.setRenderer(renderer);
+        label_table_result_total.setText(rowCount + ((rowCount <= 1) ? " result" : " results"));
     }
 
     private String getHtml(String name) {
@@ -547,6 +867,19 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
                 + url
                 + "' width=175 height=175 style='background-color:#FFF;' /></body></html>";
         return html;
+    }
+
+    private void setPlaceHolder() {
+        
+        ClassTextfieldPrompt tpTxtfldSearch = new ClassTextfieldPrompt("Enter search here", txtfld_search);
+        
+        ClassTextfieldPrompt[] placeholder = { tpTxtfldSearch };
+        
+        // Adjust display
+        for (ClassTextfieldPrompt placeholder1 : placeholder) {
+            placeholder1.changeAlpha(0.4f);
+            placeholder1.changeStyle(Font.ITALIC);
+        }
     }
 
 }
