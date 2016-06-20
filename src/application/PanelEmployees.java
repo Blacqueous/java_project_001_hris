@@ -5,9 +5,7 @@
  */
 package application;
 
-import classes.ClassConstantsCustom;
 import classes.ClassLoadNewPanel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -15,17 +13,18 @@ import javax.swing.JPanel;
  */
 public class PanelEmployees extends javax.swing.JPanel {
 
-    public final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
-    private final ClassConstantsCustom constant = new ClassConstantsCustom();
     public final PanelEmployeesSummary panel_smy = new PanelEmployeesSummary();
     public final PanelEmployeesCreate  panel_crt = new PanelEmployeesCreate();
-    public final PanelLeavelist panel_lvs = new PanelLeavelist();
+    private final ClassLoadNewPanel panel_load = new ClassLoadNewPanel();
+    protected FramePrime panel_ancestor;
 
     /**
-     * Creates new form PanelDashboard
+     * Creates new form PanelEmployees
+     * @param panel_ancestor
      */
-    public PanelEmployees() {
+    public PanelEmployees(FramePrime panel_ancestor) {
         initComponents();
+        setFrameMain(panel_ancestor);
         initAdditionalComponents();
     }
 
@@ -162,25 +161,31 @@ public class PanelEmployees extends javax.swing.JPanel {
 
     public void initAdditionalComponents() {
 
-        panel_crt.setParentFrame(this);
-        panel_smy.setParentFrame(this);
-
-        load_panel.setParentPanel(panel_frame);
-
+        panel_load.setParentPanel(panel_frame);
+        
+        panel_smy.initAdditionalComponents(this);
+        panel_crt.initAdditionalComponents(this);
+        
         loadSummary();
     }
 
     public void loadCreate() {
 
-        load_panel.loadFrame(panel_crt, panel_main);
+        panel_crt.resetLabelButtons();
+        panel_load.loadFrame(panel_crt, panel_main);
         label_breadcrumb_text.setText("CREATE");
     }
 
     public void loadSummary() {
 
         panel_smy.resetLabelButtons();
-        load_panel.loadFrame(panel_smy, panel_main);
+        panel_load.loadFrame(panel_smy, panel_main);
         label_breadcrumb_text.setText("SUMMARY");
+    }
+
+    public void setFrameMain(FramePrime ancestor_value) {
+
+        this.panel_ancestor = ancestor_value;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

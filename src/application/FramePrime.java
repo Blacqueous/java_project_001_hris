@@ -14,18 +14,18 @@ import classes.ClassLoadNewPanel;
  */
 public class FramePrime extends javax.swing.JFrame {
 
-    private String panel_used = "";
-    private final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
-    private final ClassConstantsCustom constant = new ClassConstantsCustom();
-    private final PanelDashboard     panel_dbd = new PanelDashboard();
-    private final PanelCompany       panel_cmp = new PanelCompany();
-    private final PanelEmployees     panel_emp = new PanelEmployees();
-    private final PanelCategories    panel_cat = new PanelCategories();
-    private final PanelDepartments   panel_dpt = new PanelDepartments();
-    private final PanelPositions     panel_pos = new PanelPositions();
+    public String panel_used = "";
+    public final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
+    public final ClassConstantsCustom constant = new ClassConstantsCustom();
+    private final PanelDashboard panel_dbd = new PanelDashboard();
+    private final PanelCompany panel_cmp = new PanelCompany();
+    private final PanelEmployees panel_emp = new PanelEmployees(this);
+    private final PanelCategories panel_cat = new PanelCategories();
+    private final PanelDepartments panel_dpt = new PanelDepartments();
+    private final PanelPositions panel_pos = new PanelPositions();
     private final PanelEligibilities panel_elg = new PanelEligibilities();
-    private final PanelTrainings     panel_trn = new PanelTrainings();
-    private final PanelLeavelist     panel_lvs = new PanelLeavelist();
+    private final PanelTrainings panel_trn = new PanelTrainings();
+    private final PanelLeavelist panel_lvs = new PanelLeavelist();
 
     /**
      * Creates new form FramePrime
@@ -403,6 +403,7 @@ public class FramePrime extends javax.swing.JFrame {
 
         panel_left.setMaximumSize(new java.awt.Dimension(200, 50));
         panel_left.setMinimumSize(new java.awt.Dimension(200, 50));
+        panel_left.setOpaque(false);
         panel_left.setPreferredSize(new java.awt.Dimension(200, 50));
         panel_left.setLayout(new java.awt.BorderLayout());
 

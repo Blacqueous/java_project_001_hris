@@ -4,6 +4,7 @@
  */
 package classes;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -16,98 +17,129 @@ public class ClassConstantsCustom {
     /**
      * Database Employee Table
      */
-    final public int PANEL_FRAME;
-    final public int PANEL_POPUP;
+    public final int PANEL_FRAME;
+    public final int PANEL_POPUP;
 
     /**
      * Main Frame Panel
      */
-    final public String PANEL_HOME;
-    final public String PANEL_DBD;
-    final public String PANEL_CMP;
-    final public String PANEL_EMP;
-    final public String PANEL_CAT;
-    final public String PANEL_DPT;
-    final public String PANEL_POS;
-    final public String PANEL_ELG;
-    final public String PANEL_TRN;
-    final public String PANEL_LVS;
+    public final String PANEL_HOME;
+    public final String PANEL_DBD;
+    public final String PANEL_CMP;
+    public final String PANEL_EMP;
+    public final String PANEL_CAT;
+    public final String PANEL_DPT;
+    public final String PANEL_POS;
+    public final String PANEL_ELG;
+    public final String PANEL_TRN;
+    public final String PANEL_LVS;
 
     /**
      * Database Employee Table
      */
-    final public String TABLE_ACCOUNT_TYPE;
-    final public String TABLE_ACCOUNT_HEADER;
-    final public String TABLE_ACCOUNT_DETAIL;
-    final public String TABLE_EMPLOYEE_HEADER;
-    final public String TABLE_EMPLOYEE_DETAIL;
-    final public String TABLE_MANAGE_DEPENDENTS;
-    final public String TABLE_MANAGE_ELIGIBILITY;
-    final public String TABLE_MANAGE_TRAINING;
-    final public String TABLE_LIST_CATEGORY;
-    final public String TABLE_LIST_OFFICE;
-    final public String TABLE_LIST_POSITION;
-    final public String TABLE_LIST_ELIGIBILITY;
-    final public String TABLE_LIST_TRAINING;
+    public final String TABLE_ACCOUNT_TYPE;
+    public final String TABLE_ACCOUNT_HEADER;
+    public final String TABLE_ACCOUNT_DETAIL;
+    public final String TABLE_EMPLOYEE_HEADER;
+    public final String TABLE_EMPLOYEE_DETAIL;
+    public final String TABLE_MANAGE_DEPENDENTS;
+    public final String TABLE_MANAGE_ELIGIBILITY;
+    public final String TABLE_MANAGE_TRAINING;
+    public final String TABLE_LIST_CATEGORY;
+    public final String TABLE_LIST_OFFICE;
+    public final String TABLE_LIST_POSITION;
+    public final String TABLE_LIST_ELIGIBILITY;
+    public final String TABLE_LIST_TRAINING;
 
     /**
      * Database Employee Search
      */
-    final public String TABLE_SEARCH_NAME_FULL;
-    final public String TABLE_SEARCH_NAME_FIRST;
-    final public String TABLE_SEARCH_NAME_MIDDLE;
-    final public String TABLE_SEARCH_NAME_LAST;
-    final public String TABLE_SEARCH_PLANTILLA_NO;
-    final public String TABLE_SEARCH_POSITION;
-    final public String TABLE_SEARCH_OFFICE;
-    final public String TABLE_SEARCH_CATEGORY;
+    public final String TABLE_SEARCH_NAME_FULL;
+    public final String TABLE_SEARCH_NAME_FIRST;
+    public final String TABLE_SEARCH_NAME_MIDDLE;
+    public final String TABLE_SEARCH_NAME_LAST;
+    public final String TABLE_SEARCH_PLANTILLA_NO;
+    public final String TABLE_SEARCH_POSITION;
+    public final String TABLE_SEARCH_OFFICE;
+    public final String TABLE_SEARCH_CATEGORY;
 
     /**
      * Database Employee Info Columns
      */
-    final public ArrayList<String> LIST_GENDER;
-    final public ArrayList<String> LIST_CIVIL_STATUS;
-    final public ArrayList<String> LIST_SEARCH_FILTER;
+    public final ArrayList<String> LIST_GENDER;
+    public final ArrayList<String> LIST_CIVIL_STATUS;
+    public final ArrayList<String> LIST_SEARCH_FILTER;
 
     /**
      * Database Employee Info Columns
      */
-    final public String COLUMN_FULL_NAME;
-    final public String COLUMN_FIRST_NAME;
-    final public String COLUMN_MIDDLE_NAME;
-    final public String COLUMN_LAST_NAME;
-    final public String COLUMN_PLANTILLA_NUM;
-    final public String COLUMN_POSITION;
-    final public String COLUMN_OFFICE;
-    final public String COLUMN_CATEGORY;
-    final public String COLUMN_DATE_HIRED;
-    final public String COLUMN_BIRTHDATE;
-    final public String COLUMN_GENDER;
-    final public String COLUMN_CIVIL_STATUS;
+    public final String COLUMN_FULL_NAME;
+    public final String COLUMN_FIRST_NAME;
+    public final String COLUMN_MIDDLE_NAME;
+    public final String COLUMN_LAST_NAME;
+    public final String COLUMN_PLANTILLA_NUM;
+    public final String COLUMN_POSITION;
+    public final String COLUMN_OFFICE;
+    public final String COLUMN_CATEGORY;
+    public final String COLUMN_DATE_HIRED;
+    public final String COLUMN_BIRTHDATE;
+    public final String COLUMN_GENDER;
+    public final String COLUMN_CIVIL_STATUS;
 
     /**
      * Database Employee Info Columns (UPPERCASE)
      */
-    final public String COLUMN_FULL_NAME_UC;
-    final public String COLUMN_FIRST_NAME_UC;
-    final public String COLUMN_MIDDLE_NAME_UC;
-    final public String COLUMN_LAST_NAME_UC;
-    final public String COLUMN_PLANTILLA_NUM_UC;
-    final public String COLUMN_POSITION_UC;
-    final public String COLUMN_OFFICE_UC;
-    final public String COLUMN_CATEGORY_UC;
-    final public String COLUMN_DATE_HIRED_UC;
-    final public String COLUMN_BIRTHDATE_UC;
-    final public String COLUMN_GENDER_UC;
-    final public String COLUMN_CIVIL_STATUS_UC;
+    public final String COLUMN_FULL_NAME_UC;
+    public final String COLUMN_FIRST_NAME_UC;
+    public final String COLUMN_MIDDLE_NAME_UC;
+    public final String COLUMN_LAST_NAME_UC;
+    public final String COLUMN_PLANTILLA_NUM_UC;
+    public final String COLUMN_POSITION_UC;
+    public final String COLUMN_OFFICE_UC;
+    public final String COLUMN_CATEGORY_UC;
+    public final String COLUMN_DATE_HIRED_UC;
+    public final String COLUMN_BIRTHDATE_UC;
+    public final String COLUMN_GENDER_UC;
+    public final String COLUMN_CIVIL_STATUS_UC;
+
+    /**
+     * Constant Color Sets
+     * 
+     * 1 - For Table Row
+     * 2 - For Label Buttons
+     * 
+     */
+    public final Color ROW_BG_COLOR_ODD; // 1
+    public final Color ROW_BG_COLOR_EVEN; // 1
+    public final Color ROW_BG_COLOR_SELECT; // 1
+    public final Color BUTTON_FG_COLOR_NEW; // 2
+    public final Color BUTTON_FG_COLOR_OLD; // 2
+    public final Color BUTTON_BG_COLOR_OLD; // 2
+    public final Color BUTTON_BG_COLOR_NEW_RED; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_RED; // 2
+    public final Color BUTTON_BG_COLOR_NEW_BLUE; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_BLUE; // 2
+    public final Color BUTTON_BG_COLOR_NEW_DEFAULT; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_DEFAULT; // 2
+    public final Color BUTTON_BG_COLOR_NEW_GRAY; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_GRAY; // 2
+    public final Color BUTTON_BG_COLOR_NEW_GREEN; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_GREEN; // 2
+    public final Color BUTTON_BG_COLOR_NEW_ORANGE; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_ORANGE; // 2
+    public final Color BUTTON_BG_COLOR_NEW_VIOLET; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_VIOLET; // 2
+    public final Color BUTTON_BG_COLOR_NEW_YELLOW; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_YELLOW; // 2
 
     public ClassConstantsCustom() {
-        
+
         this.PANEL_FRAME = 1;
         this.PANEL_POPUP = 2;
-        
+
         this.PANEL_HOME   = "PANEL_HOME";
         this.PANEL_DBD    = "PANEL_DBD";
+        
         this.PANEL_CMP    = "PANEL_CMP";
         this.PANEL_EMP    = "PANEL_EMP";
         this.PANEL_CAT    = "PANEL_CAT";
@@ -116,7 +148,7 @@ public class ClassConstantsCustom {
         this.PANEL_ELG    = "PANEL_ELG";
         this.PANEL_TRN    = "PANEL_TRN";
         this.PANEL_LVS    = "PANEL_LVS";
-        
+       
         this.TABLE_ACCOUNT_TYPE         = "account_type";
         this.TABLE_ACCOUNT_HEADER       = "account_header";
         this.TABLE_ACCOUNT_DETAIL       = "account_detail";
@@ -139,11 +171,11 @@ public class ClassConstantsCustom {
         this.TABLE_SEARCH_POSITION      = "TABLE_SEARCH_POSITION";
         this.TABLE_SEARCH_OFFICE        = "TABLE_SEARCH_OFFICE";
         this.TABLE_SEARCH_CATEGORY      = "TABLE_SEARCH_CATEGORY";
-        
+
         this.LIST_GENDER            = new ArrayList<>(Arrays.asList("Male", "Female"));
         this.LIST_CIVIL_STATUS      = new ArrayList<>(Arrays.asList("Single", "Married", "Widowed", "Divorced"));
         this.LIST_SEARCH_FILTER     = new ArrayList<>(Arrays.asList("First Name", "Middle Name", "Last Name", "Plantilla #", "Position", "Office", "Category"));
-        
+
         this.COLUMN_FULL_NAME       = "(COALESCE(h.name_first || ' ', '') || COALESCE(h.name_middle || ' ', '') || h.name_last)";
         this.COLUMN_FIRST_NAME      = "h.name_first";
         this.COLUMN_MIDDLE_NAME     = "h.name_middle";
@@ -156,7 +188,7 @@ public class ClassConstantsCustom {
         this.COLUMN_BIRTHDATE       = "d.date_birth";
         this.COLUMN_GENDER          = "d.gender";
         this.COLUMN_CIVIL_STATUS    = "d.civil_status";
-            
+
         this.COLUMN_FULL_NAME_UC       = "UCASE(h.name_first || ' ' || h.name_middle || ' ' || h.name_last)";
         this.COLUMN_FIRST_NAME_UC      = "UCASE(h.name_first)";
         this.COLUMN_MIDDLE_NAME_UC     = "UCASE(h.name_middle)";
@@ -170,6 +202,29 @@ public class ClassConstantsCustom {
         this.COLUMN_GENDER_UC          = "UCASE(d.gender)";
         this.COLUMN_CIVIL_STATUS_UC    = "UCASE(d.civil_status)";
         
+        this.ROW_BG_COLOR_ODD    = new Color(245, 245, 245);
+        this.ROW_BG_COLOR_EVEN   = new Color(250, 250, 250);
+        this.ROW_BG_COLOR_SELECT = new Color(115, 164, 209);
+        this.BUTTON_FG_COLOR_NEW = new Color(255, 255, 255);
+        this.BUTTON_FG_COLOR_OLD = new Color(40, 40, 40);
+        this.BUTTON_BG_COLOR_OLD = new Color(255, 255, 255);
+        
+        this.BUTTON_BG_COLOR_NEW_BLUE      = new Color(12, 107, 181);
+        this.BUTTON_BG_COLOR_PRESS_BLUE    = new Color(02, 97, 171);
+        this.BUTTON_BG_COLOR_NEW_DEFAULT   = new Color(115, 164, 209);
+        this.BUTTON_BG_COLOR_PRESS_DEFAULT = new Color(105, 154, 199);
+        this.BUTTON_BG_COLOR_NEW_GRAY      = new Color(193, 193, 193);
+        this.BUTTON_BG_COLOR_PRESS_GRAY    = new Color(183, 183, 183);
+        this.BUTTON_BG_COLOR_NEW_GREEN     = new Color(12, 152, 66);
+        this.BUTTON_BG_COLOR_PRESS_GREEN   = new Color(07, 142, 56);
+        this.BUTTON_BG_COLOR_NEW_ORANGE    = new Color(240, 93, 31);
+        this.BUTTON_BG_COLOR_PRESS_ORANGE  = new Color(230, 83, 21);
+        this.BUTTON_BG_COLOR_NEW_RED       = new Color(233, 28, 34);
+        this.BUTTON_BG_COLOR_PRESS_RED     = new Color(223, 18, 24);
+        this.BUTTON_BG_COLOR_NEW_VIOLET    = new Color(118, 56, 143);
+        this.BUTTON_BG_COLOR_PRESS_VIOLET  = new Color(108, 46, 133);
+        this.BUTTON_BG_COLOR_NEW_YELLOW    = new Color(253, 217, 15);
+        this.BUTTON_BG_COLOR_PRESS_YELLOW  = new Color(243, 207, 05);
     }
     
 }
