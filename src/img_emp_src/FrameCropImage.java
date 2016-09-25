@@ -197,7 +197,7 @@ public class FrameCropImage extends javax.swing.JFrame {
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void panelCropAreaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCropAreaMousePressed
-        jSlider1.setValue(100);
+        jSlider1.setValue(0);
     }//GEN-LAST:event_panelCropAreaMousePressed
 
     /**
