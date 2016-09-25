@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  * @author blacqueous
  * This class defines a specialized panel for displaying a captured image.
  */
-public class ClassImagePanel extends JPanel {
+public class ClassImageAreaPanel extends JPanel {
     
     /**
      * Displayed BufferedImage.
@@ -28,12 +28,12 @@ public class ClassImagePanel extends JPanel {
     /**
      * Displayed image path. This is a String variable.
      */
-    private String path = getClass().getResource("/img_emp_src/img_galaxy_1.jpg").getFile();
+    private String path = getClass().getResource("/img_emp_src/img_galaxy_2.jpg").getFile();
     
     /**
      * Construct an ImageArea component.
      */
-    public ClassImagePanel() {
+    public ClassImageAreaPanel() {
        
         String img_path = getClass().getResource("/img_emp_src/").getFile();
         File img_path_file = new File(img_path);

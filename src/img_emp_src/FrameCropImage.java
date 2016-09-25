@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
  */
 public class FrameCropImage extends javax.swing.JFrame {
 
-    String image = getClass().getResource("/img_emp_src/Galaxy2.jpg").getFile();
+    String image = getClass().getResource("/img_emp_src/img_galaxy_1.jpg").getFile();
     int oldValue = 0;
     
     /**
@@ -111,7 +111,7 @@ public class FrameCropImage extends javax.swing.JFrame {
         jSlider1.setMaximum(150);
         jSlider1.setMinimum(50);
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSlider1.setValue(100);
+        jSlider1.setValue(0);
         jSlider1.setPreferredSize(new java.awt.Dimension(20, 26));
         jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -131,11 +131,11 @@ public class FrameCropImage extends javax.swing.JFrame {
         panelCropArea.setLayout(panelCropAreaLayout);
         panelCropAreaLayout.setHorizontalGroup(
             panelCropAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         panelCropAreaLayout.setVerticalGroup(
             panelCropAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -143,46 +143,44 @@ public class FrameCropImage extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(panelCropArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(panelCropArea, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addGap(0, 222, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(panelCropArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(panelCropArea, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addGap(0, 124, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(615, 639));
+        setSize(new java.awt.Dimension(558, 563));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        image = getClass().getResource("/img_emp_src/Avengers.png").getFile();
-        
+
+        image = getClass().getResource("/img_emp_src/img_dragon.jpg").getFile();
+
         try {
             panelCropArea.setImage(ImageIO.read(new File(image)));
 //            panelCropArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-            panelCropArea.setPreferredSize(new java.awt.Dimension(500, 500));
-            panelCropArea.setBackground(new Color(0, 0, 0));
+//            panelCropArea.setPreferredSize(new java.awt.Dimension(500, 500));
+//            panelCropArea.setSize(500, 500);
+//            panelCropArea.setBackground(new Color(0, 0, 0));
+            panelCropArea.repaint();
         } catch (IOException ex) {
             Logger.getLogger(FrameCropImage.class.getName()).log(Level.SEVERE, null, ex);
         }
-                
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-//        imageArea1.crop();
-//        panelPreview.setImage((BufferedImage) imageArea1.getCroppedImage());
-        
+
         panelCropArea.crop();
         panelPreview.setImage((BufferedImage) panelCropArea.getCroppedImage());
-//        jSlider1.setValue(50);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -194,11 +192,11 @@ public class FrameCropImage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        panelCropArea.resizeCropSelection(jSlider1.getValue());
+//        panelCropArea.resizeCropSelection(jSlider1.getValue());
+        panelCropArea.zoomImage(jSlider1.getValue());
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void panelCropAreaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCropAreaMousePressed
-        // TODO add your handling code here:
         jSlider1.setValue(100);
     }//GEN-LAST:event_panelCropAreaMousePressed
 
