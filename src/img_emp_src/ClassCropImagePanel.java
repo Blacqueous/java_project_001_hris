@@ -324,22 +324,31 @@ public class ClassCropImagePanel extends JPanel {
         // display of scrollbars.
         setPreferredSize(new Dimension(image.getWidth(this), image.getHeight(this)));
         resizeImage(image);
-        
+
+System.out.println(newHeight);
+System.out.println(newWidth);
+System.out.println(image.getHeight(this));
+System.out.println(image.getWidth(this));
+
         BufferedImage resizedImage = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = resizedImage.createGraphics();
         
-//        int indentWidth = 0;
-//        int indentHeight = 0;
+        int indentWidth = 0;
+        int indentHeight = 0;
         
 //        if(newHeight > newWidth) {
-            int indentHeight = (this.getHeight() - (int)newHeight) / 2;
+//            indentHeight = (this.getHeight() - (int)newHeight) / 2;
 //        } else if(newWidth > newHeight) {
-            int indentWidth = (this.getWidth() - (int)newWidth) / 2;
+//            indentWidth = (this.getWidth() - (int)newWidth) / 2;
 //        }
         
-        g.drawImage(image, indentWidth, indentHeight, (int)newWidth + 10 , (int)newHeight + 10, null);
+        g.drawImage(image, 0, 0, (int)(newWidth - 200), (int)(newHeight - 200), null);
+//        g.drawImage(image, 0, 0, (int)300, (int)300, null);
         g.dispose();
         
+System.out.println(resizedImage.getHeight());
+System.out.println(resizedImage.getWidth());
+
         this.image = resizedImage;
         
         // Present scrollbars as necessary.
@@ -379,6 +388,7 @@ public class ClassCropImagePanel extends JPanel {
         // You want the smallest of the two to ensure that the resulting image
         // fits in the desired frame and maintains the aspect ratio.
         resizeRatio = Math.min(wRatio, hRatio);
+//        return resizeRatio;
         
         // Now call function to resize original image to [newWidth, newHeight]
         // and return the result.
