@@ -1,13 +1,8 @@
 package img_emp_src;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import project_001_hris.SaveImageFile;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,11 +16,14 @@ import project_001_hris.SaveImageFile;
  */
 public class ClassImageCropPanelv2 extends javax.swing.JPanel {
 
+    private final JFileChooser chooser = new JFileChooser(System.getProperty("user.home") +"/Pictures");
+
     /**
      * Creates new form ClassImageCropPanelv2
      */
     public ClassImageCropPanelv2() {
         initComponents();
+        additionalComponents();
     }
 
     /**
@@ -38,15 +36,32 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        panelImageDock = new img_emp_src.ClassImageAreaPanel();
         panelControls = new javax.swing.JPanel();
         slider = new javax.swing.JSlider();
         btnBrowse = new javax.swing.JButton();
-        panelImageDock = new img_emp_src.ClassImageAreaPanel();
+        classImageAreaPanelv2 = new img_emp_src.ClassImageAreaPanelv2();
+
+        panelImageDock.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelImageDockLayout = new javax.swing.GroupLayout(panelImageDock);
+        panelImageDock.setLayout(panelImageDockLayout);
+        panelImageDockLayout.setHorizontalGroup(
+            panelImageDockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
+        panelImageDockLayout.setVerticalGroup(
+            panelImageDockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
+        );
 
         setLayout(new java.awt.GridBagLayout());
 
+        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        panelControls.setMaximumSize(new java.awt.Dimension(30, 30));
+        panelControls.setMinimumSize(new java.awt.Dimension(30, 30));
         panelControls.setOpaque(false);
-        panelControls.setPreferredSize(new java.awt.Dimension(513, 25));
+        panelControls.setPreferredSize(new java.awt.Dimension(30, 30));
         panelControls.setLayout(new java.awt.BorderLayout());
 
         slider.setValue(0);
@@ -78,15 +93,24 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         add(panelControls, gridBagConstraints);
 
-        javax.swing.GroupLayout panelImageDockLayout = new javax.swing.GroupLayout(panelImageDock);
-        panelImageDock.setLayout(panelImageDockLayout);
-        panelImageDockLayout.setHorizontalGroup(
-            panelImageDockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+        classImageAreaPanelv2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                classImageAreaPanelv2MouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                classImageAreaPanelv2MouseMoved(evt);
+            }
+        });
+
+        javax.swing.GroupLayout classImageAreaPanelv2Layout = new javax.swing.GroupLayout(classImageAreaPanelv2);
+        classImageAreaPanelv2.setLayout(classImageAreaPanelv2Layout);
+        classImageAreaPanelv2Layout.setHorizontalGroup(
+            classImageAreaPanelv2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        panelImageDockLayout.setVerticalGroup(
-            panelImageDockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
+        classImageAreaPanelv2Layout.setVerticalGroup(
+            classImageAreaPanelv2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -96,130 +120,81 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(panelImageDock, gridBagConstraints);
+        add(classImageAreaPanelv2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void additionalComponents() {
+        
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, GIF, and PNG Images", "jpg", "gif", "png");
+        
+        chooser.setFileFilter(filter);
+        
+    }
 
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
         
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, GIF, and PNG Images", "jpg", "gif", "png");
-        chooser.setFileFilter(filter);
-        
         int returnVal = chooser.showOpenDialog(this);
+        
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
-            javaxt.io.Image imageIO = new javaxt.io.Image(file.getAbsolutePath());
-            // System.out.println("You chose to open this file: " + file.getName());
-            
-            int size_base;
-            int size_image;
-            int size_ratio;
-            
-            // Choose what size to follow based on this panel
-            if(panelImageDock.getHeight() > panelImageDock.getWidth()) { // What the height!!!
-                size_base = panelImageDock.getHeight();
-            } else if(panelImageDock.getWidth() > panelImageDock.getHeight()) { // Oh shit! The width!!!
-                size_base = panelImageDock.getWidth();
-            } else { // Maybe they're equal
-                size_base = panelImageDock.getHeight();
-            }
-            
-            // Check image size
-            if(imageIO.getHeight() > imageIO.getWidth()) { // What the height!!!
-                // Check which has a greater value
-                if(imageIO.getWidth()> size_base) {
-                    size_ratio = (int)(imageIO.getWidth()- size_base);
-                } else if(size_base > imageIO.getWidth()) {
-                    size_ratio = (int)(size_base - imageIO.getWidth());
-                } else {
-                    size_ratio = (int)(imageIO.getWidth());
-                }
-                size_image = imageIO.getHeight();
-                // System.out.println("height");
-            } else if(imageIO.getWidth() > imageIO.getHeight()) { // Oh shit! The width!!!
-                // Check which has a greater value
-                if(imageIO.getHeight() > size_base) {
-                    size_ratio = (int)(imageIO.getHeight() - size_base);
-                } else if(size_base > imageIO.getHeight()) {
-                    size_ratio = (int)(size_base - imageIO.getHeight());
-                } else {
-                    size_ratio = (int)(imageIO.getHeight());
-                }
-                size_image = imageIO.getWidth();
-                // System.out.println("width");
-            } else { // Maybe they're equal
-                size_ratio = (int)(imageIO.getHeight());
-                size_image = imageIO.getHeight();
-                // System.out.println("equal");
-            }
-            
-//            // Check image size
-//            if(imageIO.getHeight() > imageIO.getWidth()) { // What the height!!!
-//                // Check which has a greater value
-//                if(imageIO.getHeight()> size_base) {
-//                    size_ratio = (int)(imageIO.getHeight()- size_base);
-//                } else if(size_base > imageIO.getHeight()) {
-//                    size_ratio = (int)(size_base - imageIO.getHeight());
-//                } else {
-//                    size_ratio = (int)(imageIO.getHeight());
-//                }
-//                size_image = imageIO.getHeight();
-//                // System.out.println("height");
-//            } else if(imageIO.getWidth() > imageIO.getHeight()) { // Oh shit! The width!!!
-//                // Check which has a greater value
-//                if(imageIO.getWidth() > size_base) {
-//                    size_ratio = (int)(imageIO.getWidth() - size_base);
-//                } else if(size_base > imageIO.getWidth()) {
-//                    size_ratio = (int)(size_base - imageIO.getWidth());
-//                } else {
-//                    size_ratio = (int)(imageIO.getWidth());
-//                }
-//                size_image = imageIO.getWidth();
-//                // System.out.println("width");
-//            } else { // Maybe they're equal
-//                size_ratio = (int)(imageIO.getHeight());
-//                size_image = imageIO.getHeight();
-//                // System.out.println("equal");
-//            }
-            
-            
-            System.out.println("size base : " + size_base);
-            System.out.println("size image : " + size_image);
-            System.out.println("size ratio : " + size_ratio);
-            System.out.println("image : " + (imageIO.getWidth()-size_ratio) + "x" + (imageIO.getHeight()-size_ratio));
-            System.out.println("image : " + imageIO.getWidth() + "x" + imageIO.getHeight());
-            System.out.println("panel : " + panelImageDock.getWidth() + "x" + panelImageDock.getHeight());
-            System.out.println("\n\n");
-            
-            
-//            int new_height = imageIO.getHeight() - size_ratio;
-//            int new_width = imageIO.getWidth() - size_ratio;
-            
-
-//            imageIO.resize((imageIO.getWidth()-size_ratio), (imageIO.getHeight()-size_ratio), true);
-            int size;
-            if(panelImageDock.getHeight() >= panelImageDock.getWidth()) {
-                size = panelImageDock.getWidth() - size_ratio;
-                imageIO.resize(panelImageDock.getHeight(), panelImageDock.getHeight(), true);
-            } else {
-                size = panelImageDock.getHeight() - size_ratio;
-                imageIO.resize(panelImageDock.getWidth(), panelImageDock.getWidth(), true);
-            }
-            
-            
-            System.out.println("image : " + imageIO.getWidth() + "x" + imageIO.getHeight());
-            
-            panelImageDock.setImage(imageIO.getBufferedImage());
-            // System.out.println("Done.");
-
-            this.repaint();
+            setImagePanel(file.getAbsolutePath());
         }
         
     }//GEN-LAST:event_btnBrowseActionPerformed
 
+    private void classImageAreaPanelv2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseMoved
+        
+        this.repaint(); // Trigger panel repaint
+        
+    }//GEN-LAST:event_classImageAreaPanelv2MouseMoved
+
+    private void classImageAreaPanelv2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseDragged
+        
+        this.repaint(); // Trigger panel repaint
+        
+    }//GEN-LAST:event_classImageAreaPanelv2MouseDragged
+
+    public void setImagePanel(String path) {
+        
+        boolean additional_fill = false;
+        javaxt.io.Image imageIO_src_1st = new javaxt.io.Image(path); // Get and set image from selected path
+        javaxt.io.Image imageIO_src_2nd = new javaxt.io.Image(path); //
+        
+        // Modify image size
+        if(imageIO_src_1st.getHeight() >= imageIO_src_1st.getWidth()) {
+            imageIO_src_1st.setWidth(classImageAreaPanelv2.getWidth());
+        } else {
+            imageIO_src_1st.setHeight(classImageAreaPanelv2.getHeight());
+        }
+
+        // Check if needs to be modified further based on height
+        if(imageIO_src_1st.getWidth() == classImageAreaPanelv2.getWidth() && classImageAreaPanelv2.getHeight() > imageIO_src_1st.getHeight()) {
+            imageIO_src_2nd.setHeight(classImageAreaPanelv2.getHeight());
+            additional_fill = true; // Tick this
+        }
+
+        // Check if needs to be modified further based on width
+        if(imageIO_src_1st.getHeight()== classImageAreaPanelv2.getHeight() && classImageAreaPanelv2.getWidth()> imageIO_src_1st.getWidth()) {
+            imageIO_src_2nd.setWidth(classImageAreaPanelv2.getWidth());
+            additional_fill = true; // Tick this
+        }
+        
+        // Check what image to use based on image fill
+        if(!additional_fill) {
+            // If does not need additional adjustment to fill panel
+            classImageAreaPanelv2.setImage(imageIO_src_1st.getBufferedImage());
+        } else {
+            // else, use modified image
+            classImageAreaPanelv2.setImage(imageIO_src_2nd.getBufferedImage());
+        }
+        
+        this.repaint(); // Trigger panel repaint
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowse;
+    private img_emp_src.ClassImageAreaPanelv2 classImageAreaPanelv2;
     private javax.swing.JPanel panelControls;
     private img_emp_src.ClassImageAreaPanel panelImageDock;
     private javax.swing.JSlider slider;

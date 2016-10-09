@@ -7,7 +7,6 @@ package img_emp_src;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -21,6 +20,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
 import java.io.File;
@@ -32,18 +32,18 @@ import javax.swing.JPanel;
  * @author blacqueous
  * This class defines a specialized panel for displaying a captured image.
  */
-public class ClassCropImagePanel extends JPanel {
+public class ClassImageAreaPanelv2 extends JPanel {
     
     /**
      * Stroke-defined outline of selection rectangle.
      */
-    private final BasicStroke bs;
+    private BasicStroke bs;
     
     /**
      * A gradient paint is used to create a distinctive-looking selection
      * rectangle outline.
      */
-    private final GradientPaint gp;
+    private GradientPaint gp;
     
     /**
      * Displayed image`s Image object, which is actually a BufferedImage.
@@ -70,36 +70,39 @@ public class ClassCropImagePanel extends JPanel {
     /**
      * Location and extents of selection rectangle.
      */
-    private final Rectangle rectSelection;
+    private Rectangle rectSelection;
     
     /**
      * MouseAdapter for JPanel cropping action.
      */
-    public int shortSideMax = 500;
-    public int longSideMax = 500;
-    public float newHeight, newWidth;
     
-    /**
-     * Amount of how much the current image should zoom.
-     */
-    private int zoom;
-    
+    private final int shortSideMax = 500;
+    private final int longSideMax = 500;
+    float newHeight, newWidth;
+
+    public int panelSize = 300;
+
     /**
      * Construct an ImageArea component.
      */
-    public ClassCropImagePanel() {
+    public ClassImageAreaPanelv2() {
         // Create a selection Rectangle. It's better to create one Rectangle
         // here than a Rectangle each time paintComponent() is called, to reduce
         // unnecessary object creation.
         rectSelection = new Rectangle();
-        
+
         // Define the stroke for drawing selection rectangle outline.
         bs = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[]{1, 0}, 0);
-        
-        // Define the gradient paint for coloring selection rectangle outline.
-         gp = new GradientPaint(0.0f, 0.0f, Color.blue, 0.0f, 0.0f, Color.white, true);
-//        gp = new GradientPaint(0.0f, 0.0f, Color.blue, 0.0f, 0.0f, new Color(245, 245, 245), true);
 
+        // Define the gradient paint for coloring selection rectangle outline.
+        gp = new GradientPaint(0.0f, 0.0f, new Color(240, 240, 240), 0.0f, 0.0f, new Color(240, 240, 240), true);
+        
+        // Set default crop selection size
+        mainsrcx = srcx = 0;
+        mainsrcy = srcy = 0;
+        maindestx = destx = 0;
+        maindesty = desty = 0;
+        
         // Install a mouse listener that sets things up for a selection drag.
         MouseListener ml;
         ml = new MouseAdapter() {
@@ -113,26 +116,23 @@ public class ClassCropImagePanel extends JPanel {
                 }
                 
 //                if(mainsrcx==0 && mainsrcy==0 && maindestx==0 && maindesty==0){
-//                    mainsrcx = srcx = me.getX()-((int)newHeight/2);
-//                    mainsrcy = srcy = me.getY()-((int)newHeight/2);
-//                    maindestx = destx = me.getX()+((int)newHeight/2);
-//                    maindesty = desty = me.getY()+((int)newHeight/2);
+                    mainsrcx = srcx = me.getX()-((int)panelSize/2);
+                    mainsrcy = srcy = me.getY()-((int)panelSize/2);
+                    maindestx = destx = me.getX()+((int)panelSize/2);
+                    maindesty = desty = me.getY()+((int)panelSize/2);
 //                } else {
 //                    srcx = me.getX()-(mainsrcx);
 //                    srcy = me.getY()-(mainsrcy);
 //                    destx = me.getX()+(maindestx);
 //                    desty = me.getY()+(maindesty);
 //                }
-
-                mainsrcx = srcx = 0;
-                mainsrcy = srcy = 0;
-                maindestx = destx = 290;
-                maindesty = desty = 290;
-
-                repaint();
+//        mainsrcx = srcx = 1;
+//        mainsrcy = srcy = 1;
+//        maindestx = destx = panelSize - 3;
+//        maindesty = desty = panelSize - 3;
             }
         };
-        // addMouseListener(ml);
+//        addMouseListener(ml);
 
         // Install a mouse motion listener to update the selection rectangle
         // during drag operations.
@@ -147,27 +147,30 @@ public class ClassCropImagePanel extends JPanel {
                 if (image == null) {
                     return;
                 }
-
-//                mainsrcx = srcx = me.getX()-((int)newHeight/2);
-//                mainsrcy = srcy = me.getY()-((int)newHeight/2);
-//                maindestx = destx = me.getX()+((int)newHeight/2);
-//                maindesty = desty = me.getY()+((int)newHeight/2);
-
-//                mainsrcx = srcx = me.getX()-((int)newHeight/2);
-//                mainsrcy = srcy = me.getY()-((int)newHeight/2);
-//                maindestx = destx = me.getX()+((int)newHeight/2);
-//                maindesty = desty = me.getY()+((int)newHeight/2);
-
-                mainsrcx = srcx = 0;
-                mainsrcy = srcy = 0;
-                maindestx = destx = 250;
-                maindesty = desty = 250;
+                
+                mainsrcx = srcx = me.getX()-((int)newHeight/2);
+                mainsrcy = srcy = me.getY()-((int)newHeight/2);
+                maindestx = destx = me.getX()+((int)newHeight/2);
+                maindesty = desty = me.getY()+((int)newHeight/2);
+                
+//                if((me.getX()-((int)panelSize/2)) >= 0) {
+//                    mainsrcx = srcx = me.getX()-((int)panelSize/2);
+//                    maindestx = destx = me.getX()+((int)panelSize/2);
+//                }
+//                mainsrcy = srcy = me.getY()-((int)panelSize/2);
+//                maindesty = desty = me.getY()+((int)panelSize/2);
+System.out.println(mainsrcx);
+System.out.println(mainsrcy);
+System.out.println(maindestx);
+System.out.println(maindesty);
 
                 repaint();
-            }
+            } 
         };
-        // addMouseMotionListener(mml);
-
+//        addMouseMotionListener(mml);
+        
+        this.repaint();
+        
     }
 
     /**
@@ -178,7 +181,9 @@ public class ClassCropImagePanel extends JPanel {
     public boolean crop() {
         // There is nothing to crop if the selection rectangle is only a single
         // point.
-        if (srcx == destx && srcy == desty) { return true; }
+        if (srcx == destx && srcy == desty) {
+            return true;
+        }
         
         // Assume success.
         boolean succeeded = true;
@@ -187,7 +192,7 @@ public class ClassCropImagePanel extends JPanel {
         // corners.
         int x1 = (srcx < destx) ? srcx : destx;
         int y1 = (srcy < desty) ? srcy : desty;
-        
+
         int x2 = (srcx > destx) ? srcx : destx;
         int y2 = (srcy > desty) ? srcy : desty;
         
@@ -199,15 +204,26 @@ public class ClassCropImagePanel extends JPanel {
         BufferedImage biCrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = biCrop.createGraphics();
         
+        // Change to image to circle
+        // g2d.setClip(new Ellipse2D.Float(0, 0, width, height));
+        
         g2d.setRenderingHint (RenderingHints.KEY_ANTIALIASING,   RenderingHints.VALUE_ANTIALIAS_ON);
+        
         g2d.clip(new Ellipse2D.Float(0, 0, width, height));
+        
+        
+        Area outside = new Area(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
+    	outside.subtract(new Area(g2d.getClipBounds()));
+        
+        g2d.clip(outside);
+        g2d.setColor(new Color(255, 255, 255, 0));
+        g2d.fillRect(x1, y1, width, height);
         
         // Perform the crop operation.
         try {
             BufferedImage bi = (BufferedImage) image;
             BufferedImage bi2 = bi.getSubimage(x1, y1, width, height);
             g2d.drawImage(bi2, null, 0, 0);
-//            g2d.drawRoundRect(0, 0, width, height, 100, 100);
         } catch (RasterFormatException e) {
             succeeded = false;
         }
@@ -226,11 +242,15 @@ public class ClassCropImagePanel extends JPanel {
                 ImageIO.write(images.getBufferedImage(), "png", new File(img_path_file.getAbsolutePath() + "\\1.png"));
                 
                 croppedimage = images.getBufferedImage();
+
             } catch (IOException ex) {
                 // handle exception...
             }
             
+//            destx = srcx = 0;
+//            desty = srcy = 0;
             repaint();
+            
         } else {
             // Prepare to remove selection rectangle.
             srcx = destx;
@@ -239,7 +259,6 @@ public class ClassCropImagePanel extends JPanel {
             // Explicitly remove selection rectangle.
             repaint();
         }
-        
         return succeeded;
     }
 
@@ -271,7 +290,7 @@ public class ClassCropImagePanel extends JPanel {
         // Repaint the component's background.
         super.paintComponent(g);
         
-        // If an image has been defined, draw that image using the Component 
+        // If an image has been defined, draw that image using the Component
         // layer of this ImageArea object as the ImageObserver.
         if (image != null) {
             g.drawImage(image, 0, 0, this);
@@ -279,7 +298,6 @@ public class ClassCropImagePanel extends JPanel {
         
         // Draw the selection rectangle if present.
         if (srcx != destx || srcy != desty) {
-            
             // Compute upper-left and lower-right coordinates for selection
             // rectangle corners.
             int x1 = (srcx < destx) ? srcx : destx;
@@ -293,21 +311,29 @@ public class ClassCropImagePanel extends JPanel {
             rectSelection.y = y1;
             
             // Establish selection rectangle extents.
-            rectSelection.width = (x2 - x1) + 10;
-            rectSelection.height = (y2 - y1) + 10;
+            rectSelection.width = (x2 - x1);
+            rectSelection.height = (y2 - y1);
             
+            // Draw selection rectangle.
             Graphics2D g2d = (Graphics2D) g;
-            Ellipse2D circle = new Ellipse2D.Double(x1, y1, ((x2-x1)+10), ((y2-y1)+10));
+            Ellipse2D circle = new Ellipse2D.Double(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
             
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2d.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
             g2d.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
             g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
             
-            Area outter = new Area(new Rectangle(rectSelection.x, rectSelection.y, rectSelection.width, rectSelection.height));
+            Area outter = new Area(new Rectangle(0, 0, this.getWidth(), this.getHeight()));
+            
             outter.subtract(new Area(circle));
-            g2d.setColor(new Color(214, 217, 223));
+            g2d.setColor(new Color(255, 255, 255));
             g2d.fill(outter);
+            
+            g2d.setStroke(bs);
+            g2d.setPaint(gp);
+            
+            g2d.drawOval(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
+            
         }
     }
 
@@ -318,82 +344,72 @@ public class ClassCropImagePanel extends JPanel {
      */
     public void setImage(Image image) {
         // Save the image for later repaint.
-//         this.image = image;
+        // this.image = image;
         
-        // Set this panel's preferred size to the image`s size, to influence the
-        // display of scrollbars.
-        setPreferredSize(new Dimension(image.getWidth(this), image.getHeight(this)));
-        resizeImage(image);
-
-System.out.println(newHeight);
-System.out.println(newWidth);
-System.out.println(image.getHeight(this));
-System.out.println(image.getWidth(this));
-
-        BufferedImage resizedImage = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
+        // Set this panel's preferred size to the image`s size, to influence the display of scrollbars.
+        // setPreferredSize(new Dimension(image.getWidth(this), image.getHeight(this)));
+        // resizeImage(image);
+        
+        BufferedImage resizedImage = new BufferedImage(image.getWidth(this), image.getHeight(this), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = resizedImage.createGraphics();
         
-        int indentWidth = 0;
-        int indentHeight = 0;
+        int indentH = (this.getHeight()-image.getHeight(this)) / 2;
+        int indentW = (this.getWidth()-image.getWidth(this)) / 2;
         
-//        if(newHeight > newWidth) {
-//            indentHeight = (this.getHeight() - (int)newHeight) / 2;
-//        } else if(newWidth > newHeight) {
-//            indentWidth = (this.getWidth() - (int)newWidth) / 2;
-//        }
-        
-        g.drawImage(image, 0, 0, (int)(newWidth), (int)(newHeight), null);
-//        g.drawImage(image, 0, 0, (int)300, (int)300, null);
+        g.drawImage(image, indentW, indentH, image.getWidth(this), image.getHeight(this), null);
         g.dispose();
         
-System.out.println(resizedImage.getHeight());
-System.out.println(resizedImage.getWidth());
+        // Prepare to remove any selection rectangle.
+        // srcx = destx;
+        // srcy = desty;
+        int cropSize = 0; // Get lowest edge size
+        if(this.getHeight() >= this.getWidth()) {
+            cropSize = this.getWidth();
+        } else {
+            cropSize = this.getHeight();
+        }
+        
+        mainsrcx = srcx = 0;
+        mainsrcy = srcy = 100;
+        maindestx = destx = cropSize;
+        maindesty = desty = cropSize+100;
 
         this.image = resizedImage;
         
         // Present scrollbars as necessary.
         revalidate();
         
-        // Prepare to remove any selection rectangle.
-        mainsrcx = srcx = 0;
-        mainsrcy = srcy = 0;
-        maindestx = destx = 290;
-        maindesty = desty = 290;
-        
         // Update the image displayed on the panel.
         repaint();
+        
     }
     
     public void resizeImage(Image image) {
-        
         float wRatio, hRatio, resizeRatio;
-        
         if (image.getWidth(this) >= image.getHeight(this)) {
             if (image.getWidth(this) <= longSideMax && image.getHeight(this) <= shortSideMax) {
-                // return image;  // no resizing required
-                // System.out.println("Must return!!!");
+                System.out.println("Must return!!!");
             }
             wRatio = ((float) longSideMax) / image.getWidth(this);
             hRatio = ((float) shortSideMax) / image.getWidth(this);
         } else {
             if (image.getHeight(this) <= longSideMax && image.getWidth(this) <= shortSideMax) {
-                // return image; // no resizing required
-                // System.out.println("Must return!!!");
+                System.out.println("Must return!!!");
             }
             wRatio = ((float) shortSideMax) / image.getWidth(this);
             hRatio = ((float) longSideMax) / image.getHeight(this);
         }
-        
+
         // hRatio and wRatio now have the scaling factors for height and width.
         // You want the smallest of the two to ensure that the resulting image
         // fits in the desired frame and maintains the aspect ratio.
         resizeRatio = Math.min(wRatio, hRatio);
-//        return resizeRatio;
+
+        newHeight = image.getHeight(this) * resizeRatio;
+        newWidth = image.getWidth(this) * resizeRatio;
         
         // Now call function to resize original image to [newWidth, newHeight]
         // and return the result.
-        newHeight = (image.getHeight(this) * resizeRatio) + this.zoom;
-        newWidth = (image.getWidth(this) * resizeRatio) + this.zoom;
     }
     
     public void resizeCropSelection(int newValue) {
@@ -403,64 +419,7 @@ System.out.println(resizedImage.getWidth());
         destx = maindestx-(100-newValue);
         desty = maindesty-(100-newValue);
         repaint();
-    }
-    
-    public void setZoom(int z) {
-        this.zoom = z;
-    }
-    
-    public int getZoom() {
-        return this.zoom;
-    }
-    
-    public void zoomImage(int zoom) {
         
-        float wRatio, hRatio, resizeRatio;
-        
-        if (this.image.getWidth(this) >= this.image.getHeight(this)) {
-            if (this.image.getWidth(this) <= longSideMax && this.image.getHeight(this) <= shortSideMax) {
-                // return image;  // no resizing required
-                // System.out.println("Must return!!!");
-            }
-            wRatio = ((float) longSideMax) / this.image.getWidth(this);
-            hRatio = ((float) shortSideMax) / this.image.getWidth(this);
-        } else {
-            if (this.image.getHeight(this) <= longSideMax && this.image.getWidth(this) <= shortSideMax) {
-                // return image; // no resizing required
-                // System.out.println("Must return!!!");
-            }
-            wRatio = ((float) shortSideMax) / this.image.getWidth(this);
-            hRatio = ((float) longSideMax) / this.image.getHeight(this);
-        }
-        
-        // hRatio and wRatio now have the scaling factors for height and width.
-        // You want the smallest of the two to ensure that the resulting image
-        // fits in the desired frame and maintains the aspect ratio.
-        resizeRatio = Math.min(wRatio, hRatio);
-        
-        // Now call function to resize original image to [newWidth, newHeight]
-        // and return the result.
-        newHeight = (this.image.getHeight(this) * resizeRatio) + zoom;
-        newWidth = (this.image.getWidth(this) * resizeRatio) + zoom;
-        
-        BufferedImage resizedImage = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = resizedImage.createGraphics();
-        
-//        int indentWidth = 0;
-//        int indentHeight = 0;
-        
-//        if(newHeight > newWidth) {
-            int indentHeight = (this.getHeight() - (int)newHeight) / 2;
-//        } else if(newWidth > newHeight) {
-            int indentWidth = (this.getWidth() - (int)newWidth) / 2;
-//        }
-        
-        g.drawImage(this.image, indentWidth, indentHeight, (int)newWidth + 10 , (int)newHeight + 10, null);
-        g.dispose();
-        
-//        this.image = resizedImage;
-        revalidate();
-        repaint();
     }
     
 }

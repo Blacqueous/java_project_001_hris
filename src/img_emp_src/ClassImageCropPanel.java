@@ -103,7 +103,7 @@ public class ClassImageCropPanel extends JPanel {
         maindestx = destx = panelSize - 3;
         maindesty = desty = panelSize - 3;
 
-        repaint();
+        this.repaint();
 
         // Install a mouse listener that sets things up for a selection drag.
         MouseListener ml;

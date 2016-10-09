@@ -32,24 +32,16 @@ public class NewJFrame4 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 204));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(classImageCropPanelv21, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(classImageCropPanelv21, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(252, Short.MAX_VALUE))
-        );
+        classImageCropPanelv21.setBackground(new java.awt.Color(0, 204, 102));
+        classImageCropPanelv21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        classImageCropPanelv21.setMaximumSize(new java.awt.Dimension(200, 150));
+        classImageCropPanelv21.setMinimumSize(new java.awt.Dimension(200, 150));
+        classImageCropPanelv21.setOpaque(false);
+        classImageCropPanelv21.setPreferredSize(new java.awt.Dimension(200, 150));
+        getContentPane().add(classImageCropPanelv21, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setSize(new java.awt.Dimension(236, 209));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

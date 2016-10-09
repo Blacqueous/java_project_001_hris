@@ -176,6 +176,8 @@ public class FrameCropImage extends javax.swing.JFrame {
         image = getClass().getResource("/img_emp_src/img_galaxy_2.jpg").getFile();
 
         try {
+            panelCropArea.longSideMax = 500;
+            panelCropArea.shortSideMax = 500;
             panelCropArea.setImage(ImageIO.read(new File(image)));
 //            panelCropArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 //            panelCropArea.setPreferredSize(new java.awt.Dimension(500, 500));

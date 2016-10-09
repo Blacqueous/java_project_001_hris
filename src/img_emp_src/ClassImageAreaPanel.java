@@ -35,24 +35,24 @@ public class ClassImageAreaPanel extends JPanel {
      */
     public ClassImageAreaPanel() {
        
-        String img_path = getClass().getResource("/img_emp_src/").getFile();
-        File img_path_file = new File(img_path);
-        
-        try {
-            bimage = ImageIO.read(new File(path));
-
-            javaxt.io.Image images = new javaxt.io.Image(bimage);
-            images.setWidth(100); //set width, adjusts height to maintain aspect ratio
-            images.setHeight(100); //set height, adjusts width to maintain aspect ratio
-            images.resize(100, 100);
-
-            ImageIO.write(images.getBufferedImage(), "jpg", new File(img_path_file.getAbsolutePath() + "\\1.jpg"));
-
-            bimage = images.getBufferedImage();
-                        
-        } catch (IOException ex) {
-             // handle exception...
-        }
+////        String img_path = getClass().getResource("/img_emp_src/").getFile();
+////        File img_path_file = new File(img_path);
+//        
+//        try {
+//            bimage = ImageIO.read(new File(path));
+//
+//            javaxt.io.Image images = new javaxt.io.Image(bimage);
+//            images.setWidth(100); // Set width, adjusts height to maintain aspect ratio
+//            images.setHeight(100); // Set height, adjusts width to maintain aspect ratio
+////            images.resize(100, 100);
+//
+////            ImageIO.write(images.getBufferedImage(), "jpg", new File(img_path_file.getAbsolutePath() + "\\1.jpg"));
+//
+//            bimage = images.getBufferedImage();
+//                        
+//        } catch (IOException ex) {
+//             // handle exception...
+//        }
     }
     
     /**
