@@ -9,9 +9,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -28,7 +25,7 @@ public class ClassImageAreaPanel extends JPanel {
     /**
      * Displayed image path. This is a String variable.
      */
-    private String path = getClass().getResource("/img_emp_src/img_galaxy_2.jpg").getFile();
+    private String path = getClass().getResource("/img_emp_src/Galaxy2.jpg").getFile();
     
     /**
      * Construct an ImageArea component.

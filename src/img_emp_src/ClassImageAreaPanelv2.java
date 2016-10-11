@@ -102,6 +102,19 @@ public class ClassImageAreaPanelv2 extends JPanel {
         mainsrcy = srcy = 0;
         maindestx = destx = 0;
         maindesty = desty = 0;
+        // Set new default crop selection size
+        // Depends on panel size
+//        if(this.getHeight() >= this.getWidth()) {
+//            mainsrcx = srcx = 0;
+//            mainsrcy = srcy = (this.getHeight() / 2) - (this.getWidth() / 2);
+//            maindestx = destx = this.getWidth();
+//            maindesty = desty = this.getWidth() + mainsrcy;
+//        } else {
+//            mainsrcx = srcx = (this.getWidth() / 2) - (this.getHeight() / 2);
+//            mainsrcy = srcy = 0;
+//            maindestx = destx = this.getHeight() + mainsrcx;
+//            maindesty = desty = this.getHeight();
+//        }
         
         // Install a mouse listener that sets things up for a selection drag.
         MouseListener ml;
@@ -115,24 +128,13 @@ public class ClassImageAreaPanelv2 extends JPanel {
                     return;
                 }
                 
-//                if(mainsrcx==0 && mainsrcy==0 && maindestx==0 && maindesty==0){
-                    mainsrcx = srcx = me.getX()-((int)panelSize/2);
-                    mainsrcy = srcy = me.getY()-((int)panelSize/2);
-                    maindestx = destx = me.getX()+((int)panelSize/2);
-                    maindesty = desty = me.getY()+((int)panelSize/2);
-//                } else {
-//                    srcx = me.getX()-(mainsrcx);
-//                    srcy = me.getY()-(mainsrcy);
-//                    destx = me.getX()+(maindestx);
-//                    desty = me.getY()+(maindesty);
-//                }
-//        mainsrcx = srcx = 1;
-//        mainsrcy = srcy = 1;
-//        maindestx = destx = panelSize - 3;
-//        maindesty = desty = panelSize - 3;
+                mainsrcx = srcx = me.getX()-((int)panelSize/2);
+                mainsrcy = srcy = me.getY()-((int)panelSize/2);
+                maindestx = destx = me.getX()+((int)panelSize/2);
+                maindesty = desty = me.getY()+((int)panelSize/2);
             }
         };
-//        addMouseListener(ml);
+        // addMouseListener(ml);
 
         // Install a mouse motion listener to update the selection rectangle
         // during drag operations.
@@ -153,21 +155,10 @@ public class ClassImageAreaPanelv2 extends JPanel {
                 maindestx = destx = me.getX()+((int)newHeight/2);
                 maindesty = desty = me.getY()+((int)newHeight/2);
                 
-//                if((me.getX()-((int)panelSize/2)) >= 0) {
-//                    mainsrcx = srcx = me.getX()-((int)panelSize/2);
-//                    maindestx = destx = me.getX()+((int)panelSize/2);
-//                }
-//                mainsrcy = srcy = me.getY()-((int)panelSize/2);
-//                maindesty = desty = me.getY()+((int)panelSize/2);
-System.out.println(mainsrcx);
-System.out.println(mainsrcy);
-System.out.println(maindestx);
-System.out.println(maindesty);
-
                 repaint();
             } 
         };
-//        addMouseMotionListener(mml);
+        // addMouseMotionListener(mml);
         
         this.repaint();
         
@@ -179,6 +170,7 @@ System.out.println(maindesty);
      * @return true if cropping succeeded
      */
     public boolean crop() {
+        
         // There is nothing to crop if the selection rectangle is only a single
         // point.
         if (srcx == destx && srcy == desty) {
@@ -260,6 +252,7 @@ System.out.println(maindesty);
             repaint();
         }
         return succeeded;
+        
     }
 
     /**
@@ -359,21 +352,19 @@ System.out.println(maindesty);
         g.drawImage(image, indentW, indentH, image.getWidth(this), image.getHeight(this), null);
         g.dispose();
         
-        // Prepare to remove any selection rectangle.
-        // srcx = destx;
-        // srcy = desty;
-        int cropSize = 0; // Get lowest edge size
+        // Set image crop size
         if(this.getHeight() >= this.getWidth()) {
-            cropSize = this.getWidth();
+            mainsrcx = srcx = 0;
+            mainsrcy = srcy = (this.getHeight() / 2) - (this.getWidth() / 2);
+            maindestx = destx = this.getWidth();
+            maindesty = desty = this.getWidth() + mainsrcy;
         } else {
-            cropSize = this.getHeight();
+            mainsrcx = srcx = (this.getWidth() / 2) - (this.getHeight() / 2);
+            mainsrcy = srcy = 0;
+            maindestx = destx = this.getHeight() + mainsrcx;
+            maindesty = desty = this.getHeight();
         }
         
-        mainsrcx = srcx = 0;
-        mainsrcy = srcy = 100;
-        maindestx = destx = cropSize;
-        maindesty = desty = cropSize+100;
-
         this.image = resizedImage;
         
         // Present scrollbars as necessary.
