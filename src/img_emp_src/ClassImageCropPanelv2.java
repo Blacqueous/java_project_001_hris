@@ -17,6 +17,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class ClassImageCropPanelv2 extends javax.swing.JPanel {
 
     private final JFileChooser chooser = new JFileChooser(System.getProperty("user.home") +"/Pictures");
+    private String filepath = "";
+    private int zoom = 0;
 
     /**
      * Creates new form ClassImageCropPanelv2
@@ -36,26 +38,19 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        panelImageDock = new img_emp_src.ClassImageAreaPanel();
         panelControls = new javax.swing.JPanel();
         slider = new javax.swing.JSlider();
         btnBrowse = new javax.swing.JButton();
-        classImageAreaPanelv2 = new img_emp_src.ClassImageAreaPanelv2();
-
-        panelImageDock.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panelImageDockLayout = new javax.swing.GroupLayout(panelImageDock);
-        panelImageDock.setLayout(panelImageDockLayout);
-        panelImageDockLayout.setHorizontalGroup(
-            panelImageDockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
-        );
-        panelImageDockLayout.setVerticalGroup(
-            panelImageDockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
-
-        setLayout(new java.awt.GridBagLayout());
+        panelControls1 = new javax.swing.JPanel();
+        btnBrowseAlternative = new javax.swing.JButton();
+        panelZoom = new javax.swing.JPanel();
+        btnZoomIn = new javax.swing.JButton();
+        btnZoomOut = new javax.swing.JButton();
+        panelControls2 = new javax.swing.JPanel();
+        panelZoomRefresh = new javax.swing.JPanel();
+        btnZoomRefresh = new javax.swing.JButton();
+        btnZoomRefresh1 = new javax.swing.JButton();
+        classImageAreaPanelv2 = new img_emp_src.ClassImageAreaPanelv2().create();
 
         panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
         panelControls.setMaximumSize(new java.awt.Dimension(30, 30));
@@ -64,10 +59,16 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         panelControls.setPreferredSize(new java.awt.Dimension(30, 30));
         panelControls.setLayout(new java.awt.BorderLayout());
 
+        slider.setMaximum(500);
         slider.setValue(0);
         slider.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 0));
         slider.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
         slider.setOpaque(false);
+        slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderStateChanged(evt);
+            }
+        });
         panelControls.add(slider, java.awt.BorderLayout.CENTER);
 
         btnBrowse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_img_landscape_add.png"))); // NOI18N
@@ -82,6 +83,67 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         });
         panelControls.add(btnBrowse, java.awt.BorderLayout.LINE_START);
 
+        setLayout(new java.awt.GridBagLayout());
+
+        panelControls1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        panelControls1.setMaximumSize(new java.awt.Dimension(30, 30));
+        panelControls1.setMinimumSize(new java.awt.Dimension(30, 30));
+        panelControls1.setOpaque(false);
+        panelControls1.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelControls1.setLayout(new java.awt.BorderLayout());
+
+        btnBrowseAlternative.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_photo.png"))); // NOI18N
+        btnBrowseAlternative.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBrowseAlternative.setFocusTraversalPolicyProvider(true);
+        btnBrowseAlternative.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnBrowseAlternative.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnBrowseAlternative.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnBrowseAlternative.setNextFocusableComponent(btnZoomIn);
+        btnBrowseAlternative.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnBrowseAlternative.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        btnBrowseAlternative.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseAlternativeActionPerformed(evt);
+            }
+        });
+        panelControls1.add(btnBrowseAlternative, java.awt.BorderLayout.LINE_START);
+
+        panelZoom.setMaximumSize(new java.awt.Dimension(50, 25));
+        panelZoom.setMinimumSize(new java.awt.Dimension(50, 25));
+        panelZoom.setOpaque(false);
+        panelZoom.setPreferredSize(new java.awt.Dimension(50, 25));
+        panelZoom.setLayout(new java.awt.GridLayout());
+
+        btnZoomIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_magnifier_zoom_out.png"))); // NOI18N
+        btnZoomIn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnZoomIn.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnZoomIn.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnZoomIn.setNextFocusableComponent(btnZoomOut);
+        btnZoomIn.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnZoomIn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_zoom_out.png"))); // NOI18N
+        btnZoomIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZoomInActionPerformed(evt);
+            }
+        });
+        panelZoom.add(btnZoomIn);
+
+        btnZoomOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_magnifier_zoom_in.png"))); // NOI18N
+        btnZoomOut.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnZoomOut.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnZoomOut.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnZoomOut.setNextFocusableComponent(btnZoomRefresh);
+        btnZoomOut.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnZoomOut.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_zoom_in.png"))); // NOI18N
+        btnZoomOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZoomOutActionPerformed(evt);
+            }
+        });
+        panelZoom.add(btnZoomOut);
+
+        panelControls1.add(panelZoom, java.awt.BorderLayout.LINE_END);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -91,8 +153,61 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(panelControls, gridBagConstraints);
+        add(panelControls1, gridBagConstraints);
 
+        panelControls2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
+        panelControls2.setMaximumSize(new java.awt.Dimension(30, 30));
+        panelControls2.setMinimumSize(new java.awt.Dimension(30, 30));
+        panelControls2.setOpaque(false);
+        panelControls2.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelControls2.setLayout(new java.awt.BorderLayout());
+
+        panelZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
+        panelZoomRefresh.setOpaque(false);
+        panelZoomRefresh.setLayout(new java.awt.GridLayout());
+
+        btnZoomRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_arrow_refresh.png"))); // NOI18N
+        btnZoomRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnZoomRefresh.setMargin(new java.awt.Insets(0, 0, 0, 1));
+        btnZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh.setNextFocusableComponent(btnBrowseAlternative);
+        btnZoomRefresh.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZoomRefreshActionPerformed(evt);
+            }
+        });
+        panelZoomRefresh.add(btnZoomRefresh);
+
+        panelControls2.add(panelZoomRefresh, java.awt.BorderLayout.LINE_END);
+
+        btnZoomRefresh1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_star.png"))); // NOI18N
+        btnZoomRefresh1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnZoomRefresh1.setMargin(new java.awt.Insets(0, 0, 0, 1));
+        btnZoomRefresh1.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh1.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh1.setNextFocusableComponent(btnBrowseAlternative);
+        btnZoomRefresh1.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZoomRefresh1ActionPerformed(evt);
+            }
+        });
+        panelControls2.add(btnZoomRefresh1, java.awt.BorderLayout.CENTER);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(panelControls2, gridBagConstraints);
+
+        classImageAreaPanelv2.setBackground(new java.awt.Color(255, 255, 255));
         classImageAreaPanelv2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 classImageAreaPanelv2MouseDragged(evt);
@@ -126,8 +241,16 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void additionalComponents() {
         
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, GIF, and PNG Images", "jpg", "gif", "png");
-        
         chooser.setFileFilter(filter);
+        
+        classImageAreaPanelv2.revalidate();// Revalidate image area.
+        classImageAreaPanelv2.repaint(); // Repaint image area.
+        this.repaint(); // Repaint this panel.
+        
+        // Reset zoom slider
+        slider.setValue(0); // Reset values
+        slider.setEnabled(false); // Reset enability
+        zoom = 0; // Rest zoom integer value.
         
     }
 
@@ -137,7 +260,10 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
-            setImagePanel(file.getAbsolutePath());
+            
+            filepath = file.getAbsolutePath();
+            
+            setImagePanel(file.getAbsolutePath(), 0);
         }
         
     }//GEN-LAST:event_btnBrowseActionPerformed
@@ -154,28 +280,101 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         
     }//GEN-LAST:event_classImageAreaPanelv2MouseDragged
 
-    public void setImagePanel(String path) {
+    private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         
-        boolean additional_fill = false;
+        classImageAreaPanelv2.resizeImage(slider.getValue());
+        this.repaint(); // Trigger panel repaint
+        
+    }//GEN-LAST:event_sliderStateChanged
+
+    private void btnBrowseAlternativeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseAlternativeActionPerformed
+        
+        int returnVal = chooser.showOpenDialog(this);
+        
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            
+            filepath = file.getAbsolutePath();
+            
+            setImagePanel(file.getAbsolutePath(), 0);
+            zoom = 0; // Rest zoom integer value.
+        }
+        
+    }//GEN-LAST:event_btnBrowseAlternativeActionPerformed
+
+    private void btnZoomInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomInActionPerformed
+        
+        String path = this.filepath;
+        
+        if(!path.trim().isEmpty()) {
+            this.zoom -= 100;
+            if(this.zoom < 0) { this.zoom = 0; return; }
+            
+            setImagePanel(this.filepath, this.zoom);
+        }
+        
+    }//GEN-LAST:event_btnZoomInActionPerformed
+
+    private void btnZoomOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomOutActionPerformed
+        
+        String path = this.filepath;
+        
+        if(!path.trim().isEmpty()) {
+            this.zoom += 100;
+            if(this.zoom > 1000) { this.zoom = 1000; return; }
+            
+            setImagePanel(this.filepath, this.zoom);
+        }
+        
+    }//GEN-LAST:event_btnZoomOutActionPerformed
+
+    private void btnZoomRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomRefreshActionPerformed
+        
+        String path = this.filepath;
+        
+        if(!path.trim().isEmpty()) {
+            if(this.zoom != 0) {
+                this.zoom = 0;
+                setImagePanel(this.filepath, this.zoom);
+            }
+        }
+        
+    }//GEN-LAST:event_btnZoomRefreshActionPerformed
+
+    private void btnZoomRefresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomRefresh1ActionPerformed
+        // TODO add your handling code here:
+        classImageAreaPanelv2.crop();
+    }//GEN-LAST:event_btnZoomRefresh1ActionPerformed
+
+    public void setImagePanel(String path, int zoom) {
+        
+        // If no image given.
+        if(path.trim().isEmpty()) { return; }
+        
+        // Reset zoom slider
+        slider.setValue(0); // Reset values
+        slider.setEnabled(false); // Reset enability
+        
+        boolean additional_fill = false; // Variable that check if image need's additional value to fit panel
         javaxt.io.Image imageIO_src_1st = new javaxt.io.Image(path); // Get and set image from selected path
-        javaxt.io.Image imageIO_src_2nd = new javaxt.io.Image(path); //
+        javaxt.io.Image imageIO_src_2nd = imageIO_src_1st; // Get and set secondary image from selected path
         
         // Modify image size
         if(imageIO_src_1st.getHeight() >= imageIO_src_1st.getWidth()) {
-            imageIO_src_1st.setWidth(classImageAreaPanelv2.getWidth());
+            imageIO_src_1st.setWidth(classImageAreaPanelv2.getWidth() + zoom);
         } else {
-            imageIO_src_1st.setHeight(classImageAreaPanelv2.getHeight());
+            imageIO_src_1st.setHeight(classImageAreaPanelv2.getHeight() + zoom);
         }
 
         // Check if needs to be modified further based on height
         if(imageIO_src_1st.getWidth() == classImageAreaPanelv2.getWidth() && classImageAreaPanelv2.getHeight() > imageIO_src_1st.getHeight()) {
-            imageIO_src_2nd.setHeight(classImageAreaPanelv2.getHeight());
+            imageIO_src_2nd.setHeight(classImageAreaPanelv2.getHeight() + zoom);
             additional_fill = true; // Tick this
         }
 
         // Check if needs to be modified further based on width
         if(imageIO_src_1st.getHeight()== classImageAreaPanelv2.getHeight() && classImageAreaPanelv2.getWidth()> imageIO_src_1st.getWidth()) {
-            imageIO_src_2nd.setWidth(classImageAreaPanelv2.getWidth());
+            imageIO_src_2nd.setWidth(classImageAreaPanelv2.getWidth() + zoom);
             additional_fill = true; // Tick this
         }
         
@@ -189,14 +388,23 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         }
         
         this.repaint(); // Trigger panel repaint
+        slider.setEnabled(true);
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowse;
+    private javax.swing.JButton btnBrowseAlternative;
+    private javax.swing.JButton btnZoomIn;
+    private javax.swing.JButton btnZoomOut;
+    private javax.swing.JButton btnZoomRefresh;
+    private javax.swing.JButton btnZoomRefresh1;
     private img_emp_src.ClassImageAreaPanelv2 classImageAreaPanelv2;
     private javax.swing.JPanel panelControls;
-    private img_emp_src.ClassImageAreaPanel panelImageDock;
+    private javax.swing.JPanel panelControls1;
+    private javax.swing.JPanel panelControls2;
+    private javax.swing.JPanel panelZoom;
+    private javax.swing.JPanel panelZoomRefresh;
     private javax.swing.JSlider slider;
     // End of variables declaration//GEN-END:variables
 }

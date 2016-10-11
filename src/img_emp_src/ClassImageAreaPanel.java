@@ -25,7 +25,7 @@ public class ClassImageAreaPanel extends JPanel {
     /**
      * Displayed image path. This is a String variable.
      */
-    private String path = getClass().getResource("/img_emp_src/Galaxy2.jpg").getFile();
+    private String path = getClass().getResource("/img_emp_src/img_galaxy_2.jpg").getFile();
     
     /**
      * Construct an ImageArea component.
