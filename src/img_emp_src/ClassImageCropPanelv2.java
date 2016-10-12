@@ -1,5 +1,6 @@
 package img_emp_src;
 
+import java.awt.CardLayout;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -38,7 +39,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        panelControls1 = new javax.swing.JPanel();
+        panelControls = new javax.swing.JPanel();
         panelControlType0 = new javax.swing.JPanel();
         slider = new javax.swing.JSlider();
         btnBrowseType0 = new javax.swing.JButton();
@@ -49,10 +50,12 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         btnBrowseType1 = new javax.swing.JButton();
         panelControlType2 = new javax.swing.JPanel();
         btnBrowseType2 = new javax.swing.JButton();
-        panelControls2 = new javax.swing.JPanel();
+        panelMode = new javax.swing.JPanel();
+        panelModeSome = new javax.swing.JPanel();
+        panelModeFull = new javax.swing.JPanel();
         panelZoomRefresh = new javax.swing.JPanel();
         btnZoomRefresh = new javax.swing.JButton();
-        btnZoomRefresh1 = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         classImageAreaPanelv2 = new img_emp_src.ClassImageAreaPanelv2().create();
 
         setMaximumSize(new java.awt.Dimension(150, 150));
@@ -60,12 +63,12 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(150, 150));
         setLayout(new java.awt.GridBagLayout());
 
-        panelControls1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
-        panelControls1.setMaximumSize(new java.awt.Dimension(30, 30));
-        panelControls1.setMinimumSize(new java.awt.Dimension(30, 30));
-        panelControls1.setOpaque(false);
-        panelControls1.setPreferredSize(new java.awt.Dimension(30, 30));
-        panelControls1.setLayout(new java.awt.CardLayout());
+        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        panelControls.setMaximumSize(new java.awt.Dimension(30, 30));
+        panelControls.setMinimumSize(new java.awt.Dimension(30, 30));
+        panelControls.setOpaque(false);
+        panelControls.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelControls.setLayout(new java.awt.CardLayout());
 
         panelControlType0.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         panelControlType0.setMaximumSize(new java.awt.Dimension(30, 30));
@@ -98,7 +101,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         });
         panelControlType0.add(btnBrowseType0, java.awt.BorderLayout.LINE_START);
 
-        panelControls1.add(panelControlType0, "card_type_0");
+        panelControls.add(panelControlType0, "card_type_0");
 
         panelControlType1.setOpaque(false);
         panelControlType1.setLayout(new java.awt.BorderLayout());
@@ -155,7 +158,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         });
         panelControlType1.add(btnBrowseType1, java.awt.BorderLayout.LINE_START);
 
-        panelControls1.add(panelControlType1, "card_type_1");
+        panelControls.add(panelControlType1, "card_type_1");
 
         panelControlType2.setOpaque(false);
         panelControlType2.setLayout(new java.awt.BorderLayout());
@@ -176,7 +179,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         });
         panelControlType2.add(btnBrowseType2, java.awt.BorderLayout.LINE_START);
 
-        panelControls1.add(panelControlType2, "card_type_2");
+        panelControls.add(panelControlType2, "card_type_2");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -187,14 +190,32 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(panelControls1, gridBagConstraints);
+        add(panelControls, gridBagConstraints);
 
-        panelControls2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
-        panelControls2.setMaximumSize(new java.awt.Dimension(30, 30));
-        panelControls2.setMinimumSize(new java.awt.Dimension(30, 30));
-        panelControls2.setOpaque(false);
-        panelControls2.setPreferredSize(new java.awt.Dimension(30, 30));
-        panelControls2.setLayout(new java.awt.BorderLayout());
+        panelMode.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
+        panelMode.setMaximumSize(new java.awt.Dimension(30, 30));
+        panelMode.setMinimumSize(new java.awt.Dimension(30, 30));
+        panelMode.setOpaque(false);
+        panelMode.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelMode.setLayout(new java.awt.CardLayout());
+
+        panelModeSome.setOpaque(false);
+
+        javax.swing.GroupLayout panelModeSomeLayout = new javax.swing.GroupLayout(panelModeSome);
+        panelModeSome.setLayout(panelModeSomeLayout);
+        panelModeSomeLayout.setHorizontalGroup(
+            panelModeSomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        panelModeSomeLayout.setVerticalGroup(
+            panelModeSomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 26, Short.MAX_VALUE)
+        );
+
+        panelMode.add(panelModeSome, "card_mode_0");
+
+        panelModeFull.setOpaque(false);
+        panelModeFull.setLayout(new java.awt.BorderLayout());
 
         panelZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
         panelZoomRefresh.setOpaque(false);
@@ -214,21 +235,23 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         });
         panelZoomRefresh.add(btnZoomRefresh);
 
-        panelControls2.add(panelZoomRefresh, java.awt.BorderLayout.LINE_END);
+        panelModeFull.add(panelZoomRefresh, java.awt.BorderLayout.LINE_START);
 
-        btnZoomRefresh1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_star.png"))); // NOI18N
-        btnZoomRefresh1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnZoomRefresh1.setMargin(new java.awt.Insets(0, 0, 0, 1));
-        btnZoomRefresh1.setMaximumSize(new java.awt.Dimension(25, 25));
-        btnZoomRefresh1.setMinimumSize(new java.awt.Dimension(25, 25));
-        btnZoomRefresh1.setNextFocusableComponent(btnBrowseType1);
-        btnZoomRefresh1.setPreferredSize(new java.awt.Dimension(25, 25));
-        btnZoomRefresh1.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_thumb_up.png"))); // NOI18N
+        btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSubmit.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnSubmit.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnSubmit.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnSubmit.setNextFocusableComponent(btnBrowseType1);
+        btnSubmit.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnZoomRefresh1ActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
-        panelControls2.add(btnZoomRefresh1, java.awt.BorderLayout.CENTER);
+        panelModeFull.add(btnSubmit, java.awt.BorderLayout.CENTER);
+
+        panelMode.add(panelModeFull, "card_mode_1");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -239,7 +262,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(panelControls2, gridBagConstraints);
+        add(panelMode, gridBagConstraints);
 
         classImageAreaPanelv2.setBackground(new java.awt.Color(255, 255, 255));
         classImageAreaPanelv2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -277,14 +300,23 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, GIF, and PNG Images", "jpg", "gif", "png");
         chooser.setFileFilter(filter);
         
+        // Set cropped image extension.
+        setCropExtension("png");
+        
         classImageAreaPanelv2.revalidate();// Revalidate image area.
         classImageAreaPanelv2.repaint(); // Repaint image area.
-        this.repaint(); // Repaint this panel.
         
         // Reset zoom slider
         slider.setValue(0); // Reset values
         slider.setEnabled(false); // Reset enability
         zoom = 0; // Rest zoom integer value.
+        
+        // Set panels to be used.
+        setPanelControls(0);
+        setPanelMode(0);
+        
+        // Repaint this panel.
+        this.repaint();
         
     }
 
@@ -325,57 +357,81 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         
         int returnVal = chooser.showOpenDialog(this);
         
+        // Check if selected file is an image.
         if(returnVal == JFileChooser.APPROVE_OPTION) {
+            
+            // Check if selected file is an image.
             File file = chooser.getSelectedFile();
             
+            // Get selected image's full path.
             filepath = file.getAbsolutePath();
             
+            // Process selected image to panel.
             setImagePanel(file.getAbsolutePath(), 0);
-            zoom = 0; // Rest zoom integer value.
+            
+            // Reset zoom integer value.
+            zoom = 0;
         }
         
     }//GEN-LAST:event_btnBrowseType1ActionPerformed
 
-    private void btnZoomRefresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomRefresh1ActionPerformed
-        // TODO add your handling code here:
-        classImageAreaPanelv2.crop();
-    }//GEN-LAST:event_btnZoomRefresh1ActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        
+        // Crop displayed image
+        imageCrop();
+        
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnZoomRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomRefreshActionPerformed
-
-        String path = this.filepath;
-
-        if(!path.trim().isEmpty()) {
+        
+        // Check if has a selected image.
+        if(!this.filepath.trim().isEmpty()) {
+            
+            // Check if current zoom value is not 0
             if(this.zoom != 0) {
+                
+                // Reset zoom integer value.
                 this.zoom = 0;
+                
+                // Process selected image to panel.
                 setImagePanel(this.filepath, this.zoom);
             }
         }
-
+        
     }//GEN-LAST:event_btnZoomRefreshActionPerformed
 
     private void btnZoomOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomOutActionPerformed
-
-        String path = this.filepath;
-
-        if(!path.trim().isEmpty()) {
+        
+        // Check if has a selected image.
+        if(!this.filepath.trim().isEmpty()) {
+            
+            // Add  image zoom value.
             this.zoom += 100;
+            
+            // Limit only to maximum zoom.
             if(this.zoom > 1000) { this.zoom = 1000; return; }
-
+            
+            // Process selected image to panel.
             setImagePanel(this.filepath, this.zoom);
         }
+        
     }//GEN-LAST:event_btnZoomOutActionPerformed
 
     private void btnZoomInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomInActionPerformed
-
-        String path = this.filepath;
-
-        if(!path.trim().isEmpty()) {
+        
+        // Check if has a selected image.
+        if(!this.filepath.trim().isEmpty()) {
+            
+            // Minus image zoom value.
             this.zoom -= 100;
+            
+            // Limit should not be lower than 0.
             if(this.zoom < 0) { this.zoom = 0; return; }
-
+            
+            // Process selected image to panel.
             setImagePanel(this.filepath, this.zoom);
         }
+        
     }//GEN-LAST:event_btnZoomInActionPerformed
 
     private void btnBrowseType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseType2ActionPerformed
@@ -428,20 +484,79 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         
     }
 
+    public void setPanelControls(int cardType) {
+        
+        CardLayout cardLayout = (CardLayout) panelControls.getLayout();
+        
+        switch(cardType) {
+            case 0:
+                cardLayout.show(panelControls, "card_type_0");
+                break;
+            case 1:
+                cardLayout.show(panelControls, "card_type_1");
+                break;
+            case 2:
+                cardLayout.show(panelControls, "card_type_2");
+                break;
+            default:
+                cardLayout.show(panelControls, "card_type_0");
+                break;
+        }
+        
+    }
+
+    public void setPanelMode(int cardType) {
+        
+        CardLayout cardLayout = (CardLayout) panelMode.getLayout();
+        
+        switch(cardType) {
+            case 0:
+                cardLayout.show(panelMode, "card_mode_0");
+                break;
+            case 1:
+                cardLayout.show(panelMode, "card_mode_1");
+                break;
+            default:
+                cardLayout.show(panelMode, "card_mode_0");
+                break;
+        }
+        
+    }
+
+    public void imageCrop() {
+        
+        classImageAreaPanelv2.crop();
+        this.repaint(); // Trigger panel repaint
+        
+    }
+    
+    /**
+     * Set an extension to the cropped image when saved.
+     * 
+     * @param ext
+     */
+    public void setCropExtension(String ext) {
+        
+        classImageAreaPanelv2.imageextension = ext;
+        
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowseType0;
     private javax.swing.JButton btnBrowseType1;
     private javax.swing.JButton btnBrowseType2;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnZoomIn;
     private javax.swing.JButton btnZoomOut;
     private javax.swing.JButton btnZoomRefresh;
-    private javax.swing.JButton btnZoomRefresh1;
     private img_emp_src.ClassImageAreaPanelv2 classImageAreaPanelv2;
     private javax.swing.JPanel panelControlType0;
     private javax.swing.JPanel panelControlType1;
     private javax.swing.JPanel panelControlType2;
-    private javax.swing.JPanel panelControls1;
-    private javax.swing.JPanel panelControls2;
+    private javax.swing.JPanel panelControls;
+    private javax.swing.JPanel panelMode;
+    private javax.swing.JPanel panelModeFull;
+    private javax.swing.JPanel panelModeSome;
     private javax.swing.JPanel panelZoom;
     private javax.swing.JPanel panelZoomRefresh;
     private javax.swing.JSlider slider;

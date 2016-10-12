@@ -5,7 +5,6 @@
  */
 package img_emp_src;
 
-import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -21,8 +20,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
-import java.awt.geom.Area;
-import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
 import java.io.File;
@@ -51,7 +48,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
      * Displayed image`s Image object, which is actually a BufferedImage.
      */
     private static Image image;
-    private static Image image_source;
+    private static Image imagesource;
     
     /**
      * Cropped Image object, which is actually a BufferedImage.
@@ -76,6 +73,11 @@ public class ClassImageAreaPanelv2 extends JPanel {
     private final Rectangle rectSelection;
     
     /**
+     * Crop image extension string.
+     */
+    public String imageextension = "jpg";
+    
+    /**
      * Construct an ImageArea component.
      */
     public ClassImageAreaPanelv2() {
@@ -97,6 +99,11 @@ public class ClassImageAreaPanelv2 extends JPanel {
         maindesty = desty = 0;
     }
     
+    /**
+     * Construct the component with added listeners and options.
+     * 
+     * @return created ClassImageAreaPanelv2
+     */
     public static ClassImageAreaPanelv2 create(){
         
         ClassImageAreaPanelv2 panel = new ClassImageAreaPanelv2();
@@ -194,28 +201,20 @@ public class ClassImageAreaPanelv2 extends JPanel {
         
         int x2 = (srcx > destx) ? srcx : destx;
         int y2 = (srcy > desty) ? srcy : desty;
-
+        
         // Compute width and height of selection rectangle.
         int width = (x2 - x1);
         int height = (y2 - y1);
-
+        
         // Create a buffer to hold cropped image.
         BufferedImage biCrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = biCrop.createGraphics();
-        
-//        g2d.setComposite(AlphaComposite.Clear);
         g2d.setRenderingHint (RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//        g2d.fillRect(0, 0, width, height);
-//        g2d.clip(new Ellipse2D.Float(x1, y1, width-2, height-2));
         g2d.drawRoundRect(x1, y1, width, height, 0, 0);
         g2d.setPaint(Color.green);
         
         // Perform the crop operation.
         try {
-//            BufferedImage bi = (BufferedImage) image;
-//            BufferedImage bi2 = bi.getSubimage(x1, y1, width, height);
-//            g2d.drawImage(bi2, null, 0, 0);
-//            g2d.drawRoundRect(0, 0, width, height, 100, 100);
             BufferedImage bi = (BufferedImage) image;
             BufferedImage bi2 = bi.getSubimage(x1, y1, width, height);
             g2d.drawImage(bi2, null, 0, 0);
@@ -230,29 +229,22 @@ public class ClassImageAreaPanelv2 extends JPanel {
             File img_path_file = new File(img_path);
             try {
                 javaxt.io.Image images = new javaxt.io.Image(biCrop);
-//                images.setWidth(150); //set width, adjusts height to maintain aspect ratio
-//                images.setHeight(150); //set height, adjusts width to maintain aspect ratio
                 images.resize(width, height);
                 
-//                 javaxt.io.Image images = new javaxt.io.Image((BufferedImage) image_source);
-//                 images.setHeight(200);
-//                 // images.resize(200, 200);
-//                 images.crop(0, 0, 200, 200);
-                
-                ImageIO.write(images.getBufferedImage(), "png", new File(img_path_file.getAbsolutePath() + "\\4.png"));
+                ImageIO.write(images.getBufferedImage(), imageextension, new File(img_path_file.getAbsolutePath() + "\\1." + imageextension));
                 
                 croppedimage = images.getBufferedImage();
             } catch (IOException ex) {
                 // handle exception...
             }
         } else {
-            
             // Prepare to remove selection rectangle.
             srcx = destx;
             srcy = desty;
         }
-
+        
         // Explicitly remove selection rectangle.
+        revalidate();
         repaint();
         
         return succeeded;
@@ -336,12 +328,12 @@ public class ClassImageAreaPanelv2 extends JPanel {
     /**
      * Establish a new image and update the display.
      *
-     * @param image new image`s Image reference
+     * @param img new image`s Image reference
      */
-    public void setImage(Image image) {
+    public void setImage(Image img) {
         // Save the image for later repaint.
-        this.image = image;
-        this.image_source = image;
+        image = img;
+        imagesource = image;
         
         int indentH = (this.getHeight()-image.getHeight(this)) / 2;
         int indentW = (this.getWidth()-image.getWidth(this)) / 2;
@@ -351,7 +343,8 @@ public class ClassImageAreaPanelv2 extends JPanel {
         g.drawImage(image, indentW, indentH, image.getWidth(this), image.getHeight(this), null);
         g.dispose();
         
-        this.image = resizedImage;
+        // Set resized image as main image.
+        image = resizedImage;
         
         // Set image crop size
         if(this.getHeight() >= this.getWidth()) {
@@ -376,7 +369,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
     
     public void resizeImage(int resizeValue) {
         
-        if(image_source == null) { return; }
+        if(imagesource == null) { return; }
         
         // Check if resize value is not negative.
         if(resizeValue <= 0) {
@@ -384,7 +377,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
         }
         
         // Save the image for later repaint.
-        Image sourceImage = image_source;
+        Image sourceImage = imagesource;
         
         javaxt.io.Image imageIO = new javaxt.io.Image((BufferedImage)sourceImage);
         
@@ -412,14 +405,24 @@ public class ClassImageAreaPanelv2 extends JPanel {
         
     }
     
+    /**
+     * Resize cropping area.
+     * 
+     * @param newValue 
+     */
     public void resizeCropSelection(int newValue) {
         
+        // Update crop area values.
         srcx = mainsrcx + (100-newValue);
         srcy = mainsrcy + (100-newValue);
         destx = maindestx - (100-newValue);
         desty = maindesty - (100-newValue);
-        repaint();
         
+        // Present scrollbars as necessary.
+        revalidate();
+        
+        // Update the image displayed on the panel.
+        repaint();
     }
     
 }
