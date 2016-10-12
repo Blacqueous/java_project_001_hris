@@ -26,7 +26,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
      */
     public ClassImageCropPanelv2() {
         initComponents();
-        additionalComponents();
+        addlComponents();
     }
 
     /**
@@ -295,7 +295,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         add(classImageAreaPanelv2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void additionalComponents() {
+    private void addlComponents() {
         
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, GIF, and PNG Images", "jpg", "gif", "png");
         chooser.setFileFilter(filter);
@@ -322,39 +322,54 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
 
     private void btnBrowseType0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseType0ActionPerformed
         
+        // Get filechooser result.
         int returnVal = chooser.showOpenDialog(this);
         
+        // Check if selected file is an image.
         if(returnVal == JFileChooser.APPROVE_OPTION) {
+            
+            // Check if selected file is an image.
             File file = chooser.getSelectedFile();
             
+            // Get selected image's full path.
             filepath = file.getAbsolutePath();
             
+            // Process selected image to panel.
             setImagePanel(file.getAbsolutePath(), 0);
+            
+            // Reset zoom integer value.
+            zoom = 0;
         }
         
     }//GEN-LAST:event_btnBrowseType0ActionPerformed
 
     private void classImageAreaPanelv2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseMoved
         
-        this.repaint(); // Trigger panel repaint
+        // Repaint this panel.
+        this.repaint();
         
     }//GEN-LAST:event_classImageAreaPanelv2MouseMoved
 
     private void classImageAreaPanelv2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseDragged
         
-        this.repaint(); // Trigger panel repaint
+        // Repaint this panel.
+        this.repaint();
         
     }//GEN-LAST:event_classImageAreaPanelv2MouseDragged
 
     private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         
+        // Resize image using slider's value.
         classImageAreaPanelv2.resizeImage(slider.getValue());
-        this.repaint(); // Trigger panel repaint
+        
+        // Repaint this panel.
+        this.repaint();
         
     }//GEN-LAST:event_sliderStateChanged
 
     private void btnBrowseType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseType1ActionPerformed
         
+        // Get filechooser result.
         int returnVal = chooser.showOpenDialog(this);
         
         // Check if selected file is an image.
@@ -435,7 +450,26 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnZoomInActionPerformed
 
     private void btnBrowseType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseType2ActionPerformed
-        // TODO add your handling code here:
+        
+        // Get filechooser result.
+        int returnVal = chooser.showOpenDialog(this);
+        
+        // Check if selected file is an image.
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            
+            // Check if selected file is an image.
+            File file = chooser.getSelectedFile();
+            
+            // Get selected image's full path.
+            filepath = file.getAbsolutePath();
+            
+            // Process selected image to panel.
+            setImagePanel(file.getAbsolutePath(), 0);
+            
+            // Reset zoom integer value.
+            zoom = 0;
+        }
+        
     }//GEN-LAST:event_btnBrowseType2ActionPerformed
 
     public void setImagePanel(String path, int zoom) {
