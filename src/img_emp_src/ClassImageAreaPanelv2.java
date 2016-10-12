@@ -5,6 +5,7 @@
  */
 package img_emp_src;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -22,7 +23,6 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
 import java.io.File;
@@ -180,48 +180,43 @@ public class ClassImageAreaPanelv2 extends JPanel {
      * @return true if cropping succeeded
      */
     public boolean crop() {
-        
         // There is nothing to crop if the selection rectangle is only a single
         // point.
-        if (srcx == destx && srcy == desty) {
-            return true;
-        }
+        if (srcx == destx && srcy == desty) { return true; }
         
         // Assume success.
         boolean succeeded = true;
         
-        // Compute upper-left and lower-right coordinates for selection
-        // rectangle corners.
+        // Compute upper-left and lower-right coordinates for selection rectangle
+        // corners.
         int x1 = (srcx < destx) ? srcx : destx;
         int y1 = (srcy < desty) ? srcy : desty;
-
+        
         int x2 = (srcx > destx) ? srcx : destx;
         int y2 = (srcy > desty) ? srcy : desty;
-        
+
         // Compute width and height of selection rectangle.
-        int width = (x2 - x1) + 1;
-        int height = (y2 - y1) + 1;
-        
+        int width = (x2 - x1);
+        int height = (y2 - y1);
+
         // Create a buffer to hold cropped image.
         BufferedImage biCrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = biCrop.createGraphics();
         
-        // Change to image to circle.
-        g2d.setRenderingHint (RenderingHints.KEY_ANTIALIASING,   RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.clip(new Ellipse2D.Float(0, 0, width, height));
-            Area outside = new Area(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
-                 outside.subtract(new Area(g2d.getClipBounds()));
-                g2d.clip(outside);
-        g2d.setColor(new Color(255, 255, 255, 0));
-        g2d.fillRect(x1, y1, width, height);
+//        g2d.setComposite(AlphaComposite.Clear);
+        g2d.setRenderingHint (RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//        g2d.fillRect(0, 0, width, height);
+//        g2d.clip(new Ellipse2D.Float(x1, y1, width-2, height-2));
+        g2d.drawRoundRect(x1, y1, width, height, 0, 0);
+        g2d.setPaint(Color.green);
         
         // Perform the crop operation.
         try {
-System.out.println(x1);
-System.out.println(y1);
-System.out.println(width);
-System.out.println(height);
-            BufferedImage bi = (BufferedImage)this.image;
+//            BufferedImage bi = (BufferedImage) image;
+//            BufferedImage bi2 = bi.getSubimage(x1, y1, width, height);
+//            g2d.drawImage(bi2, null, 0, 0);
+//            g2d.drawRoundRect(0, 0, width, height, 100, 100);
+            BufferedImage bi = (BufferedImage) image;
             BufferedImage bi2 = bi.getSubimage(x1, y1, width, height);
             g2d.drawImage(bi2, null, 0, 0);
         } catch (RasterFormatException e) {
@@ -235,28 +230,30 @@ System.out.println(height);
             File img_path_file = new File(img_path);
             try {
                 javaxt.io.Image images = new javaxt.io.Image(biCrop);
-                images.setWidth(100); //set width, adjusts height to maintain aspect ratio
-                images.setHeight(100); //set height, adjusts width to maintain aspect ratio
-                images.resize(100, 100);
+//                images.setWidth(150); //set width, adjusts height to maintain aspect ratio
+//                images.setHeight(150); //set height, adjusts width to maintain aspect ratio
+                images.resize(width, height);
                 
-                ImageIO.write(images.getBufferedImage(), "png", new File(img_path_file.getAbsolutePath() + "\\1.png"));
+//                 javaxt.io.Image images = new javaxt.io.Image((BufferedImage) image_source);
+//                 images.setHeight(200);
+//                 // images.resize(200, 200);
+//                 images.crop(0, 0, 200, 200);
+                
+                ImageIO.write(images.getBufferedImage(), "png", new File(img_path_file.getAbsolutePath() + "\\4.png"));
                 
                 croppedimage = images.getBufferedImage();
-                
             } catch (IOException ex) {
                 // handle exception...
             }
-            
-            repaint();
-            
         } else {
+            
             // Prepare to remove selection rectangle.
             srcx = destx;
             srcy = desty;
-
-            // Explicitly remove selection rectangle.
-            repaint();
         }
+
+        // Explicitly remove selection rectangle.
+        repaint();
         
         return succeeded;
     }
@@ -314,24 +311,24 @@ System.out.println(height);
             rectSelection.height = (y2 - y1);
             
             // Draw selection rectangle.
-            Graphics2D g2d = (Graphics2D) g;
-            Ellipse2D circle = new Ellipse2D.Double(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
-            
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
-            g2d.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
-            g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-            
-            Area outter = new Area(new Rectangle(0, 0, this.getWidth(), this.getHeight()));
-            
-            outter.subtract(new Area(circle));
-            g2d.setColor(new Color(255, 255, 255));
-            g2d.fill(outter);
-            
-            g2d.setStroke(bs);
-            g2d.setPaint(gp);
-            
-            g2d.drawOval(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
+//            Graphics2D g2d = (Graphics2D) g;
+//            Ellipse2D circle = new Ellipse2D.Double(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
+//            
+//            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//            g2d.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
+//            g2d.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+//            g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+//            
+//            Area outter = new Area(new Rectangle(0, 0, this.getWidth(), this.getHeight()));
+//            
+//            outter.subtract(new Area(circle));
+//            g2d.setColor(new Color(255, 255, 255));
+//            g2d.fill(outter);
+//            
+//            g2d.setStroke(bs);
+//            g2d.setPaint(gp);
+//            
+//            g2d.drawOval(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
             
         }
     }
@@ -354,37 +351,19 @@ System.out.println(height);
         g.drawImage(image, indentW, indentH, image.getWidth(this), image.getHeight(this), null);
         g.dispose();
         
-//        javaxt.io.Image imageIO = new javaxt.io.Image((BufferedImage)image);
-//        
-//        if(imageIO.getHeight() >= imageIO.getWidth()) {
-//            imageIO.setWidth(imageIO.getWidth() - 500);
-//        } else {
-//            imageIO.setHeight(imageIO.getHeight() - 500);
-//        }
-//        
-//        int indentH = (this.getHeight() - imageIO.getHeight()) / 2;
-//        int indentW = (this.getWidth() - imageIO.getWidth()) / 2;
-//        
-//        BufferedImage resizedImage = new BufferedImage(imageIO.getWidth(), imageIO.getHeight(), BufferedImage.TYPE_INT_ARGB);
-//        Graphics2D g = resizedImage.createGraphics();
-//        g.drawImage(imageIO.getImage(), indentW, indentH, imageIO.getWidth(), imageIO.getHeight(), null);
-//        g.dispose();
-        
-//        this.image = resizedImage;
-        
         this.image = resizedImage;
         
         // Set image crop size
         if(this.getHeight() >= this.getWidth()) {
             mainsrcx = srcx = 0;
             mainsrcy = srcy = (this.getHeight() / 2) - (this.getWidth() / 2);
-            maindestx = destx = this.getWidth();
-            maindesty = desty = this.getWidth() + mainsrcy;
+            maindestx = destx = (this.getWidth());
+            maindesty = desty = (this.getWidth() + mainsrcy);
         } else {
             mainsrcx = srcx = (this.getWidth() / 2) - (this.getHeight() / 2);
             mainsrcy = srcy = 0;
-            maindestx = destx = this.getHeight() + mainsrcx;
-            maindesty = desty = this.getHeight();
+            maindestx = destx = (this.getHeight() + mainsrcx);
+            maindesty = desty = (this.getHeight());
         }
         
         // Present scrollbars as necessary.
@@ -397,7 +376,7 @@ System.out.println(height);
     
     public void resizeImage(int resizeValue) {
         
-        if(this.image_source == null) { return; }
+        if(image_source == null) { return; }
         
         // Check if resize value is not negative.
         if(resizeValue <= 0) {
@@ -405,7 +384,7 @@ System.out.println(height);
         }
         
         // Save the image for later repaint.
-        Image sourceImage = this.image_source;
+        Image sourceImage = image_source;
         
         javaxt.io.Image imageIO = new javaxt.io.Image((BufferedImage)sourceImage);
         
@@ -423,7 +402,7 @@ System.out.println(height);
         g.drawImage(imageIO.getImage(), indentW, indentH, imageIO.getWidth(), imageIO.getHeight(), null);
         g.dispose();
         
-        this.image = resizedImage;
+        image = resizedImage;
         
         // Present scrollbars as necessary.
         revalidate();
