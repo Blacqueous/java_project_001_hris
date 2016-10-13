@@ -154,10 +154,7 @@ public class MoveMe {
             public void run() {
                 try {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException ex) {
-                } catch (InstantiationException ex) {
-                } catch (IllegalAccessException ex) {
-                } catch (UnsupportedLookAndFeelException ex) {
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                 }
 
                 JFrame frame = new JFrame();
@@ -220,6 +217,7 @@ public class MoveMe {
             }
         }
 
+        @Override
         public void mousePressed(MouseEvent me) {
             JComponent comp = (JComponent) me.getComponent();
             Component child = comp.findComponentAt(me.getPoint());
@@ -234,6 +232,7 @@ public class MoveMe {
             }
         }
 
+        @Override
         public void mouseDragged(MouseEvent me) {
             if (draggy != null) {
                 draggy.setLocation(me.getX() - xOffset, me.getY() - yOffset);

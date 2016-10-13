@@ -41,7 +41,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
         classImageCropPanelv21.setMinimumSize(new java.awt.Dimension(200, 150));
         classImageCropPanelv21.setOpaque(false);
         classImageCropPanelv21.setPreferredSize(new java.awt.Dimension(200, 150));
-        classImageCropPanelv21.setPanelControls(1);
+        classImageCropPanelv21.setPanelControls(0);
         classImageCropPanelv21.setPanelMode(1);
         getContentPane().add(classImageCropPanelv21, java.awt.BorderLayout.CENTER);
 

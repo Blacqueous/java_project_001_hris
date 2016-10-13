@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import org.imgscalr.Scalr;
 
 /**
  * @author blacqueous
@@ -77,6 +78,8 @@ public class ClassImageAreaPanelv2 extends JPanel {
      */
     public String imageextension = "jpg";
     
+    private int zoomvalue = 0;
+    
     /**
      * Construct an ImageArea component.
      */
@@ -127,7 +130,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
             }
         };
         // Install mouse listener.
-//        panel.addMouseListener(ml);
+        // panel.addMouseListener(ml);
 
         // Create a mouse motion listener to update the selection area during
         // drag operations.
@@ -149,7 +152,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
             } 
         };
         // Install mouse motion listener.
-//        panel.addMouseMotionListener(mml);
+        // panel.addMouseMotionListener(mml);
         
         // Create a resize listener to update the selection area size during 
         // resize operations.
@@ -172,7 +175,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
             }
         };
         // Install resize listener
-//        panel.addComponentListener(resizeListener);
+        // panel.addComponentListener(resizeListener);
         
         // Repaint the panel with the listeners.
         panel.repaint();
@@ -206,12 +209,38 @@ public class ClassImageAreaPanelv2 extends JPanel {
         int width = (x2 - x1);
         int height = (y2 - y1);
         
+        
+// Scale in respect to width or height?
+Scalr.Mode scaleMode;
+
+// find out which side is the shortest
+int maxSize = 0;
+if (imagesource.getHeight(this) > imagesource.getWidth(this)) {
+    // scale to width
+    scaleMode = Scalr.Mode.FIT_TO_WIDTH;
+    maxSize = imagesource.getWidth(this) - zoomvalue;
+} else {
+    scaleMode = Scalr.Mode.FIT_TO_HEIGHT;
+    maxSize = imagesource.getHeight(this) - zoomvalue;
+}
+
+BufferedImage outputImage = Scalr.resize((BufferedImage)imagesource, Scalr.Method.ULTRA_QUALITY, scaleMode, maxSize);
+
+int indentH = (this.getHeight() - outputImage.getHeight()) / 2;
+int indentW = (this.getWidth() - outputImage.getWidth()) / 2;
+
+BufferedImage resizedImage = new BufferedImage(outputImage.getWidth(), outputImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+Graphics2D g = resizedImage.createGraphics();
+g.drawImage(outputImage, indentW, indentH, outputImage.getWidth(), outputImage.getHeight(), null);
+g.dispose();
+
+image = resizedImage;
+        
         // Create a buffer to hold cropped image.
         BufferedImage biCrop = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = biCrop.createGraphics();
         g2d.setRenderingHint (RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.drawRoundRect(x1, y1, width, height, 0, 0);
-        g2d.setPaint(Color.green);
         
         // Perform the crop operation.
         try {
@@ -243,29 +272,13 @@ public class ClassImageAreaPanelv2 extends JPanel {
             srcy = desty;
         }
         
-        // Explicitly remove selection rectangle.
+        // Present scrollbars as necessary.
         revalidate();
+        
+        // Update the image displayed on the panel.
         repaint();
         
         return succeeded;
-    }
-
-    /**
-     * Return the current image.
-     *
-     * @return Image reference to current image
-     */
-    public Image getImage() {
-        return image;
-    }
-
-    /**
-     * Return the current image.
-     *
-     * @return Image reference to current image
-     */
-    public Image getCroppedImage() {
-        return croppedimage;
     }
 
     /**
@@ -301,26 +314,6 @@ public class ClassImageAreaPanelv2 extends JPanel {
             // Establish selection rectangle extents.
             rectSelection.width = (x2 - x1);
             rectSelection.height = (y2 - y1);
-            
-            // Draw selection rectangle.
-//            Graphics2D g2d = (Graphics2D) g;
-//            Ellipse2D circle = new Ellipse2D.Double(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
-//            
-//            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//            g2d.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
-//            g2d.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
-//            g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-//            
-//            Area outter = new Area(new Rectangle(0, 0, this.getWidth(), this.getHeight()));
-//            
-//            outter.subtract(new Area(circle));
-//            g2d.setColor(new Color(255, 255, 255));
-//            g2d.fill(outter);
-//            
-//            g2d.setStroke(bs);
-//            g2d.setPaint(gp);
-//            
-//            g2d.drawOval(x1, y1, ((x2-x1)+1), ((y2-y1)+1));
             
         }
     }
@@ -366,36 +359,166 @@ public class ClassImageAreaPanelv2 extends JPanel {
         repaint();
         
     }
+
+    /**
+     * Return the current image.
+     *
+     * @return Image reference to current image
+     */
+    public Image getImage() {
+        return image;
+    }
+
+    /**
+     * Return the cropped image.
+     *
+     * @return Image reference to current image
+     */
+    public Image getCroppedImage() {
+        return croppedimage;
+    }
     
-    public void resizeImage(int resizeValue) {
-        
+    public void resizeImage(int resizeValue, boolean smooth) {
+        // Check if an image exists before resizing.
         if(imagesource == null) { return; }
         
-        // Check if resize value is not negative.
-        if(resizeValue <= 0) {
-            resizeValue = 0;
+        zoomvalue = resizeValue;
+        
+        if(smooth) { // If using a slider
+            
+//            // Check if resize value is not negative.
+//            if(resizeValue <= 0) {
+//                resizeValue = 0;
+//            }
+//
+//            // Save the image for later repaint.
+//            Image sourceImage = imagesource;
+//
+//            javaxt.io.Image imageIO = new javaxt.io.Image((BufferedImage)sourceImage);
+//
+//            if(imageIO.getHeight() >= imageIO.getWidth()) {
+//                imageIO.setWidth(imageIO.getWidth() + resizeValue);
+//            } else {
+//                imageIO.setHeight(imageIO.getHeight() + resizeValue);
+//            }
+//
+//            int indentH = (this.getHeight() - imageIO.getHeight()) / 2;
+//            int indentW = (this.getWidth() - imageIO.getWidth()) / 2;
+//
+//            BufferedImage resizedImage = new BufferedImage(imageIO.getWidth(), imageIO.getHeight(), BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D g = resizedImage.createGraphics();
+//            g.drawImage(imageIO.getImage(), indentW, indentH, imageIO.getWidth(), imageIO.getHeight(), null);
+//            g.dispose();
+//
+//            image = resizedImage;
+//
+//            int longSideMax, shortSideMax;
+//            
+//            if(image.getHeight(this) >= image.getWidth(this)) {
+//                longSideMax = image.getHeight(this);
+//                shortSideMax = image.getWidth(this);
+//            } else {
+//                longSideMax = image.getWidth(this);
+//                shortSideMax = image.getHeight(this);
+//            }
+//
+//System.out.println(longSideMax);
+//System.out.println(shortSideMax);
+////return;
+//
+//            float wRatio, hRatio, resizeRatio;
+//
+//            if (image.getWidth(this) >= image.getHeight(this)) {
+//                if (image.getWidth(this) <= longSideMax && image.getHeight(this) <= shortSideMax) {
+//                    // return image;  // no resizing required
+//                    // System.out.println("Must return!!!");
+//                }
+//                wRatio = ((float) longSideMax) / image.getWidth(this);
+//                hRatio = ((float) shortSideMax) / image.getWidth(this);
+//            } else {
+//                if (image.getHeight(this) <= longSideMax && image.getWidth(this) <= shortSideMax) {
+//                    // return image; // no resizing required
+//                    // System.out.println("Must return!!!");
+//                }
+//                wRatio = ((float) shortSideMax) / image.getWidth(this);
+//                hRatio = ((float) longSideMax) / image.getHeight(this);
+//            }
+//
+////            // hRatio and wRatio now have the scaling factors for height and width.
+////            // You want the smallest of the two to ensure that the resulting image
+////            // fits in the desired frame and maintains the aspect ratio.
+//            resizeRatio = Math.min(wRatio, hRatio);
+////            // return resizeRatio;
+//System.out.println(resizeRatio);
+////            // Now call function to resize original image to [newWidth, newHeight]
+////            // and return the result.
+////            int newHeight = (int)(image.getHeight(this) * resizeRatio) - resizeValue;
+////            int newWidth = (int)(image.getWidth(this) * resizeRatio) - resizeValue;
+//            int newHeight = (int)((image.getHeight(this) - resizeValue) * resizeRatio);
+//            int newWidth = (int)((image.getWidth(this) - resizeValue) * resizeRatio);
+//System.out.println("nh : " + newHeight);
+//System.out.println("nw : " + newWidth);
+//
+//System.out.println("ig : " + image.getHeight(this));
+//System.out.println("iw : " + image.getWidth(this));
+////return;
+
+            // Scale in respect to width or height?
+            Scalr.Mode scaleMode;
+
+            // find out which side is the shortest
+            int maxSize = 0;
+            if (imagesource.getHeight(this) > imagesource.getWidth(this)) {
+                // scale to width
+                scaleMode = Scalr.Mode.FIT_TO_WIDTH;
+                maxSize = imagesource.getWidth(this) - resizeValue;
+            } else {
+                scaleMode = Scalr.Mode.FIT_TO_HEIGHT;
+                maxSize = imagesource.getHeight(this) - resizeValue;
+            }
+            
+
+            BufferedImage outputImage = Scalr.resize((BufferedImage)imagesource, Scalr.Method.SPEED, scaleMode, maxSize);
+            
+            int indentH = (this.getHeight() - outputImage.getHeight()) / 2;
+            int indentW = (this.getWidth() - outputImage.getWidth()) / 2;
+            
+            BufferedImage resizedImage = new BufferedImage(outputImage.getWidth(), outputImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g = resizedImage.createGraphics();
+            // g.drawImage(image, 0, 0, image.getWidth(this) + (0 - resizeValue), image.getHeight(this) + ( 0 - resizeValue), null);
+            g.drawImage(outputImage, indentW, indentH, outputImage.getWidth(), outputImage.getHeight(), null);
+            g.dispose();
+            
+            image = resizedImage;
+            
+        } else { // If using buttons
+            
+            // Check if resize value is not negative.
+            if(resizeValue <= 0) {
+                resizeValue = 0;
+            }
+
+            // Save the image for later repaint.
+            Image sourceImage = imagesource;
+
+            javaxt.io.Image imageIO = new javaxt.io.Image((BufferedImage)sourceImage);
+
+            if(imageIO.getHeight() >= imageIO.getWidth()) {
+                imageIO.setWidth(imageIO.getWidth() + resizeValue);
+            } else {
+                imageIO.setHeight(imageIO.getHeight() + resizeValue);
+            }
+
+            int indentH = (this.getHeight() - imageIO.getHeight()) / 2;
+            int indentW = (this.getWidth() - imageIO.getWidth()) / 2;
+
+            BufferedImage resizedImage = new BufferedImage(imageIO.getWidth(), imageIO.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g = resizedImage.createGraphics();
+            g.drawImage(imageIO.getImage(), indentW, indentH, imageIO.getWidth(), imageIO.getHeight(), null);
+            g.dispose();
+
+            image = resizedImage;
         }
-        
-        // Save the image for later repaint.
-        Image sourceImage = imagesource;
-        
-        javaxt.io.Image imageIO = new javaxt.io.Image((BufferedImage)sourceImage);
-        
-        if(imageIO.getHeight() >= imageIO.getWidth()) {
-            imageIO.setWidth(imageIO.getWidth() + resizeValue);
-        } else {
-            imageIO.setHeight(imageIO.getHeight() + resizeValue);
-        }
-        
-        int indentH = (this.getHeight() - imageIO.getHeight()) / 2;
-        int indentW = (this.getWidth() - imageIO.getWidth()) / 2;
-        
-        BufferedImage resizedImage = new BufferedImage(imageIO.getWidth(), imageIO.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = resizedImage.createGraphics();
-        g.drawImage(imageIO.getImage(), indentW, indentH, imageIO.getWidth(), imageIO.getHeight(), null);
-        g.dispose();
-        
-        image = resizedImage;
         
         // Present scrollbars as necessary.
         revalidate();
@@ -411,12 +534,11 @@ public class ClassImageAreaPanelv2 extends JPanel {
      * @param newValue 
      */
     public void resizeCropSelection(int newValue) {
-        
         // Update crop area values.
-        srcx = mainsrcx + (100-newValue);
-        srcy = mainsrcy + (100-newValue);
-        destx = maindestx - (100-newValue);
-        desty = maindesty - (100-newValue);
+        srcx = mainsrcx + (100 - newValue);
+        srcy = mainsrcy + (100 - newValue);
+        destx = maindestx - (100 - newValue);
+        desty = maindesty - (100 - newValue);
         
         // Present scrollbars as necessary.
         revalidate();

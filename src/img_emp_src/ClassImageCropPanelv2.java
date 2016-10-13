@@ -77,8 +77,8 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         panelControlType0.setPreferredSize(new java.awt.Dimension(30, 30));
         panelControlType0.setLayout(new java.awt.BorderLayout());
 
-        slider.setMaximum(500);
-        slider.setValue(0);
+        slider.setMaximum(1000);
+        slider.setValue(1000);
         slider.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 0));
         slider.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
         slider.setOpaque(false);
@@ -307,7 +307,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         classImageAreaPanelv2.repaint(); // Repaint image area.
         
         // Reset zoom slider
-        slider.setValue(0); // Reset values
+        slider.setValue(1000); // Reset values
         slider.setEnabled(false); // Reset enability
         zoom = 0; // Rest zoom integer value.
         
@@ -335,7 +335,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             filepath = file.getAbsolutePath();
             
             // Process selected image to panel.
-            setImagePanel(file.getAbsolutePath(), 0);
+            setImagePanel(file.getAbsolutePath(), 1000);
             
             // Reset zoom integer value.
             zoom = 0;
@@ -360,7 +360,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         
         // Resize image using slider's value.
-        classImageAreaPanelv2.resizeImage(slider.getValue());
+        classImageAreaPanelv2.resizeImage(slider.getValue(), true);
         
         // Repaint this panel.
         this.repaint();
@@ -473,8 +473,48 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBrowseType2ActionPerformed
 
     public void setImagePanel(String path, int zoom) {
-        
-        // If no image given.
+//        // If no image given.
+//        if(path.trim().isEmpty()) { return; }
+//        
+//        // Reset zoom slider
+//        slider.setValue(0); // Reset values
+//        slider.setEnabled(false); // Reset enability
+//        
+//        boolean additional_fill = false; // Variable that check if image need's additional value to fit panel
+//        javaxt.io.Image imageIO_src_1st = new javaxt.io.Image(path); // Get and set image from selected path
+//        javaxt.io.Image imageIO_src_2nd = imageIO_src_1st; // Get and set secondary image from selected path
+//        
+//        // Modify image size
+//        if(imageIO_src_1st.getHeight() >= imageIO_src_1st.getWidth()) {
+//            imageIO_src_1st.setWidth(classImageAreaPanelv2.getWidth() + zoom);
+//        } else {
+//            imageIO_src_1st.setHeight(classImageAreaPanelv2.getHeight() + zoom);
+//        }
+//
+//        // Check if needs to be modified further based on height
+//        if(imageIO_src_1st.getWidth() == classImageAreaPanelv2.getWidth() && classImageAreaPanelv2.getHeight() > imageIO_src_1st.getHeight()) {
+//            imageIO_src_2nd.setHeight(classImageAreaPanelv2.getHeight() + zoom);
+//            additional_fill = true; // Tick this
+//        }
+//
+//        // Check if needs to be modified further based on width
+//        if(imageIO_src_1st.getHeight()== classImageAreaPanelv2.getHeight() && classImageAreaPanelv2.getWidth()> imageIO_src_1st.getWidth()) {
+//            imageIO_src_2nd.setWidth(classImageAreaPanelv2.getWidth() + zoom);
+//            additional_fill = true; // Tick this
+//        }
+//        
+//        // Check what image to use based on image fill
+//        if(!additional_fill) {
+//            // If does not need additional adjustment to fill panel
+//            classImageAreaPanelv2.setImage(imageIO_src_1st.getBufferedImage());
+//        } else {
+//            // else, use modified image
+//            classImageAreaPanelv2.setImage(imageIO_src_2nd.getBufferedImage());
+//        }
+//        
+//        this.repaint(); // Trigger panel repaint
+//        slider.setEnabled(true);
+
         if(path.trim().isEmpty()) { return; }
         
         // Reset zoom slider
