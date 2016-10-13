@@ -31,9 +31,9 @@ public class NewJFrame4 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 204));
-        setMaximumSize(new java.awt.Dimension(145, 145));
-        setMinimumSize(new java.awt.Dimension(145, 145));
-        setPreferredSize(new java.awt.Dimension(145, 145));
+        setMaximumSize(new java.awt.Dimension(140, 140));
+        setMinimumSize(new java.awt.Dimension(140, 140));
+        setPreferredSize(new java.awt.Dimension(140, 140));
         setResizable(false);
 
         classImageCropPanelv21.setBackground(new java.awt.Color(0, 204, 102));
@@ -45,7 +45,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
         classImageCropPanelv21.setPanelMode(1);
         getContentPane().add(classImageCropPanelv21, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(161, 184));
+        setSize(new java.awt.Dimension(156, 179));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

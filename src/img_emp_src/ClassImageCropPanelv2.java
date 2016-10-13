@@ -1,9 +1,11 @@
 package img_emp_src;
 
 import java.awt.CardLayout;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.imgscalr.Scalr;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -307,7 +309,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         classImageAreaPanelv2.repaint(); // Repaint image area.
         
         // Reset zoom slider
-        slider.setValue(1000); // Reset values
+        slider.setValue(0); // Reset values
         slider.setEnabled(false); // Reset enability
         zoom = 0; // Rest zoom integer value.
         
@@ -333,12 +335,16 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             
             // Get selected image's full path.
             filepath = file.getAbsolutePath();
+        
+            // Reset zoom slider
+            slider.setValue(0); // Reset values
+            slider.setEnabled(false); // Reset enability
             
             // Process selected image to panel.
-            setImagePanel(file.getAbsolutePath(), 1000);
+            setImagePanel(file.getAbsolutePath(), slider.getValue());
             
-            // Reset zoom integer value.
-            zoom = 0;
+            slider.setEnabled(true); // Reset enability
+            
         }
         
     }//GEN-LAST:event_btnBrowseType0ActionPerformed
@@ -360,7 +366,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         
         // Resize image using slider's value.
-        classImageAreaPanelv2.resizeImage(slider.getValue(), true);
+        classImageAreaPanelv2.resizeImage(slider.getValue(), false);
         
         // Repaint this panel.
         this.repaint();
@@ -385,7 +391,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             setImagePanel(file.getAbsolutePath(), 0);
             
             // Reset zoom integer value.
-            zoom = 0;
+            this.zoom = 0;
         }
         
     }//GEN-LAST:event_btnBrowseType1ActionPerformed
@@ -409,7 +415,11 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
                 this.zoom = 0;
                 
                 // Process selected image to panel.
-                setImagePanel(this.filepath, this.zoom);
+                // setImagePanel(this.filepath, this.zoom);
+                classImageAreaPanelv2.resizeImage(this.zoom, true);
+                
+                // Repaint this panel.
+                this.repaint();
             }
         }
         
@@ -427,7 +437,11 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             if(this.zoom > 1000) { this.zoom = 1000; return; }
             
             // Process selected image to panel.
-            setImagePanel(this.filepath, this.zoom);
+            // setImagePanel(this.filepath, this.zoom);
+            classImageAreaPanelv2.resizeImage(this.zoom, true);
+            
+            // Repaint this panel.
+            this.repaint();
         }
         
     }//GEN-LAST:event_btnZoomOutActionPerformed
@@ -444,7 +458,11 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             if(this.zoom < 0) { this.zoom = 0; return; }
             
             // Process selected image to panel.
-            setImagePanel(this.filepath, this.zoom);
+            // setImagePanel(this.filepath, this.zoom);
+            classImageAreaPanelv2.resizeImage(this.zoom, true);
+            
+            // Repaint this panel.
+            this.repaint();
         }
         
     }//GEN-LAST:event_btnZoomInActionPerformed
@@ -473,88 +491,34 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBrowseType2ActionPerformed
 
     public void setImagePanel(String path, int zoom) {
-//        // If no image given.
-//        if(path.trim().isEmpty()) { return; }
-//        
-//        // Reset zoom slider
-//        slider.setValue(0); // Reset values
-//        slider.setEnabled(false); // Reset enability
-//        
-//        boolean additional_fill = false; // Variable that check if image need's additional value to fit panel
-//        javaxt.io.Image imageIO_src_1st = new javaxt.io.Image(path); // Get and set image from selected path
-//        javaxt.io.Image imageIO_src_2nd = imageIO_src_1st; // Get and set secondary image from selected path
-//        
-//        // Modify image size
-//        if(imageIO_src_1st.getHeight() >= imageIO_src_1st.getWidth()) {
-//            imageIO_src_1st.setWidth(classImageAreaPanelv2.getWidth() + zoom);
-//        } else {
-//            imageIO_src_1st.setHeight(classImageAreaPanelv2.getHeight() + zoom);
-//        }
-//
-//        // Check if needs to be modified further based on height
-//        if(imageIO_src_1st.getWidth() == classImageAreaPanelv2.getWidth() && classImageAreaPanelv2.getHeight() > imageIO_src_1st.getHeight()) {
-//            imageIO_src_2nd.setHeight(classImageAreaPanelv2.getHeight() + zoom);
-//            additional_fill = true; // Tick this
-//        }
-//
-//        // Check if needs to be modified further based on width
-//        if(imageIO_src_1st.getHeight()== classImageAreaPanelv2.getHeight() && classImageAreaPanelv2.getWidth()> imageIO_src_1st.getWidth()) {
-//            imageIO_src_2nd.setWidth(classImageAreaPanelv2.getWidth() + zoom);
-//            additional_fill = true; // Tick this
-//        }
-//        
-//        // Check what image to use based on image fill
-//        if(!additional_fill) {
-//            // If does not need additional adjustment to fill panel
-//            classImageAreaPanelv2.setImage(imageIO_src_1st.getBufferedImage());
-//        } else {
-//            // else, use modified image
-//            classImageAreaPanelv2.setImage(imageIO_src_2nd.getBufferedImage());
-//        }
-//        
-//        this.repaint(); // Trigger panel repaint
-//        slider.setEnabled(true);
-
+        // If no image yet.
         if(path.trim().isEmpty()) { return; }
         
-        // Reset zoom slider
-        slider.setValue(0); // Reset values
-        slider.setEnabled(false); // Reset enability
-        
-        boolean additional_fill = false; // Variable that check if image need's additional value to fit panel
-        javaxt.io.Image imageIO_src_1st = new javaxt.io.Image(path); // Get and set image from selected path
-        javaxt.io.Image imageIO_src_2nd = imageIO_src_1st; // Get and set secondary image from selected path
-        
-        // Modify image size
-        if(imageIO_src_1st.getHeight() >= imageIO_src_1st.getWidth()) {
-            imageIO_src_1st.setWidth(classImageAreaPanelv2.getWidth() + zoom);
-        } else {
-            imageIO_src_1st.setHeight(classImageAreaPanelv2.getHeight() + zoom);
-        }
+        javaxt.io.Image imageIO = new javaxt.io.Image(path);
+        BufferedImage image = imageIO.getBufferedImage();
 
-        // Check if needs to be modified further based on height
-        if(imageIO_src_1st.getWidth() == classImageAreaPanelv2.getWidth() && classImageAreaPanelv2.getHeight() > imageIO_src_1st.getHeight()) {
-            imageIO_src_2nd.setHeight(classImageAreaPanelv2.getHeight() + zoom);
-            additional_fill = true; // Tick this
-        }
-
-        // Check if needs to be modified further based on width
-        if(imageIO_src_1st.getHeight()== classImageAreaPanelv2.getHeight() && classImageAreaPanelv2.getWidth()> imageIO_src_1st.getWidth()) {
-            imageIO_src_2nd.setWidth(classImageAreaPanelv2.getWidth() + zoom);
-            additional_fill = true; // Tick this
-        }
+        // Scale in respect to width or height?
+        Scalr.Mode scaleMode;
         
-        // Check what image to use based on image fill
-        if(!additional_fill) {
-            // If does not need additional adjustment to fill panel
-            classImageAreaPanelv2.setImage(imageIO_src_1st.getBufferedImage());
+        // Find out which side is the shortest
+        int maxSize = 0;
+        
+        if (image.getHeight() > image.getWidth()) {
+            // scale to width
+            scaleMode = Scalr.Mode.FIT_TO_WIDTH;
+            maxSize = classImageAreaPanelv2.getWidth();
         } else {
-            // else, use modified image
-            classImageAreaPanelv2.setImage(imageIO_src_2nd.getBufferedImage());
+            scaleMode = Scalr.Mode.FIT_TO_HEIGHT;
+            maxSize = classImageAreaPanelv2.getHeight();
         }
         
-        this.repaint(); // Trigger panel repaint
-        slider.setEnabled(true);
+        BufferedImage outputImage = Scalr.resize((BufferedImage)image, Scalr.Method.ULTRA_QUALITY, scaleMode, maxSize);
+        
+        // Use modified image.
+        classImageAreaPanelv2.setImage(outputImage, imageIO.getBufferedImage());
+        
+        // Repaint this panel.
+        this.repaint();
         
     }
 
@@ -599,7 +563,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
 
     public void imageCrop() {
         
-        classImageAreaPanelv2.crop();
+        classImageAreaPanelv2.cropImage();
         this.repaint(); // Trigger panel repaint
         
     }
