@@ -12,7 +12,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.RenderingHints;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -253,12 +252,18 @@ public class ClassImageAreaPanelv2 extends JPanel {
         imageH = image.getHeight(this);
         imageW = image.getWidth(this);
         
+        this.setSize(imageW, imageH);
+        
         int indentH = (this.getHeight() - image.getHeight(this)) / 2;
         int indentW = (this.getWidth() - image.getWidth(this)) / 2;
         
-        BufferedImage resizedImage = new BufferedImage(image.getWidth(this), image.getHeight(this), BufferedImage.TYPE_INT_ARGB);
+        BufferedImage resizedImage = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        
+System.out.println(resizedImage.getWidth());
+System.out.println(resizedImage.getHeight());
+
         Graphics2D g = resizedImage.createGraphics();
-        g.drawImage(image, indentW, indentH, image.getWidth(this), image.getHeight(this), null);
+        g.drawImage(image, 0, 0, resizedImage.getWidth(), resizedImage.getHeight(), null);
         g.dispose();
         
         // Set resized image as main image.
@@ -277,14 +282,15 @@ public class ClassImageAreaPanelv2 extends JPanel {
             maindesty = desty = (this.getHeight());
         }
         
-        // Present scrollbars as necessary.
-        revalidate();
-        
-        // Update the image displayed on the panel.
-        repaint();
+//        // Present scrollbars as necessary.
+//        revalidate();
+//        
+//        // Update the image displayed on the panel.
+//        repaint();
     }
     
     public void resizeImage(int resizeValue, boolean quality) {
+        System.out.println("resize");
         // Check if an image exists before resizing.
         if(image == null) { return; }
         

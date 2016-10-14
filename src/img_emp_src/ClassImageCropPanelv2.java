@@ -22,6 +22,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private final JFileChooser chooser = new JFileChooser(System.getProperty("user.home") +"/Pictures");
     private String filepath = "";
     private int zoom = 0;
+    private int xOffset, yOffset;
 
     /**
      * Creates new form ClassImageCropPanelv2
@@ -41,6 +42,12 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        panelMode = new javax.swing.JPanel();
+        panelModeSome = new javax.swing.JPanel();
+        panelModeFull = new javax.swing.JPanel();
+        panelZoomRefresh = new javax.swing.JPanel();
+        btnZoomRefresh = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         panelControls = new javax.swing.JPanel();
         panelControlType0 = new javax.swing.JPanel();
         slider = new javax.swing.JSlider();
@@ -52,18 +59,85 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         btnBrowseType1 = new javax.swing.JButton();
         panelControlType2 = new javax.swing.JPanel();
         btnBrowseType2 = new javax.swing.JButton();
-        panelMode = new javax.swing.JPanel();
-        panelModeSome = new javax.swing.JPanel();
-        panelModeFull = new javax.swing.JPanel();
-        panelZoomRefresh = new javax.swing.JPanel();
-        btnZoomRefresh = new javax.swing.JButton();
-        btnSubmit = new javax.swing.JButton();
+        panelImage = new javax.swing.JPanel();
         classImageAreaPanelv2 = new img_emp_src.ClassImageAreaPanelv2().create();
 
         setMaximumSize(new java.awt.Dimension(150, 150));
         setMinimumSize(new java.awt.Dimension(100, 100));
         setPreferredSize(new java.awt.Dimension(150, 150));
         setLayout(new java.awt.GridBagLayout());
+
+        panelMode.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
+        panelMode.setMaximumSize(new java.awt.Dimension(30, 30));
+        panelMode.setMinimumSize(new java.awt.Dimension(30, 30));
+        panelMode.setOpaque(false);
+        panelMode.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelMode.setLayout(new java.awt.CardLayout());
+
+        panelModeSome.setOpaque(false);
+
+        javax.swing.GroupLayout panelModeSomeLayout = new javax.swing.GroupLayout(panelModeSome);
+        panelModeSome.setLayout(panelModeSomeLayout);
+        panelModeSomeLayout.setHorizontalGroup(
+            panelModeSomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelModeSomeLayout.setVerticalGroup(
+            panelModeSomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        panelMode.add(panelModeSome, "card_mode_0");
+
+        panelModeFull.setOpaque(false);
+        panelModeFull.setLayout(new java.awt.BorderLayout());
+
+        panelZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
+        panelZoomRefresh.setOpaque(false);
+        panelZoomRefresh.setLayout(new java.awt.GridLayout(1, 0));
+
+        btnZoomRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_arrow_refresh.png"))); // NOI18N
+        btnZoomRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnZoomRefresh.setMargin(new java.awt.Insets(0, 0, 0, 1));
+        btnZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh.setNextFocusableComponent(btnBrowseType1);
+        btnZoomRefresh.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnZoomRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZoomRefreshActionPerformed(evt);
+            }
+        });
+        panelZoomRefresh.add(btnZoomRefresh);
+
+        panelModeFull.add(panelZoomRefresh, java.awt.BorderLayout.LINE_START);
+
+        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_thumb_up.png"))); // NOI18N
+        btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSubmit.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnSubmit.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnSubmit.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnSubmit.setNextFocusableComponent(btnBrowseType1);
+        btnSubmit.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        panelModeFull.add(btnSubmit, java.awt.BorderLayout.CENTER);
+
+        panelMode.add(panelModeFull, "card_mode_1");
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(panelMode, gridBagConstraints);
 
         panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
         panelControls.setMaximumSize(new java.awt.Dimension(30, 30));
@@ -80,7 +154,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         panelControlType0.setLayout(new java.awt.BorderLayout());
 
         slider.setMaximum(1000);
-        slider.setValue(1000);
+        slider.setValue(0);
         slider.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 0));
         slider.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
         slider.setOpaque(false);
@@ -185,94 +259,25 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 120;
         gridBagConstraints.ipady = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(19, 0, 0, 0);
         add(panelControls, gridBagConstraints);
 
-        panelMode.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
-        panelMode.setMaximumSize(new java.awt.Dimension(30, 30));
-        panelMode.setMinimumSize(new java.awt.Dimension(30, 30));
-        panelMode.setOpaque(false);
-        panelMode.setPreferredSize(new java.awt.Dimension(30, 30));
-        panelMode.setLayout(new java.awt.CardLayout());
-
-        panelModeSome.setOpaque(false);
-
-        javax.swing.GroupLayout panelModeSomeLayout = new javax.swing.GroupLayout(panelModeSome);
-        panelModeSome.setLayout(panelModeSomeLayout);
-        panelModeSomeLayout.setHorizontalGroup(
-            panelModeSomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        panelModeSomeLayout.setVerticalGroup(
-            panelModeSomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
-        );
-
-        panelMode.add(panelModeSome, "card_mode_0");
-
-        panelModeFull.setOpaque(false);
-        panelModeFull.setLayout(new java.awt.BorderLayout());
-
-        panelZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
-        panelZoomRefresh.setOpaque(false);
-        panelZoomRefresh.setLayout(new java.awt.GridLayout(1, 0));
-
-        btnZoomRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_arrow_refresh.png"))); // NOI18N
-        btnZoomRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnZoomRefresh.setMargin(new java.awt.Insets(0, 0, 0, 1));
-        btnZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
-        btnZoomRefresh.setMinimumSize(new java.awt.Dimension(25, 25));
-        btnZoomRefresh.setNextFocusableComponent(btnBrowseType1);
-        btnZoomRefresh.setPreferredSize(new java.awt.Dimension(25, 25));
-        btnZoomRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnZoomRefreshActionPerformed(evt);
-            }
-        });
-        panelZoomRefresh.add(btnZoomRefresh);
-
-        panelModeFull.add(panelZoomRefresh, java.awt.BorderLayout.LINE_START);
-
-        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_thumb_up.png"))); // NOI18N
-        btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSubmit.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        btnSubmit.setMaximumSize(new java.awt.Dimension(25, 25));
-        btnSubmit.setMinimumSize(new java.awt.Dimension(25, 25));
-        btnSubmit.setNextFocusableComponent(btnBrowseType1);
-        btnSubmit.setPreferredSize(new java.awt.Dimension(25, 25));
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-        panelModeFull.add(btnSubmit, java.awt.BorderLayout.CENTER);
-
-        panelMode.add(panelModeFull, "card_mode_1");
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.ipady = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        add(panelMode, gridBagConstraints);
-
-        classImageAreaPanelv2.setBackground(new java.awt.Color(255, 255, 255));
+        classImageAreaPanelv2.setBackground(new java.awt.Color(51, 51, 51));
         classImageAreaPanelv2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 classImageAreaPanelv2MouseDragged(evt);
             }
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                classImageAreaPanelv2MouseMoved(evt);
+        });
+        classImageAreaPanelv2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                classImageAreaPanelv2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                classImageAreaPanelv2MouseReleased(evt);
             }
         });
 
@@ -280,21 +285,43 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         classImageAreaPanelv2.setLayout(classImageAreaPanelv2Layout);
         classImageAreaPanelv2Layout.setHorizontalGroup(
             classImageAreaPanelv2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 200, Short.MAX_VALUE)
         );
         classImageAreaPanelv2Layout.setVerticalGroup(
             classImageAreaPanelv2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelImageLayout = new javax.swing.GroupLayout(panelImage);
+        panelImage.setLayout(panelImageLayout);
+        panelImageLayout.setHorizontalGroup(
+            panelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(panelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelImageLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(classImageAreaPanelv2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        panelImageLayout.setVerticalGroup(
+            panelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+            .addGroup(panelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelImageLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(classImageAreaPanelv2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(classImageAreaPanelv2, gridBagConstraints);
+        add(panelImage, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addlComponents() {
@@ -304,6 +331,8 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         
         // Set cropped image extension.
         setCropExtension("png");
+        
+        classImageAreaPanelv2.setSize(200, 250);
         
         classImageAreaPanelv2.revalidate();// Revalidate image area.
         classImageAreaPanelv2.repaint(); // Repaint image area.
@@ -348,20 +377,6 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_btnBrowseType0ActionPerformed
-
-    private void classImageAreaPanelv2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseMoved
-        
-        // Repaint this panel.
-        this.repaint();
-        
-    }//GEN-LAST:event_classImageAreaPanelv2MouseMoved
-
-    private void classImageAreaPanelv2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseDragged
-        
-        // Repaint this panel.
-        this.repaint();
-        
-    }//GEN-LAST:event_classImageAreaPanelv2MouseDragged
 
     private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         
@@ -490,6 +505,54 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnBrowseType2ActionPerformed
 
+    private void classImageAreaPanelv2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MousePressed
+        
+        // Save mouse x & y.
+        // xOffset = evt.getX() - classImageAreaPanelv2.getX();
+        // yOffset = evt.getY() - classImageAreaPanelv2.getY();
+        
+        xOffset = evt.getX();
+        yOffset = evt.getY();
+        
+        // Repaint this panel.
+        this.repaint();
+        
+    }//GEN-LAST:event_classImageAreaPanelv2MousePressed
+
+    private void classImageAreaPanelv2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseDragged
+        
+        // Set new position.
+        evt.translatePoint(evt.getComponent().getLocation().x-xOffset, evt.getComponent().getLocation().y-yOffset);
+        int evtX = evt.getX();
+        int evtY = evt.getY();
+        // int cmpX = evt.getComponent().getLocation().x;
+        // int cmpY = evt.getComponent().getLocation().y;
+        classImageAreaPanelv2.setLocation(evtX, evtY);
+        
+//System.out.println("\n\n");
+//System.out.println("Evt X : " + evtX);
+//System.out.println("Evt Y : " + evtY);
+//System.out.println("\n");
+//System.out.println("Cmp X : " + cmpX);
+//System.out.println("Cmp Y : " + cmpY);
+        
+//        if(cmpX > 0) { evtX = 0; }
+//        if(cmpY > 0) { evtY = 0; }
+//        
+        
+////        // Repaint this panel.
+////        this.repaint();
+        
+////        System.out.println("DX:" + (evt.getX()-xOffset));
+////        System.out.println("DY:" + (evt.getY()-yOffset));
+        
+    }//GEN-LAST:event_classImageAreaPanelv2MouseDragged
+
+    private void classImageAreaPanelv2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classImageAreaPanelv2MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_classImageAreaPanelv2MouseReleased
+
+        
     public void setImagePanel(String path, int zoom) {
         // If no image yet.
         if(path.trim().isEmpty()) { return; }
@@ -515,6 +578,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         BufferedImage outputImage = Scalr.resize((BufferedImage)image, Scalr.Method.ULTRA_QUALITY, scaleMode, maxSize);
         
         // Use modified image.
+        classImageAreaPanelv2.setSize(outputImage.getWidth(), outputImage.getHeight());
         classImageAreaPanelv2.setImage(outputImage, imageIO.getBufferedImage());
         
         // Repaint this panel.
@@ -592,6 +656,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private javax.swing.JPanel panelControlType1;
     private javax.swing.JPanel panelControlType2;
     private javax.swing.JPanel panelControls;
+    private javax.swing.JPanel panelImage;
     private javax.swing.JPanel panelMode;
     private javax.swing.JPanel panelModeFull;
     private javax.swing.JPanel panelModeSome;
