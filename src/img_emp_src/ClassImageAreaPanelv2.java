@@ -12,7 +12,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.RenderingHints;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -107,77 +106,12 @@ public class ClassImageAreaPanelv2 extends JPanel {
     /**
      * Construct the component with added listeners and options.
      * 
-     * @return created ClassImageAreaPanelv2
+     * @return JPanel ClassImageAreaPanelv2
      */
     public static ClassImageAreaPanelv2 create(){
         
+        // Create panel.
         ClassImageAreaPanelv2 panel = new ClassImageAreaPanelv2();
-        
-        // Create a mouse listener that sets things up for a selection drag.
-        MouseListener ml;
-        ml = new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                // When you start Capture, there is no captured image.
-                // Therefore, it makes no sense to try and select a subimage.
-                // This is the reason for the if image is not existing.
-                if (image == null) { return; }
-                
-                // mainsrcx = srcx = e.getX() - ((int)panelSize/2);
-                // mainsrcy = srcy = e.getY() - ((int)panelSize/2);
-                // maindestx = destx = e.getX() + ((int)panelSize/2);
-                // maindesty = desty = e.getY() + ((int)panelSize/2);
-                
-                e.getComponent().repaint();
-            }
-        };
-        // Install mouse listener.
-        // panel.addMouseListener(ml);
-
-        // Create a mouse motion listener to update the selection area during
-        // drag operations.
-        MouseMotionListener mml;
-        mml = new MouseMotionAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                // When you start Capture, there is no captured image.
-                // Therefore, it makes no sense to try and select a subimage.
-                // This is the reason for the if image is not existing.
-                if (image == null) { return; }
-                
-                // mainsrcx = srcx = e.getX() - ((int)newHeight/2);
-                // mainsrcy = srcy = e.getY() - ((int)newHeight/2);
-                // maindestx = destx = e.getX() + ((int)newHeight/2);
-                // maindesty = desty = e.getY() + ((int)newHeight/2);
-                
-                e.getComponent().repaint();
-            } 
-        };
-        // Install mouse motion listener.
-        // panel.addMouseMotionListener(mml);
-        
-        // Create a resize listener to update the selection area size during 
-        // resize operations.
-        ComponentAdapter resizeListener;
-        resizeListener = new ComponentAdapter() {
-            @Override
-            public  void componentResized(ComponentEvent e) {
-                // Recalculate the selection area variables.
-                if(e.getComponent().getHeight() >= e.getComponent().getWidth()) {
-                    mainsrcx = srcx = 0;
-                    mainsrcy = srcy = (e.getComponent().getHeight() / 2) - (e.getComponent().getWidth() / 2);
-                    maindestx = destx = e.getComponent().getWidth();
-                    maindesty = desty = e.getComponent().getWidth() + mainsrcy;
-                } else {
-                    mainsrcx = srcx = (e.getComponent().getWidth() / 2) - (e.getComponent().getHeight() / 2);
-                    mainsrcy = srcy = 0;
-                    maindestx = destx = e.getComponent().getHeight() + mainsrcx;
-                    maindesty = desty = e.getComponent().getHeight();
-                }
-            }
-        };
-        // Install resize listener
-        // panel.addComponentListener(resizeListener);
         
         // Repaint the panel with the listeners.
         panel.repaint();
@@ -220,24 +154,6 @@ public class ClassImageAreaPanelv2 extends JPanel {
             rectSelection.width = (x2 - x1);
             rectSelection.height = (y2 - y1);
         }
-    }
-
-    /**
-     * Return the current image.
-     *
-     * @return Image reference to current image
-     */
-    public Image getImage() {
-        return image;
-    }
-
-    /**
-     * Return the cropped image.
-     *
-     * @return Image reference to current image
-     */
-    public Image getCroppedImage() {
-        return croppedimage;
     }
     
     /**
@@ -284,6 +200,12 @@ public class ClassImageAreaPanelv2 extends JPanel {
         repaint();
     }
     
+    /**
+     * Update size of selected image and update the display.
+     * 
+     * @param resizeValue integer value of resize/zoom
+     * @param quality boolean indicator
+     */
     public void resizeImage(int resizeValue, boolean quality) {
         // Check if an image exists before resizing.
         if(image == null) { return; }
@@ -310,7 +232,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
         
         BufferedImage outputImage;
         if(quality) {
-            outputImage = Scalr.resize((BufferedImage)imagesource, Scalr.Method.BALANCED, scaleMode, maxSize);
+            outputImage = Scalr.resize((BufferedImage)imagesource, Scalr.Method.QUALITY, scaleMode, maxSize);
         } else {
             outputImage = Scalr.resize((BufferedImage)imagesource, Scalr.Method.SPEED, scaleMode, maxSize);
         }
@@ -337,7 +259,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
     /**
      * Crop the image to the dimensions of the selection rectangle.
      *
-     * @return true if cropping succeeded
+     * @return true if cropping succeeds.
      */
     public boolean cropImage() {
         // There is nothing to crop if the selection rectangle is only a single
@@ -347,8 +269,8 @@ public class ClassImageAreaPanelv2 extends JPanel {
         // Assume success.
         boolean succeeded = true;
         
-        // Compute upper-left and lower-right coordinates for selection rectangle
-        // corners.
+        // Compute upper-left and lower-right coordinates for selection
+        // rectangle corners.
         int x1 = (srcx < destx) ? srcx : destx;
         int y1 = (srcy < desty) ? srcy : desty;
         
@@ -436,6 +358,24 @@ public class ClassImageAreaPanelv2 extends JPanel {
         
         // Return bollean.
         return succeeded;
+    }
+
+    /**
+     * Return the current image.
+     *
+     * @return Image reference to current image
+     */
+    public Image getImage() {
+        return image;
+    }
+
+    /**
+     * Return the cropped image.
+     *
+     * @return Image reference to current image
+     */
+    public Image getCroppedImage() {
+        return croppedimage;
     }
     
 }
