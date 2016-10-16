@@ -47,7 +47,7 @@ public class PanelDashboard extends javax.swing.JPanel {
         panel_breadcrumb_panel.setOpaque(false);
         panel_breadcrumb_panel.setLayout(new java.awt.BorderLayout());
 
-        label_breadcrumb_text.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_text.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_breadcrumb_text.setForeground(new java.awt.Color(255, 255, 255));
         label_breadcrumb_text.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         label_breadcrumb_text.setText("SUMMARY");
@@ -55,7 +55,9 @@ public class PanelDashboard extends javax.swing.JPanel {
         panel_breadcrumb_panel.add(label_breadcrumb_text, java.awt.BorderLayout.CENTER);
 
         label_breadcrumb_arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_15_bullet_left.png"))); // NOI18N
-        label_breadcrumb_arrow.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        label_breadcrumb_arrow.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        label_breadcrumb_arrow.setMaximumSize(new java.awt.Dimension(17, 35));
+        label_breadcrumb_arrow.setMinimumSize(new java.awt.Dimension(17, 35));
         label_breadcrumb_arrow.setPreferredSize(new java.awt.Dimension(17, 35));
         panel_breadcrumb_panel.add(label_breadcrumb_arrow, java.awt.BorderLayout.LINE_END);
 
@@ -63,10 +65,10 @@ public class PanelDashboard extends javax.swing.JPanel {
 
         panel_breadcrumb_title.setMinimumSize(new java.awt.Dimension(130, 35));
         panel_breadcrumb_title.setOpaque(false);
-        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(130, 35));
+        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(128, 35));
         panel_breadcrumb_title.setLayout(new java.awt.BorderLayout());
 
-        label_breadcrumb_title.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_title.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_breadcrumb_title.setForeground(new java.awt.Color(255, 255, 255));
         label_breadcrumb_title.setText("DASHBOARD");
         panel_breadcrumb_title.add(label_breadcrumb_title, java.awt.BorderLayout.CENTER);

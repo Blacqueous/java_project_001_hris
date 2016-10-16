@@ -408,7 +408,7 @@ public class FramePrime extends javax.swing.JFrame {
         panel_left.setLayout(new java.awt.BorderLayout());
 
         label_btn.setBackground(new java.awt.Color(51, 54, 54));
-        label_btn.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        label_btn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label_btn.setForeground(new java.awt.Color(255, 255, 255));
         label_btn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/merged/white/icon_25_category.png"))); // NOI18N
@@ -431,7 +431,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(label_);
 
         btn_grp.add(button_dbd);
-        button_dbd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_dbd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_dbd.setForeground(new java.awt.Color(60, 60, 60));
         button_dbd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_speedometer_.png"))); // NOI18N
         button_dbd.setText("Dashboard");
@@ -450,7 +450,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_dbd);
 
         btn_grp.add(button_cmp);
-        button_cmp.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_cmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_cmp.setForeground(new java.awt.Color(60, 60, 60));
         button_cmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_tower_2.png"))); // NOI18N
         button_cmp.setText("Company");
@@ -469,7 +469,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_cmp);
 
         btn_grp.add(button_emp);
-        button_emp.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_emp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_emp.setForeground(new java.awt.Color(60, 60, 60));
         button_emp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_staff_group_01.png"))); // NOI18N
         button_emp.setText("Employees");
@@ -488,7 +488,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_emp);
 
         btn_grp.add(button_cat);
-        button_cat.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_cat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_cat.setForeground(new java.awt.Color(60, 60, 60));
         button_cat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_category_.png"))); // NOI18N
         button_cat.setText("Categories");
@@ -507,7 +507,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_cat);
 
         btn_grp.add(button_dpt);
-        button_dpt.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_dpt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_dpt.setForeground(new java.awt.Color(60, 60, 60));
         button_dpt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_museum.png"))); // NOI18N
         button_dpt.setText("Departments");
@@ -526,7 +526,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_dpt);
 
         btn_grp.add(button_pos);
-        button_pos.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_pos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_pos.setForeground(new java.awt.Color(60, 60, 60));
         button_pos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_briefcase.png"))); // NOI18N
         button_pos.setText("Positions");
@@ -545,7 +545,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_pos);
 
         btn_grp.add(button_elg);
-        button_elg.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_elg.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_elg.setForeground(new java.awt.Color(60, 60, 60));
         button_elg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_checklist_.png"))); // NOI18N
         button_elg.setText("Eligibilities");
@@ -564,7 +564,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_elg);
 
         btn_grp.add(button_trn);
-        button_trn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_trn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_trn.setForeground(new java.awt.Color(60, 60, 60));
         button_trn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_blackboard_steps.png"))); // NOI18N
         button_trn.setText("Trainings");
@@ -583,7 +583,7 @@ public class FramePrime extends javax.swing.JFrame {
         toolbar_btn.add(button_trn);
 
         btn_grp.add(button_lvs);
-        button_lvs.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_lvs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         button_lvs.setForeground(new java.awt.Color(60, 60, 60));
         button_lvs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_tags_three_.png"))); // NOI18N
         button_lvs.setFocusable(false);
@@ -628,12 +628,12 @@ public class FramePrime extends javax.swing.JFrame {
 
         panel_breadcrumb.add(panel_breadcrumb_panel, java.awt.BorderLayout.CENTER);
 
-        panel_breadcrumb_title.setMinimumSize(new java.awt.Dimension(55, 35));
+        panel_breadcrumb_title.setMinimumSize(new java.awt.Dimension(111, 35));
         panel_breadcrumb_title.setOpaque(false);
-        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(114, 35));
+        panel_breadcrumb_title.setPreferredSize(new java.awt.Dimension(111, 35));
         panel_breadcrumb_title.setLayout(new java.awt.BorderLayout());
 
-        label_breadcrumb_title.setFont(new java.awt.Font("Century Gothic", 1, 13)); // NOI18N
+        label_breadcrumb_title.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         label_breadcrumb_title.setForeground(new java.awt.Color(255, 255, 255));
         label_breadcrumb_title.setText("WELCOME");
         panel_breadcrumb_title.add(label_breadcrumb_title, java.awt.BorderLayout.CENTER);

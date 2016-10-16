@@ -1,4 +1,4 @@
-package img_emp_src;
+package classes;
 
 import java.awt.CardLayout;
 import java.awt.image.BufferedImage;
@@ -17,7 +17,7 @@ import org.imgscalr.Scalr;
  *
  * @author egrubellano
  */
-public class ClassImageCropPanelv2 extends javax.swing.JPanel {
+public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
 
     private final JFileChooser chooser = new JFileChooser(System.getProperty("user.home") +"/Pictures");
     private String filepath = "";
@@ -26,7 +26,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     /**
      * Creates new form ClassImageCropPanelv2
      */
-    public ClassImageCropPanelv2() {
+    public ClassImageCropPanel_v1() {
         initComponents();
         addlComponents();
     }
@@ -58,7 +58,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         panelZoomRefresh = new javax.swing.JPanel();
         btnZoomRefresh = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
-        classImageAreaPanelv2 = new img_emp_src.ClassImageAreaPanelv2().create();
+        classImageAreaPanel = new classes.ClassImageAreaPanel_v1();
 
         setMaximumSize(new java.awt.Dimension(150, 150));
         setMinimumSize(new java.awt.Dimension(100, 100));
@@ -272,16 +272,14 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         add(panelMode, gridBagConstraints);
 
-        classImageAreaPanelv2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout classImageAreaPanelv2Layout = new javax.swing.GroupLayout(classImageAreaPanelv2);
-        classImageAreaPanelv2.setLayout(classImageAreaPanelv2Layout);
-        classImageAreaPanelv2Layout.setHorizontalGroup(
-            classImageAreaPanelv2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout classImageAreaPanelLayout = new javax.swing.GroupLayout(classImageAreaPanel);
+        classImageAreaPanel.setLayout(classImageAreaPanelLayout);
+        classImageAreaPanelLayout.setHorizontalGroup(
+            classImageAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        classImageAreaPanelv2Layout.setVerticalGroup(
-            classImageAreaPanelv2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        classImageAreaPanelLayout.setVerticalGroup(
+            classImageAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -290,9 +288,11 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(classImageAreaPanelv2, gridBagConstraints);
+        add(classImageAreaPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addlComponents() {
@@ -303,17 +303,17 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         // Set cropped image extension.
         setCropExtension("png");
         
-        classImageAreaPanelv2.revalidate();// Revalidate image area.
-        classImageAreaPanelv2.repaint(); // Repaint image area.
+        classImageAreaPanel.revalidate();// Revalidate image area.
+        classImageAreaPanel.repaint(); // Repaint image area.
         
         // Reset zoom slider
         slider.setValue(0); // Reset values
         slider.setEnabled(false); // Reset enability
         zoom = 0; // Rest zoom integer value.
         
-        // Set panels to be used.
-        // setPanelControls(0);
-        // setPanelMode(0);
+        // Set default panels to be used.
+         setPanelControls(0);
+         setPanelMode(0);
         
         // Repaint this panel.
         this.repaint();
@@ -350,7 +350,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
         
         // Resize image using slider's value.
-        classImageAreaPanelv2.resizeImage(slider.getValue(), false);
+        classImageAreaPanel.resizeImage(slider.getValue(), false);
         
         // Repaint this panel.
         this.repaint();
@@ -360,7 +360,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private void sliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliderMouseReleased
         
         // Resize image using slider's value.
-        classImageAreaPanelv2.resizeImage(slider.getValue(), true);
+        classImageAreaPanel.resizeImage(slider.getValue(), true);
         
         // Repaint this panel.
         this.repaint();
@@ -403,7 +403,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             
             // Process selected image to panel.
             // setImagePanel(this.filepath, this.zoom);
-            classImageAreaPanelv2.resizeImage(this.zoom, true);
+            classImageAreaPanel.resizeImage(this.zoom, true);
             
             // Repaint this panel.
             this.repaint();
@@ -424,7 +424,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
             
             // Process selected image to panel.
             // setImagePanel(this.filepath, this.zoom);
-            classImageAreaPanelv2.resizeImage(this.zoom, true);
+            classImageAreaPanel.resizeImage(this.zoom, true);
             
             // Repaint this panel.
             this.repaint();
@@ -461,7 +461,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         if(!this.filepath.trim().isEmpty()) {
             
             // Check if current zoom value is not 0
-            // if(this.zoom != 0) {
+            if(this.zoom != 0) {
                 
                 // Reset zoom integer value.
                 this.zoom = 0;
@@ -469,11 +469,11 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
                 
                 // Process selected image to panel.
                 // setImagePanel(this.filepath, this.zoom);
-                classImageAreaPanelv2.resizeImage(this.zoom, true);
+                classImageAreaPanel.resizeImage(this.zoom, true);
                 
                 // Repaint this panel.
                 this.repaint();
-            // }
+            }
         }
         
     }//GEN-LAST:event_btnZoomRefreshActionPerformed
@@ -501,16 +501,16 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
         if (image.getHeight() > image.getWidth()) {
             // scale to width
             scaleMode = Scalr.Mode.FIT_TO_WIDTH;
-            maxSize = classImageAreaPanelv2.getWidth();
+            maxSize = classImageAreaPanel.getWidth();
         } else {
             scaleMode = Scalr.Mode.FIT_TO_HEIGHT;
-            maxSize = classImageAreaPanelv2.getHeight();
+            maxSize = classImageAreaPanel.getHeight();
         }
         
         BufferedImage outputImage = Scalr.resize((BufferedImage)image, Scalr.Method.ULTRA_QUALITY, scaleMode, maxSize);
         
         // Use modified image.
-        classImageAreaPanelv2.setImage(outputImage, imageIO.getBufferedImage());
+        classImageAreaPanel.setImage(outputImage, imageIO.getBufferedImage());
         
         // Repaint this panel.
         this.repaint();
@@ -558,7 +558,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
 
     public void cropImage() {
         
-        classImageAreaPanelv2.cropImage();
+        classImageAreaPanel.cropImage();
         this.repaint(); // Trigger panel repaint
         
     }
@@ -570,7 +570,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
      */
     public void setCropExtension(String ext) {
         
-        classImageAreaPanelv2.imageextension = ext;
+        classImageAreaPanel.imageextension = ext;
         
     }
 
@@ -582,7 +582,7 @@ public class ClassImageCropPanelv2 extends javax.swing.JPanel {
     private javax.swing.JButton btnZoomIn;
     private javax.swing.JButton btnZoomOut;
     private javax.swing.JButton btnZoomRefresh;
-    private img_emp_src.ClassImageAreaPanelv2 classImageAreaPanelv2;
+    private classes.ClassImageAreaPanel_v1 classImageAreaPanel;
     private javax.swing.JPanel panelControlType0;
     private javax.swing.JPanel panelControlType1;
     private javax.swing.JPanel panelControlType2;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package img_emp_src;
+package classes;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -24,7 +24,7 @@ import org.imgscalr.Scalr;
  * @author blacqueous
  * This class defines a specialized panel for displaying a captured image.
  */
-public class ClassImageAreaPanelv2 extends JPanel {
+public class ClassImageAreaPanel_v1 extends JPanel {
     
     /**
      * Stroke-defined outline of selection rectangle.
@@ -77,7 +77,7 @@ public class ClassImageAreaPanelv2 extends JPanel {
     /**
      * Construct an ImageArea component.
      */
-    public ClassImageAreaPanelv2() {
+    public ClassImageAreaPanel_v1() {
         // Create a selection Rectangle. It's better to create one Rectangle
         // here than a Rectangle each time paintComponent() is called, to reduce
         // unnecessary object creation.
@@ -101,10 +101,10 @@ public class ClassImageAreaPanelv2 extends JPanel {
      * 
      * @return JPanel ClassImageAreaPanelv2
      */
-    public static ClassImageAreaPanelv2 create(){
+    public static ClassImageAreaPanel_v1 create(){
         
         // Create panel.
-        ClassImageAreaPanelv2 panel = new ClassImageAreaPanelv2();
+        ClassImageAreaPanel_v1 panel = new ClassImageAreaPanel_v1();
         
         // Repaint the panel with the listeners.
         panel.repaint();
@@ -146,14 +146,6 @@ public class ClassImageAreaPanelv2 extends JPanel {
             // Establish selection rectangle extents.
             rectSelection.width = (x2 - x1);
             rectSelection.height = (y2 - y1);
-            
-            // // Draw selection rectangle.
-            // Graphics2D g2d = (Graphics2D) g;
-            // g2d.setColor(new Color(0, 0, 255, 20));
-            // g2d.fill(rectSelection);
-            // g2d.setStroke(bs);
-            // g2d.setPaint(gp);
-            // g2d.draw(rectSelection);
         }
     }
     
