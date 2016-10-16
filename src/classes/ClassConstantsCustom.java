@@ -111,7 +111,14 @@ public class ClassConstantsCustom {
      */
     public final Color ROW_BG_COLOR_ODD; // 1
     public final Color ROW_BG_COLOR_EVEN; // 1
-    public final Color ROW_BG_COLOR_SELECT; // 1
+    public final Color ROW_BG_COLOR_SELECT_DEFAULT; // 1
+    public final Color ROW_BG_COLOR_SELECT_BLUE; // 1
+    public final Color ROW_BG_COLOR_SELECT_GRAY; // 1
+    public final Color ROW_BG_COLOR_SELECT_GREEN; // 1
+    public final Color ROW_BG_COLOR_SELECT_ORANGE; // 1
+    public final Color ROW_BG_COLOR_SELECT_RED; // 1
+    public final Color ROW_BG_COLOR_SELECT_VIOLET; // 1
+    public final Color ROW_BG_COLOR_SELECT_YELLOW; // 1
     public final Color BUTTON_FG_COLOR_NEW; // 2
     public final Color BUTTON_FG_COLOR_OLD; // 2
     public final Color BUTTON_BG_COLOR_OLD; // 2
@@ -204,7 +211,14 @@ public class ClassConstantsCustom {
         
         this.ROW_BG_COLOR_ODD    = new Color(245, 245, 245);
         this.ROW_BG_COLOR_EVEN   = new Color(250, 250, 250);
-        this.ROW_BG_COLOR_SELECT = new Color(115, 164, 209);
+        this.ROW_BG_COLOR_SELECT_DEFAULT = new Color(115, 164, 209);
+        this.ROW_BG_COLOR_SELECT_BLUE      = new Color(12, 107, 181);
+        this.ROW_BG_COLOR_SELECT_GRAY      = new Color(193, 193, 193);
+        this.ROW_BG_COLOR_SELECT_GREEN     = new Color(12, 152, 66);
+        this.ROW_BG_COLOR_SELECT_ORANGE    = new Color(240, 93, 31);
+        this.ROW_BG_COLOR_SELECT_RED       = new Color(233, 28, 34);
+        this.ROW_BG_COLOR_SELECT_VIOLET    = new Color(118, 56, 143);
+        this.ROW_BG_COLOR_SELECT_YELLOW    = new Color(253, 217, 15);
         this.BUTTON_FG_COLOR_NEW = new Color(255, 255, 255);
         this.BUTTON_FG_COLOR_OLD = new Color(40, 40, 40);
         this.BUTTON_BG_COLOR_OLD = new Color(255, 255, 255);

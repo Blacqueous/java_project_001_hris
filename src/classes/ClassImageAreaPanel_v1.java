@@ -74,6 +74,8 @@ public class ClassImageAreaPanel_v1 extends JPanel {
     private int imageH = 0;
     private int imageW = 0;
     
+    String img_path = getClass().getResource("/img_emp_src/").getFile();
+    
     /**
      * Construct an ImageArea component.
      */
@@ -324,8 +326,9 @@ public class ClassImageAreaPanel_v1 extends JPanel {
         g2d.dispose();
         
         if (succeeded) {
-            String img_path = getClass().getResource("/img_emp_src/").getFile();
+            // Set path of image to be saved.
             File img_path_file = new File(img_path);
+            // Try saving the uploaded image.
             try {
                 javaxt.io.Image images = new javaxt.io.Image(biCrop);
                 images.resize(width, height);

@@ -268,7 +268,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         panel_control_button_crt.setPreferredSize(new java.awt.Dimension(220, 220));
         panel_control_button_crt.setLayout(new java.awt.BorderLayout());
 
-        label_button_crt.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_crt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label_button_crt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_button_crt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_20_users_00.png"))); // NOI18N
         label_button_crt.setText("add new employee");
@@ -290,7 +290,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         panel_control_button_dlt.setPreferredSize(new java.awt.Dimension(220, 220));
         panel_control_button_dlt.setLayout(new java.awt.BorderLayout());
 
-        label_button_dlt.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_dlt.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label_button_dlt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_button_dlt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_bin.png"))); // NOI18N
         label_button_dlt.setText("remove employee");
@@ -371,8 +371,9 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         panel_table.setOpaque(false);
         panel_table.setLayout(new java.awt.CardLayout());
 
-        scrollpane.setBackground(new java.awt.Color(255, 255, 255));
+        scrollpane.setBackground(new java.awt.Color(245, 245, 245));
 
+        table.setBackground(new java.awt.Color(245, 245, 245));
         table.setFillsViewportHeight(true);
         table.setRequestFocusEnabled(false);
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -396,7 +397,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         label_table_result_logo.setPreferredSize(new java.awt.Dimension(16, 0));
         panel_table_result.add(label_table_result_logo, java.awt.BorderLayout.LINE_START);
 
-        label_table_result_total.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
+        label_table_result_total.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         label_table_result_total.setForeground(new java.awt.Color(125, 125, 125));
         label_table_result_total.setText("0 result");
         label_table_result_total.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -413,12 +414,12 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents(PanelEmployees panel_parent) {
-
+        
         setFrameParent(panel_parent);
-
+        
         initTable();
         fillTable(searchBy.searchByString(where, txtfld_search.getText().toUpperCase()));
-
+        
         setPlaceHolder();
         lbl_btn.addClass(label_button_crt, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_dlt, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
@@ -430,105 +431,120 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         lbl_btn.addClass(popup_menu_pos, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(popup_menu_ofc, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(popup_menu_cat, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        
     }
 
     private void txtfld_searchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtfld_searchCaretUpdate
-
+        
         fillTable(searchBy.searchByString(where, txtfld_search.getText().toUpperCase()));
+        
     }//GEN-LAST:event_txtfld_searchCaretUpdate
 
     private void popup_menu_rfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_rfsActionPerformed
-
+        
         where = constant.TABLE_SEARCH_NAME_FULL;
         splitbutton_search.setToolTipText("seaching by : Full Name");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_rfsActionPerformed
 
     private void popup_menu_fnmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_fnmActionPerformed
-
+        
         where = constant.TABLE_SEARCH_NAME_FIRST;
         splitbutton_search.setToolTipText("seaching by : First Name");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_fnmActionPerformed
 
     private void popup_menu_lnmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_lnmActionPerformed
-
+        
         where = constant.TABLE_SEARCH_NAME_LAST;
         splitbutton_search.setToolTipText("seaching by : Last Name");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_lnmActionPerformed
 
     private void popup_menu_mnmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_mnmActionPerformed
-
+        
         where = constant.TABLE_SEARCH_NAME_MIDDLE;
         splitbutton_search.setToolTipText("seaching by : Middle Name");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_mnmActionPerformed
 
     private void popup_menu_pltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_pltActionPerformed
-
+        
         where = constant.TABLE_SEARCH_PLANTILLA_NO;
         splitbutton_search.setToolTipText("seaching by : Plantilla No.");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_pltActionPerformed
 
     private void popup_menu_posActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_posActionPerformed
-
+        
         where = constant.TABLE_SEARCH_POSITION;
         splitbutton_search.setToolTipText("seaching by : Position");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_posActionPerformed
 
     private void popup_menu_ofcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_ofcActionPerformed
- 
+        
         where = constant.TABLE_SEARCH_OFFICE;
         splitbutton_search.setToolTipText("seaching by : Department");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_ofcActionPerformed
 
     private void popup_menu_catActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_menu_catActionPerformed
-
+        
         where = constant.TABLE_SEARCH_CATEGORY;
         splitbutton_search.setToolTipText("seaching by : Category");
         txtfld_search.requestFocus();
         txtfld_search.setText("");
+        
     }//GEN-LAST:event_popup_menu_catActionPerformed
 
     private void label_button_crtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_crtMouseClicked
-
+        
         this.panel_parent.loadCreate();
+        
     }//GEN-LAST:event_label_button_crtMouseClicked
 
     public void resetLabelButtons() {
-
+        
         label_button_crt.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_crt.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_dlt.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_dlt.setForeground(constant.BUTTON_FG_COLOR_OLD);
+        
     }
 
     private void setFrameParent(PanelEmployees parent_value) {
-
+        
         this.panel_parent = parent_value;
         setFrameAncestor(parent_value.panel_ancestor);
         setFrameConstants(parent_value.panel_ancestor.constant);
+        
     }
 
     private void setFrameAncestor(FramePrime ancestor_value) {
 
         this.panel_ancestor = ancestor_value;
+        
     }
 
     private void setFrameConstants(ClassConstantsCustom constant_value) {
 
         this.constant = constant_value;
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -664,7 +680,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
 
         table.setRowHeight(35);
         table.setModel(model);
-        table.setSelectionBackground(constant.ROW_BG_COLOR_SELECT);
+        table.setSelectionBackground(constant.ROW_BG_COLOR_SELECT_DEFAULT);
         table.setFont(new Font("Tahoma", Font.PLAIN, 11));
         scrollpane.setViewportView(table);
 
@@ -681,8 +697,8 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         table.getTableHeader().setReorderingAllowed(false);
 
         // Initialize custom row color
-        table.setDefaultRenderer(Boolean.class, chkboxCellRenderer.CheckboxCellRenderer(constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT));
-        table.setDefaultRenderer(String.class, chkboxCellRenderer.StringCellRenderer(constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT));
+        table.setDefaultRenderer(Boolean.class, chkboxCellRenderer.CheckboxCellRenderer(constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT));
+        table.setDefaultRenderer(String.class, chkboxCellRenderer.StringCellRenderer(constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT));
 
         // Initialize checkbox on table header
         model.addTableModelListener(new ClassTableHeaderListenerCheckbox(table, 1));
@@ -703,7 +719,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
 
         // Set table's header font
         JTableHeader th = table.getTableHeader();
-        th.setFont(new Font("Century Gothic", Font.BOLD, 13));
+        th.setFont(new Font("Tahoma", Font.BOLD, 11));
 
         // Employee's ID
         table.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -718,7 +734,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         table.getColumnModel().getColumn(1).setResizable(false);
 
         // Initialize table update button
-        ClassTableButtonEditor tblEditor_BtnUpdate = new ClassTableButtonEditor(imgBtnUpdate, constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT) {
+        ClassTableButtonEditor tblEditor_BtnUpdate = new ClassTableButtonEditor(imgBtnUpdate, constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT) {
 
             @Override
             public void pushAction() {
@@ -730,7 +746,7 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         };
         tblEditor_BtnUpdate.setTable(table); // Set-up table update button
 
-        ClassTableButtonRenderer tblRenderer_BtnUpdate = new ClassTableButtonRenderer(imgBtnUpdate, constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT);
+        ClassTableButtonRenderer tblRenderer_BtnUpdate = new ClassTableButtonRenderer(imgBtnUpdate, constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT);
 
         // Update button
         table.getColumnModel().getColumn(2).setCellEditor(tblEditor_BtnUpdate);

@@ -38,10 +38,10 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         panel_control = new javax.swing.JPanel();
-        panel = new javax.swing.JPanel();
+        classImageCropPanel_v11 = new classes.ClassImageCropPanel_v1();
+        panel_controls = new javax.swing.JPanel();
         label_button_bck = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
         panel_control_button = new javax.swing.JPanel();
@@ -70,24 +70,28 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_control.setPreferredSize(new java.awt.Dimension(175, 0));
         panel_control.setLayout(new java.awt.BorderLayout());
 
-        panel.setBackground(new java.awt.Color(255, 255, 255));
-        panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 250, 250)));
-        panel.setMaximumSize(new java.awt.Dimension(155, 155));
-        panel.setMinimumSize(new java.awt.Dimension(155, 155));
-        panel.setPreferredSize(new java.awt.Dimension(155, 155));
+        classImageCropPanel_v11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
+        classImageCropPanel_v11.setMaximumSize(new java.awt.Dimension(155, 155));
+        classImageCropPanel_v11.setMinimumSize(new java.awt.Dimension(155, 155));
+        classImageCropPanel_v11.setPanelControls(0);
+        classImageCropPanel_v11.setPanelMode(2);
+        classImageCropPanel_v11.setPreferredSize(new java.awt.Dimension(155, 155));
+        panel_control.add(classImageCropPanel_v11, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
+        panel_controls.setOpaque(false);
+
+        javax.swing.GroupLayout panel_controlsLayout = new javax.swing.GroupLayout(panel_controls);
+        panel_controls.setLayout(panel_controlsLayout);
+        panel_controlsLayout.setHorizontalGroup(
+            panel_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 155, Short.MAX_VALUE)
         );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
+        panel_controlsLayout.setVerticalGroup(
+            panel_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 239, Short.MAX_VALUE)
         );
 
-        panel_control.add(panel, java.awt.BorderLayout.PAGE_START);
+        panel_control.add(panel_controls, java.awt.BorderLayout.CENTER);
 
         label_button_bck.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_bck.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,7 +129,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_control_button_list.setPreferredSize(new java.awt.Dimension(100, 570));
         panel_control_button_list.setLayout(new java.awt.GridLayout(1, 0));
 
-        panel_control_button_pfl.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 10));
+        panel_control_button_pfl.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 8));
         panel_control_button_pfl.setMinimumSize(new java.awt.Dimension(220, 220));
         panel_control_button_pfl.setOpaque(false);
         panel_control_button_pfl.setPreferredSize(new java.awt.Dimension(220, 220));
@@ -134,7 +138,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         label_button_pfl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_pfl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_button_pfl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_20_users_00.png"))); // NOI18N
-        label_button_pfl.setText("profile tab");
+        label_button_pfl.setText("profile info");
         label_button_pfl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
         label_button_pfl.setIconTextGap(10);
         label_button_pfl.setOpaque(true);
@@ -147,7 +151,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         panel_control_button_list.add(panel_control_button_pfl);
 
-        panel_control_button_dep.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 10));
+        panel_control_button_dep.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 8));
         panel_control_button_dep.setMinimumSize(new java.awt.Dimension(220, 220));
         panel_control_button_dep.setOpaque(false);
         panel_control_button_dep.setPreferredSize(new java.awt.Dimension(220, 220));
@@ -169,7 +173,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         panel_control_button_list.add(panel_control_button_dep);
 
-        panel_control_button_elg.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 10));
+        panel_control_button_elg.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 8));
         panel_control_button_elg.setMinimumSize(new java.awt.Dimension(220, 220));
         panel_control_button_elg.setOpaque(false);
         panel_control_button_elg.setPreferredSize(new java.awt.Dimension(220, 220));
@@ -191,7 +195,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         panel_control_button_list.add(panel_control_button_elg);
 
-        panel_control_button_trn.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 10));
+        panel_control_button_trn.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 8));
         panel_control_button_trn.setMinimumSize(new java.awt.Dimension(220, 220));
         panel_control_button_trn.setOpaque(false);
         panel_control_button_trn.setPreferredSize(new java.awt.Dimension(220, 220));
@@ -225,12 +229,13 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_frame.setPreferredSize(new java.awt.Dimension(185, 0));
         panel_frame.setLayout(new java.awt.CardLayout());
 
-        panel_main.setBackground(new java.awt.Color(255, 255, 255));
+        panel_main.setBackground(new java.awt.Color(245, 245, 245));
         panel_main.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 175, 175)));
-        panel_main.setOpaque(false);
         panel_main.setLayout(new java.awt.CardLayout());
         panel_frame.add(panel_main, "card_main");
 
+        panel_loading.setBackground(new java.awt.Color(245, 245, 245));
+        panel_loading.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 175, 175)));
         panel_loading.setLayout(new java.awt.BorderLayout());
 
         label_loading_animated.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -317,13 +322,13 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private classes.ClassImageCropPanel_v1 classImageCropPanel_v11;
     private javax.swing.JLabel label_button_bck;
     private javax.swing.JLabel label_button_dep;
     private javax.swing.JLabel label_button_elg;
     private javax.swing.JLabel label_button_pfl;
     private javax.swing.JLabel label_button_trn;
     private javax.swing.JLabel label_loading_animated;
-    private javax.swing.JPanel panel;
     private javax.swing.JPanel panel_center;
     private javax.swing.JPanel panel_control;
     private javax.swing.JPanel panel_control_button;
@@ -332,6 +337,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     private javax.swing.JPanel panel_control_button_list;
     private javax.swing.JPanel panel_control_button_pfl;
     private javax.swing.JPanel panel_control_button_trn;
+    private javax.swing.JPanel panel_controls;
     private javax.swing.JPanel panel_frame;
     private javax.swing.JPanel panel_loading;
     private javax.swing.JPanel panel_main;

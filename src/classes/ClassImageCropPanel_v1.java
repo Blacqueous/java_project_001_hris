@@ -60,6 +60,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         classImageAreaPanel = new classes.ClassImageAreaPanel_v1();
 
+        setBackground(new java.awt.Color(245, 245, 245));
         setMaximumSize(new java.awt.Dimension(150, 150));
         setMinimumSize(new java.awt.Dimension(100, 100));
         setPreferredSize(new java.awt.Dimension(150, 150));
@@ -92,7 +93,6 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         panelControlType0.add(btnBrowseType0, java.awt.BorderLayout.LINE_START);
 
         slider.setMaximum(1000);
-        slider.setToolTipText("");
         slider.setValue(0);
         slider.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 0));
         slider.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
@@ -271,6 +271,8 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         add(panelMode, gridBagConstraints);
+
+        classImageAreaPanel.setOpaque(false);
 
         javax.swing.GroupLayout classImageAreaPanelLayout = new javax.swing.GroupLayout(classImageAreaPanel);
         classImageAreaPanel.setLayout(classImageAreaPanelLayout);

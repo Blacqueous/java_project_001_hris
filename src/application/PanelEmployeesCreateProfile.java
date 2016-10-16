@@ -233,23 +233,33 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelCodePHIC_icon_001 = new javax.swing.JLabel();
         txtfldCodePHIC = new javax.swing.JFormattedTextField();
         labelFormListField_023_required = new javax.swing.JLabel();
+        panelFormBottom = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(245, 245, 245));
         setPreferredSize(new java.awt.Dimension(17, 900));
         setLayout(new java.awt.BorderLayout());
 
         panelScroll.setBorder(null);
         panelScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        panelScroll.setPreferredSize(new java.awt.Dimension(17, 1210));
+        panelScroll.setMinimumSize(new java.awt.Dimension(0, 1040));
+        panelScroll.setName(""); // NOI18N
+        panelScroll.setPreferredSize(new java.awt.Dimension(0, 1040));
 
-        panelForm.setPreferredSize(new java.awt.Dimension(0, 1200));
+        panelForm.setMinimumSize(new java.awt.Dimension(0, 1045));
+        panelForm.setPreferredSize(new java.awt.Dimension(0, 1045));
         panelForm.setLayout(new java.awt.BorderLayout());
 
+        panelFormList.setBackground(new java.awt.Color(245, 245, 245));
         panelFormList.setLayout(new java.awt.GridLayout(26, 1));
 
+        panelFormListTitle_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListTitle_001.setOpaque(false);
         panelFormListTitle_001.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListTitle_001.setLayout(new java.awt.BorderLayout());
 
-        panelFormListTitle_001_caption.setPreferredSize(new java.awt.Dimension(156, 100));
+        panelFormListTitle_001_caption.setMinimumSize(new java.awt.Dimension(147, 100));
+        panelFormListTitle_001_caption.setOpaque(false);
+        panelFormListTitle_001_caption.setPreferredSize(new java.awt.Dimension(147, 100));
         panelFormListTitle_001_caption.setLayout(new java.awt.BorderLayout());
 
         labelFormListTitle_001_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -258,15 +268,16 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListTitle_001_icon.setPreferredSize(new java.awt.Dimension(25, 25));
         panelFormListTitle_001_caption.add(labelFormListTitle_001_icon, java.awt.BorderLayout.LINE_START);
 
-        labelFormListTitle_001_name.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        labelFormListTitle_001_name.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelFormListTitle_001_name.setForeground(new java.awt.Color(25, 25, 25));
-        labelFormListTitle_001_name.setText(" Basic Information");
+        labelFormListTitle_001_name.setText(" Basic information");
         labelFormListTitle_001_name.setPreferredSize(new java.awt.Dimension(125, 125));
         panelFormListTitle_001_caption.add(labelFormListTitle_001_name, java.awt.BorderLayout.CENTER);
 
         panelFormListTitle_001.add(panelFormListTitle_001_caption, java.awt.BorderLayout.LINE_START);
 
-        panelFormListTitle_001_hr.setBorder(javax.swing.BorderFactory.createEmptyBorder(22, 0, 0, 8));
+        panelFormListTitle_001_hr.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 0, 0, 8));
+        panelFormListTitle_001_hr.setOpaque(false);
         panelFormListTitle_001_hr.setLayout(new java.awt.GridLayout(0, 1));
         panelFormListTitle_001_hr.add(panelFormListTitle_001_breakline);
 
@@ -274,9 +285,12 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListTitle_001);
 
+        panelFormListField_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_001.setOpaque(false);
         panelFormListField_001.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_001.setLayout(new java.awt.BorderLayout());
 
+        panelFormListField_001_container.setOpaque(false);
         panelFormListField_001_container.setLayout(new java.awt.BorderLayout());
 
         labelFormListField_001_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
@@ -286,8 +300,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_001_head.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_001_container.add(labelFormListField_001_head, java.awt.BorderLayout.LINE_START);
 
+        panelFormListField_001_fields.setOpaque(false);
         panelFormListField_001_fields.setLayout(new java.awt.GridLayout(1, 0));
 
+        panelNameFirst.setOpaque(false);
         panelNameFirst.setLayout(new java.awt.GridBagLayout());
 
         labelNameFirst_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -331,6 +347,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormListField_001_fields.add(panelNameFirst);
 
+        panelNameMiddle.setOpaque(false);
         panelNameMiddle.setLayout(new java.awt.GridBagLayout());
 
         labelNameMiddle_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -372,6 +389,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormListField_001_fields.add(panelNameMiddle);
 
+        panelNameLast.setOpaque(false);
         panelNameLast.setLayout(new java.awt.GridBagLayout());
 
         labelNameLast_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -427,6 +445,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_001);
 
+        panelFormListField_002.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_002.setOpaque(false);
         panelFormListField_002.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_002.setLayout(new java.awt.BorderLayout());
 
@@ -439,6 +459,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_002_head.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_002.add(labelFormListField_002_head, java.awt.BorderLayout.LINE_START);
 
+        panelPlantillaNum.setOpaque(false);
         panelPlantillaNum.setLayout(new java.awt.GridBagLayout());
 
         labelPlantillaNum_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -490,6 +511,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_002);
 
+        panelFormListField_003.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_003.setOpaque(false);
         panelFormListField_003.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_003.setLayout(new java.awt.BorderLayout());
 
@@ -517,6 +540,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_003);
 
+        panelFormListField_004.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_004.setOpaque(false);
         panelFormListField_004.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_004.setLayout(new java.awt.BorderLayout());
 
@@ -544,6 +569,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_004);
 
+        panelFormListField_005.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_005.setOpaque(false);
         panelFormListField_005.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_005.setLayout(new java.awt.BorderLayout());
 
@@ -572,6 +599,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_005);
 
+        panelFormListField_006.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_006.setOpaque(false);
         panelFormListField_006.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_006.setLayout(new java.awt.BorderLayout());
 
@@ -591,6 +620,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         dateHired.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         dateHired.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_calendar_red.png")));
         dateHired.setMaxSelectableDate(currentDate.getTime());
+        dateHired.setOpaque(false);
         dateHired.setRequestFocusEnabled(false);
         panelFormListField_006.add(dateHired, java.awt.BorderLayout.CENTER);
         componentList.add(7, dateHired);
@@ -605,6 +635,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_006);
 
+        panelFormListField_007.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_007.setOpaque(false);
         panelFormListField_007.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_007.setLayout(new java.awt.BorderLayout());
 
@@ -623,6 +655,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelSalary_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_coins.png"))); // NOI18N
         labelSalary_icon.setToolTipText("Clear username field.");
         labelSalary_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        panelSalary.setLayer(labelSalary_icon, javax.swing.JLayeredPane.PALETTE_LAYER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -630,7 +663,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         panelSalary.add(labelSalary_icon, gridBagConstraints);
-        panelSalary.setLayer(labelSalary_icon, javax.swing.JLayeredPane.PALETTE_LAYER);
         labelHoverList.add(0, labelSalary_icon);
 
         txtfldSalary.setForeground(new java.awt.Color(51, 51, 51));
@@ -660,10 +692,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_007);
 
+        panelFormListTitle_002.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListTitle_002.setOpaque(false);
         panelFormListTitle_002.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListTitle_002.setLayout(new java.awt.BorderLayout());
 
-        panelFormListTitle_002_caption.setPreferredSize(new java.awt.Dimension(178, 100));
+        panelFormListTitle_002_caption.setMinimumSize(new java.awt.Dimension(169, 100));
+        panelFormListTitle_002_caption.setOpaque(false);
+        panelFormListTitle_002_caption.setPreferredSize(new java.awt.Dimension(169, 100));
         panelFormListTitle_002_caption.setLayout(new java.awt.BorderLayout());
 
         labelFormListTitle_002_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -672,15 +708,16 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListTitle_002_icon.setPreferredSize(new java.awt.Dimension(25, 25));
         panelFormListTitle_002_caption.add(labelFormListTitle_002_icon, java.awt.BorderLayout.LINE_START);
 
-        labelFormListTitle_002_name.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        labelFormListTitle_002_name.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelFormListTitle_002_name.setForeground(new java.awt.Color(25, 25, 25));
-        labelFormListTitle_002_name.setText(" Personal Information");
+        labelFormListTitle_002_name.setText(" Personal information");
         labelFormListTitle_002_name.setPreferredSize(new java.awt.Dimension(125, 125));
         panelFormListTitle_002_caption.add(labelFormListTitle_002_name, java.awt.BorderLayout.CENTER);
 
         panelFormListTitle_002.add(panelFormListTitle_002_caption, java.awt.BorderLayout.LINE_START);
 
-        panelFormListTitle_002_hr.setBorder(javax.swing.BorderFactory.createEmptyBorder(22, 0, 0, 8));
+        panelFormListTitle_002_hr.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 0, 0, 8));
+        panelFormListTitle_002_hr.setOpaque(false);
         panelFormListTitle_002_hr.setLayout(new java.awt.GridLayout(0, 1));
         panelFormListTitle_002_hr.add(panelFormListTitle_002_breakline);
 
@@ -688,6 +725,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListTitle_002);
 
+        panelFormListField_008.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_008.setOpaque(false);
         panelFormListField_008.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_008.setLayout(new java.awt.BorderLayout());
 
@@ -707,6 +746,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         dateBirth.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         dateBirth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_calendar_blue.png")));
         dateBirth.setMaxSelectableDate(currentDate.getTime());
+        dateBirth.setOpaque(false);
         dateBirth.setRequestFocusEnabled(false);
         panelFormListField_008.add(dateBirth, java.awt.BorderLayout.CENTER);
         componentList.add(9, dateBirth);
@@ -721,6 +761,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_008);
 
+        panelFormListField_009.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_009.setOpaque(false);
         panelFormListField_009.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_009.setLayout(new java.awt.BorderLayout());
 
@@ -739,6 +781,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelAddress1_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_house_one.png"))); // NOI18N
         labelAddress1_icon.setToolTipText("Clear username field.");
         labelAddress1_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        panelAddress1_container.setLayer(labelAddress1_icon, javax.swing.JLayeredPane.PALETTE_LAYER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -748,7 +791,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         panelAddress1_container.add(labelAddress1_icon, gridBagConstraints);
-        panelAddress1_container.setLayer(labelAddress1_icon, javax.swing.JLayeredPane.PALETTE_LAYER);
         labelHoverList.add(0, labelSalary_icon);
 
         txtfldAddress1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -776,9 +818,12 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_009);
 
+        panelFormListField_010.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_010.setOpaque(false);
         panelFormListField_010.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_010.setLayout(new java.awt.BorderLayout());
 
+        panelFormListField_010_icon.setOpaque(false);
         panelFormListField_010_icon.setPreferredSize(new java.awt.Dimension(30, 0));
 
         javax.swing.GroupLayout panelFormListField_010_iconLayout = new javax.swing.GroupLayout(panelFormListField_010_icon);
@@ -789,7 +834,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         );
         panelFormListField_010_iconLayout.setVerticalGroup(
             panelFormListField_010_iconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 46, Short.MAX_VALUE)
+            .addGap(0, 35, Short.MAX_VALUE)
         );
 
         panelFormListField_010.add(panelFormListField_010_icon, java.awt.BorderLayout.LINE_START);
@@ -799,6 +844,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelAddress2_icon.setToolTipText("Clear username field.");
         labelAddress2_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelAddress2_container.setLayer(labelAddress2_icon, javax.swing.JLayeredPane.PALETTE_LAYER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -806,7 +852,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 10);
         panelAddress2_container.add(labelAddress2_icon, gridBagConstraints);
-        panelAddress2_container.setLayer(labelAddress2_icon, javax.swing.JLayeredPane.PALETTE_LAYER);
         labelHoverList.add(0, labelSalary_icon);
 
         txtfldAddress2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -831,6 +876,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_010);
 
+        panelFormListField_011.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_011.setOpaque(false);
         panelFormListField_011.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_011.setLayout(new java.awt.BorderLayout());
 
@@ -858,6 +905,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_011);
 
+        panelFormListField_012.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_012.setOpaque(false);
         panelFormListField_012.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_012.setLayout(new java.awt.BorderLayout());
 
@@ -885,6 +934,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_012);
 
+        panelFormListField_013.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_013.setOpaque(false);
         panelFormListField_013.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_013.setLayout(new java.awt.BorderLayout());
 
@@ -897,6 +948,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_013_icon.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_013.add(labelFormListField_013_icon, java.awt.BorderLayout.LINE_START);
 
+        panelNationality_container.setOpaque(false);
         panelNationality_container.setLayout(new java.awt.GridBagLayout());
 
         labelNationality_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -935,6 +987,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_013);
 
+        panelFormListField_014.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_014.setOpaque(false);
         panelFormListField_014.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_014.setLayout(new java.awt.BorderLayout());
 
@@ -947,6 +1001,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_014_icon.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_014.add(labelFormListField_014_icon, java.awt.BorderLayout.LINE_START);
 
+        panelReligion.setOpaque(false);
         panelReligion.setLayout(new java.awt.GridBagLayout());
 
         labelReligion.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -986,6 +1041,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_014);
 
+        panelFormListField_015.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_015.setOpaque(false);
         panelFormListField_015.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_015.setLayout(new java.awt.BorderLayout());
 
@@ -998,6 +1055,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_015_icon.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_015.add(labelFormListField_015_icon, java.awt.BorderLayout.LINE_START);
 
+        panelEmail_container.setOpaque(false);
         panelEmail_container.setLayout(new java.awt.GridBagLayout());
 
         labelEmail_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1033,6 +1091,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_015);
 
+        panelFormListField_016.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_016.setOpaque(false);
         panelFormListField_016.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_016.setLayout(new java.awt.BorderLayout());
 
@@ -1045,6 +1105,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_016_icon.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_016.add(labelFormListField_016_icon, java.awt.BorderLayout.LINE_START);
 
+        panelContactTele_container.setOpaque(false);
         panelContactTele_container.setLayout(new java.awt.GridBagLayout());
 
         labelContactTele_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1080,6 +1141,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_016);
 
+        panelFormListField_017.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_017.setOpaque(false);
         panelFormListField_017.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_017.setLayout(new java.awt.BorderLayout());
 
@@ -1092,6 +1155,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_017_icon.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_017.add(labelFormListField_017_icon, java.awt.BorderLayout.LINE_START);
 
+        panelContactCell_container.setOpaque(false);
         panelContactCell_container.setLayout(new java.awt.GridBagLayout());
 
         labelContactCell_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1129,6 +1193,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_017);
 
+        panelFormListField_018.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_018.setOpaque(false);
         panelFormListField_018.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_018.setLayout(new java.awt.BorderLayout());
 
@@ -1141,6 +1207,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_018_icon.setPreferredSize(new java.awt.Dimension(30, 0));
         panelFormListField_018.add(labelFormListField_018_icon, java.awt.BorderLayout.LINE_START);
 
+        panelContactOther_container.setOpaque(false);
         panelContactOther_container.setLayout(new java.awt.GridBagLayout());
 
         labelContactOther_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1179,10 +1246,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_018);
 
+        panelFormListTitle_003.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListTitle_003.setOpaque(false);
         panelFormListTitle_003.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListTitle_003.setLayout(new java.awt.BorderLayout());
 
-        panelFormListTitle_003_caption.setPreferredSize(new java.awt.Dimension(191, 100));
+        panelFormListTitle_003_caption.setMinimumSize(new java.awt.Dimension(180, 100));
+        panelFormListTitle_003_caption.setOpaque(false);
+        panelFormListTitle_003_caption.setPreferredSize(new java.awt.Dimension(180, 100));
         panelFormListTitle_003_caption.setLayout(new java.awt.BorderLayout());
 
         labelFormListTitle_003_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1192,15 +1263,16 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListTitle_003_icon.setPreferredSize(new java.awt.Dimension(25, 25));
         panelFormListTitle_003_caption.add(labelFormListTitle_003_icon, java.awt.BorderLayout.LINE_START);
 
-        labelFormListTitle_003_name.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        labelFormListTitle_003_name.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelFormListTitle_003_name.setForeground(new java.awt.Color(25, 25, 25));
-        labelFormListTitle_003_name.setText(" Additional Information");
+        labelFormListTitle_003_name.setText(" Additional information");
         labelFormListTitle_003_name.setPreferredSize(new java.awt.Dimension(125, 125));
         panelFormListTitle_003_caption.add(labelFormListTitle_003_name, java.awt.BorderLayout.CENTER);
 
         panelFormListTitle_003.add(panelFormListTitle_003_caption, java.awt.BorderLayout.LINE_START);
 
-        panelFormListTitle_003_hr.setBorder(javax.swing.BorderFactory.createEmptyBorder(22, 0, 0, 8));
+        panelFormListTitle_003_hr.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 0, 0, 8));
+        panelFormListTitle_003_hr.setOpaque(false);
         panelFormListTitle_003_hr.setLayout(new java.awt.GridLayout(0, 1));
         panelFormListTitle_003_hr.add(panelFormListTitle_003_breakline);
 
@@ -1208,6 +1280,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListTitle_003);
 
+        panelFormListField_019.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_019.setOpaque(false);
         panelFormListField_019.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_019.setLayout(new java.awt.BorderLayout());
 
@@ -1221,6 +1295,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_019_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_019.add(labelFormListField_019_icon, java.awt.BorderLayout.LINE_START);
 
+        panelCodeSSS_container.setOpaque(false);
         panelCodeSSS_container.setLayout(new java.awt.GridBagLayout());
 
         labelNameSSS_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1276,6 +1351,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_019);
 
+        panelFormListField_020.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_020.setOpaque(false);
         panelFormListField_020.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_020.setLayout(new java.awt.BorderLayout());
 
@@ -1289,6 +1366,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_020_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_020.add(labelFormListField_020_icon, java.awt.BorderLayout.LINE_START);
 
+        panelCodeTIN_container.setOpaque(false);
         panelCodeTIN_container.setLayout(new java.awt.GridBagLayout());
 
         labelNameTIN_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1344,6 +1422,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_020);
 
+        panelFormListField_021.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_021.setOpaque(false);
         panelFormListField_021.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_021.setLayout(new java.awt.BorderLayout());
 
@@ -1357,6 +1437,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_021_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_021.add(labelFormListField_021_icon, java.awt.BorderLayout.LINE_START);
 
+        panelCodeGSIS_container.setOpaque(false);
         panelCodeGSIS_container.setLayout(new java.awt.GridBagLayout());
 
         labelNameGSIS_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1407,6 +1488,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_021);
 
+        panelFormListField_022.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_022.setOpaque(false);
         panelFormListField_022.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_022.setLayout(new java.awt.BorderLayout());
 
@@ -1420,6 +1503,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_022_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_022.add(labelFormListField_022_icon, java.awt.BorderLayout.LINE_START);
 
+        panelCodePAGIBIG_container.setOpaque(false);
         panelCodePAGIBIG_container.setLayout(new java.awt.GridBagLayout());
 
         labelNamePAGIBIG_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1475,6 +1559,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListField_022);
 
+        panelFormListField_023.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_023.setOpaque(false);
         panelFormListField_023.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_023.setLayout(new java.awt.BorderLayout());
 
@@ -1488,6 +1574,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_023_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_023.add(labelFormListField_023_icon, java.awt.BorderLayout.LINE_START);
 
+        panelCodePHIC_container.setOpaque(false);
         panelCodePHIC_container.setLayout(new java.awt.GridBagLayout());
 
         labelNamePHIC_icon_002.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
@@ -1545,6 +1632,22 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelForm.add(panelFormList, java.awt.BorderLayout.CENTER);
 
+        panelFormBottom.setBackground(new java.awt.Color(245, 245, 245));
+        panelFormBottom.setMinimumSize(new java.awt.Dimension(0, 5));
+
+        javax.swing.GroupLayout panelFormBottomLayout = new javax.swing.GroupLayout(panelFormBottom);
+        panelFormBottom.setLayout(panelFormBottomLayout);
+        panelFormBottomLayout.setHorizontalGroup(
+            panelFormBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 467, Short.MAX_VALUE)
+        );
+        panelFormBottomLayout.setVerticalGroup(
+            panelFormBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        panelForm.add(panelFormBottom, java.awt.BorderLayout.PAGE_END);
+
         panelScroll.setViewportView(panelForm);
 
         add(panelScroll, java.awt.BorderLayout.CENTER);
@@ -1556,6 +1659,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         setPlaceHolder();
         reqField.requiredFieldsInitialize(componentList);
+        
+        panelScroll.getVerticalScrollBar().setUnitIncrement(25);
         
         comboBoxLoadFromDB(constant.TABLE_LIST_POSITION, cmbboxPosition, "Select a Position", cmbboxPosId);
         comboBoxLoadFromDB(constant.TABLE_LIST_OFFICE, cmbboxDepartment, "Select a Department", cmbboxDepId);
@@ -1943,6 +2048,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     private javax.swing.JPanel panelContactTele_container;
     private javax.swing.JPanel panelEmail_container;
     private javax.swing.JPanel panelForm;
+    private javax.swing.JPanel panelFormBottom;
     private javax.swing.JPanel panelFormList;
     private javax.swing.JPanel panelFormListField_001;
     private javax.swing.JPanel panelFormListField_001_container;
