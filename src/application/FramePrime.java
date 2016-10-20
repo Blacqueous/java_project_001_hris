@@ -722,101 +722,112 @@ public class FramePrime extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initAdditionalComponents() {
-        
+
         panel_used = constant.PANEL_HOME;
         load_panel.setParentPanel(panel_center);
         load_panel.setButtonGroup(btn_grp);
+
     }
 
     private void button_dbdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dbdActionPerformed
+
         // Load the dashboard jPanel
         if(!panel_used.equals(constant.PANEL_DBD)) {
-            
             load_panel.loadFrame(panel_dbd, panel_main);
             panel_used = constant.PANEL_DBD;
         }
+
     }//GEN-LAST:event_button_dbdActionPerformed
 
     private void button_cmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cmpActionPerformed
+
         // Load the company jPanel
         if(!panel_used.equals(constant.PANEL_CMP)) {
-            
             load_panel.loadFrame(panel_cmp, panel_main);
             panel_used = constant.PANEL_CMP;
         }
+
     }//GEN-LAST:event_button_cmpActionPerformed
 
     private void button_empActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_empActionPerformed
+
         // Load the employees jPanel
         if(!panel_used.equals(constant.PANEL_EMP)) {
-            
             load_panel.loadFrame(panel_emp, panel_main);
             panel_used = constant.PANEL_EMP;
         }
+
     }//GEN-LAST:event_button_empActionPerformed
 
     private void button_catActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_catActionPerformed
+
         // Load the categories jPanel
         if(!panel_used.equals(constant.PANEL_CAT)) {
-            
             load_panel.loadFrame(panel_cat, panel_main);
             panel_used = constant.PANEL_CAT;
         }
+
     }//GEN-LAST:event_button_catActionPerformed
 
     private void button_dptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dptActionPerformed
+
         // Load the departments jPanel
         if(!panel_used.equals(constant.PANEL_DPT)) {
-            
             load_panel.loadFrame(panel_dpt, panel_main);
             panel_used = constant.PANEL_DPT;
         }
+
     }//GEN-LAST:event_button_dptActionPerformed
 
     private void button_posActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_posActionPerformed
+
         // Load the positions jPanel
         if(!panel_used.equals(constant.PANEL_POS)) {
-            
             load_panel.loadFrame(panel_pos, panel_main);
             panel_used = constant.PANEL_POS;
         }
+
     }//GEN-LAST:event_button_posActionPerformed
 
     private void button_elgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_elgActionPerformed
+
         // Load the eligibilities jPanel
         if(!panel_used.equals(constant.PANEL_ELG)) {
-            
             load_panel.loadFrame(panel_elg, panel_main);
             panel_used = constant.PANEL_ELG;
         }
+
     }//GEN-LAST:event_button_elgActionPerformed
 
     private void button_trnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_trnActionPerformed
+
         // Load the eligibilities jPanel
         if(!panel_used.equals(constant.PANEL_TRN)) {
-            
             load_panel.loadFrame(panel_trn, panel_main);
             panel_used = constant.PANEL_TRN;
         }
+
     }//GEN-LAST:event_button_trnActionPerformed
 
     private void button_lvsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lvsActionPerformed
+
         // Load the eligibilities jPanel
         if(!panel_used.equals(constant.PANEL_LVS)) {
-            
             load_panel.loadFrame(panel_lvs, panel_main);
             panel_used = constant.PANEL_LVS;
         }
+
     }//GEN-LAST:event_button_lvsActionPerformed
 
     private void label_logoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseReleased
+
         // Load back to welcome page
         if(!panel_used.equals(constant.PANEL_HOME)) {
-            
             load_panel.goFrameHome(panel_main);
             btn_grp.clearSelection();
             this.panel_used = constant.PANEL_HOME;
         }
+
     }//GEN-LAST:event_label_logoMouseReleased
 
     /**

@@ -14,8 +14,11 @@ import classes.ClassTextfieldPrompt;
 import classes.ClassTextfieldRequired;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,6 +32,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -43,16 +47,13 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     ArrayList<Integer> cmbboxDepId = new ArrayList<>();
     ArrayList<Integer> cmbboxCatId = new ArrayList<>();
     ArrayList<JLabel> labelHoverList = new ArrayList<>();
-    ClassTextfieldRequired reqField = new ClassTextfieldRequired();
     ClassTextfieldFilter tfFilter = new ClassTextfieldFilter();
+    ClassTextfieldRequired tfRequired = new ClassTextfieldRequired();
     ClassDateFormatValue fmtDateVal = new ClassDateFormatValue();
     protected FramePrime panel_ancestor;
     protected PanelEmployees panel_parent;
     protected PanelEmployeesCreate panel_child;
     protected ClassConstantsCustom constant;
-//    DialogCreateDep dialogDep = new DialogCreateDep(frame, true);
-//    DialogCreateElg dialogElg = new DialogCreateElg(frame, true);
-//    DialogCreateTrn dialogTrn = new DialogCreateTrn(frame, true);
 
     /**
      * Creates new form PanelCreateViewByList
@@ -132,10 +133,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListTitle_002_name = new javax.swing.JLabel();
         panelFormListTitle_002_hr = new javax.swing.JPanel();
         panelFormListTitle_002_breakline = new javax.swing.JSeparator();
-        panelFormListField_008 = new javax.swing.JPanel();
-        labelFormListField_008_icon = new javax.swing.JLabel();
-        dateBirth = new com.toedter.calendar.JDateChooser();
-        labelFormListField_008_required = new javax.swing.JLabel();
         panelFormListField_009 = new javax.swing.JPanel();
         labelFormListField_009_icon = new javax.swing.JLabel();
         panelAddress1_container = new javax.swing.JLayeredPane();
@@ -148,6 +145,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelAddress2_icon = new javax.swing.JLabel();
         txtfldAddress2 = new javax.swing.JTextField();
         labelFormListField_010_required = new javax.swing.JLabel();
+        panelFormListField_008 = new javax.swing.JPanel();
+        labelFormListField_008_icon = new javax.swing.JLabel();
+        dateBirth = new com.toedter.calendar.JDateChooser();
+        labelFormListField_008_required = new javax.swing.JLabel();
         panelFormListField_011 = new javax.swing.JPanel();
         labelFormListField_011_icon = new javax.swing.JLabel();
         cmbboxGender = new javax.swing.JComboBox();
@@ -234,6 +235,17 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldCodePHIC = new javax.swing.JFormattedTextField();
         labelFormListField_023_required = new javax.swing.JLabel();
         panelFormBottom = new javax.swing.JPanel();
+        panelFormContainer = new javax.swing.JPanel();
+        panelFormBasic = new javax.swing.JPanel();
+        panelFormBasicTitle = new javax.swing.JPanel();
+        panelFormBasicContent = new javax.swing.JPanel();
+        panelFormContainerSub = new javax.swing.JPanel();
+        panelFormPersonal = new javax.swing.JPanel();
+        panelFormPersonalTitle = new javax.swing.JPanel();
+        panelFormPersonalContent = new javax.swing.JPanel();
+        panelFormAddinfo = new javax.swing.JPanel();
+        panelFormAddinfoTitle = new javax.swing.JPanel();
+        panelFormAddinfoContent = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(245, 245, 245));
         setPreferredSize(new java.awt.Dimension(17, 900));
@@ -241,16 +253,16 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelScroll.setBorder(null);
         panelScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        panelScroll.setMinimumSize(new java.awt.Dimension(0, 1040));
+        panelScroll.setMinimumSize(new java.awt.Dimension(0, 1045));
         panelScroll.setName(""); // NOI18N
-        panelScroll.setPreferredSize(new java.awt.Dimension(0, 1040));
+        panelScroll.setPreferredSize(new java.awt.Dimension(0, 1045));
 
         panelForm.setMinimumSize(new java.awt.Dimension(0, 1045));
         panelForm.setPreferredSize(new java.awt.Dimension(0, 1045));
         panelForm.setLayout(new java.awt.BorderLayout());
 
         panelFormList.setBackground(new java.awt.Color(245, 245, 245));
-        panelFormList.setLayout(new java.awt.GridLayout(26, 1));
+        panelFormList.setLayout(new java.awt.GridLayout(26, 2));
 
         panelFormListTitle_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListTitle_001.setOpaque(false);
@@ -333,6 +345,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldNameFirst.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldNameFirst.setForeground(new java.awt.Color(51, 51, 51));
         txtfldNameFirst.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldNameFirst.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -377,6 +390,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldNameMiddle.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldNameMiddle.setForeground(new java.awt.Color(51, 51, 51));
         txtfldNameMiddle.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldNameMiddle.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -419,6 +433,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldNameLast.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldNameLast.setForeground(new java.awt.Color(51, 51, 51));
         txtfldNameLast.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldNameLast.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -489,6 +504,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldPlantillaNum.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldPlantillaNum.setForeground(new java.awt.Color(51, 51, 51));
         txtfldPlantillaNum.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldPlantillaNum.getDocument()).setDocumentFilter(tfFilter.filterDigitOnly);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -725,42 +741,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormList.add(panelFormListTitle_002);
 
-        panelFormListField_008.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
-        panelFormListField_008.setOpaque(false);
-        panelFormListField_008.setPreferredSize(new java.awt.Dimension(10, 4));
-        panelFormListField_008.setLayout(new java.awt.BorderLayout());
-
-        labelFormListField_008_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_008_icon.setForeground(new java.awt.Color(30, 30, 30));
-        labelFormListField_008_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
-        labelFormListField_008_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 0));
-        labelFormListField_008_icon.setMaximumSize(new java.awt.Dimension(125, 0));
-        labelFormListField_008_icon.setMinimumSize(new java.awt.Dimension(125, 0));
-        labelFormListField_008_icon.setPreferredSize(new java.awt.Dimension(30, 0));
-        labelFormListField_008_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelFormListField_008.add(labelFormListField_008_icon, java.awt.BorderLayout.LINE_START);
-
-        dateBirth.setForeground(new java.awt.Color(51, 51, 51));
-        dateBirth.setDateFormatString(" MMMM dd, yyyy");
-        dateBirth.setFocusable(false);
-        dateBirth.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        dateBirth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_calendar_blue.png")));
-        dateBirth.setMaxSelectableDate(currentDate.getTime());
-        dateBirth.setOpaque(false);
-        dateBirth.setRequestFocusEnabled(false);
-        panelFormListField_008.add(dateBirth, java.awt.BorderLayout.CENTER);
-        componentList.add(9, dateBirth);
-
-        labelFormListField_008_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
-        labelFormListField_008_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_008_required.setText(" *");
-        labelFormListField_008_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_008_required.setPreferredSize(new java.awt.Dimension(20, 15));
-        labelFormListField_008_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelFormListField_008.add(labelFormListField_008_required, java.awt.BorderLayout.LINE_END);
-
-        panelFormList.add(panelFormListField_008);
-
         panelFormListField_009.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_009.setOpaque(false);
         panelFormListField_009.setPreferredSize(new java.awt.Dimension(10, 4));
@@ -796,6 +776,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldAddress1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldAddress1.setForeground(new java.awt.Color(51, 51, 51));
         txtfldAddress1.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldAddress1.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -804,7 +785,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         panelAddress1_container.add(txtfldAddress1, gridBagConstraints);
-        componentList.add(10, txtfldAddress1);
+        componentList.add(9, txtfldAddress1);
 
         panelFormListField_009.add(panelAddress1_container, java.awt.BorderLayout.CENTER);
 
@@ -834,7 +815,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         );
         panelFormListField_010_iconLayout.setVerticalGroup(
             panelFormListField_010_iconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         panelFormListField_010.add(panelFormListField_010_icon, java.awt.BorderLayout.LINE_START);
@@ -857,6 +838,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldAddress2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldAddress2.setForeground(new java.awt.Color(51, 51, 51));
         txtfldAddress2.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldAddress2.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -875,6 +857,42 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_010.add(labelFormListField_010_required, java.awt.BorderLayout.LINE_END);
 
         panelFormList.add(panelFormListField_010);
+
+        panelFormListField_008.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormListField_008.setOpaque(false);
+        panelFormListField_008.setPreferredSize(new java.awt.Dimension(10, 4));
+        panelFormListField_008.setLayout(new java.awt.BorderLayout());
+
+        labelFormListField_008_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        labelFormListField_008_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_008_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
+        labelFormListField_008_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 0));
+        labelFormListField_008_icon.setMaximumSize(new java.awt.Dimension(125, 0));
+        labelFormListField_008_icon.setMinimumSize(new java.awt.Dimension(125, 0));
+        labelFormListField_008_icon.setPreferredSize(new java.awt.Dimension(30, 0));
+        labelFormListField_008_icon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelFormListField_008.add(labelFormListField_008_icon, java.awt.BorderLayout.LINE_START);
+
+        dateBirth.setForeground(new java.awt.Color(51, 51, 51));
+        dateBirth.setDateFormatString(" MMMM dd, yyyy");
+        dateBirth.setFocusable(false);
+        dateBirth.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        dateBirth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_calendar_blue.png")));
+        dateBirth.setMaxSelectableDate(currentDate.getTime());
+        dateBirth.setOpaque(false);
+        dateBirth.setRequestFocusEnabled(false);
+        panelFormListField_008.add(dateBirth, java.awt.BorderLayout.CENTER);
+        componentList.add(10, dateBirth);
+
+        labelFormListField_008_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        labelFormListField_008_required.setForeground(new java.awt.Color(255, 0, 0));
+        labelFormListField_008_required.setText(" *");
+        labelFormListField_008_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        labelFormListField_008_required.setPreferredSize(new java.awt.Dimension(20, 15));
+        labelFormListField_008_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelFormListField_008.add(labelFormListField_008_required, java.awt.BorderLayout.LINE_END);
+
+        panelFormList.add(panelFormListField_008);
 
         panelFormListField_011.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_011.setOpaque(false);
@@ -966,6 +984,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldNationality.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldNationality.setForeground(new java.awt.Color(51, 51, 51));
         txtfldNationality.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldNationality.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1019,6 +1038,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldReligion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldReligion.setForeground(new java.awt.Color(51, 51, 51));
         txtfldReligion.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldReligion.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1123,6 +1143,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldContactTele.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldContactTele.setForeground(new java.awt.Color(51, 51, 51));
         txtfldContactTele.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldContactTele.getDocument()).setDocumentFilter(tfFilter.filterDigitOnly);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1173,6 +1194,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldContactCell.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldContactCell.setForeground(new java.awt.Color(51, 51, 51));
         txtfldContactCell.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldContactCell.getDocument()).setDocumentFilter(tfFilter.filterDigitOnly);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1226,6 +1248,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldContactOther.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldContactOther.setForeground(new java.awt.Color(51, 51, 51));
         txtfldContactOther.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldContactOther.getDocument()).setDocumentFilter(tfFilter.filterDigitOnly);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1468,6 +1491,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldCodeGSIS.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldCodeGSIS.setForeground(new java.awt.Color(51, 51, 51));
         txtfldCodeGSIS.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldCodeGSIS.getDocument()).setDocumentFilter(tfFilter.filterTextToUppercaseAndDigitOnly);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1648,17 +1672,96 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelForm.add(panelFormBottom, java.awt.BorderLayout.PAGE_END);
 
+        panelFormContainer.setPreferredSize(new java.awt.Dimension(0, 1040));
+        panelFormContainer.setLayout(new java.awt.BorderLayout());
+
+        panelFormBasic.setMinimumSize(new java.awt.Dimension(0, 320));
+        panelFormBasic.setPreferredSize(new java.awt.Dimension(0, 320));
+        panelFormBasic.setLayout(new java.awt.BorderLayout());
+
+        panelFormBasicTitle.setMinimumSize(new java.awt.Dimension(0, 40));
+        panelFormBasicTitle.setPreferredSize(new java.awt.Dimension(0, 40));
+        panelFormBasicTitle.setLayout(new java.awt.GridLayout(8, 1));
+        panelFormBasic.add(panelFormBasicTitle, java.awt.BorderLayout.PAGE_START);
+
+        panelFormBasicContent.setMinimumSize(new java.awt.Dimension(0, 280));
+        panelFormBasicContent.setPreferredSize(new java.awt.Dimension(0, 280));
+        panelFormBasicContent.setLayout(new java.awt.GridLayout(8, 1));
+        panelFormBasic.add(panelFormBasicContent, java.awt.BorderLayout.CENTER);
+
+        panelFormContainer.add(panelFormBasic, java.awt.BorderLayout.PAGE_START);
+
+        panelFormContainerSub.setLayout(new java.awt.BorderLayout());
+
+        panelFormPersonal.setMinimumSize(new java.awt.Dimension(0, 480));
+        panelFormPersonal.setPreferredSize(new java.awt.Dimension(0, 480));
+        panelFormPersonal.setLayout(new java.awt.BorderLayout());
+
+        panelFormPersonalTitle.setMinimumSize(new java.awt.Dimension(0, 40));
+        panelFormPersonalTitle.setPreferredSize(new java.awt.Dimension(0, 40));
+        panelFormPersonalTitle.setLayout(new java.awt.GridLayout(8, 1));
+        panelFormPersonal.add(panelFormPersonalTitle, java.awt.BorderLayout.PAGE_START);
+
+        panelFormPersonalContent.setMinimumSize(new java.awt.Dimension(0, 440));
+        panelFormPersonalContent.setPreferredSize(new java.awt.Dimension(0, 440));
+        panelFormPersonalContent.setLayout(new java.awt.GridLayout());
+        panelFormPersonal.add(panelFormPersonalContent, java.awt.BorderLayout.CENTER);
+
+        panelFormContainerSub.add(panelFormPersonal, java.awt.BorderLayout.PAGE_START);
+
+        panelFormAddinfo.setLayout(new java.awt.BorderLayout());
+
+        panelFormAddinfoTitle.setMinimumSize(new java.awt.Dimension(0, 40));
+        panelFormAddinfoTitle.setPreferredSize(new java.awt.Dimension(0, 40));
+        panelFormAddinfoTitle.setLayout(new java.awt.GridLayout(8, 1));
+        panelFormAddinfo.add(panelFormAddinfoTitle, java.awt.BorderLayout.PAGE_START);
+
+        panelFormAddinfoContent.setMinimumSize(new java.awt.Dimension(0, 200));
+        panelFormAddinfoContent.setPreferredSize(new java.awt.Dimension(0, 200));
+        panelFormAddinfoContent.setLayout(new java.awt.GridLayout(8, 1));
+        panelFormAddinfo.add(panelFormAddinfoContent, java.awt.BorderLayout.CENTER);
+
+        panelFormContainerSub.add(panelFormAddinfo, java.awt.BorderLayout.CENTER);
+
+        panelFormContainer.add(panelFormContainerSub, java.awt.BorderLayout.CENTER);
+
+        panelForm.add(panelFormContainer, java.awt.BorderLayout.PAGE_START);
+
         panelScroll.setViewportView(panelForm);
 
         add(panelScroll, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    class ResizeListener implements ComponentListener {
+
+        @Override
+        public void componentHidden(ComponentEvent e) {}
+        @Override
+        public void componentMoved(ComponentEvent e) {}
+        @Override
+        public void componentShown(ComponentEvent e) {}
+
+        @Override
+        public void componentResized(ComponentEvent e) {
+            Dimension newSize = e.getComponent().getBounds().getSize();          
+            
+            if(newSize.width < 650) {
+                System.out.println("default");
+            } else {
+                System.out.println("resize");
+            }
+        }   
+    }
+    
     public void initAdditionalComponents(PanelEmployeesCreate panel_create) {
-        
+
         setFrameChild(panel_create);
 
+        this.addComponentListener(new ResizeListener());
+        
         setPlaceHolder();
-        reqField.requiredFieldsInitialize(componentList);
+        tfRequired.requiredFieldsInitialize(componentList);
         
         panelScroll.getVerticalScrollBar().setUnitIncrement(25);
         
@@ -1673,9 +1776,9 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
     public String[] getFieldsForSave() {
         
-        reqField.requiredScrollTo(componentList, panelScroll);
+        tfRequired.requiredScrollTo(componentList, panelScroll);
         
-        if(reqField.requiredFieldsValidate(componentList)){
+        if(tfRequired.requiredFieldsValidate(componentList)){
             
             String[] field = new String[25];
 
@@ -1817,7 +1920,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
     public void clearFields() {
         
-        reqField.requiredFieldsClear(componentList);
+        tfRequired.requiredFieldsClear(componentList);
         txtfldAddress2.setText("");
         txtfldContactCell.setText("`");
         txtfldContactOther.setText("`");
@@ -1843,7 +1946,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     
     public void resetFormFieldsColor() {
         
-        reqField.requiredFieldsResetColor(componentList);
+        tfRequired.requiredFieldsResetColor(componentList);
         
     }
 
@@ -2048,7 +2151,15 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     private javax.swing.JPanel panelContactTele_container;
     private javax.swing.JPanel panelEmail_container;
     private javax.swing.JPanel panelForm;
+    private javax.swing.JPanel panelFormAddinfo;
+    private javax.swing.JPanel panelFormAddinfoContent;
+    private javax.swing.JPanel panelFormAddinfoTitle;
+    private javax.swing.JPanel panelFormBasic;
+    private javax.swing.JPanel panelFormBasicContent;
+    private javax.swing.JPanel panelFormBasicTitle;
     private javax.swing.JPanel panelFormBottom;
+    private javax.swing.JPanel panelFormContainer;
+    private javax.swing.JPanel panelFormContainerSub;
     private javax.swing.JPanel panelFormList;
     private javax.swing.JPanel panelFormListField_001;
     private javax.swing.JPanel panelFormListField_001_container;
@@ -2088,6 +2199,9 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     private javax.swing.JSeparator panelFormListTitle_003_breakline;
     private javax.swing.JPanel panelFormListTitle_003_caption;
     private javax.swing.JPanel panelFormListTitle_003_hr;
+    private javax.swing.JPanel panelFormPersonal;
+    private javax.swing.JPanel panelFormPersonalContent;
+    private javax.swing.JPanel panelFormPersonalTitle;
     private javax.swing.JPanel panelNameFirst;
     private javax.swing.JPanel panelNameLast;
     private javax.swing.JPanel panelNameMiddle;
