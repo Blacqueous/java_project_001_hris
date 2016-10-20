@@ -41,7 +41,13 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         panel_control = new javax.swing.JPanel();
         classImageCropPanel_v11 = new classes.ClassImageCropPanel_v1();
-        panel_controls = new javax.swing.JPanel();
+        panel_ctrl = new javax.swing.JPanel();
+        panel_ctrl_btn = new javax.swing.JPanel();
+        panel_ctrl_btn_sav = new javax.swing.JPanel();
+        label_button_sav = new javax.swing.JLabel();
+        panel_ctrl_btn_clr = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         label_button_bck = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
         panel_control_button = new javax.swing.JPanel();
@@ -78,20 +84,55 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         classImageCropPanel_v11.setPreferredSize(new java.awt.Dimension(155, 155));
         panel_control.add(classImageCropPanel_v11, java.awt.BorderLayout.PAGE_START);
 
-        panel_controls.setOpaque(false);
+        panel_ctrl.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 5, 0));
+        panel_ctrl.setOpaque(false);
+        panel_ctrl.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout panel_controlsLayout = new javax.swing.GroupLayout(panel_controls);
-        panel_controls.setLayout(panel_controlsLayout);
-        panel_controlsLayout.setHorizontalGroup(
-            panel_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 155, Short.MAX_VALUE)
-        );
-        panel_controlsLayout.setVerticalGroup(
-            panel_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 239, Short.MAX_VALUE)
-        );
+        panel_ctrl_btn.setMinimumSize(new java.awt.Dimension(0, 200));
+        panel_ctrl_btn.setOpaque(false);
+        panel_ctrl_btn.setPreferredSize(new java.awt.Dimension(0, 200));
+        panel_ctrl_btn.setLayout(new java.awt.GridLayout(2, 0));
 
-        panel_control.add(panel_controls, java.awt.BorderLayout.CENTER);
+        panel_ctrl_btn_sav.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panel_ctrl_btn_sav.setOpaque(false);
+        panel_ctrl_btn_sav.setLayout(new java.awt.BorderLayout());
+
+        label_button_sav.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_sav.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_button_sav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_save_disket.png"))); // NOI18N
+        label_button_sav.setText("SAVE");
+        label_button_sav.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
+        label_button_sav.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label_button_sav.setIconTextGap(10);
+        label_button_sav.setMaximumSize(new java.awt.Dimension(0, 50));
+        label_button_sav.setMinimumSize(new java.awt.Dimension(0, 50));
+        label_button_sav.setOpaque(true);
+        label_button_sav.setPreferredSize(new java.awt.Dimension(0, 50));
+        label_button_sav.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        label_button_sav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_button_savMouseClicked(evt);
+            }
+        });
+        panel_ctrl_btn_sav.add(label_button_sav, java.awt.BorderLayout.CENTER);
+
+        panel_ctrl_btn.add(panel_ctrl_btn_sav);
+
+        panel_ctrl_btn_clr.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panel_ctrl_btn_clr.setOpaque(false);
+        panel_ctrl_btn_clr.setLayout(new java.awt.BorderLayout());
+
+        jButton1.setText("jButton1");
+        panel_ctrl_btn_clr.add(jButton1, java.awt.BorderLayout.CENTER);
+
+        panel_ctrl_btn.add(panel_ctrl_btn_clr);
+
+        panel_ctrl.add(panel_ctrl_btn, java.awt.BorderLayout.PAGE_START);
+
+        jSeparator1.setMinimumSize(new java.awt.Dimension(0, 2));
+        panel_ctrl.add(jSeparator1, java.awt.BorderLayout.PAGE_END);
+
+        panel_control.add(panel_ctrl, java.awt.BorderLayout.CENTER);
 
         label_button_bck.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_bck.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -258,11 +299,14 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         
         panel_crtpfl.initAdditionalComponents(this);
 
+        lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+//        lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_elg, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+
     }
 
     private void label_button_pflMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_pflMouseClicked
@@ -290,8 +334,16 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         this.panel_parent.loadSummary();
     }//GEN-LAST:event_label_button_bckMouseClicked
 
+    private void label_button_savMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_savMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_button_savMouseClicked
+
     public void resetLabelButtons() {
 
+        label_button_sav.setBackground(constant.BUTTON_BG_COLOR_OLD);
+        label_button_sav.setForeground(constant.BUTTON_FG_COLOR_OLD);
+//        label_button_clr.setBackground(constant.BUTTON_BG_COLOR_OLD);
+//        label_button_clr.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_bck.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_bck.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_pfl.setBackground(constant.BUTTON_BG_COLOR_OLD);
@@ -302,6 +354,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         label_button_elg.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_trn.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_trn.setForeground(constant.BUTTON_FG_COLOR_OLD);
+
     }
 
     private void setFrameParent(PanelEmployees parent_value) {
@@ -323,10 +376,13 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private classes.ClassImageCropPanel_v1 classImageCropPanel_v11;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_button_bck;
     private javax.swing.JLabel label_button_dep;
     private javax.swing.JLabel label_button_elg;
     private javax.swing.JLabel label_button_pfl;
+    private javax.swing.JLabel label_button_sav;
     private javax.swing.JLabel label_button_trn;
     private javax.swing.JLabel label_loading_animated;
     private javax.swing.JPanel panel_center;
@@ -337,7 +393,10 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     private javax.swing.JPanel panel_control_button_list;
     private javax.swing.JPanel panel_control_button_pfl;
     private javax.swing.JPanel panel_control_button_trn;
-    private javax.swing.JPanel panel_controls;
+    private javax.swing.JPanel panel_ctrl;
+    private javax.swing.JPanel panel_ctrl_btn;
+    private javax.swing.JPanel panel_ctrl_btn_clr;
+    private javax.swing.JPanel panel_ctrl_btn_sav;
     private javax.swing.JPanel panel_frame;
     private javax.swing.JPanel panel_loading;
     private javax.swing.JPanel panel_main;

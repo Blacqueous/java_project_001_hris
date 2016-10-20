@@ -31,6 +31,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
 import javax.swing.JTable;
 import javax.swing.text.AbstractDocument;
 
@@ -54,6 +55,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     protected PanelEmployees panel_parent;
     protected PanelEmployeesCreate panel_child;
     protected ClassConstantsCustom constant;
+    private final Dimension maxDimension = new Dimension(0, 1040);
+    private final Dimension maxDimensionBasic = new Dimension(0, 320);
+    private final Dimension maxDimensionPersonal = new Dimension(0, 480);
+    private final Dimension maxDimensionAddinfo = new Dimension(0, 240);
+    private final Dimension minDimension = new Dimension(0, 525);
+    private final Dimension minDimensionBasic = new Dimension(0, 160);
+    private final Dimension minDimensionPersonal = new Dimension(0, 240);
+    private final Dimension minDimensionAddinfo = new Dimension(0, 120);
 
     /**
      * Creates new form PanelCreateViewByList
@@ -74,7 +83,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelScroll = new javax.swing.JScrollPane();
         panelForm = new javax.swing.JPanel();
-        panelFormList = new javax.swing.JPanel();
+        panelFormBottom = new javax.swing.JPanel();
+        panelFormContainer = new javax.swing.JPanel();
+        panelFormBasic = new javax.swing.JPanel();
+        panelFormBasicTitle = new javax.swing.JPanel();
         panelFormListTitle_001 = new javax.swing.JPanel();
         panelFormListTitle_001_caption = new javax.swing.JPanel();
         labelFormListTitle_001_icon = new javax.swing.JLabel();
@@ -98,6 +110,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelNameLast_icon_001 = new javax.swing.JLabel();
         txtfldNameLast = new javax.swing.JTextField();
         labelFormListField_001_required = new javax.swing.JLabel();
+        panelFormBasicContent = new javax.swing.JPanel();
         panelFormListField_002 = new javax.swing.JPanel();
         labelFormListField_002_head = new javax.swing.JLabel();
         panelPlantillaNum = new javax.swing.JPanel();
@@ -127,6 +140,9 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelSalary_icon = new javax.swing.JLabel();
         txtfldSalary = new javax.swing.JFormattedTextField();
         labelFormListField_007_required = new javax.swing.JLabel();
+        panelFormContainerSub = new javax.swing.JPanel();
+        panelFormPersonal = new javax.swing.JPanel();
+        panelFormPersonalTitle = new javax.swing.JPanel();
         panelFormListTitle_002 = new javax.swing.JPanel();
         panelFormListTitle_002_caption = new javax.swing.JPanel();
         labelFormListTitle_002_icon = new javax.swing.JLabel();
@@ -145,6 +161,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelAddress2_icon = new javax.swing.JLabel();
         txtfldAddress2 = new javax.swing.JTextField();
         labelFormListField_010_required = new javax.swing.JLabel();
+        panelFormPersonalContent = new javax.swing.JPanel();
         panelFormListField_008 = new javax.swing.JPanel();
         labelFormListField_008_icon = new javax.swing.JLabel();
         dateBirth = new com.toedter.calendar.JDateChooser();
@@ -193,12 +210,15 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelContactOther_icon = new javax.swing.JLabel();
         txtfldContactOther = new javax.swing.JTextField();
         labelFormListField_018_required = new javax.swing.JLabel();
+        panelFormAddinfo = new javax.swing.JPanel();
+        panelFormAddinfoTitle = new javax.swing.JPanel();
         panelFormListTitle_003 = new javax.swing.JPanel();
         panelFormListTitle_003_caption = new javax.swing.JPanel();
         labelFormListTitle_003_icon = new javax.swing.JLabel();
         labelFormListTitle_003_name = new javax.swing.JLabel();
         panelFormListTitle_003_hr = new javax.swing.JPanel();
         panelFormListTitle_003_breakline = new javax.swing.JSeparator();
+        panelFormAddinfoContent = new javax.swing.JPanel();
         panelFormListField_019 = new javax.swing.JPanel();
         labelFormListField_019_icon = new javax.swing.JLabel();
         panelCodeSSS_container = new javax.swing.JPanel();
@@ -234,37 +254,52 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelCodePHIC_icon_001 = new javax.swing.JLabel();
         txtfldCodePHIC = new javax.swing.JFormattedTextField();
         labelFormListField_023_required = new javax.swing.JLabel();
-        panelFormBottom = new javax.swing.JPanel();
-        panelFormContainer = new javax.swing.JPanel();
-        panelFormBasic = new javax.swing.JPanel();
-        panelFormBasicTitle = new javax.swing.JPanel();
-        panelFormBasicContent = new javax.swing.JPanel();
-        panelFormContainerSub = new javax.swing.JPanel();
-        panelFormPersonal = new javax.swing.JPanel();
-        panelFormPersonalTitle = new javax.swing.JPanel();
-        panelFormPersonalContent = new javax.swing.JPanel();
-        panelFormAddinfo = new javax.swing.JPanel();
-        panelFormAddinfoTitle = new javax.swing.JPanel();
-        panelFormAddinfoContent = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(245, 245, 245));
-        setPreferredSize(new java.awt.Dimension(17, 900));
         setLayout(new java.awt.BorderLayout());
 
         panelScroll.setBorder(null);
         panelScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        panelScroll.setMinimumSize(new java.awt.Dimension(0, 1045));
-        panelScroll.setName(""); // NOI18N
-        panelScroll.setPreferredSize(new java.awt.Dimension(0, 1045));
+        panelScroll.setMinimumSize(new java.awt.Dimension(0, 525));
+        panelScroll.setPreferredSize(new java.awt.Dimension(0, 525));
 
-        panelForm.setMinimumSize(new java.awt.Dimension(0, 1045));
-        panelForm.setPreferredSize(new java.awt.Dimension(0, 1045));
+        panelForm.setBackground(new java.awt.Color(245, 245, 245));
+        panelForm.setMinimumSize(new java.awt.Dimension(0, 525));
+        panelForm.setPreferredSize(new java.awt.Dimension(0, 525));
         panelForm.setLayout(new java.awt.BorderLayout());
 
-        panelFormList.setBackground(new java.awt.Color(245, 245, 245));
-        panelFormList.setLayout(new java.awt.GridLayout(26, 2));
+        panelFormBottom.setMinimumSize(new java.awt.Dimension(0, 5));
+        panelFormBottom.setOpaque(false);
 
-        panelFormListTitle_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        javax.swing.GroupLayout panelFormBottomLayout = new javax.swing.GroupLayout(panelFormBottom);
+        panelFormBottom.setLayout(panelFormBottomLayout);
+        panelFormBottomLayout.setHorizontalGroup(
+            panelFormBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 467, Short.MAX_VALUE)
+        );
+        panelFormBottomLayout.setVerticalGroup(
+            panelFormBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        panelForm.add(panelFormBottom, java.awt.BorderLayout.PAGE_END);
+
+        panelFormContainer.setMinimumSize(new java.awt.Dimension(0, 525));
+        panelFormContainer.setOpaque(false);
+        panelFormContainer.setPreferredSize(new java.awt.Dimension(0, 525));
+        panelFormContainer.setLayout(new java.awt.BorderLayout());
+
+        panelFormBasic.setMinimumSize(new java.awt.Dimension(0, 160));
+        panelFormBasic.setOpaque(false);
+        panelFormBasic.setPreferredSize(new java.awt.Dimension(0, 160));
+        panelFormBasic.setLayout(new java.awt.BorderLayout());
+
+        panelFormBasicTitle.setMinimumSize(new java.awt.Dimension(0, 80));
+        panelFormBasicTitle.setOpaque(false);
+        panelFormBasicTitle.setPreferredSize(new java.awt.Dimension(0, 80));
+        panelFormBasicTitle.setLayout(new java.awt.GridLayout(2, 1));
+
+        panelFormListTitle_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 0));
         panelFormListTitle_001.setOpaque(false);
         panelFormListTitle_001.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListTitle_001.setLayout(new java.awt.BorderLayout());
@@ -295,7 +330,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormListTitle_001.add(panelFormListTitle_001_hr, java.awt.BorderLayout.CENTER);
 
-        panelFormList.add(panelFormListTitle_001);
+        panelFormBasicTitle.add(panelFormListTitle_001);
 
         panelFormListField_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_001.setOpaque(false);
@@ -458,7 +493,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_001_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_001.add(labelFormListField_001_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_001);
+        panelFormBasicTitle.add(panelFormListField_001);
+
+        panelFormBasic.add(panelFormBasicTitle, java.awt.BorderLayout.PAGE_START);
+
+        panelFormBasicContent.setMinimumSize(new java.awt.Dimension(0, 80));
+        panelFormBasicContent.setOpaque(false);
+        panelFormBasicContent.setPreferredSize(new java.awt.Dimension(0, 80));
+        panelFormBasicContent.setLayout(new java.awt.GridLayout(2, 3));
 
         panelFormListField_002.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_002.setOpaque(false);
@@ -525,7 +567,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_002_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_002.add(labelFormListField_002_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_002);
+        panelFormBasicContent.add(panelFormListField_002);
 
         panelFormListField_003.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_003.setOpaque(false);
@@ -542,6 +584,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_003.add(labelFormListField_003_head, java.awt.BorderLayout.LINE_START);
 
         cmbboxPosition.setForeground(new java.awt.Color(51, 51, 51));
+        cmbboxPosition.setMaximumRowCount(5);
         cmbboxPosition.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         panelFormListField_003.add(cmbboxPosition, java.awt.BorderLayout.CENTER);
         componentList.add(4, cmbboxPosition);
@@ -554,7 +597,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_003_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_003.add(labelFormListField_003_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_003);
+        panelFormBasicContent.add(panelFormListField_003);
 
         panelFormListField_004.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_004.setOpaque(false);
@@ -571,6 +614,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_004.add(labelFormListField_004_head, java.awt.BorderLayout.LINE_START);
 
         cmbboxDepartment.setForeground(new java.awt.Color(51, 51, 51));
+        cmbboxDepartment.setMaximumRowCount(5);
         cmbboxDepartment.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         panelFormListField_004.add(cmbboxDepartment, java.awt.BorderLayout.CENTER);
         componentList.add(5, cmbboxDepartment);
@@ -583,7 +627,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_004_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_004.add(labelFormListField_004_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_004);
+        panelFormBasicContent.add(panelFormListField_004);
 
         panelFormListField_005.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_005.setOpaque(false);
@@ -601,6 +645,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_005.add(labelFormListField_005_head, java.awt.BorderLayout.LINE_START);
 
         cmbboxCategory.setForeground(new java.awt.Color(51, 51, 51));
+        cmbboxCategory.setMaximumRowCount(5);
         cmbboxCategory.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         panelFormListField_005.add(cmbboxCategory, java.awt.BorderLayout.CENTER);
         componentList.add(6, cmbboxCategory);
@@ -613,7 +658,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_005_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_005.add(labelFormListField_005_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_005);
+        panelFormBasicContent.add(panelFormListField_005);
 
         panelFormListField_006.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_006.setOpaque(false);
@@ -649,7 +694,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_006_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_006.add(labelFormListField_006_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_006);
+        panelFormBasicContent.add(panelFormListField_006);
 
         panelFormListField_007.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_007.setOpaque(false);
@@ -706,9 +751,26 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_007_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_007.add(labelFormListField_007_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_007);
+        panelFormBasicContent.add(panelFormListField_007);
 
-        panelFormListTitle_002.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormBasic.add(panelFormBasicContent, java.awt.BorderLayout.CENTER);
+
+        panelFormContainer.add(panelFormBasic, java.awt.BorderLayout.PAGE_START);
+
+        panelFormContainerSub.setOpaque(false);
+        panelFormContainerSub.setLayout(new java.awt.BorderLayout());
+
+        panelFormPersonal.setMinimumSize(new java.awt.Dimension(0, 240));
+        panelFormPersonal.setOpaque(false);
+        panelFormPersonal.setPreferredSize(new java.awt.Dimension(0, 240));
+        panelFormPersonal.setLayout(new java.awt.BorderLayout());
+
+        panelFormPersonalTitle.setMinimumSize(new java.awt.Dimension(0, 120));
+        panelFormPersonalTitle.setOpaque(false);
+        panelFormPersonalTitle.setPreferredSize(new java.awt.Dimension(0, 120));
+        panelFormPersonalTitle.setLayout(new java.awt.GridLayout(3, 1));
+
+        panelFormListTitle_002.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 0));
         panelFormListTitle_002.setOpaque(false);
         panelFormListTitle_002.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListTitle_002.setLayout(new java.awt.BorderLayout());
@@ -739,7 +801,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormListTitle_002.add(panelFormListTitle_002_hr, java.awt.BorderLayout.CENTER);
 
-        panelFormList.add(panelFormListTitle_002);
+        panelFormPersonalTitle.add(panelFormListTitle_002);
 
         panelFormListField_009.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_009.setOpaque(false);
@@ -797,7 +859,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_009_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_009.add(labelFormListField_009_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_009);
+        panelFormPersonalTitle.add(panelFormListField_009);
 
         panelFormListField_010.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_010.setOpaque(false);
@@ -815,7 +877,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         );
         panelFormListField_010_iconLayout.setVerticalGroup(
             panelFormListField_010_iconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 35, Short.MAX_VALUE)
         );
 
         panelFormListField_010.add(panelFormListField_010_icon, java.awt.BorderLayout.LINE_START);
@@ -856,7 +918,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_010_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_010.add(labelFormListField_010_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_010);
+        panelFormPersonalTitle.add(panelFormListField_010);
+
+        panelFormPersonal.add(panelFormPersonalTitle, java.awt.BorderLayout.PAGE_START);
+
+        panelFormPersonalContent.setMinimumSize(new java.awt.Dimension(0, 120));
+        panelFormPersonalContent.setOpaque(false);
+        panelFormPersonalContent.setPreferredSize(new java.awt.Dimension(0, 120));
+        panelFormPersonalContent.setLayout(new java.awt.GridLayout(3, 3));
 
         panelFormListField_008.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_008.setOpaque(false);
@@ -892,7 +961,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_008_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_008.add(labelFormListField_008_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_008);
+        panelFormPersonalContent.add(panelFormListField_008);
 
         panelFormListField_011.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_011.setOpaque(false);
@@ -910,6 +979,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         cmbboxGender.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbboxGender.setForeground(new java.awt.Color(51, 51, 51));
+        cmbboxGender.setMaximumRowCount(5);
         panelFormListField_011.add(cmbboxGender, java.awt.BorderLayout.CENTER);
         componentList.add(11, cmbboxGender);
 
@@ -921,7 +991,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_011_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_011.add(labelFormListField_011_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_011);
+        panelFormPersonalContent.add(panelFormListField_011);
 
         panelFormListField_012.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_012.setOpaque(false);
@@ -939,6 +1009,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         cmbboxCivilStatus.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbboxCivilStatus.setForeground(new java.awt.Color(51, 51, 51));
+        cmbboxCivilStatus.setMaximumRowCount(5);
         panelFormListField_012.add(cmbboxCivilStatus, java.awt.BorderLayout.CENTER);
         componentList.add(12, cmbboxCivilStatus);
 
@@ -950,7 +1021,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_012_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_012.add(labelFormListField_012_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_012);
+        panelFormPersonalContent.add(panelFormListField_012);
 
         panelFormListField_013.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_013.setOpaque(false);
@@ -1004,7 +1075,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_013_required.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_013.add(labelFormListField_013_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_013);
+        panelFormPersonalContent.add(panelFormListField_013);
 
         panelFormListField_014.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_014.setOpaque(false);
@@ -1059,7 +1130,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField014_Req.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelFormListField_014.add(labelFormListField014_Req, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_014);
+        panelFormPersonalContent.add(panelFormListField_014);
 
         panelFormListField_015.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_015.setOpaque(false);
@@ -1109,7 +1180,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_015_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_015.add(labelFormListField_015_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_015);
+        panelFormPersonalContent.add(panelFormListField_015);
 
         panelFormListField_016.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_016.setOpaque(false);
@@ -1160,7 +1231,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_016_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_016.add(labelFormListField_016_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_016);
+        panelFormPersonalContent.add(panelFormListField_016);
 
         panelFormListField_017.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_017.setOpaque(false);
@@ -1213,7 +1284,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_017_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_017.add(labelFormListField_017_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_017);
+        panelFormPersonalContent.add(panelFormListField_017);
 
         panelFormListField_018.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_018.setOpaque(false);
@@ -1267,9 +1338,23 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_018_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_018.add(labelFormListField_018_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_018);
+        panelFormPersonalContent.add(panelFormListField_018);
 
-        panelFormListTitle_003.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelFormPersonal.add(panelFormPersonalContent, java.awt.BorderLayout.CENTER);
+
+        panelFormContainerSub.add(panelFormPersonal, java.awt.BorderLayout.PAGE_START);
+
+        panelFormAddinfo.setMinimumSize(new java.awt.Dimension(0, 200));
+        panelFormAddinfo.setOpaque(false);
+        panelFormAddinfo.setPreferredSize(new java.awt.Dimension(0, 200));
+        panelFormAddinfo.setLayout(new java.awt.BorderLayout());
+
+        panelFormAddinfoTitle.setMinimumSize(new java.awt.Dimension(0, 40));
+        panelFormAddinfoTitle.setOpaque(false);
+        panelFormAddinfoTitle.setPreferredSize(new java.awt.Dimension(0, 40));
+        panelFormAddinfoTitle.setLayout(new java.awt.GridLayout());
+
+        panelFormListTitle_003.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 0));
         panelFormListTitle_003.setOpaque(false);
         panelFormListTitle_003.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListTitle_003.setLayout(new java.awt.BorderLayout());
@@ -1301,7 +1386,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         panelFormListTitle_003.add(panelFormListTitle_003_hr, java.awt.BorderLayout.CENTER);
 
-        panelFormList.add(panelFormListTitle_003);
+        panelFormAddinfoTitle.add(panelFormListTitle_003);
+
+        panelFormAddinfo.add(panelFormAddinfoTitle, java.awt.BorderLayout.PAGE_START);
+
+        panelFormAddinfoContent.setMinimumSize(new java.awt.Dimension(0, 200));
+        panelFormAddinfoContent.setOpaque(false);
+        panelFormAddinfoContent.setPreferredSize(new java.awt.Dimension(0, 200));
+        panelFormAddinfoContent.setLayout(new java.awt.GridLayout(2, 3));
 
         panelFormListField_019.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_019.setOpaque(false);
@@ -1372,7 +1464,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_019_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_019.add(labelFormListField_019_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_019);
+        panelFormAddinfoContent.add(panelFormListField_019);
 
         panelFormListField_020.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_020.setOpaque(false);
@@ -1443,7 +1535,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_020_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_020.add(labelFormListField_020_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_020);
+        panelFormAddinfoContent.add(panelFormListField_020);
 
         panelFormListField_021.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_021.setOpaque(false);
@@ -1510,7 +1602,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_021_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_021.add(labelFormListField_021_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_021);
+        panelFormAddinfoContent.add(panelFormListField_021);
 
         panelFormListField_022.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_022.setOpaque(false);
@@ -1581,7 +1673,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_022_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_022.add(labelFormListField_022_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_022);
+        panelFormAddinfoContent.add(panelFormListField_022);
 
         panelFormListField_023.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_023.setOpaque(false);
@@ -1652,73 +1744,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_023_required.setPreferredSize(new java.awt.Dimension(20, 15));
         panelFormListField_023.add(labelFormListField_023_required, java.awt.BorderLayout.LINE_END);
 
-        panelFormList.add(panelFormListField_023);
+        panelFormAddinfoContent.add(panelFormListField_023);
 
-        panelForm.add(panelFormList, java.awt.BorderLayout.CENTER);
-
-        panelFormBottom.setBackground(new java.awt.Color(245, 245, 245));
-        panelFormBottom.setMinimumSize(new java.awt.Dimension(0, 5));
-
-        javax.swing.GroupLayout panelFormBottomLayout = new javax.swing.GroupLayout(panelFormBottom);
-        panelFormBottom.setLayout(panelFormBottomLayout);
-        panelFormBottomLayout.setHorizontalGroup(
-            panelFormBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
-        );
-        panelFormBottomLayout.setVerticalGroup(
-            panelFormBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-
-        panelForm.add(panelFormBottom, java.awt.BorderLayout.PAGE_END);
-
-        panelFormContainer.setPreferredSize(new java.awt.Dimension(0, 1040));
-        panelFormContainer.setLayout(new java.awt.BorderLayout());
-
-        panelFormBasic.setMinimumSize(new java.awt.Dimension(0, 320));
-        panelFormBasic.setPreferredSize(new java.awt.Dimension(0, 320));
-        panelFormBasic.setLayout(new java.awt.BorderLayout());
-
-        panelFormBasicTitle.setMinimumSize(new java.awt.Dimension(0, 40));
-        panelFormBasicTitle.setPreferredSize(new java.awt.Dimension(0, 40));
-        panelFormBasicTitle.setLayout(new java.awt.GridLayout(8, 1));
-        panelFormBasic.add(panelFormBasicTitle, java.awt.BorderLayout.PAGE_START);
-
-        panelFormBasicContent.setMinimumSize(new java.awt.Dimension(0, 280));
-        panelFormBasicContent.setPreferredSize(new java.awt.Dimension(0, 280));
-        panelFormBasicContent.setLayout(new java.awt.GridLayout(8, 1));
-        panelFormBasic.add(panelFormBasicContent, java.awt.BorderLayout.CENTER);
-
-        panelFormContainer.add(panelFormBasic, java.awt.BorderLayout.PAGE_START);
-
-        panelFormContainerSub.setLayout(new java.awt.BorderLayout());
-
-        panelFormPersonal.setMinimumSize(new java.awt.Dimension(0, 480));
-        panelFormPersonal.setPreferredSize(new java.awt.Dimension(0, 480));
-        panelFormPersonal.setLayout(new java.awt.BorderLayout());
-
-        panelFormPersonalTitle.setMinimumSize(new java.awt.Dimension(0, 40));
-        panelFormPersonalTitle.setPreferredSize(new java.awt.Dimension(0, 40));
-        panelFormPersonalTitle.setLayout(new java.awt.GridLayout(8, 1));
-        panelFormPersonal.add(panelFormPersonalTitle, java.awt.BorderLayout.PAGE_START);
-
-        panelFormPersonalContent.setMinimumSize(new java.awt.Dimension(0, 440));
-        panelFormPersonalContent.setPreferredSize(new java.awt.Dimension(0, 440));
-        panelFormPersonalContent.setLayout(new java.awt.GridLayout());
-        panelFormPersonal.add(panelFormPersonalContent, java.awt.BorderLayout.CENTER);
-
-        panelFormContainerSub.add(panelFormPersonal, java.awt.BorderLayout.PAGE_START);
-
-        panelFormAddinfo.setLayout(new java.awt.BorderLayout());
-
-        panelFormAddinfoTitle.setMinimumSize(new java.awt.Dimension(0, 40));
-        panelFormAddinfoTitle.setPreferredSize(new java.awt.Dimension(0, 40));
-        panelFormAddinfoTitle.setLayout(new java.awt.GridLayout(8, 1));
-        panelFormAddinfo.add(panelFormAddinfoTitle, java.awt.BorderLayout.PAGE_START);
-
-        panelFormAddinfoContent.setMinimumSize(new java.awt.Dimension(0, 200));
-        panelFormAddinfoContent.setPreferredSize(new java.awt.Dimension(0, 200));
-        panelFormAddinfoContent.setLayout(new java.awt.GridLayout(8, 1));
         panelFormAddinfo.add(panelFormAddinfoContent, java.awt.BorderLayout.CENTER);
 
         panelFormContainerSub.add(panelFormAddinfo, java.awt.BorderLayout.CENTER);
@@ -1732,33 +1759,72 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         add(panelScroll, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    class ResizeListener implements ComponentListener {
-
-        @Override
-        public void componentHidden(ComponentEvent e) {}
-        @Override
-        public void componentMoved(ComponentEvent e) {}
-        @Override
-        public void componentShown(ComponentEvent e) {}
-
-        @Override
-        public void componentResized(ComponentEvent e) {
-            Dimension newSize = e.getComponent().getBounds().getSize();          
-            
-            if(newSize.width < 650) {
-                System.out.println("default");
-            } else {
-                System.out.println("resize");
-            }
-        }   
-    }
-    
     public void initAdditionalComponents(PanelEmployeesCreate panel_create) {
 
         setFrameChild(panel_create);
 
-        this.addComponentListener(new ResizeListener());
+        this.addComponentListener(new ComponentListener() {
+            @Override
+            public void componentHidden(ComponentEvent e) { revalidate(); repaint(); }
+            @Override
+            public void componentMoved(ComponentEvent e) { revalidate(); repaint(); }
+            @Override
+            public void componentShown(ComponentEvent e) { revalidate(); repaint(); }
+            @Override
+            public void componentResized(ComponentEvent e) {
+                // Get current panel size.
+                Dimension newSize = e.getComponent().getBounds().getSize();          
+                // Determine what layout to use.
+                if(newSize.width < 725) {
+                    // Set new scroll height,
+                    panelScroll.setMinimumSize(maxDimension);
+                    panelScroll.setPreferredSize(maxDimension);
+                    // along with main form's height,
+                    panelForm.setMinimumSize(maxDimension);
+                    panelForm.setPreferredSize(maxDimension);
+                    // and form container height.
+                    panelFormContainer.setMinimumSize(maxDimension);
+                    panelFormContainer.setPreferredSize(maxDimension);
+                        // Set new basic form height.
+                        panelFormBasic.setMinimumSize(maxDimensionBasic);
+                        panelFormBasic.setPreferredSize(maxDimensionBasic);
+                        panelFormBasicContent.setLayout(new java.awt.GridLayout(6, 1));
+                        // Set new personal form height.
+                        panelFormPersonal.setMinimumSize(maxDimensionPersonal);
+                        panelFormPersonal.setPreferredSize(maxDimensionPersonal);
+                        panelFormPersonalContent.setLayout(new java.awt.GridLayout(9, 1));
+                        // Set new additional info form height.
+                        panelFormAddinfo.setMinimumSize(maxDimensionAddinfo);
+                        panelFormAddinfo.setPreferredSize(maxDimensionAddinfo);
+                        panelFormAddinfoContent.setLayout(new java.awt.GridLayout(5, 1));
+                } else {
+                    // Set new scroll height,
+                    panelScroll.setMinimumSize(minDimension);
+                    panelScroll.setPreferredSize(minDimension);
+                    // along with main form's height,
+                    panelForm.setMinimumSize(minDimension);
+                    panelForm.setPreferredSize(minDimension);
+                    // and form container height.
+                    panelFormContainer.setMinimumSize(minDimension);
+                    panelFormContainer.setPreferredSize(minDimension);
+                        // Set new basic form height.
+                        panelFormBasic.setMinimumSize(minDimensionBasic);
+                        panelFormBasic.setPreferredSize(minDimensionBasic);
+                        panelFormBasicContent.setLayout(new java.awt.GridLayout(2, 3));
+                        // Set new personal form height.
+                        panelFormPersonal.setMinimumSize(minDimensionPersonal);
+                        panelFormPersonal.setPreferredSize(minDimensionPersonal);
+                        panelFormPersonalContent.setLayout(new java.awt.GridLayout(3, 3));
+                        // Set new additional info form height.
+                        panelFormAddinfo.setMinimumSize(minDimensionAddinfo);
+                        panelFormAddinfo.setPreferredSize(minDimensionAddinfo);
+                        panelFormAddinfoContent.setLayout(new java.awt.GridLayout(2, 3));
+                }
+                // Revalidate and repaint this panel.
+                revalidate();
+                repaint();
+            }   
+        });
         
         setPlaceHolder();
         tfRequired.requiredFieldsInitialize(componentList);
@@ -1766,6 +1832,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelScroll.getVerticalScrollBar().setUnitIncrement(25);
         
         comboBoxLoadFromDB(constant.TABLE_LIST_POSITION, cmbboxPosition, "Select a Position", cmbboxPosId);
+        cmbboxPosition.revalidate();
+        cmbboxPosition.repaint();
         comboBoxLoadFromDB(constant.TABLE_LIST_OFFICE, cmbboxDepartment, "Select a Department", cmbboxDepId);
         comboBoxLoadFromDB(constant.TABLE_LIST_CATEGORY, cmbboxCategory, "Select a Category", cmbboxCatId);
         
@@ -2160,7 +2228,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     private javax.swing.JPanel panelFormBottom;
     private javax.swing.JPanel panelFormContainer;
     private javax.swing.JPanel panelFormContainerSub;
-    private javax.swing.JPanel panelFormList;
     private javax.swing.JPanel panelFormListField_001;
     private javax.swing.JPanel panelFormListField_001_container;
     private javax.swing.JPanel panelFormListField_001_fields;
@@ -2267,6 +2334,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(FramePrime.class.getName()).log(Level.SEVERE, null, ex);
         }
+        cmbbox.revalidate();
+        cmbbox.repaint();
         
     }
 
