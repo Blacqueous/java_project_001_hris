@@ -80,6 +80,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         panelControlType0.setPreferredSize(new java.awt.Dimension(30, 30));
         panelControlType0.setLayout(new java.awt.BorderLayout());
 
+        btnBrowseType0.setBackground(new java.awt.Color(255, 255, 255));
         btnBrowseType0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_img_landscape_add.png"))); // NOI18N
         btnBrowseType0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBrowseType0.setMaximumSize(new java.awt.Dimension(25, 25));

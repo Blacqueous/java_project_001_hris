@@ -5,9 +5,18 @@
  */
 package application;
 
+import classes.ClassComboboxGetValue;
 import classes.ClassConstantsCustom;
 import classes.ClassLabelButton;
 import classes.ClassLoadNewPanel;
+import classes.ClassMyDBConnectionEmbeddedDerby;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +27,14 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     private final ClassLabelButton lbl_btn = new ClassLabelButton();
 //    private final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
     private final PanelEmployeesCreateProfile  panel_crtpfl = new PanelEmployeesCreateProfile();
+    private final PanelEmployeesCreateDependent  panel_crtdep = new PanelEmployeesCreateDependent();
+    private final PanelEmployeesCreateEligibility  panel_crtelg = new PanelEmployeesCreateEligibility();
+    private final PanelEmployeesCreateTraining  panel_crttrn = new PanelEmployeesCreateTraining();
     private final ClassLoadNewPanel panel_load = new ClassLoadNewPanel();
     protected FramePrime panel_ancestor;
     protected PanelEmployees panel_parent;
     protected ClassConstantsCustom constant;
+    protected ClassComboboxGetValue cmbboxId;
 
     /**
      * Creates new form PanelEmployeesCreate
@@ -44,10 +57,9 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_ctrl = new javax.swing.JPanel();
         panel_ctrl_btn = new javax.swing.JPanel();
         panel_ctrl_btn_sav = new javax.swing.JPanel();
-        label_button_sav = new javax.swing.JLabel();
+        btn_sav = new javax.swing.JButton();
         panel_ctrl_btn_clr = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        btn_clr = new javax.swing.JButton();
         label_button_bck = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
         panel_control_button = new javax.swing.JPanel();
@@ -97,24 +109,18 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_ctrl_btn_sav.setOpaque(false);
         panel_ctrl_btn_sav.setLayout(new java.awt.BorderLayout());
 
-        label_button_sav.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        label_button_sav.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_button_sav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_save_disket.png"))); // NOI18N
-        label_button_sav.setText("SAVE");
-        label_button_sav.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
-        label_button_sav.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label_button_sav.setIconTextGap(10);
-        label_button_sav.setMaximumSize(new java.awt.Dimension(0, 50));
-        label_button_sav.setMinimumSize(new java.awt.Dimension(0, 50));
-        label_button_sav.setOpaque(true);
-        label_button_sav.setPreferredSize(new java.awt.Dimension(0, 50));
-        label_button_sav.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        label_button_sav.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_button_savMouseClicked(evt);
+        btn_sav.setBackground(new java.awt.Color(255, 255, 255));
+        btn_sav.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btn_sav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_save_disket.png"))); // NOI18N
+        btn_sav.setText("save");
+        btn_sav.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_sav.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_sav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_savActionPerformed(evt);
             }
         });
-        panel_ctrl_btn_sav.add(label_button_sav, java.awt.BorderLayout.CENTER);
+        panel_ctrl_btn_sav.add(btn_sav, java.awt.BorderLayout.CENTER);
 
         panel_ctrl_btn.add(panel_ctrl_btn_sav);
 
@@ -122,15 +128,17 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_ctrl_btn_clr.setOpaque(false);
         panel_ctrl_btn_clr.setLayout(new java.awt.BorderLayout());
 
-        jButton1.setText("jButton1");
-        panel_ctrl_btn_clr.add(jButton1, java.awt.BorderLayout.CENTER);
+        btn_clr.setBackground(new java.awt.Color(255, 255, 255));
+        btn_clr.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btn_clr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_form_photo.png"))); // NOI18N
+        btn_clr.setText("clear");
+        btn_clr.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_clr.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panel_ctrl_btn_clr.add(btn_clr, java.awt.BorderLayout.CENTER);
 
         panel_ctrl_btn.add(panel_ctrl_btn_clr);
 
         panel_ctrl.add(panel_ctrl_btn, java.awt.BorderLayout.PAGE_START);
-
-        jSeparator1.setMinimumSize(new java.awt.Dimension(0, 2));
-        panel_ctrl.add(jSeparator1, java.awt.BorderLayout.PAGE_END);
 
         panel_control.add(panel_ctrl, java.awt.BorderLayout.CENTER);
 
@@ -295,12 +303,13 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     public void initAdditionalComponents(PanelEmployees panel_parent) {
 
         setFrameParent(panel_parent);
+        
         panel_load.setParentPanel(panel_frame);
+        
+        panel_load.loadFrame(panel_crtpfl, panel_main);
         
         panel_crtpfl.initAdditionalComponents(this);
 
-        lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-//        lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
@@ -316,17 +325,17 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
     private void label_button_depMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_depMouseClicked
 
-//        this.panel_parent.loadSummary();
+        panel_load.loadFrame(panel_crtdep, panel_main);
     }//GEN-LAST:event_label_button_depMouseClicked
 
     private void label_button_elgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_elgMouseClicked
 
-        this.panel_parent.loadSummary();
+        panel_load.loadFrame(panel_crtelg, panel_main);
     }//GEN-LAST:event_label_button_elgMouseClicked
 
     private void label_button_trnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_trnMouseClicked
 
-        this.panel_parent.loadSummary();
+        panel_load.loadFrame(panel_crttrn, panel_main);
     }//GEN-LAST:event_label_button_trnMouseClicked
 
     private void label_button_bckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_bckMouseClicked
@@ -334,16 +343,93 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         this.panel_parent.loadSummary();
     }//GEN-LAST:event_label_button_bckMouseClicked
 
-    private void label_button_savMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_savMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_label_button_savMouseClicked
+    private void btn_savActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_savActionPerformed
+        
+        
+        String[] formArray;
+
+        formArray = panel_crtpfl.getFieldsForSave();
+
+        if(formArray != null && formArray.length == 25) {
+
+            int x = JOptionPane.showConfirmDialog(this, "Are you sure you want to Create New Employee Data?", "VALIDATE ACTION", JOptionPane.YES_NO_OPTION);
+
+            if (x == 0) {
+
+                try {
+                    //Database connection
+                    ClassMyDBConnectionEmbeddedDerby.initDB();
+                    Connection conn = ClassMyDBConnectionEmbeddedDerby.getMyConnection();
+
+                    PreparedStatement ps;
+
+                    ps = conn.prepareStatement("INSERT INTO " + constant.TABLE_EMPLOYEE_HEADER + " (name_first, name_middle, name_last, plantilla_id, list_pos_id, list_off_id, list_cat_id, date_hired, salary) values ((?),(?),(?),(?),(?),(?),(?),(?),(?))", Statement.RETURN_GENERATED_KEYS);
+                    ps.setString(1, formArray[0]); // name_first
+                    ps.setString(2, formArray[1]); // name_middle
+                    ps.setString(3, formArray[2]); // name_last
+                    ps.setInt(4, Integer.parseInt(formArray[3])); // plantilla_id
+                    ps.setInt(5, cmbboxId.getId(constant.TABLE_LIST_POSITION, formArray[4])); // list_pos_id
+                    ps.setInt(6, cmbboxId.getId(constant.TABLE_LIST_OFFICE, formArray[5])); // list_off_id
+                    ps.setInt(7, cmbboxId.getId(constant.TABLE_LIST_CATEGORY, formArray[6])); // list_cat_id
+                    ps.setDate(8, java.sql.Date.valueOf(formArray[7])); // date_hired
+                    ps.setInt(9, Integer.parseInt(formArray[8])); // salary
+                    ps.execute();
+
+                    ResultSet rs = ps.getGeneratedKeys();
+                    if (rs != null && rs.next()) {
+
+                        ps = conn.prepareStatement("INSERT INTO " + constant.TABLE_EMPLOYEE_DETAIL + " ( "
+                            + " header_id, date_birth, address_prime, address_other, gender, civil_status, nationality, religion, email, phone_tele, phone_cell, phone_misc, code_SSS, code_TIN, code_GSIS, code_PHIC, code_PAGIBIG) values ((?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?))", Statement.RETURN_GENERATED_KEYS);
+
+                        ps.setInt(1, rs.getInt(1)); // header_id
+                        ps.setDate(2, java.sql.Date.valueOf(formArray[9])); // date_birth
+                        ps.setString(3, formArray[10]); // address_prime
+                        ps.setString(4, formArray[11]); // address_other
+                        ps.setString(5, formArray[12]); // gender
+                        ps.setString(6, formArray[13]); // civil_status
+                        ps.setString(7, formArray[14]); // nationality
+                        ps.setString(8, formArray[15]); // religion
+                        ps.setString(9, formArray[16]); // email
+                        if(formArray[17].equals("")) { // phone_tele
+                            ps.setNull(10, java.sql.Types.INTEGER);
+                        } else {
+                            ps.setInt(10, (formArray[17].equals("")) ? null : Integer.parseInt(formArray[17]));
+                        }
+                        if (formArray[18].equals("")) { // phone_cell
+                            ps.setNull(11, java.sql.Types.INTEGER);
+                        } else {
+                            ps.setInt(11, (formArray[18].equals("")) ? null : Integer.parseInt(formArray[18]));
+                        }
+                        if(formArray[19].equals("")) { // phone_misc
+                            ps.setNull(12, java.sql.Types.INTEGER);
+                        } else {
+                            ps.setInt(12, Integer.parseInt(formArray[19]));
+                        }
+                        ps.setString(13, formArray[20]); // code_SSS
+                        ps.setString(14, formArray[21]); // code_TIN
+                        ps.setString(15, formArray[22]); // code_GSIS
+                        ps.setString(16, formArray[23]); // code_PHIC
+                        ps.setString(17, formArray[24]); // code_PAGIBIG
+System.out.println(ps);
+//                        ps.execute();
+
+                    }
+
+                    JOptionPane.showMessageDialog(this, "New Employee Successfully Created.", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+
+                    panel_crtpfl.clearFields();
+
+                } catch (SQLException | HeadlessException ex) {
+                    JOptionPane.showMessageDialog(this, "An Error Occured.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_btn_savActionPerformed
 
     public void resetLabelButtons() {
 
-        label_button_sav.setBackground(constant.BUTTON_BG_COLOR_OLD);
-        label_button_sav.setForeground(constant.BUTTON_FG_COLOR_OLD);
-//        label_button_clr.setBackground(constant.BUTTON_BG_COLOR_OLD);
-//        label_button_clr.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_bck.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_bck.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_pfl.setBackground(constant.BUTTON_BG_COLOR_OLD);
@@ -375,14 +461,13 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_clr;
+    private javax.swing.JButton btn_sav;
     private classes.ClassImageCropPanel_v1 classImageCropPanel_v11;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_button_bck;
     private javax.swing.JLabel label_button_dep;
     private javax.swing.JLabel label_button_elg;
     private javax.swing.JLabel label_button_pfl;
-    private javax.swing.JLabel label_button_sav;
     private javax.swing.JLabel label_button_trn;
     private javax.swing.JLabel label_loading_animated;
     private javax.swing.JPanel panel_center;
