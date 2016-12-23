@@ -103,7 +103,7 @@ public class ClassImageAreaPanel_v1 extends JPanel {
      * 
      * @return JPanel ClassImageAreaPanelv2
      */
-    public static ClassImageAreaPanel_v1 create(){
+    public static ClassImageAreaPanel_v1 create() {
         
         // Create panel.
         ClassImageAreaPanel_v1 panel = new ClassImageAreaPanel_v1();

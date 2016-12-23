@@ -1872,8 +1872,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelScroll.getVerticalScrollBar().setUnitIncrement(25);
         
         comboBoxLoadFromDB(constant.TABLE_LIST_POSITION, cmbboxPosition, "Select a Position", cmbboxPosId);
-        cmbboxPosition.revalidate();
-        cmbboxPosition.repaint();
         comboBoxLoadFromDB(constant.TABLE_LIST_OFFICE, cmbboxDepartment, "Select a Department", cmbboxDepId);
         comboBoxLoadFromDB(constant.TABLE_LIST_CATEGORY, cmbboxCategory, "Select a Category", cmbboxCatId);
         

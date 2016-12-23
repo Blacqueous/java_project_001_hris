@@ -5,6 +5,7 @@
  */
 package application;
 
+import classes.ClassComboboxGetValue;
 import classes.ClassConstantsCustom;
 import classes.ClassLoadNewPanel;
 
@@ -17,6 +18,7 @@ public class FramePrime extends javax.swing.JFrame {
     public String panel_used = "";
     public final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
     public final ClassConstantsCustom constant = new ClassConstantsCustom();
+    public final ClassComboboxGetValue cmbboxId = new ClassComboboxGetValue();
     private final PanelDashboard panel_dbd = new PanelDashboard();
     private final PanelCompany panel_cmp = new PanelCompany();
     private final PanelEmployees panel_emp = new PanelEmployees(this);
