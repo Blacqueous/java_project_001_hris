@@ -844,9 +844,17 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
                     addRow = new ArrayList<>();
                     for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
                         if (i == 7 || i == 10) {
-                            addRow.add(format_date.formatDateToString(format_date.formatStringToDate(rs.getString(i)), "MMMM dd, YYYY"));
+                            if(rs.getString(i) != null) {
+                                addRow.add(format_date.formatDateToString(format_date.formatStringToDate(rs.getString(i)), "MMMM dd, YYYY"));
+                            } else {
+                                addRow.add("-");
+                            }
                         } else {
-                            addRow.add(rs.getString(i));
+                            if(rs.getString(i) != null) {
+                                addRow.add(rs.getString(i));
+                            } else {
+                                addRow.add("-");
+                            }
                         }
 
                         if (i == 1) {

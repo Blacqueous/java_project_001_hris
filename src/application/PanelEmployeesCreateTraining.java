@@ -430,7 +430,7 @@ public class PanelEmployeesCreateTraining extends javax.swing.JPanel {
         dtm.setDataVector(null, columnTitle.toArray());
         
         table_view.setModel(dtm);
-        table_view.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        // table_view.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table_view.getColumnModel().getColumn(0).setMinWidth(0);
         table_view.getColumnModel().getColumn(0).setResizable(false);
         table_view.getColumnModel().getColumn(0).setPreferredWidth(0);

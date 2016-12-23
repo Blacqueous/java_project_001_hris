@@ -50,8 +50,6 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_clr = new javax.swing.JButton();
-        btn_sav = new javax.swing.JButton();
         panel_control = new javax.swing.JPanel();
         classImageCropPanel = new classes.ClassImageCropPanel_v1();
         panel_ctrl = new javax.swing.JPanel();
@@ -76,25 +74,6 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_main = new javax.swing.JPanel();
         panel_loading = new javax.swing.JPanel();
         label_loading_animated = new javax.swing.JLabel();
-
-        btn_clr.setBackground(new java.awt.Color(255, 255, 255));
-        btn_clr.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        btn_clr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_form_photo.png"))); // NOI18N
-        btn_clr.setText("clear");
-        btn_clr.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_clr.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        btn_sav.setBackground(new java.awt.Color(255, 255, 255));
-        btn_sav.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        btn_sav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_save_disket.png"))); // NOI18N
-        btn_sav.setText("save");
-        btn_sav.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_sav.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btn_sav.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_savActionPerformed(evt);
-            }
-        });
 
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
@@ -347,7 +326,6 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_GREEN, constant.BUTTON_BG_COLOR_NEW_GREEN, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_RED, constant.BUTTON_BG_COLOR_NEW_RED, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-
     }
 
     private void label_button_pflMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_pflMouseClicked
@@ -374,90 +352,6 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         this.panel_parent.loadSummary();
     }//GEN-LAST:event_label_button_bckMouseClicked
-
-    private void btn_savActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_savActionPerformed
-        
-        String[] formArray;
-
-        formArray = panel_crtpfl.getFieldsForSave();
-
-        if(formArray != null && formArray.length == 25) {
-
-            int x = JOptionPane.showConfirmDialog(this, "Are you sure you want to Create New Employee Data?", "VALIDATE ACTION", JOptionPane.YES_NO_OPTION);
-
-            if (x == 0) {
-
-                try {
-                    //Database connection
-                    ClassMyDBConnectionEmbeddedDerby.initDB();
-                    Connection conn = ClassMyDBConnectionEmbeddedDerby.getMyConnection();
-
-                    PreparedStatement ps;
-
-                    ps = conn.prepareStatement("INSERT INTO " + constant.TABLE_EMPLOYEE_HEADER + " (name_first, name_middle, name_last, plantilla_id, list_pos_id, list_off_id, list_cat_id, date_hired, salary) values ((?),(?),(?),(?),(?),(?),(?),(?),(?))", Statement.RETURN_GENERATED_KEYS);
-                    ps.setString(1, formArray[0]); // name_first
-                    ps.setString(2, formArray[1]); // name_middle
-                    ps.setString(3, formArray[2]); // name_last
-                    ps.setInt(4, Integer.parseInt(formArray[3])); // plantilla_id
-                    ps.setInt(5, this.panel_ancestor.cmbboxId.getId(constant.TABLE_LIST_POSITION, formArray[4])); // list_pos_id
-                    ps.setInt(6, this.panel_ancestor.cmbboxId.getId(constant.TABLE_LIST_OFFICE, formArray[5])); // list_off_id
-                    ps.setInt(7, this.panel_ancestor.cmbboxId.getId(constant.TABLE_LIST_CATEGORY, formArray[6])); // list_cat_id
-                    ps.setDate(8, java.sql.Date.valueOf(formArray[7])); // date_hired
-                    ps.setInt(9, Integer.parseInt(formArray[8])); // salary
-                    ps.execute();
-
-                    ResultSet rs = ps.getGeneratedKeys();
-                    if (rs != null && rs.next()) {
-
-                        ps = conn.prepareStatement("INSERT INTO " + constant.TABLE_EMPLOYEE_DETAIL + " ( "
-                            + " header_id, date_birth, address_prime, address_other, gender, civil_status, nationality, religion, email, phone_tele, phone_cell, phone_misc, code_SSS, code_TIN, code_GSIS, code_PHIC, code_PAGIBIG) values ((?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?))", Statement.RETURN_GENERATED_KEYS);
-
-                        ps.setInt(1, rs.getInt(1)); // header_id
-                        ps.setDate(2, java.sql.Date.valueOf(formArray[9])); // date_birth
-                        ps.setString(3, formArray[10]); // address_prime
-                        ps.setString(4, formArray[11]); // address_other
-                        ps.setString(5, formArray[12]); // gender
-                        ps.setString(6, formArray[13]); // civil_status
-                        ps.setString(7, formArray[14]); // nationality
-                        ps.setString(8, formArray[15]); // religion
-                        ps.setString(9, formArray[16]); // email
-                        if(formArray[17].equals("")) { // phone_tele
-                            ps.setNull(10, java.sql.Types.INTEGER);
-                        } else {
-                            ps.setInt(10, (formArray[17].equals("")) ? null : Integer.parseInt(formArray[17]));
-                        }
-                        if (formArray[18].equals("")) { // phone_cell
-                            ps.setNull(11, java.sql.Types.INTEGER);
-                        } else {
-                            ps.setInt(11, (formArray[18].equals("")) ? null : Integer.parseInt(formArray[18]));
-                        }
-                        if(formArray[19].equals("")) { // phone_misc
-                            ps.setNull(12, java.sql.Types.INTEGER);
-                        } else {
-                            ps.setInt(12, Integer.parseInt(formArray[19]));
-                        }
-                        ps.setString(13, formArray[20]); // code_SSS
-                        ps.setString(14, formArray[21]); // code_TIN
-                        ps.setString(15, formArray[22]); // code_GSIS
-                        ps.setString(16, formArray[23]); // code_PHIC
-                        ps.setString(17, formArray[24]); // code_PAGIBIG
-System.out.println(ps);
-//                        ps.execute();
-
-                    }
-
-                    JOptionPane.showMessageDialog(this, "New Employee Successfully Created.", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
-
-                    panel_crtpfl.clearFields();
-
-                } catch (SQLException | HeadlessException ex) {
-                    JOptionPane.showMessageDialog(this, "An Error Occured.", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-
-            }
-
-        }
-    }//GEN-LAST:event_btn_savActionPerformed
 
     private void label_button_savMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_savMouseClicked
 
@@ -545,7 +439,8 @@ System.out.println(ps);
     }//GEN-LAST:event_label_button_savMouseClicked
 
     private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
-        // TODO add your handling code here:
+
+        panel_crtpfl.clearFields();
     }//GEN-LAST:event_label_button_clrMouseClicked
 
     public void resetLabelButtons() {
@@ -564,7 +459,6 @@ System.out.println(ps);
         label_button_sav.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_clr.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_clr.setForeground(constant.BUTTON_FG_COLOR_OLD);
-
     }
 
     private void setFrameParent(PanelEmployees parent_value) {
@@ -585,8 +479,6 @@ System.out.println(ps);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_clr;
-    private javax.swing.JButton btn_sav;
     private classes.ClassImageCropPanel_v1 classImageCropPanel;
     private javax.swing.JLabel label_button_bck;
     private javax.swing.JLabel label_button_clr;
