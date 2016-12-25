@@ -55,6 +55,7 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="defaultSize" type="int" value="155"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[155, 155]"/>
             </Property>
@@ -62,7 +63,7 @@
               <Dimension value="[155, 155]"/>
             </Property>
             <Property name="panelControls" type="int" value="0"/>
-            <Property name="panelMode" type="int" value="2"/>
+            <Property name="panelMode" type="int" value="0"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[155, 155]"/>
             </Property>

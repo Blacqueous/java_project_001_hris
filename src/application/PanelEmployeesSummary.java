@@ -421,8 +421,8 @@ public class PanelEmployeesSummary extends javax.swing.JPanel {
         fillTable(searchBy.searchByString(where, txtfld_search.getText().toUpperCase()));
         
         setPlaceHolder();
-        lbl_btn.addClass(label_button_crt, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_dlt, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        lbl_btn.addClass(label_button_crt, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        lbl_btn.addClass(label_button_dlt, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(popup_menu_rfs, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(popup_menu_fnm, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         lbl_btn.addClass(popup_menu_mnm, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);

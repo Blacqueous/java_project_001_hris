@@ -20,7 +20,9 @@ import org.imgscalr.Scalr;
 public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
 
     private final JFileChooser chooser = new JFileChooser(System.getProperty("user.home") +"/Pictures");
+    private final String defaultImage = getClass().getResource("/images/employees/default.jpg").getFile();
     private String filepath = "";
+    private int defaultSize = 155;
     private int zoom = 0;
 
     /**
@@ -57,6 +59,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         panelModeFull = new javax.swing.JPanel();
         panelZoomRefresh = new javax.swing.JPanel();
         btnZoomRefresh = new javax.swing.JButton();
+        btnZoomReset = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
         classImageAreaPanel = new classes.ClassImageAreaPanel_v1();
 
@@ -230,7 +233,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         panelZoomRefresh.setOpaque(false);
         panelZoomRefresh.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnZoomRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_arrow_refresh.png"))); // NOI18N
+        btnZoomRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_magnifier.png"))); // NOI18N
         btnZoomRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnZoomRefresh.setMargin(new java.awt.Insets(0, 0, 0, 1));
         btnZoomRefresh.setMaximumSize(new java.awt.Dimension(25, 25));
@@ -243,6 +246,20 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
             }
         });
         panelZoomRefresh.add(btnZoomRefresh);
+
+        btnZoomReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_undo_gray.png"))); // NOI18N
+        btnZoomReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnZoomReset.setMargin(new java.awt.Insets(0, 0, 0, 1));
+        btnZoomReset.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnZoomReset.setMinimumSize(new java.awt.Dimension(25, 25));
+        btnZoomReset.setNextFocusableComponent(btnBrowseType1);
+        btnZoomReset.setPreferredSize(new java.awt.Dimension(25, 25));
+        btnZoomReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZoomResetActionPerformed(evt);
+            }
+        });
+        panelZoomRefresh.add(btnZoomReset);
 
         panelModeFull.add(panelZoomRefresh, java.awt.BorderLayout.LINE_START);
 
@@ -312,11 +329,11 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         // Reset zoom slider
         slider.setValue(0); // Reset values
         slider.setEnabled(false); // Reset enability
-        zoom = 0; // Rest zoom integer value.
+        this.zoom = 0; // Reset zoom integer value.
         
         // Set default panels to be used.
-         setPanelControls(0);
-         setPanelMode(0);
+        setPanelControls(0);
+        setPanelMode(0);
         
         // Repaint this panel.
         this.repaint();
@@ -342,7 +359,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
             slider.setEnabled(false); // Reset enability
             
             // Process selected image to panel.
-            setImagePanel(file.getAbsolutePath(), slider.getValue());
+            setImagePanel(file.getAbsolutePath(), slider.getValue(), false);
             
             slider.setEnabled(true); // Reset enability
             
@@ -385,7 +402,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
             filepath = file.getAbsolutePath();
             
             // Process selected image to panel.
-            setImagePanel(file.getAbsolutePath(), 0);
+            setImagePanel(file.getAbsolutePath(), 0, false);
             
             // Reset zoom integer value.
             this.zoom = 0;
@@ -436,59 +453,80 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnZoomOutActionPerformed
 
     private void btnBrowseType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseType2ActionPerformed
-        
+
         // Get filechooser result.
         int returnVal = chooser.showOpenDialog(this);
-        
+
         // Check if selected file is an image.
         if(returnVal == JFileChooser.APPROVE_OPTION) {
-            
+
             // Check if selected file is an image.
             File file = chooser.getSelectedFile();
-            
+
             // Get selected image's full path.
             filepath = file.getAbsolutePath();
-            
+
             // Process selected image to panel.
-            setImagePanel(file.getAbsolutePath(), 0);
-            
+            setImagePanel(file.getAbsolutePath(), 0, false);
+
             // Reset zoom integer value.
             zoom = 0;
         }
-        
+
     }//GEN-LAST:event_btnBrowseType2ActionPerformed
 
     private void btnZoomRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomRefreshActionPerformed
-        
-        // Check if has a selected image.
-        if(!this.filepath.trim().isEmpty()) {
-            
+
+//        // Check if has a selected image.
+//        if(!this.filepath.trim().isEmpty()) {
+
             // Check if current zoom value is not 0
-            if(this.zoom != 0) {
-                
+//            if(this.zoom != 0) {
+
                 // Reset zoom integer value.
                 this.zoom = 0;
                 slider.setValue(0);
-                
+
                 // Process selected image to panel.
-                // setImagePanel(this.filepath, this.zoom);
                 classImageAreaPanel.resizeImage(this.zoom, true);
-                
+
                 // Repaint this panel.
                 this.repaint();
-            }
-        }
-        
+//            }
+//        }
+
     }//GEN-LAST:event_btnZoomRefreshActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        
+
         // Crop displayed image
         cropImage();
-        
+
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    public void setImagePanel(String path, int zoom) {
+    private void btnZoomResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZoomResetActionPerformed
+
+        // Reset zoom integer value.
+        this.zoom = 0;
+        slider.setValue(0);
+
+        // Process selected image to panel.
+        resetImagePanel();
+
+        // Repaint this panel.
+        this.repaint();
+
+    }//GEN-LAST:event_btnZoomResetActionPerformed
+
+    public void resetImagePanel() {
+
+        slider.setValue(0); // Reset values
+        slider.setEnabled(false); // Reset enability
+        this.zoom = 0; // Reset zoom integer value.
+        setImagePanel(defaultImage, this.zoom, true); // Reset image.
+    }
+    
+    public void setImagePanel(String path, int zoom, boolean processDefault) {
         // If no image yet.
         if(path.trim().isEmpty()) { return; }
         
@@ -499,21 +537,25 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         Scalr.Mode scaleMode;
         
         // Find out which side is the shortest
-        int maxSize = 0;
+        int minSize = 0;
         
         if (image.getHeight() > image.getWidth()) {
             // scale to width
             scaleMode = Scalr.Mode.FIT_TO_WIDTH;
-            maxSize = classImageAreaPanel.getWidth();
+            minSize = (processDefault) ? defaultSize : classImageAreaPanel.getWidth();
         } else {
             scaleMode = Scalr.Mode.FIT_TO_HEIGHT;
-            maxSize = classImageAreaPanel.getHeight();
+            minSize = (processDefault) ? defaultSize : classImageAreaPanel.getHeight();
         }
         
-        BufferedImage outputImage = Scalr.resize((BufferedImage)image, Scalr.Method.ULTRA_QUALITY, scaleMode, maxSize);
+        BufferedImage outputImage = Scalr.resize((BufferedImage)image, Scalr.Method.ULTRA_QUALITY, scaleMode, minSize);
         
         // Use modified image.
-        classImageAreaPanel.setImage(outputImage, imageIO.getBufferedImage());
+        if(processDefault) {
+            classImageAreaPanel.setImage(outputImage, imageIO.getBufferedImage(), defaultSize, defaultSize);
+        } else {
+            classImageAreaPanel.setImage(outputImage, imageIO.getBufferedImage());
+        }
         
         // Repaint this panel.
         this.repaint();
@@ -565,7 +607,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         this.repaint(); // Trigger panel repaint
         
     }
-    
+
     /**
      * Set an extension to the cropped image when saved.
      * 
@@ -577,6 +619,17 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
         
     }
 
+    /**
+     * Set default size when panel is not yet fully loaded.
+     * 
+     * @param size
+     */
+    public void setDefaultSize(int size) {
+        
+        defaultSize = size;
+        
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowseType0;
     private javax.swing.JButton btnBrowseType1;
@@ -585,6 +638,7 @@ public class ClassImageCropPanel_v1 extends javax.swing.JPanel {
     private javax.swing.JButton btnZoomIn;
     private javax.swing.JButton btnZoomOut;
     private javax.swing.JButton btnZoomRefresh;
+    private javax.swing.JButton btnZoomReset;
     private classes.ClassImageAreaPanel_v1 classImageAreaPanel;
     private javax.swing.JPanel panelControlType0;
     private javax.swing.JPanel panelControlType1;

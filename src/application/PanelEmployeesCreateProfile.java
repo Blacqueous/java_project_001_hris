@@ -470,13 +470,12 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_001_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_001_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_001_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_001_required.setText("*");
+        labelFormListField_001_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_001_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_001_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_001_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_001_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_001_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_001_required.setPreferredSize(new java.awt.Dimension(15, 15));
-        labelFormListField_001_required.setVerifyInputWhenFocusTarget(false);
         panelFormListField_001.add(labelFormListField_001_required, java.awt.BorderLayout.LINE_END);
 
         panelFormBasicTitle.add(panelFormListField_001);
@@ -547,10 +546,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_002_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_002_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_002_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_002_required.setText("*");
+        labelFormListField_002_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_002_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_002_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_002_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_002_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_002_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_002_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_002_required.setVerifyInputWhenFocusTarget(false);
@@ -580,10 +579,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_003_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_003_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_003_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_003_required.setText("*");
+        labelFormListField_003_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_003_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_003_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_003_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_003_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_003_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_003_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_003_required.setVerifyInputWhenFocusTarget(false);
@@ -613,10 +612,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_004_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_004_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_004_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_004_required.setText("*");
+        labelFormListField_004_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_004_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_004_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_004_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_004_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_004_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_004_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_004_required.setVerifyInputWhenFocusTarget(false);
@@ -647,10 +646,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_005_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_005_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_005_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_005_required.setText("*");
+        labelFormListField_005_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_005_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_005_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_005_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_005_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_005_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_005_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_005_required.setVerifyInputWhenFocusTarget(false);
@@ -686,10 +685,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_006_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_006_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_006_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_006_required.setText("*");
+        labelFormListField_006_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_006_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_006_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_006_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_006_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_006_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_006_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_006_required.setVerifyInputWhenFocusTarget(false);
@@ -746,10 +745,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_007_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_007_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_007_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_007_required.setText("*");
+        labelFormListField_007_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_007_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_007_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_007_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_007_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_007_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_007_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_007_required.setVerifyInputWhenFocusTarget(false);
@@ -857,9 +856,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_009_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_009_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_009_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_009_required.setText(" *");
+        labelFormListField_009_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_009_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_009_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        labelFormListField_009_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_009_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_009_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_009_required.setVerifyInputWhenFocusTarget(false);
@@ -961,10 +961,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_008_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_008_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_008_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_008_required.setText("*");
+        labelFormListField_008_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_008_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_008_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_008_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_008_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_008_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_008_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_008_required.setVerifyInputWhenFocusTarget(false);
@@ -994,10 +994,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_011_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_011_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_011_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_011_required.setText("*");
+        labelFormListField_011_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_011_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_011_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_011_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_011_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_011_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_011_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_011_required.setVerifyInputWhenFocusTarget(false);
@@ -1027,10 +1027,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_012_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_012_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_012_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_012_required.setText("*");
+        labelFormListField_012_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_012_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_012_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_012_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_012_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_012_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_012_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_012_required.setVerifyInputWhenFocusTarget(false);
@@ -1085,10 +1085,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField_013_required.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField_013_required.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField_013_required.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField_013_required.setText("*");
+        labelFormListField_013_required.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField_013_required.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField_013_required.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField_013_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField_013_required.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField_013_required.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField_013_required.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField_013_required.setVerifyInputWhenFocusTarget(false);
@@ -1144,10 +1144,10 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         labelFormListField014_Req.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListField014_Req.setForeground(new java.awt.Color(255, 0, 0));
-        labelFormListField014_Req.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelFormListField014_Req.setText("*");
+        labelFormListField014_Req.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFormListField014_Req.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_8_bullet_red.png"))); // NOI18N
         labelFormListField014_Req.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelFormListField014_Req.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
+        labelFormListField014_Req.setBorder(javax.swing.BorderFactory.createEmptyBorder(-5, 0, 0, 5));
         labelFormListField014_Req.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelFormListField014_Req.setPreferredSize(new java.awt.Dimension(15, 15));
         labelFormListField014_Req.setVerifyInputWhenFocusTarget(false);

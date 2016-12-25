@@ -6,7 +6,6 @@
 package application;
 
 import classes.ClassConstantsCustom;
-import classes.ClassLabelButton;
 import classes.ClassLoadNewPanel;
 import classes.ClassMyDBConnectionEmbeddedDerby;
 import java.awt.HeadlessException;
@@ -23,13 +22,11 @@ import javax.swing.JOptionPane;
  */
 public class PanelEmployeesCreate extends javax.swing.JPanel {
 
-    private final ClassLabelButton lbl_btn = new ClassLabelButton();
-//    private final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
+    private final ClassLoadNewPanel panel_load = new ClassLoadNewPanel();
     private final PanelEmployeesCreateProfile  panel_crtpfl = new PanelEmployeesCreateProfile();
     private final PanelEmployeesCreateDependent  panel_crtdep = new PanelEmployeesCreateDependent();
     private final PanelEmployeesCreateEligibility  panel_crtelg = new PanelEmployeesCreateEligibility();
     private final PanelEmployeesCreateTraining  panel_crttrn = new PanelEmployeesCreateTraining();
-    private final ClassLoadNewPanel panel_load = new ClassLoadNewPanel();
     protected FramePrime panel_ancestor;
     protected PanelEmployees panel_parent;
     protected ClassConstantsCustom constant;
@@ -87,10 +84,11 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_control.setLayout(new java.awt.BorderLayout());
 
         classImageCropPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
+        classImageCropPanel.setDefaultSize(155);
         classImageCropPanel.setMaximumSize(new java.awt.Dimension(155, 155));
         classImageCropPanel.setMinimumSize(new java.awt.Dimension(155, 155));
         classImageCropPanel.setPanelControls(0);
-        classImageCropPanel.setPanelMode(2);
+        classImageCropPanel.setPanelMode(0);
         classImageCropPanel.setPreferredSize(new java.awt.Dimension(155, 155));
         panel_control.add(classImageCropPanel, java.awt.BorderLayout.PAGE_START);
 
@@ -310,7 +308,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents(PanelEmployees panel_parent) {
-
+        
         setFrameParent(panel_parent);
         
         panel_load.setParentPanel(panel_frame);
@@ -318,14 +316,17 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_load.loadFrame(panel_crtpfl, panel_main);
         
         panel_crtpfl.initAdditionalComponents(this);
-
-        lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_elg, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_GREEN, constant.BUTTON_BG_COLOR_NEW_GREEN, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_RED, constant.BUTTON_BG_COLOR_NEW_RED, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_crtdep.initAdditionalComponents(this);
+        
+        panel_parent.lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_elg, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_GREEN, constant.BUTTON_BG_COLOR_NEW_GREEN, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_RED, constant.BUTTON_BG_COLOR_NEW_RED, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        
+        resetPanel();
     }
 
     private void label_button_pflMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_pflMouseClicked
@@ -335,6 +336,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
     private void label_button_depMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_depMouseClicked
 
+        panel_crtdep.resetLabelButtons();
         panel_load.loadFrame(panel_crtdep, panel_main);
     }//GEN-LAST:event_label_button_depMouseClicked
 
@@ -426,6 +428,7 @@ System.out.println(ps);
 
                     JOptionPane.showMessageDialog(this, "New Employee Successfully Created.", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
 
+                    classImageCropPanel.resetImagePanel();
                     panel_crtpfl.clearFields();
 
                 } catch (SQLException | HeadlessException ex) {
@@ -440,8 +443,17 @@ System.out.println(ps);
 
     private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
 
+        classImageCropPanel.resetImagePanel();
         panel_crtpfl.clearFields();
+        
     }//GEN-LAST:event_label_button_clrMouseClicked
+
+    public void resetPanel() {
+
+        resetLabelButtons();
+        classImageCropPanel.resetImagePanel();
+        panel_crtpfl.clearFields();
+    }
 
     public void resetLabelButtons() {
 

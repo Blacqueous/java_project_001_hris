@@ -74,7 +74,7 @@ public class ClassImageAreaPanel_v1 extends JPanel {
     private int imageH = 0;
     private int imageW = 0;
     
-    String img_path = getClass().getResource("/img_emp_src/").getFile();
+    String img_path = getClass().getResource("/images/employees").getFile();
     
     /**
      * Construct an ImageArea component.
@@ -186,6 +186,54 @@ public class ClassImageAreaPanel_v1 extends JPanel {
             mainsrcy = srcy = 0;
             maindestx = destx = (this.getHeight() + mainsrcx);
             maindesty = desty = (this.getHeight());
+        }
+        
+        // Present scrollbars as necessary.
+        revalidate();
+        
+        // Update the image displayed on the panel.
+        repaint();
+    }
+    
+    /**
+     * Establish a new image and update the display.
+     * Also, set default panel size.
+     * (Example use, if panel is not yet loaded)
+     *
+     * @param img new image`s Image reference
+     * @param source original source image
+     * @param panelHeight panel`s default height size
+     * @param panelWidth panel`s default width size
+     */
+    public void setImage(Image img, Image source, int panelHeight, int panelWidth) {
+        // Save the image for later repaint.
+        image = img;
+        imagesource = source;
+        imageH = image.getHeight(this);
+        imageW = image.getWidth(this);
+        
+        int indentH = (panelHeight - image.getHeight(this)) / 2;
+        int indentW = (panelWidth - image.getWidth(this)) / 2;
+        
+        BufferedImage resizedImage = new BufferedImage(image.getWidth(this), image.getHeight(this), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = resizedImage.createGraphics();
+        g.drawImage(image, indentW, indentH, image.getWidth(this), image.getHeight(this), null);
+        g.dispose();
+        
+        // Set resized image as main image.
+        image = resizedImage;
+        
+        // Set image crop size
+        if(panelHeight >= panelWidth) {
+            mainsrcx = srcx = 0;
+            mainsrcy = srcy = (panelHeight / 2) - (panelWidth / 2);
+            maindestx = destx = (panelWidth);
+            maindesty = desty = (panelWidth + mainsrcy);
+        } else {
+            mainsrcx = srcx = (panelWidth / 2) - (panelHeight / 2);
+            mainsrcy = srcy = 0;
+            maindestx = destx = (panelHeight + mainsrcx);
+            maindesty = desty = (panelHeight);
         }
         
         // Present scrollbars as necessary.
@@ -357,12 +405,39 @@ public class ClassImageAreaPanel_v1 extends JPanel {
     }
 
     /**
+     * Set current image.
+     *
+     * @param img
+     */
+    public void setImage(Image img) {
+        image = img;
+    }
+
+    /**
      * Return the current image.
      *
      * @return Image reference to current image
      */
     public Image getImage() {
         return image;
+    }
+
+    /**
+     * Set current image source.
+     *
+     * @param imgsrc
+     */
+    public void setImageSource(Image imgsrc) {
+        imagesource = imgsrc;
+    }
+
+    /**
+     * Return the current image source.
+     *
+     * @return Image reference to current image source
+     */
+    public Image getImageSource() {
+        return imagesource;
     }
 
     /**
@@ -373,5 +448,5 @@ public class ClassImageAreaPanel_v1 extends JPanel {
     public Image getCroppedImage() {
         return croppedimage;
     }
-    
+
 }

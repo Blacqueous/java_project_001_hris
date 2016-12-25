@@ -5,16 +5,18 @@
  */
 package application;
 
+import classes.ClassLabelButton;
 import classes.ClassLoadNewPanel;
 
 /**
  *
  * @author egrubellano
  */
-public class PanelEmployees extends javax.swing.JPanel {
+public final class PanelEmployees extends javax.swing.JPanel {
 
     public final PanelEmployeesSummary panel_smy = new PanelEmployeesSummary();
     public final PanelEmployeesCreate  panel_crt = new PanelEmployeesCreate();
+    public final ClassLabelButton lbl_btn = new ClassLabelButton();
     private final ClassLoadNewPanel panel_load = new ClassLoadNewPanel();
     protected FramePrime panel_ancestor;
 
@@ -162,7 +164,7 @@ public class PanelEmployees extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents() {
-
+        
         panel_load.setParentPanel(panel_frame);
         
         panel_smy.initAdditionalComponents(this);
@@ -172,8 +174,8 @@ public class PanelEmployees extends javax.swing.JPanel {
     }
 
     public void loadCreate() {
-
-        panel_crt.resetLabelButtons();
+        
+        panel_crt.resetPanel();
         panel_load.loadFrame(panel_crt, panel_main);
         label_breadcrumb_text.setText("CREATE");
     }
