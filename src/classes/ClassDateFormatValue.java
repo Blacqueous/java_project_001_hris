@@ -62,5 +62,21 @@ public class ClassDateFormatValue {
         return startDate;
         
     }
+    
+    public Date formatStringToDate(String dateString, String format) {
+        
+        DateFormat df = new SimpleDateFormat(format); 
+        Date startDate;
+        
+        try {
+            startDate = df.parse(dateString);
+        } catch (ParseException e) {
+//            System.out.println(e.getMessage());
+            startDate = null;
+        }
+        
+        return startDate;
+        
+    }
 
 }

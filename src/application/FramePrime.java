@@ -6,8 +6,14 @@
 package application;
 
 import classes.ClassComboboxGetValue;
+import classes.ClassComboboxUI;
 import classes.ClassConstantsCustom;
+import classes.ClassDateFormatValue;
 import classes.ClassLoadNewPanel;
+import classes.ClassTableCustomCellRenderer;
+import classes.ClassTextfieldFilter;
+import classes.ClassTextfieldRequired;
+import java.util.Calendar;
 
 /**
  *
@@ -15,10 +21,15 @@ import classes.ClassLoadNewPanel;
  */
 public class FramePrime extends javax.swing.JFrame {
 
-    public String panel_used = "";
-    public final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
-    public final ClassConstantsCustom constant = new ClassConstantsCustom();
-    public final ClassComboboxGetValue cmbboxId = new ClassComboboxGetValue();
+    protected String panel_used = "";
+    protected final ClassConstantsCustom constant = new ClassConstantsCustom();
+    protected final ClassComboboxGetValue cmbboxId = new ClassComboboxGetValue();
+    protected final ClassComboboxUI cmbboxUI = new ClassComboboxUI();
+    protected final ClassDateFormatValue fmtDateVal = new ClassDateFormatValue();
+    protected final ClassLoadNewPanel load_panel  = new ClassLoadNewPanel();
+    protected final ClassTextfieldRequired reqField = new ClassTextfieldRequired();
+    protected final ClassTextfieldFilter tfFilter = new ClassTextfieldFilter();
+    protected final ClassTableCustomCellRenderer chkboxCellRenderer = new ClassTableCustomCellRenderer();
     private final PanelDashboard panel_dbd = new PanelDashboard();
     private final PanelCompany panel_cmp = new PanelCompany();
     private final PanelEmployees panel_emp = new PanelEmployees(this);

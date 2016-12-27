@@ -126,6 +126,8 @@ public class ClassConstantsCustom {
     public final Color BUTTON_BG_COLOR_PRESS_RED; // 2
     public final Color BUTTON_BG_COLOR_NEW_BLUE; // 2
     public final Color BUTTON_BG_COLOR_PRESS_BLUE; // 2
+    public final Color BUTTON_BG_COLOR_NEW_SKYBLUE; // 2
+    public final Color BUTTON_BG_COLOR_PRESS_SKYBLUE; // 2
     public final Color BUTTON_BG_COLOR_NEW_DEFAULT; // 2
     public final Color BUTTON_BG_COLOR_PRESS_DEFAULT; // 2
     public final Color BUTTON_BG_COLOR_NEW_GRAY; // 2
@@ -225,10 +227,12 @@ public class ClassConstantsCustom {
         
         this.BUTTON_BG_COLOR_NEW_BLUE      = new Color(12, 107, 181);
         this.BUTTON_BG_COLOR_PRESS_BLUE    = new Color(02, 97, 171);
+        this.BUTTON_BG_COLOR_NEW_SKYBLUE   = new Color(91, 192, 222);
+        this.BUTTON_BG_COLOR_PRESS_SKYBLUE = new Color(49, 176, 213);
         this.BUTTON_BG_COLOR_NEW_DEFAULT   = new Color(115, 164, 209);
         this.BUTTON_BG_COLOR_PRESS_DEFAULT = new Color(105, 154, 199);
-        this.BUTTON_BG_COLOR_NEW_GRAY      = new Color(193, 193, 193);
-        this.BUTTON_BG_COLOR_PRESS_GRAY    = new Color(183, 183, 183);
+        this.BUTTON_BG_COLOR_NEW_GRAY      = new Color(150, 150, 150);
+        this.BUTTON_BG_COLOR_PRESS_GRAY    = new Color(135, 135, 135);
         this.BUTTON_BG_COLOR_NEW_GREEN     = new Color(12, 152, 66);
         this.BUTTON_BG_COLOR_PRESS_GREEN   = new Color(07, 142, 56);
         this.BUTTON_BG_COLOR_NEW_ORANGE    = new Color(240, 93, 31);

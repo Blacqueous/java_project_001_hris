@@ -254,7 +254,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         labelFormListField_023_required = new javax.swing.JLabel();
         panelFormBottom = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(245, 245, 245));
+        setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.BorderLayout());
 
         panelScroll.setBorder(null);
@@ -1800,9 +1800,9 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents(PanelEmployeesCreate panel_create) {
-
+        
         setFrameChild(panel_create);
-
+        
         this.addComponentListener(new ComponentListener() {
             @Override
             public void componentHidden(ComponentEvent e) { revalidate(); repaint(); }

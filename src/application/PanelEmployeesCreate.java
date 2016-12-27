@@ -6,6 +6,7 @@
 package application;
 
 import classes.ClassConstantsCustom;
+import classes.ClassDateFormatValue;
 import classes.ClassLoadNewPanel;
 import classes.ClassMyDBConnectionEmbeddedDerby;
 import java.awt.HeadlessException;
@@ -15,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,7 +25,8 @@ import javax.swing.JOptionPane;
  */
 public class PanelEmployeesCreate extends javax.swing.JPanel {
 
-    private final ClassLoadNewPanel panel_load = new ClassLoadNewPanel();
+    private final ClassDateFormatValue fmtDateVal = new ClassDateFormatValue();
+    private final ClassLoadNewPanel load_panel = new ClassLoadNewPanel();
     private final PanelEmployeesCreateProfile  panel_crtpfl = new PanelEmployeesCreateProfile();
     private final PanelEmployeesCreateDependent  panel_crtdep = new PanelEmployeesCreateDependent();
     private final PanelEmployeesCreateEligibility  panel_crtelg = new PanelEmployeesCreateEligibility();
@@ -311,18 +315,20 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         
         setFrameParent(panel_parent);
         
-        panel_load.setParentPanel(panel_frame);
+        load_panel.setParentPanel(panel_frame);
         
-        panel_load.loadFrame(panel_crtpfl, panel_main);
+        load_panel.loadFrame(panel_crtpfl, panel_main);
         
         panel_crtpfl.initAdditionalComponents(this);
         panel_crtdep.initAdditionalComponents(this);
+        panel_crtelg.initAdditionalComponents(this);
+        panel_crttrn.initAdditionalComponents(this);
         
-        panel_parent.lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_elg, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_GRAY, constant.BUTTON_BG_COLOR_NEW_GRAY, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_elg, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_GREEN, constant.BUTTON_BG_COLOR_NEW_GREEN, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_RED, constant.BUTTON_BG_COLOR_NEW_RED, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         
@@ -331,23 +337,28 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
     private void label_button_pflMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_pflMouseClicked
 
-        panel_load.loadFrame(panel_crtpfl, panel_main);
+        load_panel.loadFrame(panel_crtpfl, panel_main);
     }//GEN-LAST:event_label_button_pflMouseClicked
 
     private void label_button_depMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_depMouseClicked
 
+        panel_crtdep.refreshDialog();
         panel_crtdep.resetLabelButtons();
-        panel_load.loadFrame(panel_crtdep, panel_main);
+        load_panel.loadFrame(panel_crtdep, panel_main);
     }//GEN-LAST:event_label_button_depMouseClicked
 
     private void label_button_elgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_elgMouseClicked
 
-        panel_load.loadFrame(panel_crtelg, panel_main);
+        panel_crtelg.refreshDialog();
+        panel_crtelg.resetLabelButtons();
+        load_panel.loadFrame(panel_crtelg, panel_main);
     }//GEN-LAST:event_label_button_elgMouseClicked
 
     private void label_button_trnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_trnMouseClicked
 
-        panel_load.loadFrame(panel_crttrn, panel_main);
+        panel_crttrn.refreshDialog();
+        panel_crttrn.resetLabelButtons();
+        load_panel.loadFrame(panel_crttrn, panel_main);
     }//GEN-LAST:event_label_button_trnMouseClicked
 
     private void label_button_bckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_bckMouseClicked
@@ -356,6 +367,62 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     }//GEN-LAST:event_label_button_bckMouseClicked
 
     private void label_button_savMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_savMouseClicked
+
+                        Object[][] tblDep = getTableData(panel_crtdep.getTable());
+                        String queryDep = "";
+                        int countDep = 0;
+                        if(tblDep.length > 0) {
+                            queryDep += "INSERT INTO " + constant.TABLE_MANAGE_DEPENDENTS + " (emp_header_id, name, date) VALUES ";
+                            for (Object[] tableData : tblDep) {
+                                queryDep += "(" + 0 + ", '" + tableData[1] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
+                                countDep++;
+                                if(tblDep.length != countDep) {
+                                    queryDep += ", ";
+                                }
+                            }
+                        }
+                        if(!queryDep.isEmpty()) {
+System.out.println(queryDep);
+//                            conn.createStatement().execute("");
+                        }
+                        
+                        
+                        Object[][] tblElg = getTableData(panel_crtelg.getTable());
+                        String queryElg = "";
+                        int countElg = 0;
+                        if(tblElg.length > 0) {
+                            queryElg += "INSERT INTO " + constant.TABLE_MANAGE_ELIGIBILITY + " (emp_header_id, mngr_elg_id, date) VALUES ";
+                            for (Object[] tableData : getTableData(panel_crtelg.getTable())) {
+                                queryElg += "(" + 0 + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
+                                countElg++;
+                                if(tblElg.length != countElg) {
+                                    queryElg += ", ";
+                                }
+                            }
+                        }
+                        if(!queryElg.isEmpty()) {
+System.out.println(queryElg);
+//                            conn.createStatement().execute("");
+                        }
+                        
+                        
+                        Object[][] tblTrn = getTableData(panel_crttrn.getTable());
+                        String queryTrn = "";
+                        int countTrn = 0;
+                        if(tblDep.length > 0) {
+                            queryTrn += "INSERT INTO " + constant.TABLE_MANAGE_TRAINING + " (emp_header_id, mngr_trn_id, date) VALUES ";
+                            for (Object[] tableData : tblTrn) {
+                                queryTrn += "(" + 0 + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
+                                countTrn++;
+                                if(tblDep.length != countTrn) {
+                                    queryTrn += ", ";
+                                }
+                            }
+                        }
+                        if(!queryTrn.isEmpty()) {
+System.out.println(queryTrn);
+//                            conn.createStatement().execute("");
+                        }
 
         String[] formArray;
 
@@ -384,7 +451,8 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
                     ps.setInt(7, this.panel_ancestor.cmbboxId.getId(constant.TABLE_LIST_CATEGORY, formArray[6])); // list_cat_id
                     ps.setDate(8, java.sql.Date.valueOf(formArray[7])); // date_hired
                     ps.setInt(9, Integer.parseInt(formArray[8])); // salary
-                    ps.execute();
+System.out.println(ps);
+//                    ps.execute();
 
                     ResultSet rs = ps.getGeneratedKeys();
                     if (rs != null && rs.next()) {
@@ -424,6 +492,61 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 System.out.println(ps);
 //                        ps.execute();
 
+//                        Object[][] tblDep = getTableData(panel_crtdep.getTable());
+//                        String queryDep = "";
+//                        int countDep = 0;
+//                        if(tblDep.length > 0) {
+//                            queryDep += "INSERT INTO " + constant.TABLE_MANAGE_DEPENDENTS + " (emp_header_id, name, date) VALUES ";
+//                            for (Object[] tableData : tblDep) {
+//                                queryDep += "(" + rs.getInt(1) + ", '" + tableData[1] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
+//                                countDep++;
+//                                if(tblDep.length != countDep) {
+//                                    queryDep += ", ";
+//                                }
+//                            }
+//                        }
+//                        if(!queryDep.isEmpty()) {
+//System.out.println(queryDep);
+////                            conn.createStatement().execute("");
+//                        }
+//                        
+//                        
+//                        Object[][] tblElg = getTableData(panel_crtelg.getTable());
+//                        String queryElg = "";
+//                        int countElg = 0;
+//                        if(tblElg.length > 0) {
+//                            queryElg += "INSERT INTO " + constant.TABLE_MANAGE_ELIGIBILITY + " (emp_header_id, mngr_elg_id, date) VALUES ";
+//                            for (Object[] tableData : getTableData(panel_crtelg.getTable())) {
+//                                queryElg += "(" + rs.getInt(1) + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
+//                                countElg++;
+//                                if(tblElg.length != countElg) {
+//                                    queryElg += ", ";
+//                                }
+//                            }
+//                        }
+//                        if(!queryElg.isEmpty()) {
+//System.out.println(queryElg);
+////                            conn.createStatement().execute("");
+//                        }
+//                        
+//                        
+//                        Object[][] tblTrn = getTableData(panel_crttrn.getTable());
+//                        String queryTrn = "";
+//                        int countTrn = 0;
+//                        if(tblDep.length > 0) {
+//                            queryTrn += "INSERT INTO " + constant.TABLE_MANAGE_TRAINING + " (emp_header_id, mngr_trn_id, date) VALUES ";
+//                            for (Object[] tableData : tblTrn) {
+//                                queryTrn += "(" + rs.getInt(1) + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
+//                                countTrn++;
+//                                if(tblDep.length != countTrn) {
+//                                    queryTrn += ", ";
+//                                }
+//                            }
+//                        }
+//                        if(!queryTrn.isEmpty()) {
+//System.out.println(queryTrn);
+////                            conn.createStatement().execute("");
+//                        }
                     }
 
                     JOptionPane.showMessageDialog(this, "New Employee Successfully Created.", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
@@ -445,9 +568,26 @@ System.out.println(ps);
 
         classImageCropPanel.resetImagePanel();
         panel_crtpfl.clearFields();
+        panel_crtdep.clearDialog();
+        panel_crtelg.clearDialog();
+        panel_crttrn.clearDialog();
         
     }//GEN-LAST:event_label_button_clrMouseClicked
 
+    public Object[][] getTableData(JTable table) {
+        
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Object[][] tableData = new Object[nRow][nCol];
+        
+        for (int i = 0 ; i < nRow ; i++)
+            for (int j = 0 ; j < nCol ; j++)
+                tableData[i][j] = dtm.getValueAt(i,j);
+        
+        return tableData;
+        
+    }
+    
     public void resetPanel() {
 
         resetLabelButtons();

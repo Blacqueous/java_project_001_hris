@@ -21,9 +21,9 @@ import javax.swing.border.EmptyBorder;
 public class ClassComplexCellrenderer implements ListCellRenderer {
 
     protected DefaultListCellRenderer defaultRenderer = new DefaultListCellRenderer();
-    public Font fontTitle;
-    public Font font;
-    public String title;
+    public Font fontTitle = new Font("Arial", Font.ITALIC, 11);
+    public Font font = new Font("Arial", Font.PLAIN, 11);
+    public String title = "Select an option";
 
     /**
      * Is this list cell editor for a jDialog?
@@ -38,13 +38,14 @@ public class ClassComplexCellrenderer implements ListCellRenderer {
         
         if(value.toString().trim().equals("")) {
             renderer.setText(title);
-            renderer.setForeground(new Color(0, 0, 0, 0.2f));
+            renderer.setForeground(new Color(0, 0, 0, 0.3f));
             if(!isForDialog){
                 renderer.setBorder(new EmptyBorder(5, 5, 5, 15));
             } else {
                 renderer.setBorder(new EmptyBorder(5, 15, 5, 15));
             }
             renderer.setFont(fontTitle);
+            renderer.setFont(new Font("Arial", Font.ITALIC, 11));
         } else {
             renderer.setText(value.toString());
             renderer.setForeground(new Color(0, 0, 0));
@@ -55,9 +56,26 @@ public class ClassComplexCellrenderer implements ListCellRenderer {
             }
             renderer.setFont(font);
         }
-        
+
+        Color background;
+
+        // check if this cell represents the current DnD drop location
+        JList.DropLocation dropLocation = list.getDropLocation();
+        if (dropLocation != null && !dropLocation.isInsert() && dropLocation.getIndex() == index) {
+            background = new Color(0, 0, 0, 0.2f);
+        // check if this cell is selected
+        } else if (isSelected) {
+            background = new Color(0, 0, 0, 0.2f);
+        // unselected, and not the DnD drop location
+        } else {
+            background = Color.WHITE;
+        }
+
+        renderer.setBackground(background);
+
         return renderer;
         
+            
     }
 
 }

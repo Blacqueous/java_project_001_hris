@@ -7,27 +7,31 @@ package application;
 
 import classes.ClassConstantsCustom;
 import classes.ClassDateFormatValue;
-import classes.ClassLabelButton;
 import classes.ClassTableButtonEditor;
 import classes.ClassTableButtonRenderer;
+import classes.ClassTableCustomCellRenderer;
+import classes.ClassTextfieldFilter;
 import classes.ClassTextfieldPrompt;
 import classes.ClassTextfieldRequired;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -35,12 +39,15 @@ import javax.swing.table.TableRowSorter;
  */
 public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
-    protected ArrayList<Component> reqList = new ArrayList<>();
-    protected Calendar currentDate = Calendar.getInstance();
-    protected ClassConstantsCustom constant = new ClassConstantsCustom();
-    protected ClassDateFormatValue fmtDateVal = new ClassDateFormatValue();
-    protected ClassTextfieldRequired reqField = new ClassTextfieldRequired();
+    protected final ArrayList<Component> reqList = new ArrayList<>();
+    protected final Calendar currentDate = Calendar.getInstance();
+    protected final ImageIcon icon = new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_remove.png"));
     protected DefaultTableModel dtm;
+    protected ClassConstantsCustom constant;
+    protected ClassDateFormatValue fmtDateVal;
+    protected ClassTableCustomCellRenderer chkboxCellRenderer;
+    protected ClassTextfieldRequired reqField;
+    protected final ClassTextfieldFilter tfFilter = new ClassTextfieldFilter();
     protected FramePrime panel_ancestor;
     protected PanelEmployees panel_parent;
     protected PanelEmployeesCreate panel_child;
@@ -70,7 +77,8 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         panelFormListTitle_001_hr = new javax.swing.JPanel();
         panelFormListTitle_001_breakline = new javax.swing.JSeparator();
         panelMain = new javax.swing.JPanel();
-        panelMainCenterForm = new javax.swing.JPanel();
+        panelMainFormCenter = new javax.swing.JPanel();
+        panelMainForm = new javax.swing.JPanel();
         panelMainCenterFormFields = new javax.swing.JPanel();
         panelFormListField_001 = new javax.swing.JPanel();
         labelFormListField_002_head = new javax.swing.JLabel();
@@ -82,6 +90,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         labelFormListField_002_head1 = new javax.swing.JLabel();
         labelFormListField_002_required1 = new javax.swing.JLabel();
         dateSelected = new com.toedter.calendar.JDateChooser();
+        panelControls = new javax.swing.JPanel();
         panelControlsContainer = new javax.swing.JPanel();
         panel_button_sav = new javax.swing.JPanel();
         label_button_sav = new javax.swing.JLabel();
@@ -89,8 +98,11 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         panelMainCenterView = new javax.swing.JPanel();
         scrollPane = new javax.swing.JScrollPane();
         table_view = new javax.swing.JTable();
+        panel_table_result = new javax.swing.JPanel();
+        label_table_result_logo = new javax.swing.JLabel();
+        label_table_result_total = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(245, 245, 245));
+        setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.BorderLayout());
 
         panelTitle.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 0));
@@ -105,7 +117,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
         labelFormListTitle_001_icon.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         labelFormListTitle_001_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelFormListTitle_001_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_fingerprint.png"))); // NOI18N
+        labelFormListTitle_001_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_user_male_info.png"))); // NOI18N
         labelFormListTitle_001_icon.setPreferredSize(new java.awt.Dimension(25, 25));
         panelFormListTitle_001_caption.add(labelFormListTitle_001_icon, java.awt.BorderLayout.LINE_START);
 
@@ -129,15 +141,18 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         panelMain.setOpaque(false);
         panelMain.setLayout(new java.awt.BorderLayout());
 
-        panelMainCenterForm.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 5));
-        panelMainCenterForm.setOpaque(false);
-        panelMainCenterForm.setPreferredSize(new java.awt.Dimension(276, 85));
-        panelMainCenterForm.setLayout(new java.awt.BorderLayout());
+        panelMainFormCenter.setOpaque(false);
+        panelMainFormCenter.setPreferredSize(new java.awt.Dimension(300, 80));
+        panelMainFormCenter.setLayout(new java.awt.BorderLayout());
+
+        panelMainForm.setOpaque(false);
+        panelMainForm.setPreferredSize(new java.awt.Dimension(545, 100));
+        panelMainForm.setLayout(new java.awt.BorderLayout());
 
         panelMainCenterFormFields.setBackground(new java.awt.Color(225, 225, 225));
         panelMainCenterFormFields.setOpaque(false);
-        panelMainCenterFormFields.setPreferredSize(new java.awt.Dimension(108, 80));
-        panelMainCenterFormFields.setLayout(new java.awt.GridLayout(2, 1));
+        panelMainCenterFormFields.setPreferredSize(new java.awt.Dimension(1000, 80));
+        panelMainCenterFormFields.setLayout(new java.awt.GridLayout(2, 0));
 
         panelFormListField_001.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panelFormListField_001.setOpaque(false);
@@ -171,6 +186,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         txtfldName.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldName.setForeground(new java.awt.Color(51, 51, 51));
         txtfldName.setMargin(new java.awt.Insets(2, 5, 2, 25));
+        ((AbstractDocument)txtfldName.getDocument()).setDocumentFilter(tfFilter.filterWordsToCapital);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -234,17 +250,20 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
         panelMainCenterFormFields.add(panelFormListField_002);
 
-        panelMainCenterForm.add(panelMainCenterFormFields, java.awt.BorderLayout.CENTER);
+        panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.CENTER);
 
-        panelControlsContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        panelControls.setOpaque(false);
+        panelControls.setPreferredSize(new java.awt.Dimension(225, 125));
+        panelControls.setLayout(new java.awt.BorderLayout());
+
         panelControlsContainer.setOpaque(false);
-        panelControlsContainer.setPreferredSize(new java.awt.Dimension(225, 100));
-        panelControlsContainer.setRequestFocusEnabled(false);
-        panelControlsContainer.setLayout(new java.awt.GridLayout());
+        panelControlsContainer.setPreferredSize(new java.awt.Dimension(225, 95));
+        panelControlsContainer.setLayout(new java.awt.GridLayout(1, 0));
 
         panel_button_sav.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 5));
         panel_button_sav.setOpaque(false);
-        panel_button_sav.setLayout(new java.awt.GridLayout());
+        panel_button_sav.setLayout(new java.awt.GridLayout(1, 0));
 
         label_button_sav.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_sav.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -280,32 +299,22 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         });
         panelControlsContainer.add(label_button_clr);
 
-        panelMainCenterForm.add(panelControlsContainer, java.awt.BorderLayout.LINE_END);
+        panelControls.add(panelControlsContainer, java.awt.BorderLayout.CENTER);
 
-        panelMain.add(panelMainCenterForm, java.awt.BorderLayout.PAGE_START);
+        panelMainForm.add(panelControls, java.awt.BorderLayout.LINE_END);
 
-        panelMainCenterView.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 15, 5));
+        panelMainFormCenter.add(panelMainForm, java.awt.BorderLayout.CENTER);
+
+        panelMain.add(panelMainFormCenter, java.awt.BorderLayout.PAGE_START);
+
+        panelMainCenterView.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 5));
         panelMainCenterView.setOpaque(false);
-        panelMainCenterView.setLayout(new java.awt.CardLayout());
+        panelMainCenterView.setLayout(new java.awt.BorderLayout());
 
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        table_view.setBackground(new java.awt.Color(245, 245, 245));
-        table_view.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        table_view.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         table_view.setFillsViewportHeight(true);
-        table_view.setGridColor(new java.awt.Color(230, 230, 230));
-        table_view.setRowHeight(30);
+        table_view.setRequestFocusEnabled(false);
         table_view.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         table_view.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -314,7 +323,34 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         });
         scrollPane.setViewportView(table_view);
 
-        panelMainCenterView.add(scrollPane, "card2");
+        panelMainCenterView.add(scrollPane, java.awt.BorderLayout.CENTER);
+
+        panel_table_result.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        panel_table_result.setMinimumSize(new java.awt.Dimension(20, 35));
+        panel_table_result.setOpaque(false);
+        panel_table_result.setPreferredSize(new java.awt.Dimension(20, 35));
+        panel_table_result.setLayout(new java.awt.BorderLayout());
+
+        label_table_result_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_16_user_male_info.png"))); // NOI18N
+        label_table_result_logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        label_table_result_logo.setEnabled(false);
+        label_table_result_logo.setMaximumSize(new java.awt.Dimension(16, 0));
+        label_table_result_logo.setMinimumSize(new java.awt.Dimension(16, 0));
+        label_table_result_logo.setPreferredSize(new java.awt.Dimension(16, 0));
+        panel_table_result.add(label_table_result_logo, java.awt.BorderLayout.LINE_START);
+
+        label_table_result_total.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label_table_result_total.setForeground(new java.awt.Color(125, 125, 125));
+        label_table_result_total.setText("0");
+        label_table_result_total.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        label_table_result_total.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 0));
+        label_table_result_total.setMaximumSize(new java.awt.Dimension(0, 35));
+        label_table_result_total.setMinimumSize(new java.awt.Dimension(0, 35));
+        label_table_result_total.setPreferredSize(new java.awt.Dimension(0, 35));
+        label_table_result_total.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panel_table_result.add(label_table_result_total, java.awt.BorderLayout.CENTER);
+
+        panelMainCenterView.add(panel_table_result, java.awt.BorderLayout.PAGE_END);
 
         panelMain.add(panelMainCenterView, java.awt.BorderLayout.CENTER);
 
@@ -332,12 +368,41 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         dateSelected.getComponent(0).setBackground(new Color(180, 180, 180));
         txtfldName.setBackground(Color.WHITE);
         
-        panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_BLUE, constant.BUTTON_BG_COLOR_NEW_BLUE, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         
-        JTextFieldDateEditor dateTextEditor = (JTextFieldDateEditor) dateSelected.getDateEditor();
-        dateTextEditor.setEditable(false);
-        dateTextEditor.setHorizontalAlignment(JTextField.CENTER);
+        this.addComponentListener(new ComponentListener() {
+            @Override
+            public void componentHidden(ComponentEvent e) { revalidate(); repaint(); }
+            @Override
+            public void componentMoved(ComponentEvent e) { revalidate(); repaint(); }
+            @Override
+            public void componentShown(ComponentEvent e) { revalidate(); repaint(); }
+            @Override
+            public void componentResized(ComponentEvent e) {
+                // Get current panel size.
+                Dimension newSize = e.getComponent().getBounds().getSize();          
+                // Determine what layout to use.
+                if(newSize.width < 725) {
+                    panelMainFormCenter.setPreferredSize(new Dimension(0, 80));
+                    panelMain.add(panelMainFormCenter, java.awt.BorderLayout.PAGE_START);
+                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+                    panelControls.add(panelControlsContainer, java.awt.BorderLayout.CENTER);
+                    panelMainForm.add(panelControls, java.awt.BorderLayout.LINE_END);
+                    panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.CENTER);
+                } else {
+                    panelMainFormCenter.setPreferredSize(new Dimension(300, 160));
+                    panelMain.add(panelMainFormCenter, java.awt.BorderLayout.LINE_START);
+                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 5, 10));
+                    panelControls.add(panelControlsContainer, java.awt.BorderLayout.PAGE_START);
+                    panelMainForm.add(panelControls, java.awt.BorderLayout.CENTER);
+                    panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.PAGE_START);
+                }
+                // Revalidate and repaint this panel.
+                revalidate();
+                repaint();
+            }
+        });
         
         initTable();
         
@@ -357,28 +422,47 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
             ArrayList<Object> addNewRow = new ArrayList<>();
             addNewRow.add("");
             addNewRow.add(txtfldName.getText().trim().substring(0, 1).toUpperCase() + txtfldName.getText().trim().substring(1));
-            addNewRow.add(fmtDateVal.formatDateToString(dateSelected).trim());
+            addNewRow.add(fmtDateVal.formatDateToString(dateSelected.getDate(), "MMMM dd, yyyy").trim());
             addNewRow.add("");
             dtm.addRow(addNewRow.toArray());
 
+            // Set created model to table used
             table_view.setModel(dtm);
+
+            // Set created custom sorter to table used
             sorter = new TableRowSorter<TableModel>(dtm);
             sorter.setSortable(0, false);
             sorter.setSortable(3, false);
             table_view.setRowSorter(sorter);
 
+            // Initialize custom row color
+            table_view.setDefaultRenderer(Boolean.class, chkboxCellRenderer.CheckboxCellRenderer(constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT));
+            table_view.setDefaultRenderer(String.class, chkboxCellRenderer.StringCellRenderer(constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT));
+
+            // Clear fields
             dateSelected.setDate(null);
             txtfldName.setText("");
             txtfldName.requestFocus();
+            
+            // Repaint table
+            table_view.repaint();
+            
+            // Set row count
+            countTableRow();
+
         }
 
     }//GEN-LAST:event_label_button_savMouseClicked
 
     private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
 
+        // Clear fields
         dateSelected.setDate(null);
         txtfldName.setText("");
         txtfldName.requestFocus();
+        
+        // Reset text field color
+        txtfldName.setBackground(Color.WHITE);
 
     }//GEN-LAST:event_label_button_clrMouseClicked
 
@@ -386,7 +470,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
      * Get table model.
      * @return table_view
      */
-    public JTable getTableModel() {
+    public JTable getTable() {
         
         return table_view;
         
@@ -430,6 +514,9 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         txtfldName.requestFocus();
         dateSelected.setDate(null);
         
+        // Reset text field color
+        txtfldName.setBackground(Color.WHITE);
+        
     }
 
     /**
@@ -446,10 +533,10 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
     public void setPlaceHolder() {
         
-        ClassTextfieldPrompt tpTxtfldName = new ClassTextfieldPrompt("Enter a Name", txtfldName);
+        ClassTextfieldPrompt tpTxtfldName = new ClassTextfieldPrompt("Enter Dependent\'s Full Name", txtfldName);
         JTextFieldDateEditor dateTextEditor = (JTextFieldDateEditor) dateSelected.getDateEditor();
-        ClassTextfieldPrompt tpTxtfldDate = new ClassTextfieldPrompt("Select a Date", dateTextEditor);
-        tpTxtfldDate.setHorizontalAlignment(JTextField.CENTER);
+        dateTextEditor.setEditable(false);
+        ClassTextfieldPrompt tpTxtfldDate = new ClassTextfieldPrompt(" Select Dependent\'s Birthdate", dateTextEditor);
         
         ClassTextfieldPrompt[] placeholder = {
             tpTxtfldName,
@@ -478,6 +565,10 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         setFrameParent(this.panel_child.panel_parent);
         setFrameAncestor(this.panel_parent.panel_ancestor);
         setFrameConstants(this.panel_ancestor.constant);
+        
+        this.fmtDateVal = this.panel_ancestor.fmtDateVal;
+        this.chkboxCellRenderer = this.panel_ancestor.chkboxCellRenderer;
+        this.reqField = this.panel_ancestor.reqField;
     }
 
     private void setFrameParent(PanelEmployees parent_value) {
@@ -495,6 +586,15 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         this.constant = constant_value;
     }
 
+    private void countTableRow() {
+
+        // Set row count
+        int rowCount = table_view.getRowCount();
+//        label_table_result_total.setText(rowCount + ((rowCount <= 1) ? " count" : " counts"));
+        label_table_result_total.setText(rowCount + "");
+        
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser dateSelected;
     private javax.swing.JLabel labelFormListField_002_head;
@@ -506,6 +606,9 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel label_button_clr;
     private javax.swing.JLabel label_button_sav;
+    private javax.swing.JLabel label_table_result_logo;
+    private javax.swing.JLabel label_table_result_total;
+    private javax.swing.JPanel panelControls;
     private javax.swing.JPanel panelControlsContainer;
     private javax.swing.JPanel panelFormListField_001;
     private javax.swing.JPanel panelFormListField_002;
@@ -513,38 +616,21 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
     private javax.swing.JPanel panelFormListTitle_001_caption;
     private javax.swing.JPanel panelFormListTitle_001_hr;
     private javax.swing.JPanel panelMain;
-    private javax.swing.JPanel panelMainCenterForm;
     private javax.swing.JPanel panelMainCenterFormFields;
     private javax.swing.JPanel panelMainCenterView;
+    private javax.swing.JPanel panelMainForm;
+    private javax.swing.JPanel panelMainFormCenter;
     private javax.swing.JPanel panelNameFirst;
     private javax.swing.JPanel panelTitle;
     private javax.swing.JPanel panel_button_sav;
+    private javax.swing.JPanel panel_table_result;
     private javax.swing.JScrollPane scrollPane;
     public javax.swing.JTable table_view;
     private javax.swing.JTextField txtfldName;
     // End of variables declaration//GEN-END:variables
 
-    
     private void initTable() {
         
-        ImageIcon icon = new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_delete.png"));
-        
-        ClassTableButtonRenderer buttonTableRender = new ClassTableButtonRenderer(icon, Color.WHITE, Color.WHITE, Color.WHITE);
-        ClassTableButtonEditor buttonTableEditor = new ClassTableButtonEditor(icon, Color.WHITE, Color.WHITE, Color.WHITE){
-
-            // Override with custom table row delete.
-            @Override
-            protected void fireEditingStopped() {
-                DefaultTableModel tm = (DefaultTableModel)table_view.getModel();
-                tm.removeRow(table_view.convertRowIndexToModel(table_view.getSelectedRow()));
-
-                table_view.setModel(tm);
-                table_view.repaint();
-            }
-            
-        };
-        buttonTableEditor.setTable(table_view); // Set-up table update button
-
         this.dtm = new DefaultTableModel(){
             @Override
             public Class getColumnClass(int column){
@@ -575,46 +661,69 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         ArrayList<Object> columnTitle = new ArrayList<>();
         
         columnTitle.add("");
-        columnTitle.add("DEPENDENT'S NAME");
-        columnTitle.add("DATE");
+        columnTitle.add("Dependent's Full Name");
+        columnTitle.add("Dependent's Birthdate");
         columnTitle.add("");
         
         dtm.setDataVector(null, columnTitle.toArray());
-
+        
         table_view.setRowHeight(35);
         table_view.setModel(dtm);
         table_view.setSelectionBackground(constant.ROW_BG_COLOR_SELECT_DEFAULT);
         table_view.setFont(new Font("Tahoma", Font.PLAIN, 11));
         scrollPane.setViewportView(table_view);
-
+        
         // Create & set table sorter
         sorter = new TableRowSorter(dtm);
-        sorter.setSortable(1, false);
-        sorter.setSortable(2, false);
+        sorter.setSortable(0, false);
+        sorter.setSortable(3, false);
         table_view.setRowSorter(sorter);
 
         // Turn OFF user ability to re-order columns
         table_view.getTableHeader().setReorderingAllowed(false);
         
+        // Initialize checkbox on table columns
         table_view.getColumnModel().getColumn(0).setMinWidth(0);
         table_view.getColumnModel().getColumn(0).setMaxWidth(0);
         table_view.getColumnModel().getColumn(0).setResizable(false);
         table_view.getColumnModel().getColumn(0).setPreferredWidth(0);
+        
         table_view.getColumnModel().getColumn(1).setMinWidth(243);
-        table_view.getColumnModel().getColumn(3).setMinWidth(80);
-        table_view.getColumnModel().getColumn(3).setMaxWidth(80);
+        
         table_view.getColumnModel().getColumn(2).setPreferredWidth(80);
         table_view.getColumnModel().getColumn(2).setResizable(true);
+        
+        // Initialize table update button
+        ClassTableButtonEditor tblEditor_BtnUpdate = new ClassTableButtonEditor(icon, constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT) {
+
+            @Override
+            protected void fireEditingStopped() {
+                DefaultTableModel tm = (DefaultTableModel)table_view.getModel();
+                tm.removeRow(table_view.convertRowIndexToModel(table_view.getSelectedRow()));
+
+                table_view.setModel(tm);
+                table_view.repaint();
+                
+                // Set row count
+                countTableRow();
+            }
+
+        };
+        tblEditor_BtnUpdate.setTable(table_view); // Set-up table update button
+
+        ClassTableButtonRenderer tblRenderer_BtnUpdate = new ClassTableButtonRenderer(icon, constant.ROW_BG_COLOR_ODD, constant.ROW_BG_COLOR_EVEN, constant.ROW_BG_COLOR_SELECT_DEFAULT);
+
+        table_view.getColumnModel().getColumn(3).setCellEditor(tblEditor_BtnUpdate);
+        table_view.getColumnModel().getColumn(3).setCellRenderer(tblRenderer_BtnUpdate);
         table_view.getColumnModel().getColumn(3).setMinWidth(35);
         table_view.getColumnModel().getColumn(3).setMaxWidth(35);
         table_view.getColumnModel().getColumn(3).setPreferredWidth(35);
-        table_view.getColumnModel().getColumn(3).setCellEditor(buttonTableEditor);
-        table_view.getColumnModel().getColumn(3).setCellRenderer(buttonTableRender);
         table_view.getColumnModel().getColumn(3).setResizable(false);
         table_view.setFillsViewportHeight(true);
         
+        // Set table's header font
         JTableHeader th = table_view.getTableHeader();
-        th.setFont(new Font("Century Gothic", Font.BOLD, 13));
+        th.setFont(new Font("Tahoma", Font.BOLD, 11));
         
         DefaultTableCellRenderer renderHeaderCenter = (DefaultTableCellRenderer)table_view.getTableHeader().getDefaultRenderer();
         renderHeaderCenter.setHorizontalAlignment(JLabel.CENTER);
@@ -628,6 +737,11 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         renderCellCenter.setHorizontalAlignment(SwingConstants.CENTER);
         table_view.getColumnModel().getColumn(2).setCellRenderer(renderCellCenter);
         
+        // Repaint table
+        table_view.repaint();
+        
+        // Set row count
+        countTableRow();
     }
 
 }

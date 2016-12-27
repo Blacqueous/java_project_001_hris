@@ -543,27 +543,27 @@ public class ClassMyDBConnectionEmbeddedDerby {
 ////        insertTableSettingsListTraining();
 //        viewTable(constant.TABLE_LIST_TRAINING);
 //
-//        System.out.println("\nEMPLOYEE HEADER");
+        System.out.println("\nEMPLOYEE HEADER");
 //        createTableEmployeeHeader();
-////        insertTableEmployeeHeader();
-//        viewTable(constant.TABLE_EMPLOYEE_HEADER);
-//
-//        System.out.println("\nEMPLOYEE DETAIL");
+//        insertTableEmployeeHeader();
+        viewTable(constant.TABLE_EMPLOYEE_HEADER);
+
+        System.out.println("\nEMPLOYEE DETAIL");
 //        createTableEmployeeDetail();
-////        insertTableEmployeeDetail();
-//        viewTable(constant.TABLE_EMPLOYEE_DETAIL);
-//
-//        System.out.println("\nDEPENDENTS MANAGER");
-////        createTableSettingsManageDependents();
-//        viewTable(constant.TABLE_MANAGE_DEPENDENTS);
-//
-//        System.out.println("\nELIGIBILITY MANAGER");
-////        createTableSettingsManageEligibility();
-//        viewTable(constant.TABLE_MANAGE_ELIGIBILITY);
-//
-//        System.out.println("\nTRAINING MANAGER");
-////        createTableSettingsManageTraining();
-//        viewTable(constant.TABLE_MANAGE_TRAINING);
+//        insertTableEmployeeDetail();
+        viewTable(constant.TABLE_EMPLOYEE_DETAIL);
+
+        System.out.println("\nDEPENDENTS MANAGER");
+//        createTableSettingsManageDependents();
+        viewTable(constant.TABLE_MANAGE_DEPENDENTS);
+
+        System.out.println("\nELIGIBILITY MANAGER");
+//        createTableSettingsManageEligibility();
+        viewTable(constant.TABLE_MANAGE_ELIGIBILITY);
+
+        System.out.println("\nTRAINING MANAGER");
+//        createTableSettingsManageTraining();
+        viewTable(constant.TABLE_MANAGE_TRAINING);
 
         myConnection.close();
 
