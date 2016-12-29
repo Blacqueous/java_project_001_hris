@@ -749,7 +749,7 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
                 while (rs.next()) {
                     if(!rs.getString(2).trim().isEmpty()) {
                         cmbboxList.add(ct, Integer.parseInt(rs.getString(1)));
-                        dcbm.addElement(rs.getString(2).trim() + rs.getString(2).trim() + rs.getString(2).trim() + rs.getString(2).trim());
+                        dcbm.addElement(rs.getString(2).trim());
                         ct++;
                     }
                 }

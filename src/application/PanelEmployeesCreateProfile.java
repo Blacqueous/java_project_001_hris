@@ -1881,7 +1881,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
     }
 
     public String[] getFieldsForSave() {
-        
+
         tfRequired.requiredScrollTo(componentList, panelScroll);
         
         if(tfRequired.requiredFieldsValidate(componentList)){
@@ -2036,24 +2036,14 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         txtfldCodePHIC.setValue(null);
         txtfldCodePAGIBIG.setValue(null);
         
-        // Clear dialog tables & fields
-//        dialogDep.getTableModel();
-//        dialogDep.clearDialog();
-//        dialogElg.getTableModel();
-//        dialogElg.clearDialog();
-//        dialogTrn.getTableModel();
-//        dialogTrn.clearDialog();
-        
         // Set focus to a field
         txtfldNameFirst.requestFocus();
         panelScroll.getViewport().setViewPosition(new Point(0,0));
-        
     }
     
     public void resetFormFieldsColor() {
         
         tfRequired.requiredFieldsResetColor(componentList);
-        
     }
 
     public JTable[] getFormTables() {
@@ -2066,7 +2056,6 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 //        field[2] = dialogTrn.getTableModel();
         
         return field;
-        
     }
 
     public void setFormTables(JTable[] field) {

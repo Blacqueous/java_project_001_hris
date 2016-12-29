@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -368,62 +370,6 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
     private void label_button_savMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_savMouseClicked
 
-                        Object[][] tblDep = getTableData(panel_crtdep.getTable());
-                        String queryDep = "";
-                        int countDep = 0;
-                        if(tblDep.length > 0) {
-                            queryDep += "INSERT INTO " + constant.TABLE_MANAGE_DEPENDENTS + " (emp_header_id, name, date) VALUES ";
-                            for (Object[] tableData : tblDep) {
-                                queryDep += "(" + 0 + ", '" + tableData[1] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
-                                countDep++;
-                                if(tblDep.length != countDep) {
-                                    queryDep += ", ";
-                                }
-                            }
-                        }
-                        if(!queryDep.isEmpty()) {
-System.out.println(queryDep);
-//                            conn.createStatement().execute("");
-                        }
-                        
-                        
-                        Object[][] tblElg = getTableData(panel_crtelg.getTable());
-                        String queryElg = "";
-                        int countElg = 0;
-                        if(tblElg.length > 0) {
-                            queryElg += "INSERT INTO " + constant.TABLE_MANAGE_ELIGIBILITY + " (emp_header_id, mngr_elg_id, date) VALUES ";
-                            for (Object[] tableData : getTableData(panel_crtelg.getTable())) {
-                                queryElg += "(" + 0 + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
-                                countElg++;
-                                if(tblElg.length != countElg) {
-                                    queryElg += ", ";
-                                }
-                            }
-                        }
-                        if(!queryElg.isEmpty()) {
-System.out.println(queryElg);
-//                            conn.createStatement().execute("");
-                        }
-                        
-                        
-                        Object[][] tblTrn = getTableData(panel_crttrn.getTable());
-                        String queryTrn = "";
-                        int countTrn = 0;
-                        if(tblDep.length > 0) {
-                            queryTrn += "INSERT INTO " + constant.TABLE_MANAGE_TRAINING + " (emp_header_id, mngr_trn_id, date) VALUES ";
-                            for (Object[] tableData : tblTrn) {
-                                queryTrn += "(" + 0 + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
-                                countTrn++;
-                                if(tblDep.length != countTrn) {
-                                    queryTrn += ", ";
-                                }
-                            }
-                        }
-                        if(!queryTrn.isEmpty()) {
-System.out.println(queryTrn);
-//                            conn.createStatement().execute("");
-                        }
-
         String[] formArray;
 
         formArray = panel_crtpfl.getFieldsForSave();
@@ -451,8 +397,8 @@ System.out.println(queryTrn);
                     ps.setInt(7, this.panel_ancestor.cmbboxId.getId(constant.TABLE_LIST_CATEGORY, formArray[6])); // list_cat_id
                     ps.setDate(8, java.sql.Date.valueOf(formArray[7])); // date_hired
                     ps.setInt(9, Integer.parseInt(formArray[8])); // salary
-System.out.println(ps);
-//                    ps.execute();
+
+                    ps.execute();
 
                     ResultSet rs = ps.getGeneratedKeys();
                     if (rs != null && rs.next()) {
@@ -460,7 +406,9 @@ System.out.println(ps);
                         ps = conn.prepareStatement("INSERT INTO " + constant.TABLE_EMPLOYEE_DETAIL + " ( "
                             + " header_id, date_birth, address_prime, address_other, gender, civil_status, nationality, religion, email, phone_tele, phone_cell, phone_misc, code_SSS, code_TIN, code_GSIS, code_PHIC, code_PAGIBIG) values ((?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?),(?))", Statement.RETURN_GENERATED_KEYS);
 
-                        ps.setInt(1, rs.getInt(1)); // header_id
+                        int employeeID = rs.getInt(1);
+
+                        ps.setInt(1, employeeID); // header_id
                         ps.setDate(2, java.sql.Date.valueOf(formArray[9])); // date_birth
                         ps.setString(3, formArray[10]); // address_prime
                         ps.setString(4, formArray[11]); // address_other
@@ -489,70 +437,72 @@ System.out.println(ps);
                         ps.setString(15, formArray[22]); // code_GSIS
                         ps.setString(16, formArray[23]); // code_PHIC
                         ps.setString(17, formArray[24]); // code_PAGIBIG
-System.out.println(ps);
-//                        ps.execute();
 
-//                        Object[][] tblDep = getTableData(panel_crtdep.getTable());
-//                        String queryDep = "";
-//                        int countDep = 0;
-//                        if(tblDep.length > 0) {
-//                            queryDep += "INSERT INTO " + constant.TABLE_MANAGE_DEPENDENTS + " (emp_header_id, name, date) VALUES ";
-//                            for (Object[] tableData : tblDep) {
-//                                queryDep += "(" + rs.getInt(1) + ", '" + tableData[1] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
-//                                countDep++;
-//                                if(tblDep.length != countDep) {
-//                                    queryDep += ", ";
-//                                }
-//                            }
-//                        }
-//                        if(!queryDep.isEmpty()) {
-//System.out.println(queryDep);
-////                            conn.createStatement().execute("");
-//                        }
-//                        
-//                        
-//                        Object[][] tblElg = getTableData(panel_crtelg.getTable());
-//                        String queryElg = "";
-//                        int countElg = 0;
-//                        if(tblElg.length > 0) {
-//                            queryElg += "INSERT INTO " + constant.TABLE_MANAGE_ELIGIBILITY + " (emp_header_id, mngr_elg_id, date) VALUES ";
-//                            for (Object[] tableData : getTableData(panel_crtelg.getTable())) {
-//                                queryElg += "(" + rs.getInt(1) + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
-//                                countElg++;
-//                                if(tblElg.length != countElg) {
-//                                    queryElg += ", ";
-//                                }
-//                            }
-//                        }
-//                        if(!queryElg.isEmpty()) {
-//System.out.println(queryElg);
-////                            conn.createStatement().execute("");
-//                        }
-//                        
-//                        
-//                        Object[][] tblTrn = getTableData(panel_crttrn.getTable());
-//                        String queryTrn = "";
-//                        int countTrn = 0;
-//                        if(tblDep.length > 0) {
-//                            queryTrn += "INSERT INTO " + constant.TABLE_MANAGE_TRAINING + " (emp_header_id, mngr_trn_id, date) VALUES ";
-//                            for (Object[] tableData : tblTrn) {
-//                                queryTrn += "(" + rs.getInt(1) + ", '" + tableData[0] + "', "+ fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd") + ")";
-//                                countTrn++;
-//                                if(tblDep.length != countTrn) {
-//                                    queryTrn += ", ";
-//                                }
-//                            }
-//                        }
-//                        if(!queryTrn.isEmpty()) {
-//System.out.println(queryTrn);
-////                            conn.createStatement().execute("");
-//                        }
+                        ps.execute();
+
+                        Object[][] tblDep = getTableData(panel_crtdep.getTable());
+                        String queryDep = "";
+                        int countDep = 0;
+                        if(tblDep.length > 0) {
+                            queryDep += "INSERT INTO " + constant.TABLE_MANAGE_DEPENDENTS + " (emp_header_id, name, date) VALUES ";
+                            for (Object[] tableData : tblDep) {
+                                String date = fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd");
+                                queryDep += "(" + employeeID + ", '" + tableData[1] + "', '" + java.sql.Date.valueOf(date) + "')";
+                                countDep++;
+                                if(tblDep.length != countDep) {
+                                    queryDep += ", ";
+                                }
+                            }
+                        }
+                        if(!queryDep.isEmpty()) {
+                            conn.createStatement().execute(queryDep);
+                        }
+
+                        Object[][] tblElg = getTableData(panel_crtelg.getTable());
+                        String queryElg = "";
+                        int countElg = 0;
+                        if(tblElg.length > 0) {
+                            queryElg += "INSERT INTO " + constant.TABLE_MANAGE_ELIGIBILITY + " (emp_header_id, mngr_elg_id, date) VALUES ";
+                            for (Object[] tableData : tblElg) {
+                                String date = fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd");
+                                queryElg += "(" + employeeID + ", " + tableData[0] + ", '" + java.sql.Date.valueOf(date) + "')";
+                                countElg++;
+                                if(tblElg.length != countElg) {
+                                    queryElg += ", ";
+                                }
+                            }
+                        }
+                        if(!queryElg.isEmpty()) {
+                            conn.createStatement().execute(queryElg);
+                        }
+
+                        Object[][] tblTrn = getTableData(panel_crttrn.getTable());
+                        String queryTrn = "";
+                        int countTrn = 0;
+                        if(tblTrn.length > 0) {
+                            queryTrn += "INSERT INTO " + constant.TABLE_MANAGE_TRAINING + " (emp_header_id, mngr_trn_id, date) VALUES ";
+                            for (Object[] tableData : tblTrn) {
+                                String date = fmtDateVal.formatDateToString(fmtDateVal.formatStringToDate(tableData[2].toString(), "MMMM dd, yyyy"), "yyyy-MM-dd");
+                                queryTrn += "(" + employeeID + ", " + tableData[0] + ", '" + java.sql.Date.valueOf(date) + "')";
+                                countTrn++;
+                                if(tblTrn.length != countTrn) {
+                                    queryTrn += ", ";
+                                }
+                            }
+                        }
+                        if(!queryTrn.isEmpty()) {
+                            conn.createStatement().execute(queryTrn);
+                        }
+
                     }
 
                     JOptionPane.showMessageDialog(this, "New Employee Successfully Created.", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
 
-                    classImageCropPanel.resetImagePanel();
-                    panel_crtpfl.clearFields();
+                    // Reset form fields.
+                    resetForm();
+
+                    // Return to first panel.
+                    load_panel.loadFrame(panel_crtpfl, panel_main);
 
                 } catch (SQLException | HeadlessException ex) {
                     JOptionPane.showMessageDialog(this, "An Error Occured.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -566,11 +516,8 @@ System.out.println(ps);
 
     private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
 
-        classImageCropPanel.resetImagePanel();
-        panel_crtpfl.clearFields();
-        panel_crtdep.clearDialog();
-        panel_crtelg.clearDialog();
-        panel_crttrn.clearDialog();
+        // Reset form fields.
+        resetForm();
         
     }//GEN-LAST:event_label_button_clrMouseClicked
 
@@ -585,14 +532,34 @@ System.out.println(ps);
                 tableData[i][j] = dtm.getValueAt(i,j);
         
         return tableData;
-        
     }
     
     public void resetPanel() {
 
+        // Reset button colors.
         resetLabelButtons();
+        // Clear upload image.
         classImageCropPanel.resetImagePanel();
+        // Clear form data.
         panel_crtpfl.clearFields();
+        // Clear table data.
+        panel_crtdep.clearDialog();
+        panel_crtelg.clearDialog();
+        panel_crttrn.clearDialog();
+        // Return to first panel.
+        load_panel.loadFrame(panel_crtpfl, panel_main);
+    }
+    
+    public void resetForm() {
+
+        // Clear upload image.
+        classImageCropPanel.resetImagePanel();
+        // Clear form data.
+        panel_crtpfl.clearFields();
+        // Clear table data.
+        panel_crtdep.clearDialog();
+        panel_crtelg.clearDialog();
+        panel_crttrn.clearDialog();
     }
 
     public void resetLabelButtons() {
