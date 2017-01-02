@@ -242,6 +242,12 @@
                               <SubComponents>
                                 <Component class="javax.swing.JLabel" name="labelFormListField_001_head">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Tahoma" size="11" style="1"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
+                                    </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
                                     </Property>
@@ -576,10 +582,10 @@
                             <Component class="javax.swing.JLabel" name="labelFormListField_002_head">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="1"/>
+                                  <Font name="Tahoma" size="11" style="1"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                  <Color blue="33" green="33" red="33" type="rgb"/>
                                 </Property>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                   <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -733,10 +739,10 @@
                             <Component class="javax.swing.JLabel" name="labelFormListField_003_head">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="1"/>
+                                  <Font name="Tahoma" size="11" style="1"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                  <Color blue="33" green="33" red="33" type="rgb"/>
                                 </Property>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                   <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -831,10 +837,10 @@
                             <Component class="javax.swing.JLabel" name="labelFormListField_004_head">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="1"/>
+                                  <Font name="Tahoma" size="11" style="1"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                  <Color blue="33" green="33" red="33" type="rgb"/>
                                 </Property>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                   <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -929,15 +935,14 @@
                             <Component class="javax.swing.JLabel" name="labelFormListField_005_head">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="1"/>
+                                  <Font name="Tahoma" size="11" style="1"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                  <Color blue="33" green="33" red="33" type="rgb"/>
                                 </Property>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                   <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value=" "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                                     <EmptyBorder bottom="0" left="3" right="0" top="0"/>
@@ -1028,10 +1033,10 @@
                             <Component class="javax.swing.JLabel" name="labelFormListField_006_head">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="1"/>
+                                  <Font name="Tahoma" size="11" style="1"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                  <Color blue="33" green="33" red="33" type="rgb"/>
                                 </Property>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                   <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -1137,10 +1142,10 @@
                             <Component class="javax.swing.JLabel" name="labelFormListField_007_icon">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="1"/>
+                                  <Font name="Tahoma" size="11" style="1"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                  <Color blue="33" green="33" red="33" type="rgb"/>
                                 </Property>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                   <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -1428,10 +1433,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_009_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -1698,10 +1703,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_008_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -1806,10 +1811,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_011_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -1904,10 +1909,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_012_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2002,10 +2007,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_013_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2138,10 +2143,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_014_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2274,10 +2279,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_015_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2394,10 +2399,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_016_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2517,10 +2522,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_017_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2642,10 +2647,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_018_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -2936,10 +2941,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_019_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -3027,8 +3032,9 @@
                                           <Color blue="33" green="33" red="33" type="rgb"/>
                                         </Property>
                                         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                                          <Format format="###-####" subtype="-1" type="5"/>
+                                          <Format format="" subtype="-1" type="5"/>
                                         </Property>
+                                        <Property name="text" type="java.lang.String" value=""/>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                           <Font name="Arial" size="11" style="0"/>
                                         </Property>
@@ -3084,10 +3090,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_020_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -3175,8 +3181,9 @@
                                           <Color blue="33" green="33" red="33" type="rgb"/>
                                         </Property>
                                         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                                          <Format format="###-###-###-###" subtype="-1" type="5"/>
+                                          <Format format="" subtype="-1" type="5"/>
                                         </Property>
+                                        <Property name="text" type="java.lang.String" value=""/>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                           <Font name="Arial" size="11" style="0"/>
                                         </Property>
@@ -3232,10 +3239,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_021_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -3380,10 +3387,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_022_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -3471,8 +3478,9 @@
                                           <Color blue="33" green="33" red="33" type="rgb"/>
                                         </Property>
                                         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                                          <Format format="####-####-####" subtype="-1" type="5"/>
+                                          <Format format="" subtype="-1" type="5"/>
                                         </Property>
+                                        <Property name="text" type="java.lang.String" value=""/>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                           <Font name="Arial" size="11" style="0"/>
                                         </Property>
@@ -3528,10 +3536,10 @@
                                 <Component class="javax.swing.JLabel" name="labelFormListField_023_icon">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="1"/>
+                                      <Font name="Tahoma" size="11" style="1"/>
                                     </Property>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="1e" green="1e" red="1e" type="rgb"/>
+                                      <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/img_src/icon_16_bullet_arrow_right.png"/>
@@ -3619,8 +3627,9 @@
                                           <Color blue="33" green="33" red="33" type="rgb"/>
                                         </Property>
                                         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                                          <Format format="##-#########-#" subtype="-1" type="5"/>
+                                          <Format format="" subtype="-1" type="5"/>
                                         </Property>
+                                        <Property name="text" type="java.lang.String" value=""/>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                           <Font name="Arial" size="11" style="0"/>
                                         </Property>

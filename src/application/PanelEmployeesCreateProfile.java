@@ -10,6 +10,7 @@ import classes.ClassConstantsCustom;
 import classes.ClassDateFormatValue;
 import classes.ClassMyDBConnectionEmbeddedDerby;
 import classes.ClassTextfieldFilter;
+import classes.ClassTextfieldMasker;
 import classes.ClassTextfieldPrompt;
 import classes.ClassTextfieldRequired;
 import com.toedter.calendar.JTextFieldDateEditor;
@@ -323,6 +324,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_001_container.setOpaque(false);
         panelFormListField_001_container.setLayout(new java.awt.BorderLayout());
 
+        labelFormListField_001_head.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_001_head.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_001_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_001_head.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_001_head.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -492,8 +495,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_002.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_002.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_002_head.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_002_head.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_002_head.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_002_head.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_002_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_002_head.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_002_head.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -562,8 +565,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_003.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_003.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_003_head.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_003_head.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_003_head.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_003_head.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_003_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_003_head.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_003_head.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -595,8 +598,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_004.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_004.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_004_head.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_004_head.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_004_head.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_004_head.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_004_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_004_head.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_004_head.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -628,10 +631,9 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_005.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_005.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_005_head.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_005_head.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_005_head.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_005_head.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_005_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
-        labelFormListField_005_head.setText(" ");
         labelFormListField_005_head.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_005_head.setMaximumSize(new java.awt.Dimension(125, 0));
         labelFormListField_005_head.setMinimumSize(new java.awt.Dimension(125, 0));
@@ -662,8 +664,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_006.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_006.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_006_head.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_006_head.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_006_head.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_006_head.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_006_head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_006_head.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_006_head.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -701,8 +703,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_007.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_007.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_007_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_007_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_007_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_007_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_007_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_007_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_007_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -811,8 +813,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_009.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_009.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_009_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_009_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_009_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_009_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_009_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_009_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_009_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -938,8 +940,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_008.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_008.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_008_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_008_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_008_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_008_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_008_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_008_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_008_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -977,8 +979,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_011.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_011.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_011_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_011_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_011_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_011_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_011_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_011_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_011_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1010,8 +1012,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_012.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_012.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_012_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_012_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_012_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_012_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_012_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_012_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_012_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1043,8 +1045,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_013.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_013.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_013_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_013_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_013_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_013_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_013_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_013_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_013_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1101,8 +1103,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_014.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_014.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_014_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_014_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_014_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_014_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_014_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_014_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_014_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1160,8 +1162,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_015.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_015.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_015_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_015_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_015_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_015_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_015_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_015_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_015_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1210,8 +1212,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_016.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_016.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_016_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_016_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_016_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_016_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_016_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_016_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_016_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1261,8 +1263,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_017.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_017.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_017_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_017_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_017_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_017_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_017_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_017_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_017_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1314,8 +1316,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_018.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_018.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_018_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_018_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_018_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_018_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_018_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_018_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_018_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1423,8 +1425,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_019.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_019.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_019_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_019_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_019_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_019_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_019_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_019_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_019_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1463,10 +1465,11 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         txtfldCodeSSS.setForeground(new java.awt.Color(51, 51, 51));
         try {
-            txtfldCodeSSS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-####")));
+            txtfldCodeSSS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtfldCodeSSS.setText("");
         txtfldCodeSSS.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldCodeSSS.setMargin(new java.awt.Insets(2, 5, 2, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1494,8 +1497,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_020.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_020.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_020_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_020_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_020_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_020_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_020_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_020_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_020_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1534,10 +1537,11 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         txtfldCodeTIN.setForeground(new java.awt.Color(51, 51, 51));
         try {
-            txtfldCodeTIN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-###-###")));
+            txtfldCodeTIN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtfldCodeTIN.setText("");
         txtfldCodeTIN.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldCodeTIN.setMargin(new java.awt.Insets(2, 5, 2, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1565,8 +1569,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_021.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_021.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_021_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_021_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_021_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_021_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_021_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_021_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_021_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1632,8 +1636,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_022.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_022.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_022_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_022_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_022_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_022_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_022_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_022_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_022_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1672,10 +1676,11 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         txtfldCodePAGIBIG.setForeground(new java.awt.Color(51, 51, 51));
         try {
-            txtfldCodePAGIBIG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-####")));
+            txtfldCodePAGIBIG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtfldCodePAGIBIG.setText("");
         txtfldCodePAGIBIG.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldCodePAGIBIG.setMargin(new java.awt.Insets(2, 5, 2, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1703,8 +1708,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         panelFormListField_023.setPreferredSize(new java.awt.Dimension(10, 4));
         panelFormListField_023.setLayout(new java.awt.BorderLayout());
 
-        labelFormListField_023_icon.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        labelFormListField_023_icon.setForeground(new java.awt.Color(30, 30, 30));
+        labelFormListField_023_icon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelFormListField_023_icon.setForeground(new java.awt.Color(51, 51, 51));
         labelFormListField_023_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_src/icon_16_bullet_arrow_right.png"))); // NOI18N
         labelFormListField_023_icon.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 0));
         labelFormListField_023_icon.setMaximumSize(new java.awt.Dimension(125, 0));
@@ -1743,10 +1748,11 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
         txtfldCodePHIC.setForeground(new java.awt.Color(51, 51, 51));
         try {
-            txtfldCodePHIC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-#########-#")));
+            txtfldCodePHIC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtfldCodePHIC.setText("");
         txtfldCodePHIC.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfldCodePHIC.setMargin(new java.awt.Insets(2, 5, 2, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1867,6 +1873,7 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         });
         
         setPlaceHolder();
+        setMasker();
         tfRequired.requiredFieldsInitialize(componentList);
         
         panelScroll.getVerticalScrollBar().setUnitIncrement(25);
@@ -1877,15 +1884,17 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         
         comboBoxLoadFromConstants(constant.LIST_GENDER, cmbboxGender, "Select a Gender");
         comboBoxLoadFromConstants(constant.LIST_CIVIL_STATUS, cmbboxCivilStatus, "Select Civil Status");
-        
+
     }
 
     public String[] getFieldsForSave() {
 
         tfRequired.requiredScrollTo(componentList, panelScroll);
-        
+
         if(tfRequired.requiredFieldsValidate(componentList)){
-            
+
+            txtfldNameFirst.requestFocus();
+
             String[] field = new String[25];
 
             // Basic Information
@@ -2069,26 +2078,30 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
 
     public void setPlaceHolder() {
         
-        ClassTextfieldPrompt tpTxtfldNameFirst  = new ClassTextfieldPrompt("Enter First Name", txtfldNameFirst);
-        ClassTextfieldPrompt tpTxtfldNameMiddle = new ClassTextfieldPrompt("Enter Middle Name", txtfldNameMiddle);
-        ClassTextfieldPrompt tpTxtfldNameLast   = new ClassTextfieldPrompt("Enter Last Name", txtfldNameLast);
-        ClassTextfieldPrompt tpTxtfldPlantilla  = new ClassTextfieldPrompt("Enter Plantilla Number", txtfldPlantillaNum);
-        JTextFieldDateEditor dateHiredEditor    = (JTextFieldDateEditor) dateHired.getDateEditor();
+        ClassTextfieldPrompt tpTxtfldNameFirst   = new ClassTextfieldPrompt("Enter First Name", txtfldNameFirst);
+        ClassTextfieldPrompt tpTxtfldNameMiddle  = new ClassTextfieldPrompt("Enter Middle Name", txtfldNameMiddle);
+        ClassTextfieldPrompt tpTxtfldNameLast    = new ClassTextfieldPrompt("Enter Last Name", txtfldNameLast);
+        ClassTextfieldPrompt tpTxtfldPlantilla   = new ClassTextfieldPrompt("Enter Plantilla Number", txtfldPlantillaNum);
+        JTextFieldDateEditor dateHiredEditor     = (JTextFieldDateEditor) dateHired.getDateEditor();
         dateHiredEditor.setEditable(false);
-        ClassTextfieldPrompt tpDateHired        = new ClassTextfieldPrompt(" Select Hired Date", dateHiredEditor);
-        ClassTextfieldPrompt tpTxtfldSalary     = new ClassTextfieldPrompt("Enter Salary Amount", txtfldSalary);
-        JTextFieldDateEditor dateBirthEditor    = (JTextFieldDateEditor) dateBirth.getDateEditor();
+        ClassTextfieldPrompt tpDateHired         = new ClassTextfieldPrompt(" Select Hired Date", dateHiredEditor);
+        ClassTextfieldPrompt tpTxtfldSalary      = new ClassTextfieldPrompt("Enter Salary Amount", txtfldSalary);
+        JTextFieldDateEditor dateBirthEditor     = (JTextFieldDateEditor) dateBirth.getDateEditor();
         dateBirthEditor.setEditable(false);
-        ClassTextfieldPrompt tpDateBirth        = new ClassTextfieldPrompt(" Select Date of Birth", dateBirthEditor);
-        ClassTextfieldPrompt tpTxtfldAddress1   = new ClassTextfieldPrompt("Enter Current Address", txtfldAddress1);
-        ClassTextfieldPrompt tpTxtfldAddress2   = new ClassTextfieldPrompt("Enter Current Address (cont.)", txtfldAddress2);
-        ClassTextfieldPrompt tpTxtfldNationality= new ClassTextfieldPrompt("Enter Nationality", txtfldNationality);
-        ClassTextfieldPrompt tpTxtfldReligion   = new ClassTextfieldPrompt("Enter Religion", txtfldReligion);
-        ClassTextfieldPrompt tpTxtfldEmail      = new ClassTextfieldPrompt("Enter Email Address", txtfldEmail);
-        ClassTextfieldPrompt tpTxtfldPhoneTele  = new ClassTextfieldPrompt("Enter Telephone Number", txtfldContactTele);
-        ClassTextfieldPrompt tpTxtfldPhoneCell  = new ClassTextfieldPrompt("Enter Cellphone Number", txtfldContactCell);
-        ClassTextfieldPrompt tpTxtfldPhoneMisc  = new ClassTextfieldPrompt("Enter Other Contact Number", txtfldContactOther);
-//        ClassTextfieldPrompt tpTxtfldCodeSSS         = new ClassTextfieldPrompt("00-000000-0", txtfldCodeSSS);
+        ClassTextfieldPrompt tpDateBirth         = new ClassTextfieldPrompt(" Select Date of Birth", dateBirthEditor);
+        ClassTextfieldPrompt tpTxtfldAddress1    = new ClassTextfieldPrompt("Enter Current Address", txtfldAddress1);
+        ClassTextfieldPrompt tpTxtfldAddress2    = new ClassTextfieldPrompt("Enter Current Address (cont.)", txtfldAddress2);
+        ClassTextfieldPrompt tpTxtfldNationality = new ClassTextfieldPrompt("Enter Nationality", txtfldNationality);
+        ClassTextfieldPrompt tpTxtfldReligion    = new ClassTextfieldPrompt("Enter Religion", txtfldReligion);
+        ClassTextfieldPrompt tpTxtfldEmail       = new ClassTextfieldPrompt("Enter Email Address", txtfldEmail);
+        ClassTextfieldPrompt tpTxtfldPhoneTele   = new ClassTextfieldPrompt("Enter Telephone Number", txtfldContactTele);
+        ClassTextfieldPrompt tpTxtfldPhoneCell   = new ClassTextfieldPrompt("Enter Cellphone Number", txtfldContactCell);
+        ClassTextfieldPrompt tpTxtfldPhoneMisc   = new ClassTextfieldPrompt("Enter Other Contact Number", txtfldContactOther);
+        ClassTextfieldPrompt tpTxtfldCodeSSS     = new ClassTextfieldPrompt("Enter SSS Number", txtfldCodeSSS);
+        ClassTextfieldPrompt tpTxtfldCodeTIN     = new ClassTextfieldPrompt("Enter TIN", txtfldCodeTIN);
+        ClassTextfieldPrompt tpTxtfldCodeGSIS    = new ClassTextfieldPrompt("Enter GSIS Number", txtfldCodeGSIS);
+        ClassTextfieldPrompt tpTxtfldCodePHIC    = new ClassTextfieldPrompt("Enter PhilHealth Number", txtfldCodePHIC);
+        ClassTextfieldPrompt tpTxtfldCodePAGIBIG = new ClassTextfieldPrompt("Enter PAGIBIG Number", txtfldCodePAGIBIG);
         
         ClassTextfieldPrompt[] placeholder = {
             tpTxtfldNameFirst,
@@ -2105,8 +2118,12 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
             tpTxtfldEmail,
             tpTxtfldPhoneTele,
             tpTxtfldPhoneCell,
-            tpTxtfldPhoneMisc
-//            tpTxtfldCodeSSS
+            tpTxtfldPhoneMisc,
+            tpTxtfldCodeSSS,
+            tpTxtfldCodeTIN,
+            tpTxtfldCodeGSIS,
+            tpTxtfldCodePHIC,
+            tpTxtfldCodePAGIBIG
         };
         
         // Adjust display
@@ -2115,6 +2132,26 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
             placeholder1.changeStyle(Font.ITALIC);
         }
         
+    }
+
+    public void setMasker() {
+
+        ClassTextfieldMasker tfMaskerSSS = new ClassTextfieldMasker(txtfldCodeSSS, "###-####");
+        ClassTextfieldMasker tfMaskerTIN = new ClassTextfieldMasker(txtfldCodeTIN, "###-###-###-###");
+        ClassTextfieldMasker tfMaskerPHIC = new ClassTextfieldMasker(txtfldCodePHIC, "##-#########-#");
+        ClassTextfieldMasker tfMaskerPAGIBIG = new ClassTextfieldMasker(txtfldCodePAGIBIG, "####-####-####");
+        
+        ClassTextfieldMasker[] mask = {
+            tfMaskerSSS,
+            tfMaskerTIN,
+            tfMaskerPHIC,
+            tfMaskerPAGIBIG
+        };
+        
+        // Adjust display
+        for (ClassTextfieldMasker mask1 : mask) {
+            // do something
+        }
     }
 
     public void setFrame(JFrame frm) {

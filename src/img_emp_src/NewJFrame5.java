@@ -5,16 +5,25 @@
  */
 package img_emp_src;
 
+import classes.ClassTextfieldMasker;
+import classes.ClassTextfieldPrompt;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Rectangle;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.plaf.basic.BasicComboPopup;
 import javax.swing.plaf.basic.ComboPopup;
 import javax.swing.plaf.synth.SynthComboBoxUI;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
  * @author egrubellano
  */
 public final class NewJFrame5 extends javax.swing.JFrame {
+
+    MaskFormatter ipmask;
 
     /**
      * Creates new form NewJFrame5
@@ -35,6 +44,8 @@ public final class NewJFrame5 extends javax.swing.JFrame {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,16 +53,20 @@ public final class NewJFrame5 extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1Item 1Item 1Item 1Item 1Item 1", "Item 2", "Item 3Item 3Item 3Item 3Item 3Item 3Item 3Item 3Item 3Item 3Item 3", "Item 4Item 4" }));
 
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, 0, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox1, 0, 252, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, 252, Short.MAX_VALUE)
+                    .addComponent(jFormattedTextField1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,16 +75,33 @@ public final class NewJFrame5 extends javax.swing.JFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public void AdditionalInitComponents() {
+
         jComboBox1.setUI(new ClassCustomComboBoxUI());
-//        jComboBox1.putClientProperty("Nimbus.Overrides", boxDefaults);
-//        jComboBox1.setLookAndFeel
+
+        ClassTextfieldPrompt txtfld1  = new ClassTextfieldPrompt("Enter Formatted Text Field", jFormattedTextField1);
+        ClassTextfieldPrompt txtfld2  = new ClassTextfieldPrompt("Enter Text Field", jTextField1);
+
+        ClassTextfieldPrompt[] placeholder = { txtfld1, txtfld2 };
+
+        for (ClassTextfieldPrompt placeholder1 : placeholder) {
+            placeholder1.changeAlpha(0.4f);
+            placeholder1.changeStyle(Font.ITALIC);
+        }
+
+//        ClassTextfieldMasker tfMasker = new ClassTextfieldMasker();
+
+//        tfMasker.ApplyTextFieldMask(jFormattedTextField1, "###-####");
 
     }
 
@@ -88,7 +120,7 @@ public final class NewJFrame5 extends javax.swing.JFrame {
             basicpopup.getAccessibleContext().setAccessibleParent(comboBox);
             return basicpopup;
         }
-        
+
     }
 
     /**
@@ -126,5 +158,7 @@ public final class NewJFrame5 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

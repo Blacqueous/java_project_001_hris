@@ -15,8 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -374,6 +372,11 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         formArray = panel_crtpfl.getFieldsForSave();
 
+        for (String string : formArray) {
+            System.out.println(string);
+        }
+
+/**
         if(formArray != null && formArray.length == 25) {
 
             int x = JOptionPane.showConfirmDialog(this, "Are you sure you want to Create New Employee Data?", "VALIDATE ACTION", JOptionPane.YES_NO_OPTION);
@@ -511,7 +514,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
             }
 
         }
-
+*/
     }//GEN-LAST:event_label_button_savMouseClicked
 
     private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked

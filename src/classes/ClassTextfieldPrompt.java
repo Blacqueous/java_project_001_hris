@@ -8,7 +8,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
@@ -23,12 +25,9 @@ import javax.swing.text.JTextComponent;
  * of the parent text component. You are free to change the properties after
  * class construction.
  */
-public class ClassTextfieldPrompt extends JLabel
-    
-    implements FocusListener, DocumentListener {
+public class ClassTextfieldPrompt extends JLabel implements FocusListener, DocumentListener {
 
     public enum Show {
-
         ALWAYS,
         FOCUS_GAINED,
         FOCUS_LOST;
@@ -54,7 +53,6 @@ public class ClassTextfieldPrompt extends JLabel
         setText(text);
         setFont(component.getFont());
         setForeground(component.getForeground());
-//        setBorder(new EmptyBorder(component.getInsets()));
         setHorizontalAlignment(JLabel.LEADING);
 
         component.addFocusListener(this);
@@ -63,7 +61,6 @@ public class ClassTextfieldPrompt extends JLabel
         component.setLayout(new BorderLayout());
         component.add(this);
         checkForPrompt();
-
     }
 
     /*
@@ -155,30 +152,27 @@ public class ClassTextfieldPrompt extends JLabel
      */
     private void checkForPrompt() {
         //  Text has been entered, remove the prompt
-
         if (document.getLength() > 0) {
             setVisible(false);
             return;
         }
 
-		//  Prompt has already been shown once, remove it
+        //  Prompt has already been shown once, remove it
         if (showPromptOnce && focusLost > 0) {
             setVisible(false);
             return;
         }
 
-		//  Check the Show property and component focus to determine if the
+        //  Check the Show property and component focus to determine if the
         //  prompt should be displayed.
         if (component.hasFocus()) {
-            if (show == Show.ALWAYS
-                    || show == Show.FOCUS_GAINED) {
+            if (show == Show.ALWAYS || show == Show.FOCUS_GAINED) {
                 setVisible(true);
             } else {
                 setVisible(false);
             }
         } else {
-            if (show == Show.ALWAYS
-                    || show == Show.FOCUS_LOST) {
+            if (show == Show.ALWAYS || show == Show.FOCUS_LOST) {
                 setVisible(true);
             } else {
                 setVisible(false);
