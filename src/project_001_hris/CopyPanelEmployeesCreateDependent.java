@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application;
+package project_001_hris;
 
+import application.*;
 import classes.ClassConstantsCustom;
 import classes.ClassDateFormatValue;
 import classes.ClassTableButtonEditor;
@@ -37,7 +38,7 @@ import javax.swing.text.AbstractDocument;
  *
  * @author egrubellano
  */
-public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
+public class CopyPanelEmployeesCreateDependent extends javax.swing.JPanel {
 
     protected final ArrayList<Component> reqList = new ArrayList<>();
     protected final Calendar currentDate = Calendar.getInstance();
@@ -56,7 +57,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
     /**
      * Creates new form PanelEmployeesCreateDependent
      */
-    public PanelEmployeesCreateDependent() {
+    public CopyPanelEmployeesCreateDependent() {
         initComponents();
     }
 
@@ -92,7 +93,9 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         dateSelected = new com.toedter.calendar.JDateChooser();
         panelControls = new javax.swing.JPanel();
         panelControlsContainer = new javax.swing.JPanel();
+        panel_button_sav = new javax.swing.JPanel();
         label_button_sav = new javax.swing.JLabel();
+        label_button_clr = new javax.swing.JLabel();
         panelMainCenterView = new javax.swing.JPanel();
         scrollPane = new javax.swing.JScrollPane();
         table_view = new javax.swing.JTable();
@@ -250,14 +253,18 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
         panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.CENTER);
 
-        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 7));
+        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
         panelControls.setOpaque(false);
-        panelControls.setPreferredSize(new java.awt.Dimension(125, 125));
+        panelControls.setPreferredSize(new java.awt.Dimension(225, 125));
         panelControls.setLayout(new java.awt.BorderLayout());
 
         panelControlsContainer.setOpaque(false);
         panelControlsContainer.setPreferredSize(new java.awt.Dimension(225, 95));
         panelControlsContainer.setLayout(new java.awt.GridLayout(1, 0));
+
+        panel_button_sav.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 5));
+        panel_button_sav.setOpaque(false);
+        panel_button_sav.setLayout(new java.awt.GridLayout(1, 0));
 
         label_button_sav.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_sav.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -273,7 +280,25 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
                 label_button_savMouseClicked(evt);
             }
         });
-        panelControlsContainer.add(label_button_sav);
+        panel_button_sav.add(label_button_sav);
+
+        panelControlsContainer.add(panel_button_sav);
+
+        label_button_clr.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_clr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_button_clr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_28_formheading.png"))); // NOI18N
+        label_button_clr.setText("clear fields");
+        label_button_clr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
+        label_button_clr.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label_button_clr.setIconTextGap(10);
+        label_button_clr.setOpaque(true);
+        label_button_clr.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        label_button_clr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_button_clrMouseClicked(evt);
+            }
+        });
+        panelControlsContainer.add(label_button_clr);
 
         panelControls.add(panelControlsContainer, java.awt.BorderLayout.CENTER);
 
@@ -345,8 +370,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
         txtfldName.setBackground(Color.WHITE);
         
         panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        
-        this.setName(this.constant.PANEL_EMP_DEP);
+        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         
         this.addComponentListener(new ComponentListener() {
             @Override
@@ -363,14 +387,14 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
                 if(newSize.width < 725) {
                     panelMainFormCenter.setPreferredSize(new Dimension(0, 80));
                     panelMain.add(panelMainFormCenter, java.awt.BorderLayout.PAGE_START);
-                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 7));
+                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
                     panelControls.add(panelControlsContainer, java.awt.BorderLayout.CENTER);
                     panelMainForm.add(panelControls, java.awt.BorderLayout.LINE_END);
                     panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.CENTER);
                 } else {
                     panelMainFormCenter.setPreferredSize(new Dimension(300, 160));
                     panelMain.add(panelMainFormCenter, java.awt.BorderLayout.LINE_START);
-                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 80, 5, 80));
+                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 5, 10));
                     panelControls.add(panelControlsContainer, java.awt.BorderLayout.PAGE_START);
                     panelMainForm.add(panelControls, java.awt.BorderLayout.CENTER);
                     panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.PAGE_START);
@@ -431,6 +455,18 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
     }//GEN-LAST:event_label_button_savMouseClicked
 
+    private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
+
+        // Clear fields
+        dateSelected.setDate(null);
+        txtfldName.setText("");
+        txtfldName.requestFocus();
+        
+        // Reset text field color
+        txtfldName.setBackground(Color.WHITE);
+
+    }//GEN-LAST:event_label_button_clrMouseClicked
+
     /**
      * Get table model.
      * @return table_view
@@ -485,21 +521,6 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
     }
 
     /**
-     * Clear fields.
-     */
-    public void clearFields() {
-        
-        // Clear input fields
-        dateSelected.setDate(null);
-        txtfldName.setText("");
-        txtfldName.requestFocus();
-        
-        // Reset text field color
-        txtfldName.setBackground(Color.WHITE);
-        
-    }
-
-    /**
      * Refresh all dialog fields.
      */
     public void refreshDialog() {
@@ -535,18 +556,20 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
 
         label_button_sav.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_sav.setForeground(constant.BUTTON_FG_COLOR_OLD);
+        label_button_clr.setBackground(constant.BUTTON_BG_COLOR_OLD);
+        label_button_clr.setForeground(constant.BUTTON_FG_COLOR_OLD);
     }
 
     private void setFrameChild(PanelEmployeesCreate child_value) {
 
-        this.panel_child = child_value;
-        setFrameParent(this.panel_child.panel_parent);
-        setFrameAncestor(this.panel_parent.panel_ancestor);
-        setFrameConstants(this.panel_ancestor.constant);
-        
-        this.fmtDateVal = this.panel_ancestor.fmtDateVal;
-        this.chkboxCellRenderer = this.panel_ancestor.chkboxCellRenderer;
-        this.reqField = this.panel_ancestor.reqField;
+//        this.panel_child = child_value;
+//        setFrameParent(this.panel_child.panel_parent);
+//        setFrameAncestor(this.panel_parent.panel_ancestor);
+//        setFrameConstants(this.panel_ancestor.constant);
+//        
+//        this.fmtDateVal = this.panel_ancestor.fmtDateVal;
+//        this.chkboxCellRenderer = this.panel_ancestor.chkboxCellRenderer;
+//        this.reqField = this.panel_ancestor.reqField;
     }
 
     private void setFrameParent(PanelEmployees parent_value) {
@@ -582,6 +605,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
     private javax.swing.JLabel labelFormListTitle_001_icon;
     private javax.swing.JLabel labelFormListTitle_001_name;
     private javax.swing.JLabel labelName;
+    private javax.swing.JLabel label_button_clr;
     private javax.swing.JLabel label_button_sav;
     private javax.swing.JLabel label_table_result_logo;
     private javax.swing.JLabel label_table_result_total;
@@ -599,6 +623,7 @@ public class PanelEmployeesCreateDependent extends javax.swing.JPanel {
     private javax.swing.JPanel panelMainFormCenter;
     private javax.swing.JPanel panelNameFirst;
     private javax.swing.JPanel panelTitle;
+    private javax.swing.JPanel panel_button_sav;
     private javax.swing.JPanel panel_table_result;
     private javax.swing.JScrollPane scrollPane;
     public javax.swing.JTable table_view;

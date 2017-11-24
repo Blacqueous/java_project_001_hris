@@ -67,7 +67,7 @@ public class ClassLoadNewPanel {
     }
 
     public void loadFrame(final JPanel panel, final JPanel panelFrameMain) {
-
+        
         coreLoadPanel(panel, constant.PANEL_FRAME, panelFrameMain, null);
     }
 
@@ -86,6 +86,21 @@ public class ClassLoadNewPanel {
 
         this.buttons = button_group;
         return this.buttons;
+    }
+
+    public JPanel getPanelFrame() {
+
+        return this.panelFrame;
+    }
+
+    public JPanel getPanelPopup() {
+
+        return this.panelPopup;
+    }
+
+    public JPanel getPanelParent() {
+
+        return this.panelParent;
     }
 
     /**

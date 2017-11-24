@@ -63,6 +63,8 @@ public class ClassLabelButton {
                 lbl.setForeground(fgo);
             }
         });
+        
+        lbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
 
     /**
@@ -111,5 +113,7 @@ public class ClassLabelButton {
                 item.setForeground(fgo);
             }
         });
+        
+        item.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
 }

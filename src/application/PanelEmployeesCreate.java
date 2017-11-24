@@ -59,6 +59,8 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         label_button_sav = new javax.swing.JLabel();
         panel_ctrl_btn_clr = new javax.swing.JPanel();
         label_button_clr = new javax.swing.JLabel();
+        panel_ctrl_btn_clr_all = new javax.swing.JPanel();
+        label_button_clr_all = new javax.swing.JLabel();
         label_button_bck = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
         panel_control_button = new javax.swing.JPanel();
@@ -100,10 +102,11 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         panel_ctrl.setOpaque(false);
         panel_ctrl.setLayout(new java.awt.BorderLayout());
 
+        panel_ctrl_btn.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 10, 0, 10));
         panel_ctrl_btn.setMinimumSize(new java.awt.Dimension(0, 200));
         panel_ctrl_btn.setOpaque(false);
-        panel_ctrl_btn.setPreferredSize(new java.awt.Dimension(0, 200));
-        panel_ctrl_btn.setLayout(new java.awt.GridLayout(2, 0));
+        panel_ctrl_btn.setPreferredSize(new java.awt.Dimension(0, 300));
+        panel_ctrl_btn.setLayout(new java.awt.GridLayout(3, 0));
 
         panel_ctrl_btn_sav.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
         panel_ctrl_btn_sav.setOpaque(false);
@@ -115,7 +118,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         label_button_sav.setText("save employee");
         label_button_sav.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
         label_button_sav.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label_button_sav.setIconTextGap(10);
+        label_button_sav.setIconTextGap(7);
         label_button_sav.setOpaque(true);
         label_button_sav.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         label_button_sav.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,10 +137,10 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         label_button_clr.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_clr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_button_clr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_form_wizard.png"))); // NOI18N
-        label_button_clr.setText("clear form");
+        label_button_clr.setText("clear fields");
         label_button_clr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
         label_button_clr.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label_button_clr.setIconTextGap(10);
+        label_button_clr.setIconTextGap(7);
         label_button_clr.setOpaque(true);
         label_button_clr.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         label_button_clr.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,7 +152,29 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         panel_ctrl_btn.add(panel_ctrl_btn_clr);
 
-        panel_ctrl.add(panel_ctrl_btn, java.awt.BorderLayout.PAGE_START);
+        panel_ctrl_btn_clr_all.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panel_ctrl_btn_clr_all.setOpaque(false);
+        panel_ctrl_btn_clr_all.setLayout(new java.awt.BorderLayout());
+
+        label_button_clr_all.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        label_button_clr_all.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_button_clr_all.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_32_refresh_arrow.png"))); // NOI18N
+        label_button_clr_all.setText("reset form");
+        label_button_clr_all.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
+        label_button_clr_all.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label_button_clr_all.setIconTextGap(7);
+        label_button_clr_all.setOpaque(true);
+        label_button_clr_all.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        label_button_clr_all.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_button_clr_allMouseClicked(evt);
+            }
+        });
+        panel_ctrl_btn_clr_all.add(label_button_clr_all, java.awt.BorderLayout.CENTER);
+
+        panel_ctrl_btn.add(panel_ctrl_btn_clr_all);
+
+        panel_ctrl.add(panel_ctrl_btn, java.awt.BorderLayout.CENTER);
 
         panel_control.add(panel_ctrl, java.awt.BorderLayout.CENTER);
 
@@ -312,26 +337,27 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void initAdditionalComponents(PanelEmployees panel_parent) {
-        
+
         setFrameParent(panel_parent);
-        
+
         load_panel.setParentPanel(panel_frame);
-        
+
         load_panel.loadFrame(panel_crtpfl, panel_main);
-        
+
         panel_crtpfl.initAdditionalComponents(this);
         panel_crtdep.initAdditionalComponents(this);
         panel_crtelg.initAdditionalComponents(this);
         panel_crttrn.initAdditionalComponents(this);
-        
+
         panel_parent.lbl_btn.addClass(label_button_bck, constant.BUTTON_BG_COLOR_PRESS_GRAY, constant.BUTTON_BG_COLOR_NEW_GRAY, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_pfl, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_dep, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_elg, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_trn, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
         panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_GREEN, constant.BUTTON_BG_COLOR_NEW_GREEN, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_RED, constant.BUTTON_BG_COLOR_NEW_RED, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        
+        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        panel_parent.lbl_btn.addClass(label_button_clr_all, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+
         resetPanel();
     }
 
@@ -372,11 +398,6 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
         formArray = panel_crtpfl.getFieldsForSave();
 
-        for (String string : formArray) {
-            System.out.println(string);
-        }
-
-/**
         if(formArray != null && formArray.length == 25) {
 
             int x = JOptionPane.showConfirmDialog(this, "Are you sure you want to Create New Employee Data?", "VALIDATE ACTION", JOptionPane.YES_NO_OPTION);
@@ -513,16 +534,37 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
 
             }
 
+        } else {
+            if (!load_panel.getPanelFrame().getName().equals(this.constant.PANEL_EMP_PFL)) {
+                // Show first panel if panel not available.
+                load_panel.loadFrame(panel_crtpfl, panel_main);
+            }
         }
-*/
+
     }//GEN-LAST:event_label_button_savMouseClicked
 
     private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
-
-        // Reset form fields.
-        resetForm();
+        
+        // Clear input fields.
+        if (load_panel.getPanelFrame().getName().equals(this.constant.PANEL_EMP_DEP)) {
+            panel_crtdep.clearFields();
+        } else if (load_panel.getPanelFrame().getName().equals(this.constant.PANEL_EMP_ELG)) {
+            panel_crtelg.clearFields();
+        } else if (load_panel.getPanelFrame().getName().equals(this.constant.PANEL_EMP_TRN)) {
+            panel_crttrn.clearFields();
+        } else {
+            panel_crtpfl.clearFields();
+        }
         
     }//GEN-LAST:event_label_button_clrMouseClicked
+
+    private void label_button_clr_allMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clr_allMouseClicked
+        
+        // Reset forms.
+        resetForm();
+        // Show first panel.
+        load_panel.loadFrame(panel_crtpfl, panel_main);
+    }//GEN-LAST:event_label_button_clr_allMouseClicked
 
     public Object[][] getTableData(JTable table) {
         
@@ -581,6 +623,8 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
         label_button_sav.setForeground(constant.BUTTON_FG_COLOR_OLD);
         label_button_clr.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_clr.setForeground(constant.BUTTON_FG_COLOR_OLD);
+        label_button_clr_all.setBackground(constant.BUTTON_BG_COLOR_OLD);
+        label_button_clr_all.setForeground(constant.BUTTON_FG_COLOR_OLD);
     }
 
     private void setFrameParent(PanelEmployees parent_value) {
@@ -604,6 +648,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     private classes.ClassImageCropPanel_v1 classImageCropPanel;
     private javax.swing.JLabel label_button_bck;
     private javax.swing.JLabel label_button_clr;
+    private javax.swing.JLabel label_button_clr_all;
     private javax.swing.JLabel label_button_dep;
     private javax.swing.JLabel label_button_elg;
     private javax.swing.JLabel label_button_pfl;
@@ -621,6 +666,7 @@ public class PanelEmployeesCreate extends javax.swing.JPanel {
     private javax.swing.JPanel panel_ctrl;
     private javax.swing.JPanel panel_ctrl_btn;
     private javax.swing.JPanel panel_ctrl_btn_clr;
+    private javax.swing.JPanel panel_ctrl_btn_clr_all;
     private javax.swing.JPanel panel_ctrl_btn_sav;
     private javax.swing.JPanel panel_frame;
     private javax.swing.JPanel panel_loading;

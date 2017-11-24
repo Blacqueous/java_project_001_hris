@@ -93,9 +93,7 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
         panelMainForm = new javax.swing.JPanel();
         panelControls = new javax.swing.JPanel();
         panelControlsContainer = new javax.swing.JPanel();
-        panel_button_sav = new javax.swing.JPanel();
         label_button_sav = new javax.swing.JLabel();
-        label_button_clr = new javax.swing.JLabel();
         panelMainCenterFormFields = new javax.swing.JPanel();
         panelFormListField_001 = new javax.swing.JPanel();
         labelFormListField_001_head = new javax.swing.JLabel();
@@ -201,18 +199,14 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
         panelMainForm.setPreferredSize(new java.awt.Dimension(545, 100));
         panelMainForm.setLayout(new java.awt.BorderLayout());
 
-        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 7));
         panelControls.setOpaque(false);
-        panelControls.setPreferredSize(new java.awt.Dimension(225, 125));
+        panelControls.setPreferredSize(new java.awt.Dimension(125, 125));
         panelControls.setLayout(new java.awt.BorderLayout());
 
         panelControlsContainer.setOpaque(false);
         panelControlsContainer.setPreferredSize(new java.awt.Dimension(225, 95));
         panelControlsContainer.setLayout(new java.awt.GridLayout(1, 0));
-
-        panel_button_sav.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 5));
-        panel_button_sav.setOpaque(false);
-        panel_button_sav.setLayout(new java.awt.GridLayout(1, 0));
 
         label_button_sav.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         label_button_sav.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -228,25 +222,7 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
                 label_button_savMouseClicked(evt);
             }
         });
-        panel_button_sav.add(label_button_sav);
-
-        panelControlsContainer.add(panel_button_sav);
-
-        label_button_clr.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        label_button_clr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_button_clr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/icon_28_formheading.png"))); // NOI18N
-        label_button_clr.setText("clear fields");
-        label_button_clr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(159, 159, 159)));
-        label_button_clr.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        label_button_clr.setIconTextGap(10);
-        label_button_clr.setOpaque(true);
-        label_button_clr.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        label_button_clr.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_button_clrMouseClicked(evt);
-            }
-        });
-        panelControlsContainer.add(label_button_clr);
+        panelControlsContainer.add(label_button_sav);
 
         panelControls.add(panelControlsContainer, java.awt.BorderLayout.CENTER);
 
@@ -353,7 +329,8 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
         cmbboxName.setBackground(new Color(150, 150, 150));
         
         panel_parent.lbl_btn.addClass(label_button_sav, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
-        panel_parent.lbl_btn.addClass(label_button_clr, constant.BUTTON_BG_COLOR_PRESS_DEFAULT, constant.BUTTON_BG_COLOR_NEW_DEFAULT, constant.BUTTON_BG_COLOR_OLD, constant.BUTTON_FG_COLOR_NEW, constant.BUTTON_FG_COLOR_OLD);
+        
+        this.setName(this.constant.PANEL_EMP_ELG);
         
         this.addComponentListener(new ComponentListener() {
             @Override
@@ -370,14 +347,14 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
                 if(newSize.width < 725) {
                     panelMainFormCenter.setPreferredSize(new Dimension(0, 80));
                     panelMain.add(panelMainFormCenter, java.awt.BorderLayout.PAGE_START);
-                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 7));
                     panelControls.add(panelControlsContainer, java.awt.BorderLayout.CENTER);
                     panelMainForm.add(panelControls, java.awt.BorderLayout.LINE_END);
                     panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.CENTER);
                 } else {
                     panelMainFormCenter.setPreferredSize(new Dimension(300, 160));
                     panelMain.add(panelMainFormCenter, java.awt.BorderLayout.LINE_START);
-                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 5, 10));
+                    panelControls.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 80, 5, 80));
                     panelControls.add(panelControlsContainer, java.awt.BorderLayout.PAGE_START);
                     panelMainForm.add(panelControls, java.awt.BorderLayout.CENTER);
                     panelMainForm.add(panelMainCenterFormFields, java.awt.BorderLayout.PAGE_START);
@@ -438,18 +415,6 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
         
     }//GEN-LAST:event_label_button_savMouseClicked
 
-    private void label_button_clrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_button_clrMouseClicked
-        
-        // Clear fields
-        dateSelected.setDate(null);
-        cmbboxName.setSelectedIndex(0);
-        cmbboxName.requestFocus();
-        
-        // Reset text field color
-        cmbboxName.setBackground(new Color(150, 150, 150));
-        
-    }//GEN-LAST:event_label_button_clrMouseClicked
-
     private void cmbboxNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbboxNameFocusGained
 
         cmbboxName.doLayout();
@@ -509,6 +474,21 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
     }
 
     /**
+     * Clear fields.
+     */
+    public void clearFields() {
+                
+        // Clear input fields
+        dateSelected.setDate(null);
+        cmbboxName.setSelectedIndex(0);
+        cmbboxName.requestFocus();
+        
+        // Reset text field color
+        cmbboxName.setBackground(new Color(150, 150, 150));
+        
+    }
+
+    /**
      * Refresh all dialog fields.
      */
     public void refreshDialog() {
@@ -542,8 +522,6 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
 
         label_button_sav.setBackground(constant.BUTTON_BG_COLOR_OLD);
         label_button_sav.setForeground(constant.BUTTON_FG_COLOR_OLD);
-        label_button_clr.setBackground(constant.BUTTON_BG_COLOR_OLD);
-        label_button_clr.setForeground(constant.BUTTON_FG_COLOR_OLD);
     }
 
     private void setFrameChild(PanelEmployeesCreate child_value) {
@@ -590,7 +568,6 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
     private javax.swing.JLabel labelFormListField_002_required;
     private javax.swing.JLabel labelFormListTitle_001_icon;
     private javax.swing.JLabel labelFormListTitle_001_name;
-    private javax.swing.JLabel label_button_clr;
     private javax.swing.JLabel label_button_sav;
     private javax.swing.JLabel label_table_result_logo;
     private javax.swing.JLabel label_table_result_total;
@@ -607,7 +584,6 @@ public class PanelEmployeesCreateEligibility extends javax.swing.JPanel {
     private javax.swing.JPanel panelMainForm;
     private javax.swing.JPanel panelMainFormCenter;
     private javax.swing.JPanel panelTitle;
-    private javax.swing.JPanel panel_button_sav;
     private javax.swing.JPanel panel_table_result;
     private javax.swing.JScrollPane scrollPane;
     public javax.swing.JTable table_view;

@@ -27,6 +27,10 @@ public class ClassConstantsCustom {
     public final String PANEL_DBD;
     public final String PANEL_CMP;
     public final String PANEL_EMP;
+    public final String PANEL_EMP_PFL;
+    public final String PANEL_EMP_DEP;
+    public final String PANEL_EMP_ELG;
+    public final String PANEL_EMP_TRN;
     public final String PANEL_CAT;
     public final String PANEL_DPT;
     public final String PANEL_POS;
@@ -149,14 +153,18 @@ public class ClassConstantsCustom {
         this.PANEL_HOME   = "PANEL_HOME";
         this.PANEL_DBD    = "PANEL_DBD";
         
-        this.PANEL_CMP    = "PANEL_CMP";
-        this.PANEL_EMP    = "PANEL_EMP";
-        this.PANEL_CAT    = "PANEL_CAT";
-        this.PANEL_DPT    = "PANEL_DEP";
-        this.PANEL_POS    = "PANEL_POS";
-        this.PANEL_ELG    = "PANEL_ELG";
-        this.PANEL_TRN    = "PANEL_TRN";
-        this.PANEL_LVS    = "PANEL_LVS";
+        this.PANEL_CMP     = "PANEL_CMP";
+        this.PANEL_EMP     = "PANEL_EMP";
+        this.PANEL_EMP_PFL = "PANEL_EMP_PFL";
+        this.PANEL_EMP_DEP = "PANEL_EMP_DEP";
+        this.PANEL_EMP_ELG = "PANEL_EMP_ELG";
+        this.PANEL_EMP_TRN = "PANEL_EMP_TRN";
+        this.PANEL_CAT     = "PANEL_CAT";
+        this.PANEL_DPT     = "PANEL_DEP";
+        this.PANEL_POS     = "PANEL_POS";
+        this.PANEL_ELG     = "PANEL_ELG";
+        this.PANEL_TRN     = "PANEL_TRN";
+        this.PANEL_LVS     = "PANEL_LVS";
        
         this.TABLE_ACCOUNT_TYPE         = "account_type";
         this.TABLE_ACCOUNT_HEADER       = "account_header";
@@ -237,8 +245,8 @@ public class ClassConstantsCustom {
         this.BUTTON_BG_COLOR_PRESS_GREEN   = new Color(07, 142, 56);
         this.BUTTON_BG_COLOR_NEW_ORANGE    = new Color(240, 93, 31);
         this.BUTTON_BG_COLOR_PRESS_ORANGE  = new Color(230, 83, 21);
-        this.BUTTON_BG_COLOR_NEW_RED       = new Color(233, 28, 34);
-        this.BUTTON_BG_COLOR_PRESS_RED     = new Color(223, 18, 24);
+        this.BUTTON_BG_COLOR_NEW_RED       = new Color(229, 57, 53);
+        this.BUTTON_BG_COLOR_PRESS_RED     = new Color(219, 47, 43);
         this.BUTTON_BG_COLOR_NEW_VIOLET    = new Color(118, 56, 143);
         this.BUTTON_BG_COLOR_PRESS_VIOLET  = new Color(108, 46, 133);
         this.BUTTON_BG_COLOR_NEW_YELLOW    = new Color(253, 217, 15);

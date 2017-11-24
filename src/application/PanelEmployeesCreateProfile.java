@@ -1809,6 +1809,8 @@ public class PanelEmployeesCreateProfile extends javax.swing.JPanel {
         
         setFrameChild(panel_create);
         
+        this.setName(this.constant.PANEL_EMP_PFL);
+        
         this.addComponentListener(new ComponentListener() {
             @Override
             public void componentHidden(ComponentEvent e) { revalidate(); repaint(); }
